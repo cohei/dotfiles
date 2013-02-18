@@ -38,7 +38,7 @@ add-alias ()
 #
 #	repeat 10 echo foo
 repeat ()
-{ 
+{
     local count="$1" i;
     shift;
     for i in $(_seq 1 "$count");
@@ -49,7 +49,7 @@ repeat ()
 
 # Subfunction needed by `repeat'.
 _seq ()
-{ 
+{
     local lower upper output;
     lower=$1 upper=$2;
 
@@ -64,7 +64,7 @@ _seq ()
 
 # use emacs-snapshot (24) instead of native emacs (23)
 # open emacs in cui mode
-alias emacs='emacs-snapshot -nw'
+alias emacs='emacs-snapshot'
 
 # abbreviation for emacs
 alias e='emacs'

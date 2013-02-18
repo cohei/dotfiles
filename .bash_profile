@@ -1,4 +1,4 @@
-source .profile
+source ~/.profile
 
 export LANG=ja_JP.UTF-8
 
