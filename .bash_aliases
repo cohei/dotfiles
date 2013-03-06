@@ -67,6 +67,6 @@ _seq ()
 alias emacs='emacs-snapshot'
 
 # abbreviation for emacs
-alias e='emacs'
+alias e='emacsclient --alternate-editor="" -n'
 
 alias telnet='rlwrap telnet'
