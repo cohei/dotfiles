@@ -4,8 +4,8 @@ export LANG=ja_JP.UTF-8
 
 export PS1='\W$(__git_ps1) $ '
 
-# export EDITOR=emacs
-export EDITOR=emacs-snapshot
+# mainly for git commiting
+export EDITOR='emacsclient --alternate-editor="" -c'
 
 # Load RVM into a shell session *as a function*
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
