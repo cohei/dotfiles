@@ -70,3 +70,5 @@ alias emacs='emacs-snapshot'
 alias e='emacsclient --alternate-editor="" -n'
 
 alias telnet='rlwrap telnet'
+
+alias g='git status'
