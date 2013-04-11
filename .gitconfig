@@ -8,6 +8,7 @@
 [alias]
 	co = checkout
 	d = diff
+	lg = log --graph --oneline --decorate
 [status]
 	showUntrackedFiles = all
 [push]
