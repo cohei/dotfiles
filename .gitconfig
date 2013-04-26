@@ -7,6 +7,7 @@
 	helper = cache
 [alias]
 	co = checkout
+	d = diff
 [status]
 	showUntrackedFiles = all
 [push]
