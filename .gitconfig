@@ -1,5 +1,13 @@
 [user]
 	name = TANIGUCHI Kohei
 	email = a.d.xvii.kal.mai@gmail.com
+[color]
+	ui = auto
+[credential]
+	helper = cache
+[alias]
+	co = checkout
+[status]
+	showUntrackedFiles = all
 [push]
 	default = upstream
