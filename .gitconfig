@@ -9,6 +9,7 @@
 	co = checkout
 	d = diff
 	lg = log --graph --oneline --decorate --all
+	dc = diff --cached
 [status]
 	showUntrackedFiles = all
 [push]
