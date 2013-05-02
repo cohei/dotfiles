@@ -71,4 +71,6 @@ alias e='emacsclient --alternate-editor="" -n'
 
 alias telnet='rlwrap telnet'
 
-alias g='git status'
+alias g='git'
+alias s='git status'
+alias d='git diff'

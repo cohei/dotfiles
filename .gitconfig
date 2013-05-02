@@ -10,6 +10,7 @@
 	d = diff
 	lg = log --graph --oneline --decorate --all
 	dc = diff --cached
+	l = log --oneline -5
 [status]
 	showUntrackedFiles = all
 [push]
