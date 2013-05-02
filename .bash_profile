@@ -2,7 +2,7 @@ source ~/.profile
 
 export LANG=ja_JP.UTF-8
 
-export PS1='\W$(__git_ps1) $ '
+export PS1='\n\W$(__git_ps1) $ '
 
 # mainly for git commiting
 export EDITOR='emacsclient --alternate-editor="" -c'
