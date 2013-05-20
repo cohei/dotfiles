@@ -109,3 +109,6 @@ fi
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 
 PATH=$PATH:$HOME/bin
+
+PATH=$PATH:$HOME/ghc-7.6.2/bin
+PATH=$PATH:$HOME/.cabal/bin
