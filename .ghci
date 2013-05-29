@@ -1,1 +1,3 @@
-:set +s +t
+:def hoogle \x -> return $ ":!hoogle \"" ++ x ++ "\""
+:set -i..
+:set +s
