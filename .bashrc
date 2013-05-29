@@ -10,10 +10,10 @@
 HISTCONTROL=ignoreboth
 
 # append to the history file, don't overwrite it
-shopt -s histappend
+# shopt -s histappend
 
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
-HISTSIZE=10000
+HISTSIZE=20000
 HISTFILESIZE=20000
 
 # check the window size after each command and, if necessary,
@@ -107,8 +107,6 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
 fi
 
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
-
 PATH=$PATH:$HOME/bin
-
 PATH=$PATH:$HOME/ghc-7.6.2/bin
 PATH=$PATH:$HOME/.cabal/bin
