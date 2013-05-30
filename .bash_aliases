@@ -76,3 +76,7 @@ alias s='git status'
 alias d='git diff'
 alias glg='git lg'
 alias gl='git l'
+alias gdc='git dc'
+
+alias be='bundle exec'
+alias bez='bundle exec zeus'
