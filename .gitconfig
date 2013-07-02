@@ -11,6 +11,9 @@
 	lg = log --graph --oneline --decorate --all
 	dc = diff --cached
 	l = log --oneline -5
+	ap = add -p
+	sl = stash list
+	sp = stash pop
 [status]
 	showUntrackedFiles = all
 [push]
