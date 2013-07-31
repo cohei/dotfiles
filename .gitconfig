@@ -14,7 +14,10 @@
 	ap = add -p
 	sl = stash list
 	sp = stash pop
+	g = grep
 [status]
 	showUntrackedFiles = all
 [push]
 	default = upstream
+[rebase]
+	autosquash = true
