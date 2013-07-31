@@ -78,5 +78,7 @@ alias glg='git lg'
 alias gl='git l'
 alias gdc='git dc'
 
-alias be='bundle exec'
-alias bez='bundle exec zeus'
+# ruby
+alias z='zeus'
+alias zc='zeus cucumber'
+alias zr='zeus rspec'

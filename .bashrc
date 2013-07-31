@@ -106,7 +106,7 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
     . /etc/bash_completion
 fi
 
-PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
-PATH=$PATH:$HOME/bin
-PATH=$PATH:$HOME/ghc-7.6.2/bin
-PATH=$PATH:$HOME/.cabal/bin
+PATH=$HOME/bin:$PATH
+PATH=$HOME/ghc-7.6.2/bin:$PATH
+PATH=$HOME/.cabal/bin:$PATH
+PATH=$HOME/.rbenv/bin:$PATH
