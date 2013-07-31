@@ -71,12 +71,16 @@ alias e='emacsclient --alternate-editor="" -n'
 
 alias telnet='rlwrap telnet'
 
+# git
 alias g='git'
-alias s='git status'
-alias d='git diff'
-alias glg='git lg'
-alias gl='git l'
-alias gdc='git dc'
+alias s='g status'
+alias d='g diff'
+alias glg='g lg'
+alias gl='g l'
+alias gdc='g dc'
+alias gap='g ap'
+alias gsp='g sp'
+alias gg='g g'
 
 # ruby
 alias z='zeus'
