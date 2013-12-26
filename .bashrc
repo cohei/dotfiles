@@ -107,6 +107,5 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
 fi
 
 PATH=$HOME/bin:$PATH
-PATH=$HOME/ghc-7.6.2/bin:$PATH
 PATH=$HOME/.cabal/bin:$PATH
 PATH=$HOME/.rbenv/bin:$PATH
