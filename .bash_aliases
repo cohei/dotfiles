@@ -62,10 +62,6 @@ _seq ()
     echo "$lower"
 }
 
-# use emacs-snapshot (24) instead of native emacs (23)
-# open emacs in cui mode
-alias emacs='emacs-snapshot'
-
 # abbreviation for emacs
 alias e='emacsclient --alternate-editor="" -n'
 
