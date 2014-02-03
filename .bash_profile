@@ -15,3 +15,8 @@ function share_history {  # 以下の内容を関数として定義
 PROMPT_COMMAND='share_history'  # 上記関数をプロンプト毎に自動実施
 
 eval "$(rbenv init -)"
+
+if [ `psgrep uim-toolbar-qt4 | grep -v grep | wc -l` -eq 0 ]
+then
+    nohup uim-toolbar-qt4 -geometry +1500+0 &> /dev/null &
+fi
