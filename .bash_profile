@@ -22,7 +22,8 @@ PROMPT_COMMAND='share_history'  # 上記関数をプロンプト毎に自動実�
 
 eval "$(rbenv init -)"
 
-if [ $OSTYPE = linux-gnu -a `psgrep uim-toolbar-qt4 | grep -v grep | wc -l` -eq 0 ]
-then
-    nohup uim-toolbar-qt4 -geometry +1500+0 &> /dev/null &
+if [ $OSTYPE = linux-gnu ]; then
+    if [ `psgrep uim-toolbar-qt4 | grep -v grep | wc -l` -eq 0 ]; then
+        nohup uim-toolbar-qt4 -geometry +1500+0 &> /dev/null &
+    fi
 fi
