@@ -27,3 +27,5 @@ if [ $OSTYPE = linux-gnu ]; then
         nohup uim-toolbar-qt4 -geometry +1500+0 &> /dev/null &
     fi
 fi
+
+export PATH=/usr/local/bin:$PATH
