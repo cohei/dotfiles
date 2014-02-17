@@ -78,7 +78,3 @@ alias gap='g ap'
 alias gsp='g sp'
 alias gg='g g'
 
-# ruby
-alias z='zeus'
-alias zc='zeus cucumber'
-alias zr='zeus rspec'
