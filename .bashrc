@@ -104,6 +104,7 @@ if [ -f /usr/local/etc/bash_completion ]; then
     . /usr/local/etc/bash_completion
 fi
 
-PATH=$HOME/bin:$PATH
-PATH=$HOME/.cabal/bin:$PATH
-PATH=$HOME/.rbenv/bin:$PATH
+
+export PATH=$HOME/bin:$PATH
+export PATH=$HOME/.cabal/bin:$PATH
+export PATH=$HOME/.rbenv/bin:$PATH
