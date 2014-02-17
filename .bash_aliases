@@ -78,3 +78,5 @@ alias gap='g ap'
 alias gsp='g sp'
 alias gg='g g'
 
+alias cd=pushd
+alias bd=popd
