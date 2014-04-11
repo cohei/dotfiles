@@ -2,3 +2,4 @@
 :set -i..
 :set +s
 :set +t
+:set -Werror
