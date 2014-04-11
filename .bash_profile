@@ -29,3 +29,4 @@ if [ $OSTYPE = linux-gnu ]; then
 fi
 
 export PATH=/usr/local/bin:$PATH
+export PATH=/opt/ghc/7.8.1/bin:$PATH
