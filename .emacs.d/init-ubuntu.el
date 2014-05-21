@@ -271,11 +271,21 @@ Optionally takes FRAME for its target and works on current frame if nothing give
 (defun haskell-mode-hooks ()
   "Hookee for haskell-mode."
   (haskell-indentation-mode 1)
-  (haskell-indent-mode -1)
-  ;(turn-on-haskell-doc-mode)
+  (flycheck-mode -1) ; to cancel global flycheck mode
   (ghc-init))
 
-;(remove-hook 'haskell-mode 'turn-on-haskell-indentation)
+(add-to-list 'ac-sources 'ac-source-ghc-mod)
+
+(eval-after-load "haskell-mode"
+  '(progn
+     (define-key haskell-mode-map (kbd "C-x C-d") nil)
+     (define-key haskell-mode-map (kbd "C-c C-z") 'haskell-interactive-switch)
+     (define-key haskell-mode-map (kbd "C-c C-l") 'haskell-process-load-file)
+     (define-key haskell-mode-map (kbd "C-c C-b") 'haskell-interactive-switch)
+     ;(define-key haskell-mode-map (kbd "C-c C-t") 'haskell-process-do-type)
+     ;(define-key haskell-mode-map (kbd "C-c C-i") 'haskell-process-do-info)
+     (define-key haskell-mode-map (kbd "C-c M-.") nil)
+     (define-key haskell-mode-map (kbd "C-c C-d") nil)))
 
 
 ;; markdown
@@ -342,6 +352,7 @@ Optionally takes FRAME for its target and works on current frame if nothing give
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(haskell-mode-hook (quote haskell-mode-hooks))
+ '(haskell-process-type (quote cabal-repl))
  '(open-junk-file-find-file-function (quote find-file))
  '(ruby-deep-indent-paren nil)
  '(scss-compile-at-save nil)
