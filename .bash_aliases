@@ -73,7 +73,7 @@ alias telnet='rlwrap telnet'
 
 # git
 alias g='git'
-alias s='g status'
+alias s='g s'
 alias d='g diff'
 alias glg='g lg'
 alias gl='g l'

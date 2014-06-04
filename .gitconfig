@@ -15,6 +15,7 @@
 	sl = stash list
 	sp = stash pop
 	g = grep
+        s = status -sb
 [status]
 	showUntrackedFiles = all
 [push]
