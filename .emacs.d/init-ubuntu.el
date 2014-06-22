@@ -214,7 +214,11 @@ Optionally takes FRAME for its target and works on current frame if nothing give
 (when (require 'color-theme)
   (color-theme-initialize)
   (when (require 'color-theme-solarized)
-    (color-theme-solarized-light)))
+    (cond
+     ((eq system-type 'darwin)
+      (color-theme-solarized-dark))
+     (t
+      (color-theme-solarized-light)))))
 
 ;; move along windows
 (when (fboundp 'windmove-default-keybindings)
