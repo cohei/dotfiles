@@ -25,6 +25,7 @@
   (when (locate-library (symbol-name (ad-get-arg 0)))
     ad-do-it))
 (ad-enable-advice 'require 'around 'require-if-exists)
+(ad-activate 'require)
 
 ;; add repositories
 (require 'package)
