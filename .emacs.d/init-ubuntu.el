@@ -341,7 +341,8 @@ Optionally takes FRAME for its target and works on current frame if nothing give
       (global-rainbow-delimiters-mode)))
 
 ;; projectile
-(projectile-global-mode)
+(eval-after-load 'projectile
+  '(projectile-global-mode))
 
 ;; magit
 (global-set-key (kbd "C-c g") 'magit-status)
