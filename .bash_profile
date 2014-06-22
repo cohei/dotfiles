@@ -11,7 +11,7 @@ export LANG=ja_JP.UTF-8
 export PS1='\n[\t] \W$(__git_ps1) $ '
 
 # mainly for git commiting
-export EDITOR='emacsclient --alternate-editor="" -c'
+export EDITOR='emacsclient --alternate-editor=""'
 
 function share_history {  # 以下の内容を関数として定義
     history -a  # .bash_historyに前回コマンドを1行追記
