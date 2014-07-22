@@ -363,8 +363,15 @@ Optionally takes FRAME for its target and works on current frame if nothing give
  '(open-junk-file-find-file-function (quote find-file))
  '(ruby-deep-indent-paren nil)
  '(scss-compile-at-save nil)
- '(setq recentf-max-saved-items))
+ '(setq recentf-max-saved-items)
+ '(use-dialog-box nil))
 
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
 
 (provide 'init-ubuntu)
 ;;; init-ubuntu.el ends here
