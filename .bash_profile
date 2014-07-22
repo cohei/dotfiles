@@ -31,3 +31,11 @@ if [ $OSTYPE = linux-gnu ]; then
         nohup uim-toolbar-qt4 -geometry +1500+0 &> /dev/null &
     fi
 fi
+
+if [[ $OSTYPE =~ darwin ]]; then
+    # Add GHC 7.8.3 to the PATH, via http://ghcformacosx.github.io/
+    export GHC_DOT_APP="/opt/homebrew-cask/Caskroom/ghc/7.8.3-r0/ghc-7.8.3.app"
+    if [ -d "$GHC_DOT_APP" ]; then
+        export PATH="${HOME}/.cabal/bin:${GHC_DOT_APP}/Contents/bin:${PATH}"
+    fi
+fi
