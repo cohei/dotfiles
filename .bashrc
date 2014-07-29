@@ -107,6 +107,6 @@ fi
 
 export PATH=$HOME/.cabal/bin:$PATH
 export PATH=$HOME/.rbenv/bin:$PATH
-export PATH=/opt/ghc/7.8.2/bin:$PATH
+export PATH=/opt/ghc/7.8.3/bin:$PATH
 export PATH=$HOME/bin:$PATH
 export PATH=/usr/local/bin:$PATH
