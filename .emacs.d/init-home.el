@@ -22,25 +22,6 @@
 ; .emacs.d/infoをC-h iで表示されるInfoに追加
 (add-to-list 'Info-default-directory-list (expand-file-name "~/.emacs.d/info"))
 
-; パッケージリポジトリの追加
-(defvar package-list
-  '(auctex auto-complete coffee-mode color-theme color-theme-solarized
-             exec-path-from-shell feature-mode flycheck flycheck-tip ghc git-commit-mode haml-mode
-             haskell-mode helm markdown-mode maxframe popwin rainbow-mode ruby-end ruby-hash-syntax
-             ruby-interpolation scala-mode2 scss-mode undo-tree yaml-mode yasnippet zencoding-mode)
-  "A list of packages to ensure are installed at launch.")
-
-(when (>= emacs-major-version 24)
-  (require 'package)
-  (add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/") t)
-  (add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/"))
-  (package-initialize)
-  (dolist (p package-list)
-    (when (and (not (package-installed-p p))
-               (y-or-n-p (format "Package %s is missing. Install it? " p)))
-      (package-install p))))
-
-
 (require 'exec-path-from-shell) ;; if not using the ELPA package
 (exec-path-from-shell-initialize)
 
