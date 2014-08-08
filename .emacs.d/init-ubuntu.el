@@ -5,8 +5,8 @@
 
 ;;; Code:
 
-(let ((home (getenv "HOME")))
-  (load (concat home "/dotfiles/.emacs.d/init-common.el")))
+(add-to-list 'load-path "~/dotfiles/.emacs.d")
+(load "init-common")
 
 (server-start)
 
