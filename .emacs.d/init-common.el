@@ -3,11 +3,11 @@
 
 ; パッケージリポジトリの追加
 (defvar package-list
-  '(auctex auto-complete cacoo coffee-mode color-theme color-theme-solarized exec-path-from-shell
-             flycheck flycheck-tip ghc haml-mode haskell-mode helm helm-flycheck helm-projectile
-             magit markdown-mode maxframe open-junk-file popwin projectile rainbow-delimiters
-             rainbow-mode ruby-end ruby-hash-syntax ruby-interpolation scala-mode2 scss-mode
-             undo-tree yaml-mode yasnippet zencoding-mode)
+  '(auctex auto-complete cacoo coffee-mode color-theme color-theme-solarized ensime
+    exec-path-from-shell flycheck flycheck-tip ghc haml-mode haskell-mode helm helm-flycheck
+    helm-projectile magit markdown-mode maxframe open-junk-file popwin projectile rainbow-delimiters
+    rainbow-mode ruby-end ruby-hash-syntax ruby-interpolation scss-mode undo-tree yaml-mode yasnippet
+    zencoding-mode)
   "A list of packages to ensure are installed at launch.")
 
 (when (>= emacs-major-version 24)
