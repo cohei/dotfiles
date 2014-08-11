@@ -26,14 +26,6 @@ PROMPT_COMMAND='share_history'  # 上記関数をプロンプト毎に自動実�
 
 eval "$(rbenv init -)"
 
-if [ $OSTYPE = linux-gnu ]; then
-    if which uim-toolbar-qt4 >/dev/null 2>&1 ; then
-        if [ `psgrep uim-toolbar-qt4 | grep -v grep | wc -l` -eq 0 ]; then
-            nohup uim-toolbar-qt4 -geometry +1500+0 &> /dev/null &
-        fi
-    fi
-fi
-
 if [[ $OSTYPE =~ darwin ]]; then
     # Add GHC 7.8.3 to the PATH, via http://ghcformacosx.github.io/
     export GHC_DOT_APP="/opt/homebrew-cask/Caskroom/ghc/7.8.3-r0/ghc-7.8.3.app"
