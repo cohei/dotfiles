@@ -1,11 +1,3 @@
-if [ -f ~/.profile ]; then
-    source ~/.profile
-fi
-
-if [ -f ~/.bashrc ]; then
-    source ~/.bashrc
-fi
-
 export LANG=ja_JP.UTF-8
 
 export PS1='\n[\t] \W$(__git_ps1) $ '
