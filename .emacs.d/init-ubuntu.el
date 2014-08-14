@@ -163,11 +163,12 @@ Optionally takes FRAME for its target and works on current frame if nothing give
   (electric-indent-mode t)
   (electric-layout-mode t))
 
+(add-hook 'ruby-mode-hook 'ruby-mode-hookee)
+
 (eval-after-load "ruby-mode"
   '(progn
      (setq ruby-insert-encoding-magic-comment nil)
-     (setq ruby-deep-indent-paren nil)
-     (add-hook 'ruby-mode-hook 'ruby-mode-hookee)))
+     (setq ruby-deep-indent-paren nil)))
 
 (autoload 'rubydb "rubydb3x" "ruby debug" t)
 
