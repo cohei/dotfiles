@@ -116,10 +116,36 @@ if ! shopt -oq posix; then
 fi
 
 
+export LANG=ja_JP.UTF-8
+
+export PS1='\n[\t] \W$(__git_ps1) $ '
+
+# mainly for git commiting
+if [ `uname` = 'Linux' ]; then
+    export EDITOR='emacsclient --alternate-editor="" -c'
+else
+    export EDITOR='emacsclient --alternate-editor=""'
+fi
+
+function share_history {  # 以下の内容を関数として定義
+    history -a  # .bash_historyに前回コマンドを1行追記
+    history -c  # 端末ローカルの履歴を一旦消去
+    history -r  # .bash_historyから履歴を読み込み直す
+}
+PROMPT_COMMAND='share_history'  # 上記関数をプロンプト毎に自動実施
+
+if [[ $OSTYPE =~ darwin ]]; then
+    # Add GHC 7.8.3 to the PATH, via http://ghcformacosx.github.io/
+    export GHC_DOT_APP="/opt/homebrew-cask/Caskroom/ghc/7.8.3-r0/ghc-7.8.3.app"
+    if [ -d "$GHC_DOT_APP" ]; then
+        export PATH="${HOME}/.cabal/bin:${GHC_DOT_APP}/Contents/bin:${PATH}"
+    fi
+fi
+
 export PATH=$HOME/.cabal/bin:$PATH
 export PATH=$HOME/.rbenv/bin:$PATH
 export PATH=/opt/ghc/7.8.3/bin:$PATH
 export PATH=$HOME/bin:$PATH
 export PATH=/usr/local/bin:$PATH
 
-source ~/.bash_profile
+eval "$(rbenv init -)"
