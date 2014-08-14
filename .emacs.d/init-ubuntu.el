@@ -147,26 +147,18 @@ Optionally takes FRAME for its target and works on current frame if nothing give
      (push '(term-mode :position :top :height 16 :stick t) popwin:special-display-config)))
 
 
-;; rails
-;(global-rinari-mode)
-(require 'rhtml-mode nil t)
-(add-hook 'rhtml-mode-hook '(lambda () (rinari-launch)))
-
 ;; ruby
 (let* ((ruby-files '(".jbuilder" ".rake" ".thor" "Gemfile" "Rakefile" "Crushfile" "Capfile" "Gemfile"
                      "Guardfile"))
        (ruby-regexp (concat (regexp-opt ruby-files t) "\\'")))
   (add-to-list 'auto-mode-alist (cons ruby-regexp 'ruby-mode)))
 (autoload 'inf-ruby "inf-ruby" "Run an inferior Ruby process" t)
-;(autoload 'inf-ruby-setup-keybindings "inf-ruby" "" t)
 
 (defun ruby-mode-hookee ()
   "Hookee for 'ruby-mode'."
   (inf-ruby-minor-mode)
   (ruby-end-mode)
   (ruby-interpolation-mode)
-  ;(inf-ruby-setup-keybindings)
-  ;(abbrev-mode 1)
   ;(electric-pair-mode t)
   (electric-indent-mode t)
   (electric-layout-mode t))
