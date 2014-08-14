@@ -153,8 +153,8 @@ Optionally takes FRAME for its target and works on current frame if nothing give
 (add-hook 'rhtml-mode-hook '(lambda () (rinari-launch)))
 
 ;; ruby
-(let* ((ruby-files
-        '(".jbuilder" ".rake" ".thor" "Gemfile" "Rakefile" "Crushfile" "Capfile" "Gemfile" "Guardfile"))
+(let* ((ruby-files '(".jbuilder" ".rake" ".thor" "Gemfile" "Rakefile" "Crushfile" "Capfile" "Gemfile"
+                     "Guardfile"))
        (ruby-regexp (concat (regexp-opt ruby-files t) "\\'")))
   (add-to-list 'auto-mode-alist (cons ruby-regexp 'ruby-mode)))
 (autoload 'inf-ruby "inf-ruby" "Run an inferior Ruby process" t)
@@ -178,6 +178,7 @@ Optionally takes FRAME for its target and works on current frame if nothing give
      (add-hook 'ruby-mode-hook 'ruby-mode-hookee)))
 
 (autoload 'rubydb "rubydb3x" "ruby debug" t)
+
 
 ;; helm
 ;(helm-mode 1)
