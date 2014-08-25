@@ -157,7 +157,6 @@ Optionally takes FRAME for its target and works on current frame if nothing give
 (defun ruby-mode-hookee ()
   "Hookee for 'ruby-mode'."
   (ruby-end-mode)
-  (inf-ruby-minor-mode)
   (ruby-interpolation-mode)
   ;(electric-pair-mode t)
   (electric-indent-mode t)
