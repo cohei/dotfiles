@@ -339,7 +339,13 @@ Optionally takes FRAME for its target and works on current frame if nothing give
 
 ;; projectile
 (eval-after-load 'projectile
-  '(projectile-global-mode))
+  '(progn
+     (projectile-global-mode)
+     (setq helm-projectile-sources-list
+           '(helm-source-projectile-projects
+             helm-source-projectile-recentf-list
+             helm-source-projectile-buffers-list
+             helm-source-projectile-files-list))))
 
 ;; magit
 (global-set-key (kbd "C-c g") 'magit-status)
