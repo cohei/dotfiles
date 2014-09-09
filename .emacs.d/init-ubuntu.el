@@ -292,8 +292,6 @@ Optionally takes FRAME for its target and works on current frame if nothing give
 
 
 ;; scala
-;; load the ensime lisp code...
-(require 'ensime)
 
 ;; This step causes the ensime-mode to be started whenever
 ;; scala-mode is started for a buffer. You may have to customize this step
