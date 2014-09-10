@@ -84,3 +84,5 @@ alias gg='g g'
 
 alias cd=pushd
 alias bd=popd
+
+alias rc='rails console'
