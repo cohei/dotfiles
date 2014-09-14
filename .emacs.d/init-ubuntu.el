@@ -204,14 +204,11 @@ Optionally takes FRAME for its target and works on current frame if nothing give
 (setq ac-ignore-case nil)
 
 ;; color-theme
-(when (require 'color-theme)
-  (color-theme-initialize)
-  (when (require 'color-theme-solarized)
-    (cond
-     ((eq system-type 'darwin)
-      (color-theme-solarized-dark))
-     (t
-      (color-theme-solarized-light)))))
+(cond
+ ((eq system-type 'darwin)
+  (load-theme 'solarized-dark t))
+ (t
+  (load-theme 'solarized-light t)))
 
 ;; move along windows
 (when (fboundp 'windmove-default-keybindings)
