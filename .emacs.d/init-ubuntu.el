@@ -208,7 +208,7 @@ Optionally takes FRAME for its target and works on current frame if nothing give
  ((eq system-type 'darwin)
   (load-theme 'solarized-dark t))
  (t
-  (load-theme 'solarized-light t)))
+  (load-theme 'solarized-dark t)))
 
 ;; move along windows
 (when (fboundp 'windmove-default-keybindings)
