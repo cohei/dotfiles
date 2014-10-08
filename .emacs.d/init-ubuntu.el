@@ -244,6 +244,11 @@ Optionally takes FRAME for its target and works on current frame if nothing give
 ;;   (global-set-key (kbd "M-?") 'flymake-display-err-menu-for-current-line))
 ;; (add-hook 'flymake-mode-hook 'flymake-mode-hooks)
 
+
+;; haml
+(add-to-list 'auto-mode-alist (cons ".hamlc" 'haml-mode))
+
+
 ;; flycheck
 (add-hook 'after-init-hook #'global-flycheck-mode)
 (eval-after-load 'flycheck
