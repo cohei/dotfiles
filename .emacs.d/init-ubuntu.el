@@ -56,6 +56,9 @@
 
 (tool-bar-mode 0)
 
+;; confirm before quit
+(setq confirm-kill-emacs 'y-or-n-p)
+
 ;; show completion candidates when choose one from buffers
 (iswitchb-mode t)
 ;(iswitchb-default-keybindings)
