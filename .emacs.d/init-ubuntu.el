@@ -139,15 +139,13 @@ Optionally takes FRAME for its target and works on current frame if nothing give
 ;; popwin
 (when (require 'popwin)
   (popwin-mode 1))
-;(require 'popwin-term)
 
 (eval-after-load "popwin"
   '(progn
      (push '("\\*magit" :regexp t :height 0.5) popwin:special-display-config)
      (push '("\\*helm" :regexp t) popwin:special-display-config)
      (push '("*GHC Info*" :height 10) popwin:special-display-config)
-     (push '(" *undo-tree*" :width 0.1 :position right) popwin:special-display-config)
-     (push '(term-mode :position :top :height 16 :stick t) popwin:special-display-config)))
+     (push '(" *undo-tree*" :width 0.1 :position right) popwin:special-display-config)))
 
 
 ;; ruby
