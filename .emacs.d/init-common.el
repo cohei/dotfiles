@@ -11,8 +11,8 @@
 ; パッケージリポジトリの追加
 (defvar package-list
   '(auctex auto-complete cacoo coffee-mode ensime exec-path-from-shell flycheck flycheck-tip
-    ghc haml-mode haskell-mode helm helm-flycheck helm-projectile magit markdown-mode maxframe
-    migemo open-junk-file popwin projectile rainbow-delimiters rainbow-mode ruby-end
+    ghc git-gutter haml-mode haskell-mode helm helm-flycheck helm-projectile magit markdown-mode
+    maxframe migemo open-junk-file popwin projectile rainbow-delimiters rainbow-mode ruby-end
     ruby-hash-syntax ruby-interpolation solarized-theme scss-mode undo-tree yaml-mode yasnippet
     zencoding-mode)
   "A list of packages to ensure are installed at launch.")

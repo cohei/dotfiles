@@ -146,7 +146,8 @@ Optionally takes FRAME for its target and works on current frame if nothing give
      (push '("\\*magit" :regexp t :height 0.5) popwin:special-display-config)
      (push '("\\*helm" :regexp t) popwin:special-display-config)
      (push '("*GHC Info*" :height 10) popwin:special-display-config)
-     (push '(" *undo-tree*" :width 0.1 :position right) popwin:special-display-config)))
+     (push '(" *undo-tree*" :width 0.1 :position right) popwin:special-display-config)
+     (push '("*git-gutter:diff*" :height 0.3 :stick t) popwin:special-display-config)))
 
 
 ;; ruby
@@ -162,7 +163,8 @@ Optionally takes FRAME for its target and works on current frame if nothing give
   (ruby-interpolation-mode)
   ;(electric-pair-mode t)
   (electric-indent-mode t)
-  (electric-layout-mode t))
+  (electric-layout-mode t)
+  (git-gutter-mode))
 
 (add-hook 'ruby-mode-hook 'ruby-mode-hookee)
 
