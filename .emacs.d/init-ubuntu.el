@@ -8,7 +8,9 @@
 (add-to-list 'load-path "~/dotfiles/.emacs.d")
 (load "init-common")
 
-(server-start)
+(require 'server)
+(unless (server-running-p)
+  (server-start))
 
 ;; language settings
 (set-language-environment 'Japanese)
