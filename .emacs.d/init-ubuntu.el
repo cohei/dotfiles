@@ -100,6 +100,11 @@
 (require 'uniquify)
 (setq uniquify-buffer-name-style 'reverse)
 
+;; bell
+(when (eq window-system 'ns)
+  (setq ring-bell-function 'ignore))
+
+
 ;--------------------------------------------------------------------------------
 ;; maxframe
 
