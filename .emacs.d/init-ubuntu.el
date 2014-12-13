@@ -112,9 +112,9 @@
 (defun maximize-and-split (&optional frame)
   "Maximize the window and split it horizontally into two buffers.
 Optionally takes FRAME for its target and works on current frame if nothing given."
-  (maximize-frame frame)
   (if frame
       (select-window (frame-root-window frame)))
+  (toggle-frame-fullscreen)
   (split-window-horizontally))
 
 ;--------------------------------------------------------------------------------
