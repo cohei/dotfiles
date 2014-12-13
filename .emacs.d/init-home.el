@@ -1,102 +1,14 @@
-(let ((home (getenv "HOME")))
-  (load (concat home "/dotemacs/init-common.el")))
+;;; init-home --- emacs home config
 
+;;; Commentary:
+;;; aaaa
 
-;; パス関係
-; set load-path to all subdirectoies under ~/.emacs.d/site-lisp
+;;; Code:
 
-; なんでかだめ
-; (load (expand-file-name "~/.emacs.d/site-lisp/subdirs.el"))
-
-(let ((default-directory (expand-file-name "~/.emacs.d/site-lisp")))
-  (if (file-exists-p default-directory)
-      (progn
-        (add-to-list 'load-path default-directory)
-        (load (expand-file-name "~/.emacs.d/site-lisp/subdirs.el")))))
-
-;; (let ((default-directory (expand-file-name "~/.emacs.d/site-lisp")))
-;;   (add-to-list 'load-path default-directory)
-;;   (if (fboundp 'normal-top-level-add-subdirs-to-load-path)
-;;       (normal-top-level-add-subdirs-to-load-path)))
-
-; .emacs.d/infoをC-h iで表示されるInfoに追加
-(add-to-list 'Info-default-directory-list (expand-file-name "~/.emacs.d/info"))
-
-(require 'exec-path-from-shell) ;; if not using the ELPA package
-(exec-path-from-shell-initialize)
-
-
-
-; requireの前にライブラリの存在検査を追加するアドバイス
-(defadvice require (around require-if-exists)
-  "Check if library file exists before require."
-  (when (locate-library (symbol-name (ad-get-arg 0)))
-    ad-do-it))
-(ad-enable-advice 'require 'around 'require-if-exists)
-
-; 言語関係
-(set-language-environment 'Japanese)
-(prefer-coding-system 'utf-8)
-(set-terminal-coding-system 'utf-8)
-(set-keyboard-coding-system 'utf-8)
-(set-buffer-file-coding-system 'utf-8)
-(setq default-buffer-file-coding-system 'utf-8)
-(set-default-coding-systems 'utf-8)
-
-; リージョンに色付け
-(setq-default transient-mark-mode t)
-
-; 使えるモード全てでfont-lockを有効に
-(global-font-lock-mode t)
-
-; if the file begins with #!, chmod +x after saving.
-(add-hook 'after-save-hook
-	  'executable-make-buffer-file-executable-if-script-p)
 
 ; 行ががはみ出したときに折り返す
 (setq truncate-partial-width-windows nil)
 
-; 一行ずつスクロール
-(setq scroll-step 1)
-
-; 行すべてをkill-lineするときに改行も含める
-(setq kill-whole-line t)
-
-; ファイル末尾に改行がないとき、つける
-(setq require-final-newline t)
-
-; yes/no to y/n
-(fset 'yes-or-no-p 'y-or-n-p)
-
-;; move along windows
-(when (fboundp 'windmove-default-keybindings)
-  (windmove-default-keybindings))
-
-; 同一ファイル名のバッファの区別
-(require 'uniquify)
-(setq uniquify-buffer-name-style 'reverse)
-
-; キーバインドのある関数を使ったときに教えてくれる
-(setq suggest-key-bindings t)
-
-
-
-(when window-system
-  (setq ring-bell-function 'ignore)
-  ;(set-frame-parameter nil 'alpha 95)
-  (set-background-color "Black")
-  (set-foreground-color "White")
-  (set-cursor-color "Gray")
-
-  (require 'color-theme)
-  (color-theme-initialize)
-  (load "color-theme-solarized")
-  (color-theme-solarized-dark))
-
-
-;; aquaSKKで漢字が入力できるように
-(when (boundp 'mac-input-method-parameters)
-  (mac-input-method-mode 1))
 
 ;--------------------------------------------------------------------------------
 ;; Multi term
@@ -125,52 +37,6 @@
       (setq file-name-coding-system 'utf-8)
       (setq locale-coding-system 'utf-8)))
 
-;--------------------------------------------------------------------------------
-;; maxframe
-
-(when (eq window-system 'ns) ; cocoa, carbon -> mac, terminal -> nil, X -> x
-  (require 'maxframe)
-  (add-hook 'window-setup-hook 'maximize-frame t)
-  (split-window-horizontally))
-
-;--------------------------------------------------------------------------------
-;; for haskell-mode
-
-(add-hook 'haskell-mode-hook 'turn-on-haskell-doc-mode)
-; (add-hook 'haskell-mode-hook 'turn-on-haskell-hugs)
-(add-hook 'haskell-mode-hook 'turn-on-haskell-ghci)
-(add-hook 'haskell-mode-hook 'turn-on-haskell-decl-scan)
-(add-hook 'haskell-mode-hook 'turn-on-haskell-font-lock)
-; (add-hook 'haskell-mode-hook 'turn-on-haskell-simple-indent)
-; (add-hook 'haskell-mode-hook 'turn-on-haskell-indent)
-; (add-hook 'haskell-mode-hook 'turn-on-haskell-indentation) ; 2.7.0 only
-
-;; for ghc-mod
-
-(autoload 'ghc-init "ghc" nil t)
-(add-hook 'haskell-mode-hook (lambda () (ghc-init) (flymake-mode)))
-
-;; offside trap
-(autoload 'offside-trap-mode "offside-trap.el")
-
-(add-hook
- 'haskell-mode-hook
- '(lambda ()
-
-    ;; Load one of you like.
-    ; (turn-on-haskell-indentation)
-    (turn-on-haskell-indent)
-
-    ;; (offside-trap-mode) must be called after turn-on-haskell-indentation/turn-on-haskell-indent,
-    ;; so that offside-trap-mode-map overrides haskell-indentation/indent-mode-map
-    (offside-trap-mode)
-    ))
-
-;--------------------------------------------------------------------------------
-;; backspace and help key bind
-
-(global-set-key "\C-h" 'delete-backward-char)
-(global-set-key "\C-x?" 'help-command)
 
 ;--------------------------------------------------------------------------------
 ;; coq-mode
@@ -183,43 +49,6 @@
 (autoload 'run-coq-other-frame "coq-inferior"
   "Run an inferior Coq process in a new frame." t)
 
-;--------------------------------------------------------------------------------
-;; php-mode
-
-(when (locate-library "php-mode")
-  (autoload 'php-mode "php-mode" nil t))
-
-;(load-library "php-mode")
-;(require 'php-mode)
-
-;--------------------------------------------------------------------------------
-;; dired
-
-(eval-after-load "dired"
-  '(progn
-     (setq dired-recursive-copies 'always)
-     (setq dired-recursive-deletes 'always)))
-
-;--------------------------------------------------------------------------------
-;; save backup files in a specific directory
-
-(add-to-list 'backup-directory-alist (cons "." (expand-file-name "~/.emacs.d/bak/")))
-
-;--------------------------------------------------------------------------------
-
-(autoload 'ruby-mode "ruby-mode" "Major mode for ruby files" t)
-(add-to-list 'auto-mode-alist '("\\.rb$" . ruby-mode))
-(add-to-list 'interpreter-mode-alist '("ruby" . ruby-mode))
-
-(autoload 'inf-ruby "inf-ruby" "Run an inferior Ruby process" t)
-(autoload 'inf-ruby-setup-keybindings "inf-ruby" "" t)
-(eval-after-load 'ruby-mode
-  '(add-hook 'ruby-mode-hook 'inf-ruby-setup-keybindings))
-
-(require 'flymake-ruby)
-(add-hook 'ruby-mode-hook 'flymake-ruby-load)
-
-(require 'ruby-end)
 
 ;--------------------------------------------------------------------------------
 ;; scheme-mode
@@ -334,72 +163,7 @@
 ;(setq drill-instructor-global t)
 ;(add-to-list 'drill-instructor-unset-major-mode-list '***-mode)
 
-;--------------------------------------------------------------------------------
-;; font setting
 
-(when (and (>= emacs-major-version 23) window-system)
- (set-face-attribute 'default nil
-                     :family "monaco"
-                     :height 120)
- (set-fontset-font
-  (frame-parameter nil 'font)
-  'japanese-jisx0208
-  '("Hiragino Kaku Gothic Pro" . "iso10646-1"))
- (set-fontset-font
-  (frame-parameter nil 'font)
-  'japanese-jisx0212
-  '("Hiragino Kaku Gothic Pro" . "iso10646-1"))
- (set-fontset-font
-  (frame-parameter nil 'font)
-  'mule-unicode-0100-24ff
-  '("monaco" . "iso10646-1"))
- (setq face-font-rescale-alist
-      '(("^-apple-hiragino.*" . 1.2)
-        (".*osaka-bold.*" . 1.2)
-        (".*osaka-medium.*" . 1.2)
-        (".*courier-bold-.*-mac-roman" . 1.0)
-        (".*monaco cy-bold-.*-mac-cyrillic" . 0.9)
-        (".*monaco-bold-.*-mac-roman" . 0.9)
-        ("-cdac$" . 1.3))))
-
-
-;--------------------------------------------------------------------------------
-;; auto complete
-
-(require 'auto-complete)
-(global-auto-complete-mode t)
-
-;--------------------------------------------------------------------------------
-;; anything
-
-(require 'anything)
-(require 'anything-config)
-(add-to-list 'anything-sources 'anything-c-source-emacs-commands)
-(define-key global-map (kbd "C-c a") 'anything)
-
-;--------------------------------------------------------------------------------
-;; yatex
-
-;; (autoload 'yatex-mode "yatex" "Yet Another LaTeX mode" t)
-;; (add-to-list 'auto-mode-alist (cons "\\.tex$" 'yatex-mode))
-;; (setq tex-command "platex")
-
-;--------------------------------------------------------------------------------
-;; AUCTeX
-
-(setq TeX-auto-save t)
-(setq TeX-parse-self t)
-(setq TeX-default-mode 'japanese-latex-mode)
-(setq-default TeX-master nil)
-
-;--------------------------------------------------------------------------------
-;; popwin
-
-(require 'popwin)
-(setq display-buffer-function 'popwin:display-buffer)
-
-; for ghc flymake
-(push '("GHC Info" :noselect t) popwin:special-display-config)
 
 ;--------------------------------------------------------------------------------
 ;; yasnippet
@@ -428,8 +192,3 @@
 
 (require 'flymake-python-pyflakes)
 (add-hook 'python-mode-hook 'flymake-python-pyflakes-load)
-
-;--------------------------------------------------------------------------------
-;; scala ensime
-(require 'ensime)
-(add-hook 'scala-mode-hook 'ensime-scala-mode-hook)
