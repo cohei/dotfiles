@@ -245,13 +245,6 @@ Optionally takes FRAME for its target and works on current frame if nothing give
 (dolist (hook '(sass-mode-hook scss-mode-hook))
   (add-hook hook 'scss-sass-mode-hookee))
 
-;; flymake
-;; (defun flymake-mode-hooks ()
-;;   (global-set-key (kbd "M-n") 'flymake-goto-next-error)
-;;   (global-set-key (kbd "M-p") 'flymake-goto-prev-error)
-;;   (global-set-key (kbd "M-?") 'flymake-display-err-menu-for-current-line))
-;; (add-hook 'flymake-mode-hook 'flymake-mode-hooks)
-
 
 ;; haml
 (add-to-list 'auto-mode-alist (cons ".hamlc" 'haml-mode))
