@@ -61,10 +61,6 @@
 ;; confirm before quit
 (setq confirm-kill-emacs 'y-or-n-p)
 
-;; show completion candidates when choose one from buffers
-(iswitchb-mode t)
-;(iswitchb-default-keybindings)
-
 ;; kill whole line if killed at top of line
 (setq kill-whole-line t)
 
@@ -189,6 +185,7 @@ Optionally takes FRAME for its target and works on current frame if nothing give
 (global-set-key (kbd "M-x") 'helm-M-x)
 (global-set-key (kbd "M-y") 'helm-show-kill-ring)
 (global-set-key (kbd "C-c r") 'helm-projectile)
+(global-set-key (kbd "C-x b") 'helm-buffers-list)
 
 ; helm-c-source-files-in-current-dir
 ; helm-mini は buffer と recentf と not-found
