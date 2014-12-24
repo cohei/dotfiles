@@ -40,8 +40,7 @@
 
 ;; global keybinds
 
-; want to use C-h for DEL
-(global-set-key (kbd "C-x ?") 'help-command)
+(global-set-key (kbd "C-x ?") 'help-command) ; to use C-h for DEL
 (global-set-key (kbd "C-h") 'delete-backward-char)
 
 (global-set-key (kbd "C-x a r") 'align-regexp)
