@@ -2,4 +2,5 @@
 :set -i..
 :set +s
 :set +t
+:set +m
 :set -Werror
