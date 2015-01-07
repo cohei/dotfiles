@@ -18,43 +18,16 @@
   (normal-top-level-add-to-load-path '("."))
   (normal-top-level-add-subdirs-to-load-path))
 
-;; requireの前にライブラリの存在検査を追加するアドバイス
-(defadvice require (around require-if-exists)
-  "Check if library file exists before require."
-  (when (locate-library (symbol-name (ad-get-arg 0)))
-    ad-do-it))
-(ad-enable-advice 'require 'around 'require-if-exists)
-(ad-activate 'require)
-
 ;; add repositories
 (require 'package)
 (add-to-list 'package-archives (cons "melpa" "http://melpa.milkbox.net/packages/"))
 (add-to-list 'package-archives (cons "marmalade" "http://marmalade-repo.org/packages/"))
 (package-initialize)
 
-(defvar package-list
-  '(auctex auto-complete cacoo coffee-mode ensime exec-path-from-shell flycheck flycheck-tip
-    ghc git-gutter haml-mode haskell-mode helm helm-flycheck helm-projectile magit markdown-mode
-    migemo open-junk-file projectile rainbow-delimiters rainbow-mode ruby-end
-    ruby-hash-syntax ruby-interpolation solarized-theme scss-mode yaml-mode yasnippet
-    zencoding-mode)
-  "A list of packages to ensure are installed at launch.")
-
-(dolist (p package-list)
-  (when (and (not (package-installed-p p))
-             (y-or-n-p (format "Package %s is missing.  Install it? " p)))
-    (package-install p)))
-
-;; exec-path の設定
-(exec-path-from-shell-initialize)
-
 ;; global keybinds
-
 (global-set-key (kbd "C-x ?") 'help-command) ; to use C-h for DEL
 (global-set-key (kbd "C-h") 'delete-backward-char)
-(global-set-key (kbd "C-x a r") 'align-regexp)
 (global-set-key (kbd "C-x j") 'dired-jump)
-(global-set-key (kbd "C-c a") 'align)
 
 ;; window settings
 (setq scroll-conservatively 35
@@ -69,102 +42,123 @@
 ; yes/no to y/n
 (fset 'yes-or-no-p 'y-or-n-p)
 
-; 同一ファイル名のバッファの区別
-(require 'uniquify)
-(setq uniquify-buffer-name-style 'reverse)
-
 ;; bell
 (when (eq window-system 'ns)
   (setq ring-bell-function 'ignore))
 
-
-;--------------------------------------------------------------------------------
-;; maxframe
-
-(when (memq window-system '(ns x)) ; cocoa, carbon -> mac, terminal -> nil, X -> x
-  (require 'maxframe)
-  (add-hook 'window-setup-hook          'maximize-and-split t)  ; when startup
-  (add-hook 'after-make-frame-functions 'maximize-and-split t)) ; when make-frame
-
-(defun maximize-and-split (&optional frame)
-  "Maximize the window and split it horizontally into two buffers.
-Optionally takes FRAME for its target and works on current frame if nothing given."
-  (if frame
-      (select-window (frame-root-window frame)))
-  (toggle-frame-fullscreen)
-  (split-window-horizontally))
-
-;--------------------------------------------------------------------------------
-;; AUCTeX
-
-;(load "preview-latex" nil t t)
-(eval-after-load "tex-mode"
-  '(progn
-     (setq TeX-engine-alist
-           '((ptex "pTeX" "eptex -kanji=utf8 -guess-input-enc"
-                   "platex -kanji=utf8 -guess-input-enc" "eptex")
-             (jtex "jTeX" "jtex" "jlatex" nil)
-             (uptex "upTeX" "euptex -kanji=utf8 -no-guess-input-enc"
-                    "uplatex -kanji=utf8 -no-guess-input-enc" "euptex")))
-     (setq TeX-engine 'ptex)))
-
-;; zencoding-mode
-;(require 'zencoding-mode)
-(add-hook 'sgml-mode-hook 'zencoding-mode)
-(eval-after-load "zencoding-mode"
-  '(progn
-     (define-key zencoding-mode-keymap (kbd "C-c C-m") 'zencoding-expand-line)
-     (define-key zencoding-preview-keymap (kbd "C-c C-m") 'zencoding-preview-accept)))
-
-;; popwin
-(when (require 'popwin)
-  (popwin-mode 1))
-
-(eval-after-load "popwin"
-  '(progn
-     (push '("*Buffer List*" :height 0.3) popwin:special-display-config)
-     (push '("\\*magit" :regexp t :height 0.5) popwin:special-display-config)
-     (push '("\\*helm" :regexp t) popwin:special-display-config)
-     (push '("*GHC Info*" :height 10) popwin:special-display-config)
-     (push '(" *undo-tree*" :width 0.1 :position right) popwin:special-display-config)
-     (push '("*git-gutter:diff*" :height 0.3 :stick t) popwin:special-display-config)))
+;; move along windows
+(when (fboundp 'windmove-default-keybindings)
+  (windmove-default-keybindings))
 
 
-;; ruby
-(let* ((ruby-files '(".jbuilder" ".rake" ".thor" "Gemfile" "Rakefile" "Crushfile" "Capfile" "Gemfile"
-                     "Guardfile"))
-       (ruby-regexp (concat (regexp-opt ruby-files t) "\\'")))
-  (add-to-list 'auto-mode-alist (cons ruby-regexp 'ruby-mode)))
-(autoload 'inf-ruby "inf-ruby" "Run an inferior Ruby process" t)
+;; ----------------------------------------
+;; use-package
+(package-install 'use-package)
+(require 'use-package)
 
-(defun ruby-mode-hookee ()
-  "Hookee for 'ruby-mode'."
-  (ruby-end-mode)
-  (ruby-interpolation-mode)
-  (git-gutter-mode))
+(use-package align
+  :config
+  (global-set-key (kbd "C-c a") 'align)
+  (global-set-key (kbd "C-x a r") 'align-regexp)
+  (add-to-list 'align-rules-list
+               '(ruby19-hash (regexp . ":\\(\s-*\\)") (modes . '(ruby-mode))))
+  (add-to-list 'align-rules-list
+               '(ruby-assignment (regexp . "\\(\s-*\\)=") (modes . '(ruby-mode)))))
 
-(add-hook 'ruby-mode-hook 'ruby-mode-hookee)
+(use-package auto-complete-config
+  :ensure auto-complete
+  :config
+  (ac-config-default)
+  (global-auto-complete-mode t)
+  (setq ac-ignore-case nil))
 
-(autoload 'rubydb "rubydb3x" "ruby debug" t)
+(use-package cacoo
+  :ensure t
+  :bind ("M--" . toggle-cacoo-minor-mode))
+;; optional
+;; (use-package cacoo-plugins
+;;   :config (setq cacoo:api-key "APIKEY"))
 
-(require 'align)
-(add-to-list 'align-rules-list
-             '(ruby19-hash (regexp . ":\\(\s-*\\)") (modes . '(ruby-mode))))
-(add-to-list 'align-rules-list
-             '(ruby-assignment (regexp . "\\(\s-*\\)=") (modes . '(ruby-mode))))
+(use-package coffee-mode
+  :ensure t
+  :defer t
+  :config
+  (setq tab-width 2)
+  (setq coffee-tab-width 2)
+  (auto-complete-mode))
 
+(use-package ensime
+  :ensure t
+  :defer t
+  ;; This step causes the ensime-mode to be started whenever
+  ;; scala-mode is started for a buffer. You may have to customize this step
+  ;; if you're not using the standard scala mode.
+  :config (add-hook 'scala-mode-hook 'ensime-scala-mode-hook))
 
-;; helm
-;(helm-mode 1)
-(global-set-key (kbd "C-c h") 'helm-mini)
-(global-set-key (kbd "M-x") 'helm-M-x)
-(global-set-key (kbd "M-y") 'helm-show-kill-ring)
-(global-set-key (kbd "C-c r") 'helm-projectile)
-(global-set-key (kbd "C-x b") 'helm-buffers-list)
+(use-package exec-path-from-shell
+  :ensure t
+  :config (exec-path-from-shell-initialize))
 
-; helm-c-source-files-in-current-dir
-; helm-mini は buffer と recentf と not-found
-; helm-imenu
+(use-package flycheck
+  :ensure t
+  :config (global-flycheck-mode))
+
+(use-package ghc
+  :ensure t
+  :commands ghc-init
+  :config (add-to-list 'ac-sources 'ac-source-ghc-mod))
+
+(use-package git-gutter
+  :ensure t
+  :defer t
+  :diminish "GG"
+  :init (add-hook 'ruby-mode-hook 'git-gutter-mode))
+
+(use-package haml-mode
+  :ensure t
+  :mode "\\.hamlc\\'")
+
+(use-package haskell-mode
+  :ensure t
+  :defer t
+  :init
+  (add-hook 'haskell-mode-hook
+            '(lambda ()
+               (haskell-indentation-mode 1)
+               (flycheck-mode -1) ; to cancel global flycheck mode
+               (ghc-init)))
+  :config
+  (progn
+    (define-key haskell-mode-map (kbd "C-x C-d") nil)
+    (define-key haskell-mode-map (kbd "C-c C-z") 'haskell-interactive-switch)
+    (define-key haskell-mode-map (kbd "C-c C-l") 'haskell-process-load-file)
+    (define-key haskell-mode-map (kbd "C-c C-b") 'haskell-interactive-switch)
+    ;; (define-key haskell-mode-map (kbd "C-c C-t") 'haskell-process-do-type)
+    ;; (define-key haskell-mode-map (kbd "C-c C-i") 'haskell-process-do-info)
+    (define-key haskell-mode-map (kbd "C-c M-.") nil)
+    (define-key haskell-mode-map (kbd "C-c C-d") nil)))
+
+(use-package helm
+  :ensure t
+  :bind
+  (("C-c h" . helm-mini)
+   ("M-x"   . helm-M-x)
+   ("M-y"   . helm-show-kill-ring)
+   ("C-x b" . helm-buffers-list)))
+
+(use-package helm-flycheck
+  :ensure t
+  :config
+  (define-key flycheck-mode-map (kbd "C-c !") 'helm-flycheck))
+
+(use-package helm-projectile
+  :ensure t
+  :bind ("C-c r" . helm-projectile))
+
+;; (helm-mode 1)
+;; helm-c-source-files-in-current-dir
+;; helm-mini は buffer と recentf と not-found
+;; helm-imenu
 ;; (let ((key-and-func
 ;;        `((,(kbd "C-r")   helm-for-files)
 ;;          (,(kbd "C-^")   helm-c-apropos)
@@ -178,149 +172,36 @@ Optionally takes FRAME for its target and works on current frame if nothing give
 ;;   (loop for (key func) in key-and-func
 ;;         do (global-set-key key func)))
 
+(use-package js2-mode
+  :ensure t
+  :config (setq ac-js2-evaluate-calls t))
 
-;; auto-complete
-(require 'auto-complete-config)
-(add-to-list 'ac-dictionary-directories "~/.emacs.d/dict")
-(ac-config-default)
-(global-auto-complete-mode t)
-(setq ac-ignore-case nil)
+(use-package magit
+  :ensure t
+  :bind ("C-c g" . magit-status))
 
-;; color-theme
-(cond
- ((eq system-type 'darwin)
-  (load-theme 'solarized-dark t))
- (t
-  (load-theme 'solarized-dark t)))
+(use-package maxframe
+  :if (memq window-system '(ns x)) ; cocoa, carbon -> mac, terminal -> nil, X -> x
+  :config
+  (defun maximize-and-split (&optional frame)
+    "Maximize the window and split it horizontally into two buffers.
+Optionally takes FRAME for its target and works on current frame if nothing given."
+    (if frame
+        (select-window (frame-root-window frame)))
+    (toggle-frame-fullscreen)
+    (split-window-horizontally))
+  ;; when startup
+  (add-hook 'window-setup-hook          'maximize-and-split t)
+  ;; when make-frame
+  (add-hook 'after-make-frame-functions 'maximize-and-split t))
 
-;; move along windows
-(when (fboundp 'windmove-default-keybindings)
-  (windmove-default-keybindings))
+(use-package markdown-mode
+  :ensure t
+  :mode "\\.markdown\\'")
 
-;; rainbow mode
-(let ((hooks '(css-mode-hook scss-mode-hook html-mode-hook lisp-mode-hook)))
-  (dolist (hook hooks)
-    (add-hook hook (lambda () (rainbow-mode 1)))))
-
-;; coffee-mode
-(defun coffee-mode-hookee ()
-  "Hookee for coffee-mode."
-  (and (setq tab-width 2) (setq coffee-tab-width 2))
-  (auto-complete-mode))
-(add-hook 'coffee-mode-hook 'coffee-mode-hookee)
-
-;; scss
-(defun scss-sass-mode-hookee ()
-  "Hookee for scss-mode and sass-mode."
-  (setq css-indent-offset 2))
-
-(dolist (hook '(sass-mode-hook scss-mode-hook))
-  (add-hook hook 'scss-sass-mode-hookee))
-
-
-;; haml
-(add-to-list 'auto-mode-alist (cons ".hamlc" 'haml-mode))
-
-
-;; flycheck
-(add-hook 'after-init-hook #'global-flycheck-mode)
-(eval-after-load 'flycheck
-  '(define-key flycheck-mode-map (kbd "C-c !") 'helm-flycheck))
-
-;; flycheck-tip
-;(eval-after-load "flycheck-tip"
-(global-set-key (kbd "M-n") 'flycheck-tip-cycle)
-
-
-;; js2 mode
-(add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
-(setq ac-js2-evaluate-calls t)
-
-;; yasnippet
-;(yas-global-mode 1)
-
-;; haskell
-(autoload 'ghc-init "ghc" nil t)
-
-(add-hook 'haskell-mode 'haskell-mode-hooks)
-
-(defun haskell-mode-hooks ()
-  "Hookee for haskell-mode."
-  (haskell-indentation-mode 1)
-  (flycheck-mode -1) ; to cancel global flycheck mode
-  (ghc-init))
-
-(add-to-list 'ac-sources 'ac-source-ghc-mod)
-
-(eval-after-load "haskell-mode"
-  '(progn
-     (define-key haskell-mode-map (kbd "C-x C-d") nil)
-     (define-key haskell-mode-map (kbd "C-c C-z") 'haskell-interactive-switch)
-     (define-key haskell-mode-map (kbd "C-c C-l") 'haskell-process-load-file)
-     (define-key haskell-mode-map (kbd "C-c C-b") 'haskell-interactive-switch)
-     ;(define-key haskell-mode-map (kbd "C-c C-t") 'haskell-process-do-type)
-     ;(define-key haskell-mode-map (kbd "C-c C-i") 'haskell-process-do-info)
-     (define-key haskell-mode-map (kbd "C-c M-.") nil)
-     (define-key haskell-mode-map (kbd "C-c C-d") nil)))
-
-
-;; markdown
-(autoload 'markdown-mode "markdown-mode.el" "Major mode for editing Markdown files" t)
-(add-to-list 'auto-mode-alist '("\\.markdown" . markdown-mode))
-
-
-;; scala
-
-;; This step causes the ensime-mode to be started whenever
-;; scala-mode is started for a buffer. You may have to customize this step
-;; if you're not using the standard scala mode.
-(add-hook 'scala-mode-hook 'ensime-scala-mode-hook)
-
-;; undo tree
-(require 'undo-tree)
-(global-undo-tree-mode)
-
-;; malabar-mode
-(setq semantic-default-submodes '(global-semantic-idle-scheduler-mode
-                                  global-semanticdb-minor-mode
-                                  global-semantic-idle-summary-mode
-                                  global-semantic-mru-bookmark-mode))
-(semantic-mode 1)
-(require 'malabar-mode)
-(setq malabar-groovy-lib-dir "/path/to/malabar/lib")
-(add-to-list 'auto-mode-alist '("\\.java\\'" . malabar-mode))
-
-;; cacoo mode
-(require 'cacoo)
-(require 'cacoo-plugins)      ; option
-;(setq cacoo:api-key "APIKEY") ; option
-(global-set-key (kbd "M--") 'toggle-cacoo-minor-mode) ; key bind example
-
-;; open junk file
-(require 'open-junk-file)
-(setq open-junk-file-format "~/.emacs.d/junk/%Y/%m/%d-%H%M%S.")
-
-
-;; raibow delimiters
-(add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
-
-
-;; projectile
-(eval-after-load 'projectile
-  '(progn
-     (projectile-global-mode)
-     (setq helm-projectile-sources-list
-           '(helm-source-projectile-projects
-             helm-source-projectile-recentf-list
-             helm-source-projectile-buffers-list
-             helm-source-projectile-files-list))))
-
-;; magit
-(global-set-key (kbd "C-c g") 'magit-status)
-
-
-;; migemo
-(when (require 'migemo)
+(use-package migemo
+  :ensure t
+  :config
   (setq migemo-command "cmigemo")
   (setq migemo-options '("-q" "--emacs"))
   (setq migemo-dictionary "/usr/local/share/migemo/utf-8/migemo-dict")
@@ -329,6 +210,103 @@ Optionally takes FRAME for its target and works on current frame if nothing give
   (setq migemo-coding-system 'utf-8-unix)
   (migemo-init))
 
+(use-package open-junk-file
+  :ensure t
+  :commands open-junk-file
+  :config (setq open-junk-file-format "~/.emacs.d/junk/%Y/%m/%d-%H%M%S."))
+
+(use-package popwin
+  :ensure t
+  :config
+  (popwin-mode 1)
+  (push '("*Buffer List*" :height 0.3) popwin:special-display-config)
+  (push '("\\*magit" :regexp t :height 0.5) popwin:special-display-config)
+  (push '("\\*helm" :regexp t) popwin:special-display-config)
+  (push '("*GHC Info*" :height 10) popwin:special-display-config)
+  (push '(" *undo-tree*" :width 0.1 :position right) popwin:special-display-config)
+  (push '("*git-gutter:diff*" :height 0.3 :stick t) popwin:special-display-config)
+  (push '("\\*ag search" :regexp t :height 0.3 :stick t) popwin:special-display-config))
+
+(use-package projectile
+  :ensure t
+  :config
+  (projectile-global-mode)
+  (setq helm-projectile-sources-list
+        '(helm-source-projectile-projects
+          helm-source-projectile-recentf-list
+          helm-source-projectile-buffers-list
+          helm-source-projectile-files-list)))
+
+(use-package rainbow-delimiters
+  :ensure t
+  :config (add-hook 'prog-mode-hook 'rainbow-delimiters-mode))
+
+(use-package rainbow-mode
+  :ensure t
+  :init
+  (dolist (hook '(css-mode-hook scss-mode-hook html-mode-hook lisp-mode-hook))
+    (add-hook hook (lambda () (rainbow-mode 1)))))
+
+(use-package ruby-mode
+  :mode ((" \\.jbuilder\\'"  . ruby-mode)
+         (" \\.rake\\'"      . ruby-mode)
+         (" \\`Gemfile\\'"   . ruby-mode)
+         (" \\`Rakefile\\'"  . ruby-mode)
+         (" \\`Capfile\\'"   . ruby-mode)
+         (" \\`Gemfile\\'"   . ruby-mode)
+         (" \\`Guardfile\\'" . ruby-mode))
+  :config
+  (use-package ruby-end
+    :ensure t
+    :config (ruby-end-mode))
+  (use-package ruby-interpolation
+    :ensure t
+    :config (ruby-interpolation-mode)))
+
+(use-package inf-ruby :commands inf-ruby)
+(use-package rubydb3x :commands rubydb)
+
+(use-package ruby-hash-syntax
+  :ensure t)
+
+(use-package sass-mode
+  :ensure scss-mode
+  :defer t
+  :config (setq css-indent-offset 2))
+
+(use-package scss-mode
+  :ensure t
+  :defer t
+  :config (setq css-indent-offset 2))
+
+(use-package solarized-theme
+  :ensure t
+  :config
+  (cond
+   ((eq system-type 'darwin)
+    (load-theme 'solarized-dark t))
+   (t
+    (load-theme 'solarized-dark t))))
+
+(use-package undo-tree
+  :ensure t
+  :diminish ""
+  :config (global-undo-tree-mode))
+
+(use-package uniquify
+  :config (setq uniquify-buffer-name-style 'reverse))
+
+(use-package yaml-mode
+  :defer t
+  :ensure t)
+
+(use-package zencoding-mode
+  :ensure t
+  :defer t
+  :config
+  (add-hook 'sgml-mode-hook 'zencoding-mode)
+  (define-key zencoding-mode-keymap (kbd "C-c C-m") 'zencoding-expand-line)
+  (define-key zencoding-preview-keymap (kbd "C-c C-m") 'zencoding-preview-accept))
 
 
 (custom-set-variables
@@ -343,7 +321,6 @@ Optionally takes FRAME for its target and works on current frame if nothing give
  '(before-save-hook (quote (delete-trailing-whitespace)))
  '(column-number-mode t)
  '(confirm-kill-emacs (quote y-or-n-p))
- '(haskell-mode-hook (quote haskell-mode-hooks))
  '(haskell-process-type (quote cabal-repl))
  '(indent-tabs-mode nil)
  '(inhibit-startup-screen t)
