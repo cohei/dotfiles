@@ -71,12 +71,8 @@
 
 ;; show trailing whitespaces
 (setq-default show-trailing-whitespace t)
-(add-hook 'term-mode-hook
-          (lambda () (setq show-trailing-whitespace nil)))
-(add-hook 'undo-tree-visualizer-mode-hook
-          (lambda () (setq show-trailing-whitespace nil)))
-(add-hook 'Buffer-menu-mode-hook
-          (lambda () (setq show-trailing-whitespace nil)))
+(dolist (hook '(term-mode-hook undo-tree-visualizer-mode-hook Buffer-menu-mode-hook))
+  (add-hook hook (lambda () (setq show-trailing-whitespace nil))))
 
 ;; if the file begins with #!, chmod +x after saving.
 (add-hook 'after-save-hook
