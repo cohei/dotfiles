@@ -42,9 +42,8 @@
 
 (global-set-key (kbd "C-x ?") 'help-command) ; to use C-h for DEL
 (global-set-key (kbd "C-h") 'delete-backward-char)
-
 (global-set-key (kbd "C-x a r") 'align-regexp)
-
+(global-set-key (kbd "C-x j") 'dired-jump)
 
 ;; move backup files to .emacs.d/backup/
 (setq make-backup-files t)
