@@ -44,6 +44,8 @@
 (global-set-key (kbd "C-h") 'delete-backward-char)
 (global-set-key (kbd "C-x a r") 'align-regexp)
 (global-set-key (kbd "C-x j") 'dired-jump)
+(global-set-key (kbd "C-c a") 'align)
+
 
 ;; move backup files to .emacs.d/backup/
 (setq make-backup-files t)
@@ -165,12 +167,13 @@ Optionally takes FRAME for its target and works on current frame if nothing give
 
 (add-hook 'ruby-mode-hook 'ruby-mode-hookee)
 
-(eval-after-load "ruby-mode"
-  '(progn
-     (setq ruby-insert-encoding-magic-comment nil)
-     (setq ruby-deep-indent-paren nil)))
-
 (autoload 'rubydb "rubydb3x" "ruby debug" t)
+
+(require 'align)
+(add-to-list 'align-rules-list
+             '(ruby19-hash (regexp . ":\\(\s-*\\)") (modes . '(ruby-mode))))
+(add-to-list 'align-rules-list
+             '(ruby-assignment (regexp . "\\(\s-*\\)=") (modes . '(ruby-mode))))
 
 
 ;; helm
