@@ -5,9 +5,6 @@
 
 ;;; Code:
 
-(add-to-list 'load-path "~/dotfiles/.emacs.d")
-(load "init-common")
-
 (require 'server)
 (unless (server-running-p)
   (server-start))
@@ -34,6 +31,19 @@
 (add-to-list 'package-archives (cons "melpa" "http://melpa.milkbox.net/packages/"))
 (add-to-list 'package-archives (cons "marmalade" "http://marmalade-repo.org/packages/"))
 (package-initialize)
+
+(defvar package-list
+  '(auctex auto-complete cacoo coffee-mode ensime exec-path-from-shell flycheck flycheck-tip
+    ghc git-gutter haml-mode haskell-mode helm helm-flycheck helm-projectile magit markdown-mode
+    migemo open-junk-file projectile rainbow-delimiters rainbow-mode ruby-end
+    ruby-hash-syntax ruby-interpolation solarized-theme scss-mode yaml-mode yasnippet
+    zencoding-mode)
+  "A list of packages to ensure are installed at launch.")
+
+(dolist (p package-list)
+  (when (and (not (package-installed-p p))
+             (y-or-n-p (format "Package %s is missing.  Install it? " p)))
+    (package-install p)))
 
 ;; exec-path の設定
 (exec-path-from-shell-initialize)
@@ -360,6 +370,7 @@ Optionally takes FRAME for its target and works on current frame if nothing give
  ;; If there is more than one, they won't work right.
  '(haskell-mode-hook (quote haskell-mode-hooks))
  '(haskell-process-type (quote cabal-repl))
+ '(inhibit-startup-screen t)
  '(open-junk-file-find-file-function (quote find-file))
  '(ruby-deep-indent-paren nil)
  '(scss-compile-at-save nil)
