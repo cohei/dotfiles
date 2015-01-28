@@ -6,16 +6,16 @@
 [credential]
 	helper = cache
 [alias]
-	co = checkout
-	d = diff
-	lg = log --graph --oneline --decorate --all
-	dc = diff --cached
-	l = log --oneline -5
 	ap = add -p
+	co = checkout
+	d  = diff
+	dc = diff --cached
+	g  = grep
+	l  = log --oneline -5
+	lg = log --graph --oneline --decorate --all
 	sl = stash list
 	sp = stash pop
-	g = grep
-        s = status -sb
+        s  = status -sb
 [status]
 	showUntrackedFiles = all
 [push]
