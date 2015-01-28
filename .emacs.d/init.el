@@ -1,4 +1,4 @@
-;;; init-ubuntu --- emacs config file for ubuntu
+;;; init --- emacs config file
 
 ;;; Commentary:
 ;;; aaaa
@@ -384,5 +384,5 @@ Optionally takes FRAME for its target and works on current frame if nothing give
  ;; If there is more than one, they won't work right.
  )
 
-(provide 'init-ubuntu)
-;;; init-ubuntu.el ends here
+(provide 'init)
+;;; init.el ends here
