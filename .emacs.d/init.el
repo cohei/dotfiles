@@ -74,9 +74,6 @@
 ;; kill whole line if killed at top of line
 (setq kill-whole-line t)
 
-;; don't use tab
-(setq-default indent-tabs-mode nil)
-
 ;; delete trailing whitespaces when saved
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 
@@ -367,6 +364,7 @@ Optionally takes FRAME for its target and works on current frame if nothing give
  ;; If there is more than one, they won't work right.
  '(haskell-mode-hook (quote haskell-mode-hooks))
  '(haskell-process-type (quote cabal-repl))
+ '(indent-tabs-mode nil)
  '(inhibit-startup-screen t)
  '(open-junk-file-find-file-function (quote find-file))
  '(ruby-insert-encoding-magic-comment nil)
