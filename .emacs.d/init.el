@@ -68,10 +68,6 @@
                 package-menu-mode))
   (add-hook hook (lambda () (setq show-trailing-whitespace nil))))
 
-;; if the file begins with #!, chmod +x after saving.
-(add-hook 'after-save-hook
-	  'executable-make-buffer-file-executable-if-script-p)
-
 ;; add final newline when saved (t)
 (setq require-final-newline t)
 
@@ -348,6 +344,9 @@ Optionally takes FRAME for its target and works on current frame if nothing give
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(after-save-hook
+   (quote
+    (executable-make-buffer-file-executable-if-script-p)))
  '(backup-directory-alist (quote (("\\.*$" . "~/.emacs.d/backup"))))
  '(before-save-hook (quote (delete-trailing-whitespace)))
  '(confirm-kill-emacs (quote y-or-n-p))
