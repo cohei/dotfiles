@@ -63,9 +63,6 @@
 
 (tool-bar-mode 0)
 
-;; kill whole line if killed at top of line
-(setq kill-whole-line t)
-
 ;; delete trailing whitespaces when saved
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 
@@ -360,6 +357,7 @@ Optionally takes FRAME for its target and works on current frame if nothing give
  '(haskell-process-type (quote cabal-repl))
  '(indent-tabs-mode nil)
  '(inhibit-startup-screen t)
+ '(kill-whole-line t)
  '(open-junk-file-find-file-function (quote find-file))
  '(ruby-insert-encoding-magic-comment nil)
  '(scss-compile-at-save nil)
