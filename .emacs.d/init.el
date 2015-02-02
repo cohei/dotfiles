@@ -170,9 +170,6 @@ Optionally takes FRAME for its target and works on current frame if nothing give
   "Hookee for 'ruby-mode'."
   (ruby-end-mode)
   (ruby-interpolation-mode)
-  ;(electric-pair-mode t)
-  (electric-indent-mode t)
-  (electric-layout-mode t)
   (git-gutter-mode))
 
 (add-hook 'ruby-mode-hook 'ruby-mode-hookee)
@@ -372,7 +369,7 @@ Optionally takes FRAME for its target and works on current frame if nothing give
  '(haskell-process-type (quote cabal-repl))
  '(inhibit-startup-screen t)
  '(open-junk-file-find-file-function (quote find-file))
- '(ruby-deep-indent-paren nil)
+ '(ruby-insert-encoding-magic-comment nil)
  '(scss-compile-at-save nil)
  '(setq recentf-max-saved-items)
  '(use-dialog-box nil))
