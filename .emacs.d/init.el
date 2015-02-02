@@ -63,9 +63,6 @@
 
 (tool-bar-mode 0)
 
-;; confirm before quit
-(setq confirm-kill-emacs 'y-or-n-p)
-
 ;; kill whole line if killed at top of line
 (setq kill-whole-line t)
 
@@ -359,6 +356,7 @@ Optionally takes FRAME for its target and works on current frame if nothing give
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(backup-directory-alist (quote (("\\.*$" . "~/.emacs.d/backup"))))
+ '(confirm-kill-emacs (quote y-or-n-p))
  '(haskell-mode-hook (quote haskell-mode-hooks))
  '(haskell-process-type (quote cabal-repl))
  '(indent-tabs-mode nil)
