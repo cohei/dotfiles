@@ -70,7 +70,6 @@
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 
 ;; show trailing whitespaces
-(setq-default show-trailing-whitespace t)
 (dolist (hook '(term-mode-hook undo-tree-visualizer-mode-hook Buffer-menu-mode-hook eshell-mode-hook
                 package-menu-mode))
   (add-hook hook (lambda () (setq show-trailing-whitespace nil))))
@@ -365,6 +364,7 @@ Optionally takes FRAME for its target and works on current frame if nothing give
  '(ruby-insert-encoding-magic-comment nil)
  '(scss-compile-at-save nil)
  '(setq recentf-max-saved-items)
+ '(show-trailing-whitespace t)
  '(use-dialog-box nil))
 
 (custom-set-faces
