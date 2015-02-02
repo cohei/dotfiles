@@ -68,9 +68,6 @@
                 package-menu-mode))
   (add-hook hook (lambda () (setq show-trailing-whitespace nil))))
 
-;; add final newline when saved (t)
-(setq require-final-newline t)
-
 ; yes/no to y/n
 (fset 'yes-or-no-p 'y-or-n-p)
 
@@ -356,6 +353,7 @@ Optionally takes FRAME for its target and works on current frame if nothing give
  '(inhibit-startup-screen t)
  '(kill-whole-line t)
  '(open-junk-file-find-file-function (quote find-file))
+ '(require-final-newline (quote visit))
  '(ruby-insert-encoding-magic-comment nil)
  '(scss-compile-at-save nil)
  '(setq recentf-max-saved-items)
