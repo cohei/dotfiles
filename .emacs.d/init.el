@@ -334,6 +334,7 @@ Optionally takes FRAME for its target and works on current frame if nothing give
  '(before-save-hook (quote (delete-trailing-whitespace)))
  '(column-number-mode t)
  '(confirm-kill-emacs (quote y-or-n-p))
+ '(dired-dwim-target t)
  '(haskell-process-type (quote cabal-repl))
  '(indent-tabs-mode nil)
  '(inhibit-startup-screen t)
