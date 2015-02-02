@@ -63,9 +63,6 @@
 
 (tool-bar-mode 0)
 
-;; delete trailing whitespaces when saved
-(add-hook 'before-save-hook 'delete-trailing-whitespace)
-
 ;; show trailing whitespaces
 (dolist (hook '(term-mode-hook undo-tree-visualizer-mode-hook Buffer-menu-mode-hook eshell-mode-hook
                 package-menu-mode))
@@ -352,6 +349,7 @@ Optionally takes FRAME for its target and works on current frame if nothing give
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(backup-directory-alist (quote (("\\.*$" . "~/.emacs.d/backup"))))
+ '(before-save-hook (quote (delete-trailing-whitespace)))
  '(confirm-kill-emacs (quote y-or-n-p))
  '(haskell-mode-hook (quote haskell-mode-hooks))
  '(haskell-process-type (quote cabal-repl))
