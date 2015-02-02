@@ -56,11 +56,6 @@
 (global-set-key (kbd "C-x j") 'dired-jump)
 (global-set-key (kbd "C-c a") 'align)
 
-
-;; move backup files to .emacs.d/backup/
-(setq make-backup-files t)
-(add-to-list 'backup-directory-alist (cons "\\.*$" (expand-file-name "~/.emacs.d/backup")))
-
 ;; window settings
 (setq scroll-conservatively 35
       scroll-margin 0
@@ -363,6 +358,7 @@ Optionally takes FRAME for its target and works on current frame if nothing give
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(backup-directory-alist (quote (("\\.*$" . "~/.emacs.d/backup"))))
  '(haskell-mode-hook (quote haskell-mode-hooks))
  '(haskell-process-type (quote cabal-repl))
  '(indent-tabs-mode nil)
