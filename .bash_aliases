@@ -12,6 +12,7 @@ alias h='history'
 alias j="jobs -l"
 alias l="ls -l "
 alias ll="ls -l"
+alias lla="ls -al"
 case $OSTYPE in
     darwin13)  alias ls="ls -FG" ;;
     linux-gnu) alias ls="ls -F --color=auto" ;;
