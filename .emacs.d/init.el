@@ -71,9 +71,6 @@
 ; yes/no to y/n
 (fset 'yes-or-no-p 'y-or-n-p)
 
-; show column number
-(column-number-mode t)
-
 ; 同一ファイル名のバッファの区別
 (require 'uniquify)
 (setq uniquify-buffer-name-style 'reverse)
@@ -346,6 +343,7 @@ Optionally takes FRAME for its target and works on current frame if nothing give
     (executable-make-buffer-file-executable-if-script-p)))
  '(backup-directory-alist (quote (("\\.*$" . "~/.emacs.d/backup"))))
  '(before-save-hook (quote (delete-trailing-whitespace)))
+ '(column-number-mode t)
  '(confirm-kill-emacs (quote y-or-n-p))
  '(haskell-mode-hook (quote haskell-mode-hooks))
  '(haskell-process-type (quote cabal-repl))
