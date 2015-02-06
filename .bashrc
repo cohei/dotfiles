@@ -118,7 +118,7 @@ fi
 
 export LANG=ja_JP.UTF-8
 
-export PS1='\n[\t] \W$(__git_ps1) $ '
+export PS1='\n[\t] @$(hostname | cut -c 1-6) \W$(__git_ps1) $ '
 
 # mainly for git commiting
 if [ `uname` = 'Linux' ]; then
