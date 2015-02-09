@@ -61,8 +61,6 @@
       scroll-margin 0
       scroll-step 1)
 
-(tool-bar-mode 0)
-
 ;; show trailing whitespaces
 (dolist (hook '(term-mode-hook undo-tree-visualizer-mode-hook Buffer-menu-mode-hook eshell-mode-hook
                 package-menu-mode))
@@ -356,6 +354,7 @@ Optionally takes FRAME for its target and works on current frame if nothing give
  '(scss-compile-at-save nil)
  '(setq recentf-max-saved-items)
  '(show-trailing-whitespace t)
+ '(tool-bar-mode nil)
  '(use-dialog-box nil))
 
 (custom-set-faces
