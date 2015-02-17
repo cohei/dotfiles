@@ -6,6 +6,5 @@
 # インストール
 
 ```shell
-# curl https://raw.githubusercontent.com/cohei/dotfiles/master/install.sh | bash
-curl https://raw.githubusercontent.com/cohei/dotfiles/install/install.sh | bash
+curl https://raw.githubusercontent.com/cohei/dotfiles/master/install.sh | bash
 ```
