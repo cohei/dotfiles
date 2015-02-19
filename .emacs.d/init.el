@@ -357,13 +357,6 @@ Optionally takes FRAME for its target and works on current frame if nothing give
   (migemo-init))
 
 
-;; drill instructor
-(use-package drill-instructor
-  :init
-  (setq drill-instructor-global t))
-;(add-to-list 'drill-instructor-unset-major-mode-list '***-mode)
-
-
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
