@@ -112,7 +112,7 @@
   :ensure t
   :defer t
   :diminish "GG"
-  :init (add-hook 'ruby-mode-hook 'git-gutter-mode))
+  :init (add-hook 'prog-mode-hook 'git-gutter-mode))
 
 (use-package haml-mode
   :ensure t
