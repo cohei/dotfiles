@@ -288,6 +288,10 @@ Optionally takes FRAME for its target and works on current frame if nothing give
    (t
     (load-theme 'solarized-dark t))))
 
+(use-package textile-mode
+  :ensure t
+  :mode "\\.textile\\'")
+
 (use-package undo-tree
   :ensure t
   :diminish ""
