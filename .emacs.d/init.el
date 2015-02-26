@@ -334,7 +334,6 @@ Optionally takes FRAME for its target and works on current frame if nothing give
  '(ruby-insert-encoding-magic-comment nil)
  '(scroll-bar-mode nil)
  '(scss-compile-at-save nil)
- '(setq recentf-max-saved-items)
  '(show-trailing-whitespace t)
  '(tool-bar-mode nil)
  '(use-dialog-box nil))
