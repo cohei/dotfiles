@@ -46,10 +46,6 @@
 (when (eq window-system 'ns)
   (setq ring-bell-function 'ignore))
 
-;; move along windows
-(when (fboundp 'windmove-default-keybindings)
-  (windmove-default-keybindings))
-
 
 ;; ----------------------------------------
 ;; use-package
@@ -299,6 +295,9 @@ Optionally takes FRAME for its target and works on current frame if nothing give
 
 (use-package uniquify
   :config (setq uniquify-buffer-name-style 'reverse))
+
+(use-package windmove
+  :config (windmove-default-keybindings))
 
 (use-package yaml-mode
   :defer t
