@@ -29,11 +29,6 @@
 (global-set-key (kbd "C-h") 'delete-backward-char)
 (global-set-key (kbd "C-x j") 'dired-jump)
 
-;; window settings
-(setq scroll-conservatively 35
-      scroll-margin 0
-      scroll-step 1)
-
 ;; show trailing whitespaces
 (dolist (hook '(term-mode-hook undo-tree-visualizer-mode-hook Buffer-menu-mode-hook eshell-mode-hook
                 package-menu-mode))
@@ -332,6 +327,8 @@ Optionally takes FRAME for its target and works on current frame if nothing give
  '(require-final-newline (quote visit))
  '(ruby-insert-encoding-magic-comment nil)
  '(scroll-bar-mode nil)
+ '(scroll-conservatively 1000)
+ '(scroll-margin 5)
  '(scss-compile-at-save nil)
  '(show-trailing-whitespace t)
  '(tool-bar-mode nil)
