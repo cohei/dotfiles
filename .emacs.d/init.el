@@ -239,13 +239,14 @@ Optionally takes FRAME for its target and works on current frame if nothing give
     (add-hook hook (lambda () (rainbow-mode 1)))))
 
 (use-package ruby-mode
-  :mode ((" \\.jbuilder\\'"  . ruby-mode)
-         (" \\.rake\\'"      . ruby-mode)
-         (" \\`Gemfile\\'"   . ruby-mode)
-         (" \\`Rakefile\\'"  . ruby-mode)
-         (" \\`Capfile\\'"   . ruby-mode)
-         (" \\`Gemfile\\'"   . ruby-mode)
-         (" \\`Guardfile\\'" . ruby-mode))
+  :mode (("\\.jbuilder\\'"  . ruby-mode)
+         ("\\.rake\\'"      . ruby-mode)
+         ("\\`Gemfile\\'"   . ruby-mode)
+         ("\\`Rakefile\\'"  . ruby-mode)
+         ("\\`Capfile\\'"   . ruby-mode)
+         ("\\.cap\\'"       . ruby-mode)
+         ("\\`Gemfile\\'"   . ruby-mode)
+         ("\\`Guardfile\\'" . ruby-mode))
   :config
   (use-package ruby-end
     :ensure t
