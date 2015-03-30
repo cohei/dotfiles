@@ -41,6 +41,12 @@
 (when (eq window-system 'ns)
   (setq ring-bell-function 'ignore))
 
+;; balance-windows after spliting/deleting windows
+(defun balance-windows-advice (&rest args)
+  "Advice which execute `balance-window' after something.  ARGS are ignored."
+  (balance-windows))
+(dolist (f '(split-window-below split-window-right delete-window))
+  (advice-add f :after 'balance-windows-advice))
 
 ;; ----------------------------------------
 ;; use-package
