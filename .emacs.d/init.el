@@ -84,6 +84,15 @@
   (setq coffee-tab-width 2)
   (auto-complete-mode))
 
+(use-package emmet-mode
+  :ensure t
+  :defer t
+  :init
+  (add-hook 'sgml-mode-hook 'emmet-mode)
+  (add-hook 'css-mode-hook 'emmet-mode)
+  :config
+  (setq emmet-move-cursor-between-quotes t))
+
 (use-package ensime
   :ensure t
   :defer t
@@ -304,15 +313,6 @@ Optionally takes FRAME for its target and works on current frame if nothing give
 (use-package yaml-mode
   :defer t
   :ensure t)
-
-(use-package zencoding-mode
-  :ensure t
-  :defer t
-  :config
-  (add-hook 'sgml-mode-hook 'zencoding-mode)
-  (define-key zencoding-mode-keymap (kbd "C-c C-m") 'zencoding-expand-line)
-  (define-key zencoding-preview-keymap (kbd "C-c C-m") 'zencoding-preview-accept))
-
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
