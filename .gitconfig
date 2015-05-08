@@ -19,7 +19,7 @@
 [status]
 	showUntrackedFiles = all
 [push]
-	default = upstream
+	default = simple
 [rebase]
 	autosquash = true
 [pager]
