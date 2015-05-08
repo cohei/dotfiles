@@ -62,6 +62,13 @@
   (add-to-list 'align-rules-list
                '(ruby-assignment (regexp . "\\(\s-*\\)=") (modes . '(ruby-mode)))))
 
+(use-package ansi-color
+  :config
+  (defun ansi-colorize-current-buffer ()
+    "Colorize ansi escape sequences in the current buffer."
+    (interactive)
+    (ansi-color-apply-on-region (point-min) (point-max))))
+
 (use-package auto-complete-config
   :ensure auto-complete
   :config
