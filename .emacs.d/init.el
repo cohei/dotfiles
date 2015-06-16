@@ -191,7 +191,8 @@
 
 (use-package magit
   :ensure t
-  :bind ("C-c g" . magit-status))
+  :bind ("C-c g" . magit-status)
+  :config (setq magit-last-seen-setup-instructions "1.4.0"))
 
 (use-package maxframe
   :if (memq window-system '(ns x)) ; cocoa, carbon -> mac, terminal -> nil, X -> x
