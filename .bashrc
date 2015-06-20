@@ -136,10 +136,9 @@ function share_history {  # 以下の内容を関数として定義
 }
 PROMPT_COMMAND='share_history'  # 上記関数をプロンプト毎に自動実施
 
-export PATH=$HOME/.cabal/bin:$PATH
-export PATH=$HOME/.rbenv/bin:$PATH
-export PATH=$HOME/bin:$PATH
 export PATH=/usr/local/bin:$PATH
+export PATH=$HOME/bin:$PATH
+export PATH=$HOME/.rbenv/bin:$PATH
 
 if [[ $OSTYPE =~ darwin ]]; then
     # Add GHC 7.10.1 to the PATH, via https://ghcformacosx.github.io/
@@ -150,5 +149,7 @@ if [[ $OSTYPE =~ darwin ]]; then
 else
     export PATH=/opt/ghc/7.10.1/bin:$PATH
 fi
+
+export PATH=$HOME/.cabal/bin:$PATH
 
 eval "$(rbenv init -)"
