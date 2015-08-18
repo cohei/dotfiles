@@ -147,7 +147,7 @@ if [[ $OSTYPE =~ darwin ]]; then
         export PATH="${GHC_DOT_APP}/Contents/bin:${PATH}"
     fi
 else
-    export PATH=/opt/ghc/7.10.1/bin:$PATH
+    export PATH=/opt/ghc/7.10.2/bin:$PATH
 fi
 
 export PATH=$HOME/.cabal/bin:$PATH
