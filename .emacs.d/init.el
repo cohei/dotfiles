@@ -233,6 +233,7 @@ Optionally takes FRAME for its target and works on current frame if nothing give
   :ensure t
   :config
   (popwin-mode 1)
+  (push '("*Warnings*" :height 0.3) popwin:special-display-config)
   (push '("*Buffer List*" :height 0.3) popwin:special-display-config)
   (push '("\\*magit" :regexp t :height 0.5) popwin:special-display-config)
   (push '("\\*helm" :regexp t) popwin:special-display-config)
