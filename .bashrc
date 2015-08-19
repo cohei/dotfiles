@@ -142,7 +142,7 @@ export PATH=$HOME/.rbenv/bin:$PATH
 
 if [[ $OSTYPE =~ darwin ]]; then
     # Add GHC 7.10.1 to the PATH, via https://ghcformacosx.github.io/
-    export GHC_DOT_APP="/opt/homebrew-cask/Caskroom/ghc/7.10.1-r0/ghc-7.10.1.app"
+    export GHC_DOT_APP="/opt/homebrew-cask/Caskroom/ghc/7.10.2-r0/ghc-7.10.2.app"
     if [ -d "$GHC_DOT_APP" ]; then
         export PATH="${GHC_DOT_APP}/Contents/bin:${PATH}"
     fi
