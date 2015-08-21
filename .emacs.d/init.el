@@ -230,6 +230,8 @@ Optionally takes FRAME for its target and works on current frame if nothing give
   :commands open-junk-file
   :config (setq open-junk-file-format "~/.emacs.d/junk/%Y/%m/%d-%H%M%S."))
 
+(use-package org)
+
 (use-package popwin
   :ensure t
   :config
