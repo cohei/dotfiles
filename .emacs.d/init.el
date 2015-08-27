@@ -86,7 +86,6 @@
 
 (use-package coffee-mode
   :ensure t
-  :defer t
   :config
   (setq tab-width 2)
   (setq coffee-tab-width 2)
@@ -247,6 +246,7 @@ Optionally takes FRAME for its target and works on current frame if nothing give
 
 (use-package projectile
   :ensure t
+  :defer t ; helm-projectile will load this
   :config
   (projectile-global-mode)
   (setq helm-projectile-sources-list
@@ -290,12 +290,10 @@ Optionally takes FRAME for its target and works on current frame if nothing give
 
 (use-package sass-mode
   :ensure scss-mode
-  :defer t
   :config (setq css-indent-offset 2))
 
 (use-package scss-mode
   :ensure t
-  :defer t
   :config (setq css-indent-offset 2))
 
 (use-package solarized-theme
@@ -323,7 +321,6 @@ Optionally takes FRAME for its target and works on current frame if nothing give
   :config (windmove-default-keybindings))
 
 (use-package yaml-mode
-  :defer t
   :ensure t)
 
 (custom-set-variables
