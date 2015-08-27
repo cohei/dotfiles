@@ -87,3 +87,5 @@ alias cd=pushd
 alias bd=popd
 
 alias rc='rails console'
+
+alias dfh='df -h'
