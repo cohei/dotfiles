@@ -37,9 +37,9 @@ link() {
     [ -d $dist/bin ]      || mkdir $dist/bin
 
     for target in ${targets[@]}; do
-        ln -s -r -b $repository/$target $dist/$target ||
-            ln -s -b $repository/$target $dist/$target ||
-            ln -s -f $repository/$target $dist/$target
+        ln -s -r -b     $repository/$target $dist/$target || \
+        ln -s    -b     $repository/$target $dist/$target || \
+        ln -s        -f $repository/$target $dist/$target
     done
 }
 
