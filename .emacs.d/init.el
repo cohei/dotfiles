@@ -288,10 +288,6 @@ Optionally takes FRAME for its target and works on current frame if nothing give
 (use-package ruby-hash-syntax
   :ensure t)
 
-(use-package sass-mode
-  :ensure scss-mode
-  :config (setq css-indent-offset 2))
-
 (use-package scss-mode
   :ensure t
   :config (setq css-indent-offset 2))
