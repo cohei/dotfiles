@@ -26,6 +26,7 @@ link() {
         .pryrc
         .rspec
         bin/diff-highlight
+        bin/gem-uninstall-all
         bin/grepr
         bin/psgrep
     )
