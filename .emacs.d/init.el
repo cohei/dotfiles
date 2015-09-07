@@ -186,8 +186,7 @@
 ;;         do (global-set-key key func)))
 
 (use-package js2-mode
-  :ensure t
-  :config (setq ac-js2-evaluate-calls t))
+  :ensure t)
 
 (use-package magit
   :ensure t
