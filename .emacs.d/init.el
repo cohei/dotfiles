@@ -186,7 +186,8 @@
 ;;         do (global-set-key key func)))
 
 (use-package js2-mode
-  :ensure t)
+  :ensure t
+  :mode "\\.js\\'")
 
 (use-package magit
   :ensure t
