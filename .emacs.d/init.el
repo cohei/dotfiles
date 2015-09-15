@@ -20,9 +20,8 @@
 
 ;; add repositories
 (require 'package)
+(add-to-list 'package-archives (cons "melpa-stable" "http://melpa-stable.milkbox.net/packages/"))
 (add-to-list 'package-archives (cons "melpa" "http://melpa.milkbox.net/packages/"))
-(add-to-list 'package-archives (cons "melpa" "http://melpa-stable.milkbox.net/packages/"))
-(add-to-list 'package-archives (cons "marmalade" "http://marmalade-repo.org/packages/"))
 (package-initialize)
 
 ;; global keybinds
