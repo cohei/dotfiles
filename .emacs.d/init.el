@@ -28,6 +28,7 @@
 (global-set-key (kbd "C-x ?") 'help-command) ; to use C-h for DEL
 (global-set-key (kbd "C-h") 'delete-backward-char)
 (global-set-key (kbd "C-x j") 'dired-jump)
+(global-set-key (kbd "M-SPC") 'cycle-spacing)
 
 ;; show trailing whitespaces
 (dolist (hook '(term-mode-hook undo-tree-visualizer-mode-hook Buffer-menu-mode-hook eshell-mode-hook
