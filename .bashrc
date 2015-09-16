@@ -136,7 +136,6 @@ function share_history {  # 以下の内容を関数として定義
 }
 PROMPT_COMMAND='share_history'  # 上記関数をプロンプト毎に自動実施
 
-export PATH=/usr/local/bin:$PATH
 export PATH=$HOME/bin:$PATH
 export PATH=$HOME/.rbenv/bin:$PATH
 
