@@ -152,3 +152,5 @@ fi
 export PATH=$HOME/.cabal/bin:$PATH
 
 eval "$(rbenv init -)"
+
+eval "$(stack --bash-completion-script "$(which stack)")"
