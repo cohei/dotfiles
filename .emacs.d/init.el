@@ -118,7 +118,7 @@
 
 (use-package ghc
   :ensure t
-  :commands ghc-init
+  :commands (ghc-init ghc-debug)
   :config (add-to-list 'ac-sources 'ac-source-ghc-mod))
 
 (use-package git-gutter
