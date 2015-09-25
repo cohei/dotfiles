@@ -138,18 +138,7 @@ PROMPT_COMMAND='share_history'  # 上記関数をプロンプト毎に自動実�
 
 export PATH=$HOME/bin:$PATH
 export PATH=$HOME/.rbenv/bin:$PATH
-
-if [[ $OSTYPE =~ darwin ]]; then
-    # Add GHC 7.10.1 to the PATH, via https://ghcformacosx.github.io/
-    export GHC_DOT_APP="/opt/homebrew-cask/Caskroom/ghc/7.10.2-r0/ghc-7.10.2.app"
-    if [ -d "$GHC_DOT_APP" ]; then
-        export PATH="${GHC_DOT_APP}/Contents/bin:${PATH}"
-    fi
-else
-    export PATH=/opt/ghc/7.10.2/bin:$PATH
-fi
-
-export PATH=$HOME/.cabal/bin:$PATH
+export PATH=$HOME/.local/bin:$PATH
 
 eval "$(rbenv init -)"
 

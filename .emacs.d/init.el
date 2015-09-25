@@ -335,7 +335,7 @@ Optionally takes FRAME for its target and works on current frame if nothing give
  '(column-number-mode t)
  '(confirm-kill-emacs (quote y-or-n-p))
  '(dired-dwim-target t)
- '(haskell-process-type (quote cabal-repl))
+ '(haskell-process-type (quote stack-ghci))
  '(indent-tabs-mode nil)
  '(inhibit-startup-screen t)
  '(js-indent-level 2)
