@@ -29,6 +29,7 @@ link() {
         bin/gem-uninstall-all
         bin/grepr
         bin/psgrep
+        .ssh/config
     )
 
     # $dist/.bundle のリンクがあるまま ln すると $dist/.bundle/.bundle というリンクができてしまう
@@ -36,6 +37,7 @@ link() {
 
     [ -d $dist/.emacs.d ] || mkdir $dist/.emacs.d
     [ -d $dist/bin ]      || mkdir $dist/bin
+    [ -d $dist/.ssh ]     || mkdir $dist/.ssh
 
     for target in ${targets[@]}; do
         ln -s -r -b     $repository/$target $dist/$target || \
