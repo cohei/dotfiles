@@ -34,3 +34,6 @@
 	precomposeunicode = true
 [diff]
 	renames = copy
+[url "git@github.com:"]
+	pushInsteadOf = "git://github.com/"
+	pushInsteadOf = "https://github.com/"
