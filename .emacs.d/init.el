@@ -262,7 +262,7 @@ Optionally takes FRAME for its target and works on current frame if nothing give
 (use-package rainbow-mode
   :ensure t
   :init
-  (dolist (hook '(css-mode-hook scss-mode-hook html-mode-hook lisp-mode-hook))
+  (dolist (hook '(css-mode-hook scss-mode-hook html-mode-hook lisp-mode-hook web-mode-hook))
     (add-hook hook (lambda () (rainbow-mode 1)))))
 
 (use-package ruby-mode
@@ -312,6 +312,9 @@ Optionally takes FRAME for its target and works on current frame if nothing give
 
 (use-package uniquify
   :config (setq uniquify-buffer-name-style 'reverse))
+
+(use-package web-mode
+  :ensure t)
 
 (use-package windmove
   :config (windmove-default-keybindings))
