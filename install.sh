@@ -28,7 +28,6 @@ link() {
         bin/diff-highlight
         bin/gem-uninstall-all
         bin/grepr
-        bin/psgrep
         .ssh/config
     )
 
