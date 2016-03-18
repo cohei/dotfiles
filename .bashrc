@@ -143,3 +143,5 @@ export PATH=$HOME/.local/bin:$PATH
 eval "$(rbenv init -)"
 
 eval "$(stack --bash-completion-script "$(which stack)")"
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
