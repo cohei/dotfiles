@@ -318,7 +318,14 @@ Optionally takes FRAME for its target and works on current frame if nothing give
   :ensure t)
 
 (use-package windmove
-  :config (windmove-default-keybindings))
+  :init
+  ;; Make windmove work in org-mode:
+  (add-hook 'org-shiftup-final-hook 'windmove-up)
+  (add-hook 'org-shiftleft-final-hook 'windmove-left)
+  (add-hook 'org-shiftdown-final-hook 'windmove-down)
+  (add-hook 'org-shiftright-final-hook 'windmove-right)
+  :config
+  (windmove-default-keybindings))
 
 (use-package yaml-mode
   :ensure t)
