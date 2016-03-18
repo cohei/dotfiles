@@ -338,6 +338,7 @@ Optionally takes FRAME for its target and works on current frame if nothing give
  '(after-save-hook
    (quote
     (executable-make-buffer-file-executable-if-script-p)))
+ '(backup-by-copying t)
  '(backup-directory-alist (quote (("\\.*$" . "~/.emacs.d/backup"))))
  '(before-save-hook (quote (delete-trailing-whitespace)))
  '(column-number-mode t)
