@@ -15,8 +15,10 @@
 
 ;; add the directories under site-lisp to load path
 (let ((default-directory "~/.emacs.d/site-lisp/"))
-  (normal-top-level-add-to-load-path '("."))
-  (normal-top-level-add-subdirs-to-load-path))
+  (if (file-exists-p default-directory)
+      (progn
+        (normal-top-level-add-to-load-path '("."))
+        (normal-top-level-add-subdirs-to-load-path))))
 
 ;; add repositories
 (require 'package)
