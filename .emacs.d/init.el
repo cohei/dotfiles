@@ -350,6 +350,7 @@ Optionally takes FRAME for its target and works on current frame if nothing give
  '(indent-tabs-mode nil)
  '(inhibit-startup-screen t)
  '(js-indent-level 2)
+ '(js2-basic-offset 2)
  '(kill-whole-line t)
  '(open-junk-file-find-file-function (quote find-file))
  '(require-final-newline (quote visit))
