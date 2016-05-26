@@ -18,9 +18,6 @@ case $OSTYPE in
     linux-gnu) alias ls="ls -F --color=auto" ;;
 esac
 
-alias pu="pushd"
-alias po="popd"
-
 #
 # Csh compatability:
 #
@@ -82,9 +79,6 @@ alias gdc='g dc'
 alias gap='g ap'
 alias gsp='g sp'
 alias gg='g g'
-
-alias cd=pushd
-alias bd=popd
 
 alias rc='rails console'
 
