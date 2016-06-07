@@ -140,7 +140,9 @@ export PATH=$HOME/bin:$PATH
 export PATH=$HOME/.rbenv/bin:$PATH
 export PATH=$HOME/.local/bin:$PATH
 
-eval "$(rbenv init -)"
+if type rbenv >/dev/null 2>&1; then
+    eval "$(rbenv init -)"
+fi
 
 eval "$(stack --bash-completion-script "$(which stack)")"
 
