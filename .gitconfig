@@ -40,3 +40,5 @@
 	pushInsteadOf = "https://github.com/"
 [log]
 	date = iso
+[ghq]
+	root = ~/src
