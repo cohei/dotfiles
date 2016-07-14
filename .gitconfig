@@ -41,5 +41,7 @@
 	pushInsteadOf = "https://github.com/"
 [log]
 	date = iso
+[interactive]
+	diffFilter = diff-highlight
 [ghq]
 	root = ~/src
