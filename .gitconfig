@@ -35,6 +35,7 @@
 	quotepath = false
 [diff]
 	renames = copy
+	compactionHeuristic = true
 [url "git@github.com:"]
 	pushInsteadOf = "git://github.com/"
 	pushInsteadOf = "https://github.com/"
