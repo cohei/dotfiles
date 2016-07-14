@@ -150,3 +150,12 @@ eval "$(stack --bash-completion-script "$(which stack)")"
 
 ENHANCD_DIR=~/src/github/enhancd
 [ -f $ENHANCD_DIR/enhancd.sh ] && . $ENHANCD_DIR/enhancd.sh
+
+# for `ghq look` not to use subshell
+ghq () {
+    if [ "$1" = look ] && [ -n "$2" ]; then
+        cd "$(command ghq list -p -e "$2")" || exit
+    else
+        command ghq "$@"
+    fi
+}
