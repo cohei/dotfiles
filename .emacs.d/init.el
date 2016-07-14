@@ -351,6 +351,7 @@ Optionally takes FRAME for its target and works on current frame if nothing give
  '(inhibit-startup-screen t)
  '(js-indent-level 2)
  '(js2-basic-offset 2)
+ '(js2-indent-switch-body t)
  '(kill-whole-line t)
  '(open-junk-file-find-file-function (quote find-file))
  '(require-final-newline (quote visit))
