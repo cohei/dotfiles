@@ -51,6 +51,9 @@
 (dolist (f '(split-window-below split-window-right delete-window))
   (advice-add f :after 'balance-windows-advice))
 
+(require 'cc-mode)
+(add-hook 'java-mode-hook (lambda () (setq c-basic-offset 2)))
+
 ;; ----------------------------------------
 ;; use-package
 (package-install 'use-package)
