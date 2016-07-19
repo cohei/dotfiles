@@ -83,3 +83,6 @@ alias gg='g g'
 alias rc='rails console'
 
 alias dfh='df -h'
+
+# For solarize colored terminals
+alias icdiff="icdiff --no-bold"
