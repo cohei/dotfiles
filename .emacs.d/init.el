@@ -120,6 +120,7 @@
 
 (use-package ghc
   :ensure t
+  :pin melpa-stable
   :commands (ghc-init ghc-debug)
   :config (add-to-list 'ac-sources 'ac-source-ghc-mod))
 
