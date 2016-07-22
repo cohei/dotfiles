@@ -19,7 +19,7 @@ link() {
         .bash_aliases
         .bash_profile
         .bashrc
-        .bundle
+        .bundle/config
         .emacs.d/init.el
         .ghci
         .gitconfig
@@ -31,9 +31,7 @@ link() {
         .ssh/config
     )
 
-    # $dist/.bundle のリンクがあるまま ln すると $dist/.bundle/.bundle というリンクができてしまう
-    [ -L $dist/.bundle ] && rm $dist/.bundle
-
+    [ -d $dist/.bundle ]  || mkdir $dist/.bundle
     [ -d $dist/.emacs.d ] || mkdir $dist/.emacs.d
     [ -d $dist/bin ]      || mkdir $dist/bin
     [ -d $dist/.ssh ]     || mkdir $dist/.ssh
