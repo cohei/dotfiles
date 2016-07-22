@@ -148,7 +148,7 @@ eval "$(stack --bash-completion-script "$(which stack)")"
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
-ENHANCD_DIR=~/src/github/enhancd
+ENHANCD_DIR=~/src/github.com/b4b4r07/enhancd
 [ -f $ENHANCD_DIR/enhancd.sh ] && . $ENHANCD_DIR/enhancd.sh
 
 # for `ghq look` not to use subshell
