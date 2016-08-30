@@ -51,9 +51,6 @@
 (dolist (f '(split-window-below split-window-right delete-window))
   (advice-add f :after 'balance-windows-advice))
 
-(require 'cc-mode)
-(add-hook 'java-mode-hook (lambda () (setq c-basic-offset 2)))
-
 ;; ----------------------------------------
 ;; use-package
 (package-install 'use-package)
@@ -88,6 +85,14 @@
 ;; optional
 ;; (use-package cacoo-plugins
 ;;   :config (setq cacoo:api-key "APIKEY"))
+
+(use-package cc-mode
+  :config
+  (add-hook
+   'java-mode-hook
+   (lambda ()
+     (setq c-basic-offset 2)
+     (c-set-offset 'case-label '+))))
 
 (use-package coffee-mode
   :ensure t
