@@ -223,7 +223,7 @@ Optionally takes FRAME for its target and works on current frame if nothing give
 
 (use-package markdown-mode
   :ensure t
-  :mode "\\.markdown\\'")
+  :mode ("\\.markdown\\'" "\\.apib\\'"))
 
 (use-package migemo
   :ensure t
