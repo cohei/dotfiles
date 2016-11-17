@@ -80,7 +80,7 @@ alias gap='g ap'
 alias gsp='g sp'
 alias gg='g g'
 
-alias rc='rails console'
+alias rc='spring rails console'
 
 alias dfh='df -h'
 
