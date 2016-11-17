@@ -155,3 +155,5 @@ ghq () {
         command ghq "$@"
     fi
 }
+
+export LESS='-M -R -W'
