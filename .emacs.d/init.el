@@ -326,7 +326,10 @@ Optionally takes FRAME for its target and works on current frame if nothing give
   :config (setq uniquify-buffer-name-style 'reverse))
 
 (use-package web-mode
-  :ensure t)
+  :ensure t
+  :config
+  (setq web-mode-css-indent-offset 2)
+  (setq web-mode-markup-indent-offset 2))
 
 (use-package windmove
   :init
