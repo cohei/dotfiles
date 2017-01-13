@@ -156,4 +156,4 @@ ghq () {
     fi
 }
 
-export LESS='-M -R -W'
+export LESS='-M -R'
