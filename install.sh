@@ -1,3 +1,5 @@
+#!/bin/bash
+
 set -eux
 
 repository=~/.dotfiles
@@ -36,10 +38,10 @@ link() {
     [ -d $dist/bin ]      || mkdir $dist/bin
     [ -d $dist/.ssh ]     || mkdir $dist/.ssh
 
-    for target in ${targets[@]}; do
-        ln -s -r -b     $repository/$target $dist/$target || \
-        ln -s    -b     $repository/$target $dist/$target || \
-        ln -s        -f $repository/$target $dist/$target
+    for target in "${targets[@]}"; do
+        ln -s -r -b     "$repository/$target" "$dist/$target" || \
+        ln -s    -b     "$repository/$target" "$dist/$target" || \
+        ln -s        -f "$repository/$target" "$dist/$target"
     done
 }
 
