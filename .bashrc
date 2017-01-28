@@ -140,7 +140,9 @@ if type rbenv >/dev/null 2>&1; then
     eval "$(rbenv init -)"
 fi
 
-eval "$(stack --bash-completion-script "$(which stack)")"
+if type stack >/dev/null 2>&1; then
+    eval "$(stack --bash-completion-script "$(which stack)")"
+fi
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
