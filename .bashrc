@@ -158,4 +158,4 @@ ghq () {
     fi
 }
 
-export LESS='-M -R'
+export LESS='--LONG-PROMPT --RAW-CONTROL-CHARS'
