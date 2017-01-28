@@ -147,7 +147,7 @@ fi
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
 ENHANCD_DIR=~/src/github.com/b4b4r07/enhancd
-[ -f $ENHANCD_DIR/enhancd.sh ] && . $ENHANCD_DIR/enhancd.sh
+[ -f $ENHANCD_DIR/init.sh ] && . $ENHANCD_DIR/init.sh
 
 # for `ghq look` not to use subshell
 ghq () {
