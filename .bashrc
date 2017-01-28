@@ -158,4 +158,4 @@ ghq () {
     fi
 }
 
-export LESS='--LONG-PROMPT --RAW-CONTROL-CHARS'
+export LESS='--LONG-PROMPT --RAW-CONTROL-CHARS --quit-if-one-screen --no-init'
