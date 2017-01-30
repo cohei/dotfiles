@@ -45,3 +45,5 @@
 	diffFilter = diff-highlight
 [ghq]
 	root = ~/src
+[pull]
+	ff = only
