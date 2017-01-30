@@ -175,6 +175,10 @@
   :config
   (define-key flycheck-mode-map (kbd "C-c !") 'helm-flycheck))
 
+(use-package helm-git-grep
+  :ensure t
+  :bind ("C-c k" . helm-git-grep-at-point))
+
 (use-package helm-projectile
   :ensure t
   :bind ("C-c r" . helm-projectile))
