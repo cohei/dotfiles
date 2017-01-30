@@ -79,7 +79,12 @@ esac
 
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
-    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+    if [ -r ~/.dircolors ]; then
+        eval "$(dircolors -b ~/.dircolors)"
+    else
+        eval "$(dircolors -b)"
+    fi
+
     alias ls='ls --color=auto'
     #alias dir='dir --color=auto'
     #alias vdir='vdir --color=auto'
@@ -126,7 +131,7 @@ export LANG=ja_JP.UTF-8
 export PS1='\n[\t] @$(hostname | cut -c 1-6) \W$(__git_ps1) $ '
 
 # mainly for git commiting
-if [ `uname` = 'Linux' ]; then
+if [ "$(uname)" = 'Linux' ]; then
     export EDITOR='emacsclient --alternate-editor="" -c'
 else
     export EDITOR='emacsclient --alternate-editor=""'
