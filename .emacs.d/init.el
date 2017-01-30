@@ -227,7 +227,11 @@ Optionally takes FRAME for its target and works on current frame if nothing give
 
 (use-package markdown-mode
   :ensure t
-  :mode ("\\.markdown\\'" "\\.apib\\'"))
+  :commands (markdown-mode gfm-mode)
+  :mode (("README\\.md\\'" . gfm-mode)
+         ("\\.md\\'" . markdown-mode)
+         ("\\.markdown\\'" . markdown-mode)
+         ("\\.apib\\'" . markdown-mode)))
 
 (use-package migemo
   :ensure t
