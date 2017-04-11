@@ -101,6 +101,9 @@
   (setq coffee-tab-width 2)
   (auto-complete-mode))
 
+(use-package dockerfile-mode
+  :ensure t)
+
 (use-package emmet-mode
   :ensure t
   :defer t
