@@ -125,6 +125,14 @@ if ! shopt -oq posix; then
   fi
 fi
 
+# added by Nix installer
+nix_sh="$HOME/.nix-profile/etc/profile.d/nix.sh"
+if [ -e $nix_sh ]; then
+    . $nix_sh
+
+    . "$NIX_LINK/etc/bash_completion.d/git-completion.bash"
+    . "$NIX_LINK/etc/bash_completion.d/git-prompt.sh"
+fi
 
 export LANG=ja_JP.UTF-8
 
