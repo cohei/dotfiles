@@ -310,9 +310,6 @@ Optionally takes FRAME for its target and works on current frame if nothing give
     :ensure t
     :config (ruby-interpolation-mode)))
 
-(use-package inf-ruby :commands inf-ruby)
-(use-package rubydb3x :commands rubydb)
-
 (use-package ruby-hash-syntax
   :ensure t)
 
