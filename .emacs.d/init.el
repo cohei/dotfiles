@@ -170,6 +170,8 @@
 
 (use-package helm
   :ensure t
+  :config
+  (helm-migemo-mode 1)
   :bind
   (("C-c h" . helm-mini)
    ("M-x"   . helm-M-x)
