@@ -199,6 +199,12 @@
   :ensure t
   :bind ("C-c j" . helm-projectile))
 
+(use-package helm-swoop
+  :ensure t
+  :config
+  (setq helm-swoop-split-with-multiple-windows t)
+  (setq helm-swoop-split-direction 'split-window-vertically))
+
 ;; (helm-mode 1)
 ;; helm-c-source-files-in-current-dir
 ;; helm-mini は buffer と recentf と not-found
