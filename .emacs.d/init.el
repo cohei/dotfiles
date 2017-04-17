@@ -326,6 +326,14 @@ Optionally takes FRAME for its target and works on current frame if nothing give
    (t
     (load-theme 'solarized-dark t))))
 
+(use-package string-inflection
+  :ensure t
+  :bind (("C-c C-u" . string-inflection-all-cycle)
+         :map ruby-mode-map
+         ("C-c C-u" . string-inflection-ruby-style-cycle)
+         :map java-mode-map
+         ("C-c C-u" . string-inflection-java-style-cycle)))
+
 (use-package textile-mode
   :ensure t
   :mode "\\.textile\\'")
