@@ -51,6 +51,11 @@
 (dolist (f '(split-window-below split-window-right delete-window))
   (advice-add f :after 'balance-windows-advice))
 
+;; enable goto-address-mode
+(progn
+  (add-hook 'prog-mode-hook 'goto-address-prog-mode)
+  (add-hook 'text-mode-hook 'goto-address-mode))
+
 ;; ----------------------------------------
 ;; use-package
 (package-install 'use-package)
