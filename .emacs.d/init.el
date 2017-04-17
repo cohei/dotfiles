@@ -207,6 +207,17 @@
 ;;   (loop for (key func) in key-and-func
 ;;         do (global-set-key key func)))
 
+(use-package howm
+  :ensure t
+  :init
+  (setq howm-view-title-header "#") ; 先に定義する必要がある
+  :config
+  (setq howm-directory "~/Dropbox/notes"
+        howm-file-name-format "%Y%m%d-%H%M%S.md"
+        howm-keyword-file (concat (file-name-as-directory howm-directory) ".howm-keys")
+        howm-history-file (concat (file-name-as-directory howm-directory) ".howm-history"))
+  :bind ("C-c c" . howm-menu))
+
 (use-package js2-mode
   :ensure t
   :mode "\\.js\\'")
