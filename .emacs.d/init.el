@@ -57,13 +57,12 @@
 (require 'use-package)
 
 (use-package align
+  :bind
+  ("C-c a" . align)
+  ("C-x a r" . align-regexp)
   :config
-  (global-set-key (kbd "C-c a") 'align)
-  (global-set-key (kbd "C-x a r") 'align-regexp)
-  (add-to-list 'align-rules-list
-               '(ruby19-hash (regexp . ":\\(\s-*\\)") (modes . '(ruby-mode))))
-  (add-to-list 'align-rules-list
-               '(ruby-assignment (regexp . "\\(\s-*\\)=") (modes . '(ruby-mode)))))
+  (add-to-list 'align-rules-list '(ruby19-hash (regexp . ":\\(\s-*\\)") (modes . '(ruby-mode))))
+  (add-to-list 'align-rules-list '(ruby-assignment (regexp . "\\(\s-*\\)=") (modes . '(ruby-mode)))))
 
 (use-package ansi-color
   :config
@@ -154,16 +153,15 @@
                (haskell-indentation-mode 1)
                (flycheck-mode -1) ; to cancel global flycheck mode
                (ghc-init)))
-  :config
-  (bind-keys :map haskell-mode-map
-             ("C-x C-d" . nil)
-             ("C-c C-z" . haskell-interactive-switch)
-             ("C-c C-l" . haskell-process-load-file)
-             ("C-c C-b" . haskell-interactive-switch)
-             ;; ("C-c C-t" . haskell-process-do-type)
-             ;; ("C-c C-i" . haskell-process-do-info)
-             ("C-c M-." . nil)
-             ("C-c C-d" . nil)))
+  :bind (:map haskell-mode-map
+              ("C-x C-d" . nil)
+              ("C-c C-z" . haskell-interactive-switch)
+              ("C-c C-l" . haskell-process-load-file)
+              ("C-c C-b" . haskell-interactive-switch)
+              ;; ("C-c C-t" . haskell-process-do-type)
+              ;; ("C-c C-i" . haskell-process-do-info)
+              ("C-c M-." . nil)
+              ("C-c C-d" . nil)))
 
 (use-package helm
   :ensure t
