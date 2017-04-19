@@ -170,8 +170,6 @@
 
 (use-package helm
   :ensure t
-  :config
-  (helm-migemo-mode 1)
   :bind
   (("C-c h" . helm-mini)
    ("M-x"   . helm-M-x)
@@ -250,7 +248,8 @@ Optionally takes FRAME for its target and works on current frame if nothing give
   (setq migemo-user-dictionary nil)
   (setq migemo-regex-dictionary nil)
   (setq migemo-coding-system 'utf-8-unix)
-  (migemo-init))
+  (migemo-init)
+  (helm-migemo-mode 1))
 
 (use-package open-junk-file
   :ensure t
