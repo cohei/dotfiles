@@ -91,7 +91,7 @@
 ;;   :config (setq cacoo:api-key "APIKEY"))
 
 (use-package cc-mode
-  :config
+  :init
   (add-hook
    'java-mode-hook
    (lambda ()
@@ -123,7 +123,7 @@
   ;; This step causes the ensime-mode to be started whenever
   ;; scala-mode is started for a buffer. You may have to customize this step
   ;; if you're not using the standard scala mode.
-  :config (add-hook 'scala-mode-hook 'ensime-scala-mode-hook))
+  :init (add-hook 'scala-mode-hook 'ensime-scala-mode-hook))
 
 (use-package exec-path-from-shell
   :ensure t
@@ -284,7 +284,7 @@ Optionally takes FRAME for its target and works on current frame if nothing give
 
 (use-package rainbow-delimiters
   :ensure t
-  :config (add-hook 'prog-mode-hook 'rainbow-delimiters-mode))
+  :init (add-hook 'prog-mode-hook 'rainbow-delimiters-mode))
 
 (use-package rainbow-mode
   :ensure t
