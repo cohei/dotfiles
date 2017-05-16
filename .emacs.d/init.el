@@ -337,6 +337,9 @@ Optionally takes FRAME for its target and works on current frame if nothing give
   :ensure t
   :mode "\\.textile\\'")
 
+(use-package tup-mode
+  :ensure t)
+
 (use-package undo-tree
   :ensure t
   :diminish ""
