@@ -37,6 +37,7 @@
 (set-default 'show-trailing-whitespace t)
 (dolist (hook '(Buffer-menu-mode-hook
                 eshell-mode-hook
+                intero-repl-mode-hook
                 package-menu-mode
                 term-mode-hook
                 undo-tree-visualizer-mode-hook))
@@ -148,12 +149,6 @@
   :ensure t
   :config (global-flycheck-mode))
 
-(use-package ghc
-  :ensure t
-  :pin melpa-stable
-  :commands (ghc-init ghc-debug)
-  :config (add-to-list 'ac-sources 'ac-source-ghc-mod))
-
 (use-package git-gutter
   :ensure t
   :defer t
@@ -166,22 +161,8 @@
 
 (use-package haskell-mode
   :ensure t
-  :defer t
   :init
-  (add-hook 'haskell-mode-hook
-            '(lambda ()
-               (haskell-indentation-mode 1)
-               (flycheck-mode -1) ; to cancel global flycheck mode
-               (ghc-init)))
-  :bind (:map haskell-mode-map
-              ("C-x C-d" . nil)
-              ("C-c C-z" . haskell-interactive-switch)
-              ("C-c C-l" . haskell-process-load-file)
-              ("C-c C-b" . haskell-interactive-switch)
-              ;; ("C-c C-t" . haskell-process-do-type)
-              ;; ("C-c C-i" . haskell-process-do-info)
-              ("C-c M-." . nil)
-              ("C-c C-d" . nil)))
+  (add-hook 'haskell-mode-hook '(lambda () (haskell-indentation-mode 1))))
 
 (use-package helm
   :ensure t
@@ -233,6 +214,11 @@
         howm-history-file (concat (file-name-as-directory howm-directory) ".howm-history")
         howm-view-split-horizontally t)
   :bind ("C-c c" . howm-menu))
+
+(use-package intero
+  :ensure t
+  :init
+  (add-hook 'haskell-mode-hook 'intero-mode))
 
 (use-package js2-mode
   :ensure t
