@@ -172,6 +172,7 @@
   :ensure t
   :bind
   (("C-c h" . helm-mini)
+   ("C-c r" . helm-resume)
    ("M-x"   . helm-M-x)
    ("M-y"   . helm-show-kill-ring)
    ("C-x b" . helm-buffers-list)))
@@ -187,7 +188,7 @@
 
 (use-package helm-projectile
   :ensure t
-  :bind ("C-c r" . helm-projectile))
+  :bind ("C-c j" . helm-projectile))
 
 ;; (helm-mode 1)
 ;; helm-c-source-files-in-current-dir
