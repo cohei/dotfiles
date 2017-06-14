@@ -41,7 +41,7 @@
 (fset 'yes-or-no-p 'y-or-n-p)
 
 ;; bell
-(when (eq window-system 'ns)
+(when (memq window-system '(ns mac))
   (setq ring-bell-function 'ignore))
 
 ;; balance-windows after spliting/deleting windows
@@ -218,7 +218,7 @@
   (bind-key "C-c g" 'magit-status))
 
 (use-package maxframe
-  :if (memq window-system '(ns x)) ; cocoa, carbon -> mac, terminal -> nil, X -> x
+  :if (memq window-system '(ns x mac)) ; cocoa, carbon -> mac, terminal -> nil, X -> x
   :config
   (defun maximize-and-split (&optional frame)
     "Maximize the window and split it horizontally into two buffers.
