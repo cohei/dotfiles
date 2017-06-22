@@ -16,8 +16,6 @@
 	sl    = stash list
 	sp    = stash pop
 	s     = status -sb
-[status]
-	showUntrackedFiles = all
 [push]
 	default = simple
 [rebase]
