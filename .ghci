@@ -3,4 +3,4 @@
 :set +s
 :set +t
 :set +m
-:set -fdefer-typed-holes
+:set -fdefer-type-errors
