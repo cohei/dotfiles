@@ -25,6 +25,8 @@ case $OSTYPE in
     darwin*)   alias ls="ls -FG" ;;
     linux-gnu) alias ls="ls -F --color=auto" ;;
 esac
+
+alias la="ls -a"
 alias ll="ls -l"
 alias lla="ls -al"
 
