@@ -1,6 +1,6 @@
 :def hoogle \x -> return $ ":!hoogle \"" ++ x ++ "\""
-:set -i..
+:seti -i..
 :set +s
 :set +t
 :set +m
-:set -fdefer-type-errors
+:seti -fdefer-type-errors
