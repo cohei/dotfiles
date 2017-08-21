@@ -379,11 +379,6 @@ Optionally takes FRAME for its target and works on current frame if nothing give
 (use-package yaml-mode
   :ensure t)
 
-(if (executable-find "agda-mode")
-    (load-file
-     (let ((coding-system-for-read 'utf-8))
-       (shell-command-to-string "agda-mode locate"))))
-
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -392,7 +387,6 @@ Optionally takes FRAME for its target and works on current frame if nothing give
  '(after-save-hook
    (quote
     (executable-make-buffer-file-executable-if-script-p)))
- `(agda2-include-dirs (quote ("." ,(expand-file-name "~/src/agda-stdlib/src"))))
  '(backup-by-copying t)
  '(backup-directory-alist (quote (("\\.*$" . "~/.emacs.d/backup"))))
  '(before-save-hook (quote (delete-trailing-whitespace)))
