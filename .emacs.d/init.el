@@ -215,7 +215,8 @@
   (setq howm-directory "~/Dropbox/notes"
         howm-file-name-format "%Y%m%d-%H%M%S.md"
         howm-keyword-file (concat (file-name-as-directory howm-directory) ".howm-keys")
-        howm-history-file (concat (file-name-as-directory howm-directory) ".howm-history"))
+        howm-history-file (concat (file-name-as-directory howm-directory) ".howm-history")
+        howm-view-split-horizontally t)
   :bind ("C-c c" . howm-menu))
 
 (use-package js2-mode
