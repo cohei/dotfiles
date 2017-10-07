@@ -105,6 +105,9 @@
   (setq coffee-tab-width 2)
   (auto-complete-mode))
 
+(use-package csv-mode
+  :ensure t)
+
 (use-package dockerfile-mode
   :ensure t)
 
