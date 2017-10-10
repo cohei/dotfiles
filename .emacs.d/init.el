@@ -56,6 +56,9 @@
 (dolist (f '(split-window-below split-window-right delete-window))
   (advice-add f :after 'balance-windows-advice))
 
+;; make file with shebang executable
+(add-hook 'after-save-hook 'executable-make-buffer-file-executable-if-script-p)
+
 ;; enable goto-address-mode
 (progn
   (add-hook 'prog-mode-hook 'goto-address-prog-mode)
@@ -393,9 +396,6 @@ Optionally takes FRAME for its target and works on current frame if nothing give
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(after-save-hook
-   (quote
-    (executable-make-buffer-file-executable-if-script-p)))
  '(backup-by-copying t)
  '(backup-directory-alist (quote (("\\.*$" . "~/.emacs.d/backup"))))
  '(column-number-mode t)
