@@ -32,9 +32,14 @@
 (global-set-key (kbd "C-x j") 'dired-jump)
 (global-set-key (kbd "M-SPC") 'cycle-spacing)
 
-;; show trailing whitespaces
-(dolist (hook '(term-mode-hook undo-tree-visualizer-mode-hook Buffer-menu-mode-hook eshell-mode-hook
-                package-menu-mode))
+;; trailing whitespaces
+(add-hook 'before-save-hook 'delete-trailing-whitespace)
+(set-default 'show-trailing-whitespace t)
+(dolist (hook '(Buffer-menu-mode-hook
+                eshell-mode-hook
+                package-menu-mode
+                term-mode-hook
+                undo-tree-visualizer-mode-hook))
   (add-hook hook (lambda () (setq show-trailing-whitespace nil))))
 
 ; yes/no to y/n
@@ -393,7 +398,6 @@ Optionally takes FRAME for its target and works on current frame if nothing give
     (executable-make-buffer-file-executable-if-script-p)))
  '(backup-by-copying t)
  '(backup-directory-alist (quote (("\\.*$" . "~/.emacs.d/backup"))))
- '(before-save-hook (quote (delete-trailing-whitespace)))
  '(column-number-mode t)
  '(confirm-kill-emacs (quote y-or-n-p))
  '(custom-safe-themes
@@ -414,7 +418,6 @@ Optionally takes FRAME for its target and works on current frame if nothing give
  '(scroll-conservatively 1000)
  '(scroll-margin 5)
  '(scss-compile-at-save nil)
- '(show-trailing-whitespace t)
  '(tool-bar-mode nil)
  '(use-dialog-box nil))
 
