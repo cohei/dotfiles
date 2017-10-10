@@ -64,6 +64,10 @@
   (add-hook 'prog-mode-hook 'goto-address-prog-mode)
   (add-hook 'text-mode-hook 'goto-address-mode))
 
+;; backup
+(setq backup-by-copying t)
+(add-to-list 'backup-directory-alist '("\\.*$" . "~/.emacs.d/backup"))
+
 ;; ----------------------------------------
 ;; use-package
 (package-install 'use-package)
@@ -396,8 +400,6 @@ Optionally takes FRAME for its target and works on current frame if nothing give
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(backup-by-copying t)
- '(backup-directory-alist (quote (("\\.*$" . "~/.emacs.d/backup"))))
  '(column-number-mode t)
  '(confirm-kill-emacs (quote y-or-n-p))
  '(custom-safe-themes
