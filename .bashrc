@@ -114,7 +114,6 @@ else
 fi
 
 export PATH=$HOME/bin:$PATH
-export PATH=$HOME/.rbenv/bin:$PATH
 export PATH=$HOME/.local/bin:$PATH
 
 if type rbenv >/dev/null 2>&1; then
