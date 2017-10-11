@@ -9,30 +9,41 @@
 (unless (server-running-p)
   (server-start))
 
-;; language settings
+(fset 'yes-or-no-p 'y-or-n-p)
+
+(when (memq window-system '(ns mac))
+  (setq ring-bell-function 'ignore))
+
+;;;; Language
+
 (set-language-environment 'Japanese)
 (prefer-coding-system 'utf-8)
 
-;; add the directories under site-lisp to load path
+;;;; Load libraries
+
+;;; add the directories under site-lisp to load path
 (let ((default-directory "~/.emacs.d/site-lisp/"))
   (if (file-exists-p default-directory)
       (progn
         (normal-top-level-add-to-load-path '("."))
         (normal-top-level-add-subdirs-to-load-path))))
 
-;; add repositories
+;;; add repositories
 (require 'package)
 (add-to-list 'package-archives (cons "melpa-stable" "http://melpa-stable.milkbox.net/packages/"))
 (add-to-list 'package-archives (cons "melpa" "http://melpa.milkbox.net/packages/"))
 (package-initialize)
 
-;; global keybinds
+;;;; Global Keybinds
+
 (global-set-key (kbd "C-x ?") 'help-command) ; to use C-h for DEL
 (global-set-key (kbd "C-h") 'delete-backward-char)
 (global-set-key (kbd "C-x j") 'dired-jump)
 (global-set-key (kbd "M-SPC") 'cycle-spacing)
 
-;; trailing whitespaces
+;;;; Buffer Settings
+
+;;; trailing whitespaces
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 (set-default 'show-trailing-whitespace t)
 (dolist (hook '(Buffer-menu-mode-hook
@@ -43,34 +54,26 @@
                 undo-tree-visualizer-mode-hook))
   (add-hook hook (lambda () (setq show-trailing-whitespace nil))))
 
-; yes/no to y/n
-(fset 'yes-or-no-p 'y-or-n-p)
-
-;; bell
-(when (memq window-system '(ns mac))
-  (setq ring-bell-function 'ignore))
-
-;; balance-windows after spliting/deleting windows
+;;; balance-windows after spliting/deleting windows
 (defun balance-windows-advice (&rest args)
   "Advice which execute `balance-window' after something.  ARGS are ignored."
   (balance-windows))
 (dolist (f '(split-window-below split-window-right delete-window))
   (advice-add f :after 'balance-windows-advice))
 
-;; make file with shebang executable
+;;; make file with shebang executable
 (add-hook 'after-save-hook 'executable-make-buffer-file-executable-if-script-p)
 
-;; enable goto-address-mode
-(progn
-  (add-hook 'prog-mode-hook 'goto-address-prog-mode)
-  (add-hook 'text-mode-hook 'goto-address-mode))
+;;; enable goto-address-mode
+(add-hook 'prog-mode-hook 'goto-address-prog-mode)
+(add-hook 'text-mode-hook 'goto-address-mode)
 
-;; backup
+;;; backup
 (setq backup-by-copying t)
 (add-to-list 'backup-directory-alist '("\\.*$" . "~/.emacs.d/backup"))
 
-;; ----------------------------------------
-;; use-package
+;;;; use-package
+
 (package-install 'use-package)
 (require 'use-package)
 
