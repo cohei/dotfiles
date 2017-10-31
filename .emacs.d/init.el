@@ -96,6 +96,10 @@
     (interactive)
     (ansi-color-apply-on-region (point-min) (point-max))))
 
+(use-package apib-mode
+  :ensure t
+  :mode "\\.apib\\'")
+
 (use-package auto-complete-config
   :ensure auto-complete
   :config
@@ -257,8 +261,7 @@ Optionally takes FRAME for its target and works on current frame if nothing give
   :commands (markdown-mode gfm-mode)
   :mode (("README\\.md\\'" . gfm-mode)
          ("\\.md\\'" . markdown-mode)
-         ("\\.markdown\\'" . markdown-mode)
-         ("\\.apib\\'" . markdown-mode)))
+         ("\\.markdown\\'" . markdown-mode)))
 
 (use-package migemo
   :ensure t
