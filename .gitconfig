@@ -27,7 +27,7 @@
 [core]
 	precomposeunicode = true
 	quotepath = false
-	pager = diff-highlight | less
+	pager = diff-so-fancy | less
 [diff]
 	renames = copy
 	compactionHeuristic = true
@@ -37,7 +37,7 @@
 [log]
 	date = iso
 [interactive]
-	diffFilter = diff-highlight
+	diffFilter = diff-so-fancy | less
 [ghq]
 	root = ~/src
 [pull]

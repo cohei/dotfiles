@@ -27,7 +27,6 @@ link() {
         .gitconfig
         .pryrc
         .rspec
-        bin/diff-highlight
         bin/gem-uninstall-all
         bin/grepr
         .ssh/config
