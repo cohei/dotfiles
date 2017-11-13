@@ -1,3 +1,5 @@
+[![CircleCI](https://circleci.com/gh/cohei/dotfiles.svg?style=svg)](https://circleci.com/gh/cohei/dotfiles)
+
 # Precondition
 
 - cURL available

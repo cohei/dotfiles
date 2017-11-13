@@ -1,0 +1,8 @@
+version: 2
+jobs:
+   build:
+     docker:
+       - image: ubuntu:rolling
+     steps:
+       - run: apt update -qq && apt install -qq --yes curl git
+       - run: curl https://raw.githubusercontent.com/cohei/dotfiles/master/install.sh | bash
