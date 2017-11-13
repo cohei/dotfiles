@@ -39,9 +39,9 @@ link() {
     [ -d $dist/.ssh ]     || mkdir $dist/.ssh
 
     for target in "${targets[@]}"; do
-        ln -s -r -b     "$repository/$target" "$dist/$target" || \
-        ln -s    -b     "$repository/$target" "$dist/$target" || \
-        ln -s        -f "$repository/$target" "$dist/$target"
+        ln --symbolic --relative --backup "$repository/$target" "$dist/$target" || \
+        ln --symbolic            --backup "$repository/$target" "$dist/$target" || \
+        ln -s -f                          "$repository/$target" "$dist/$target"
     done
 }
 
