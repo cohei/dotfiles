@@ -5,7 +5,7 @@ set -eux
 repository=~/.dotfiles
 
 download() {
-    git clone git@github.com:cohei/dotfiles.git $repository
+    git clone https://github.com/cohei/dotfiles.git $repository
 }
 
 initialize() {

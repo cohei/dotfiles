@@ -2,7 +2,6 @@
 
 - cURL available
 - Git available
-- Public key registered to GitHub
 
 # Install
 
