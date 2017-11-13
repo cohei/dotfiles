@@ -1,11 +1,13 @@
+# Dotfiles
+
 [![CircleCI](https://circleci.com/gh/cohei/dotfiles.svg?style=svg)](https://circleci.com/gh/cohei/dotfiles)
 
-# Precondition
+## Precondition
 
 - cURL available
 - Git available
 
-# Install
+## Install
 
 ```shell
 curl https://raw.githubusercontent.com/cohei/dotfiles/master/install.sh | bash
