@@ -11,8 +11,7 @@
 
 (fset 'yes-or-no-p 'y-or-n-p)
 
-(when (memq window-system '(ns mac))
-  (setq ring-bell-function 'ignore))
+(setq ring-bell-function (lambda () (princ "[RING] ")))
 
 (setq confirm-kill-emacs 'y-or-n-p)
 
