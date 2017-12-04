@@ -135,6 +135,9 @@
 (use-package dockerfile-mode
   :ensure t)
 
+(use-package elm-mode
+  :ensure t)
+
 (use-package emmet-mode
   :ensure t
   :defer t
