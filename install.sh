@@ -31,6 +31,7 @@ link() {
         bin/gem-uninstall-all
         bin/grepr
         bin/dotall
+        bin/shell_expansion
         .ssh/config
     )
 
