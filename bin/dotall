@@ -1,0 +1,1 @@
+find $1 -name *.dot -exec dot -Tpdf -O {} \;

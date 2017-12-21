@@ -30,6 +30,7 @@ link() {
         .rspec
         bin/gem-uninstall-all
         bin/grepr
+        bin/dotall
         .ssh/config
     )
 
