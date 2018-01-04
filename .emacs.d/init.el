@@ -228,6 +228,9 @@
         howm-view-split-horizontally t)
   :bind ("C-c c" . howm-menu))
 
+(use-package image+
+  :ensure t)
+
 (use-package intero
   :ensure t
   :init
