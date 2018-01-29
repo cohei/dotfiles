@@ -33,8 +33,6 @@ alias lla="ls -al"
 # abbreviation for emacs
 alias e='emacsclient --alternate-editor="" -n'
 
-alias telnet='rlwrap telnet'
-
 # git
 alias g='git'
 alias s='g s'
@@ -45,8 +43,6 @@ alias gdc='g dc'
 alias gap='g ap'
 alias gsp='g sp'
 alias gg='g g'
-
-alias rc='spring rails console'
 
 alias dfh='df -h'
 
