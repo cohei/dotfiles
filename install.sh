@@ -21,6 +21,7 @@ link() {
         .bash_aliases
         .bash_profile
         .bashrc
+        .Brewfile
         .bundle/config
         .emacs.d/init.el
         .ghci
