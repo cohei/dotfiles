@@ -14,7 +14,10 @@
     ];
 
     masApps = {
+      "Control Panel for Twitter" = 1668516167;
+      "Keepa - Price Tracker" = 1533805339;
       "Paste Plain Text" = 1407015686;
+      "Refined GitHub" = 1519867270;
       "Save to Raindrop.io" = 1549370672;
       "Slack" = 803453959;
       "Spark Desktop" = 6445813049;
