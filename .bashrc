@@ -77,3 +77,5 @@ ghq () {
 }
 
 eval "$(direnv hook bash)"
+
+eval "$(hub alias -s)"
