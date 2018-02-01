@@ -375,6 +375,9 @@ Optionally takes FRAME for its target and works on current frame if nothing give
 (use-package uniquify
   :config (setq uniquify-buffer-name-style 'reverse))
 
+(use-package vue-mode
+  :ensure t)
+
 (use-package web-mode
   :ensure t
   :config
