@@ -245,6 +245,7 @@
   :bind ("C-c g" . magit-status))
 
 (use-package maxframe
+  :ensure t
   :if (memq window-system '(ns x mac)) ; cocoa, carbon -> mac, terminal -> nil, X -> x
   :config
   (defun maximize-and-split (&optional frame)
