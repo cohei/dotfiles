@@ -254,10 +254,11 @@ Optionally takes FRAME for its target and works on current frame if nothing give
         (select-window (frame-root-window frame)))
     (toggle-frame-fullscreen)
     (split-window-horizontally))
-  ;; when startup
-  (add-hook 'window-setup-hook          'maximize-and-split t)
-  ;; when make-frame
-  (add-hook 'after-make-frame-functions 'maximize-and-split t))
+  :hook
+   ;; when startup
+  ((window-setup . maximize-and-split)
+   ;; when make-frame
+   (after-make-frame-functions . maximize-and-split)))
 
 (use-package markdown-mode
   :ensure t
