@@ -233,8 +233,7 @@
 
 (use-package intero
   :ensure t
-  :init
-  (add-hook 'haskell-mode-hook 'intero-mode))
+  :hook (haskell-mode . intero-mode))
 
 (use-package js2-mode
   :ensure t
