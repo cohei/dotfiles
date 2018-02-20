@@ -5,4 +5,4 @@ jobs:
       - image: ubuntu:17.10
     steps:
       - run: apt-get update -qq && apt-get install --yes curl git
-      - run: curl https://raw.githubusercontent.com/cohei/dotfiles/master/install.sh | bash
+      - run: curl https://cohei.github.io/dotfiles/install.sh | bash
