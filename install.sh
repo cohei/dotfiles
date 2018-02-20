@@ -18,27 +18,27 @@ link() {
     dist=~
 
     targets=(
+        .Brewfile
         .bash_aliases
         .bash_profile
         .bashrc
-        .Brewfile
         .bundle/config
         .emacs.d/init.el
         .ghci
         .gitconfig
         .pryrc
         .rspec
+        .ssh/config
+        bin/dotall
         bin/gem-uninstall-all
         bin/grepr
-        bin/dotall
         bin/shell_expansion
-        .ssh/config
     )
 
     [ -d $dist/.bundle ]  || mkdir $dist/.bundle
     [ -d $dist/.emacs.d ] || mkdir $dist/.emacs.d
-    [ -d $dist/bin ]      || mkdir $dist/bin
     [ -d $dist/.ssh ]     || mkdir $dist/.ssh
+    [ -d $dist/bin ]      || mkdir $dist/bin
 
     for target in "${targets[@]}"; do
         ln --symbolic --relative --backup "$repository/$target" "$dist/$target" || \
