@@ -2,7 +2,7 @@ version: 2
 jobs:
   build:
     docker:
-      - image: ubuntu:rolling
+      - image: ubuntu:17.10
     steps:
-      - run: apt update -qq && apt install -qq --yes curl git
+      - run: apt-get update -qq && apt-get install --yes curl git
       - run: curl https://raw.githubusercontent.com/cohei/dotfiles/master/install.sh | bash
