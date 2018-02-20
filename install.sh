@@ -9,8 +9,8 @@ download() {
 }
 
 initialize() {
-    # git は実行可否以外のモードを保存しない
-    # ユーザー以外が書き込み権限を持っていると読み込んでくれない
+    # Git remembers only permissions about executability.
+    # ghci reads .ghci when it does not allow to be written from other users.
     chmod 644 $repository/.ghci
 }
 
