@@ -36,13 +36,10 @@ link() {
         bin/shell_expansion
     )
 
-    [ -d $dist/.bundle ]     || mkdir    $dist/.bundle
-    [ -d $dist/.config/git ] || mkdir -p $dist/.config/git
-    [ -d $dist/.emacs.d ]    || mkdir    $dist/.emacs.d
-    [ -d $dist/.ssh ]        || mkdir    $dist/.ssh
-    [ -d $dist/bin ]         || mkdir    $dist/bin
-
     for target in "${targets[@]}"; do
+        dir=$(dirname "$target")
+        [ -d "$dist/$dir" ] || mkdir -p "$dist/$dir"
+
         ln --symbolic --relative --backup "$repository/$target" "$dist/$target" || \
         ln --symbolic            --backup "$repository/$target" "$dist/$target" || \
         ln -s -f                          "$repository/$target" "$dist/$target"
