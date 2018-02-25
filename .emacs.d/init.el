@@ -175,9 +175,7 @@
   :mode "\\.hamlc\\'")
 
 (use-package haskell-mode
-  :ensure t
-  :init
-  (add-hook 'haskell-mode-hook '(lambda () (haskell-indentation-mode 1))))
+  :ensure t)
 
 (use-package helm
   :ensure t
