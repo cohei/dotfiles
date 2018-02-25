@@ -237,6 +237,7 @@
 
 (use-package magit
   :ensure t
+  :demand
   :bind ("C-c g" . magit-status))
 
 (use-package maxframe
