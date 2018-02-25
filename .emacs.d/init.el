@@ -131,6 +131,9 @@
 (use-package csv-mode
   :ensure t)
 
+(use-package diminish
+  :ensure t)
+
 (use-package dockerfile-mode
   :ensure t)
 
