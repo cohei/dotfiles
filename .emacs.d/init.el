@@ -148,9 +148,7 @@
 (use-package emmet-mode
   :ensure t
   :defer t
-  :init
-  (add-hook 'sgml-mode-hook 'emmet-mode)
-  (add-hook 'css-mode-hook 'emmet-mode)
+  :hook (sgml-mode css-mode)
   :config
   (setq emmet-move-cursor-between-quotes t))
 
@@ -170,7 +168,7 @@
   :ensure t
   :defer t
   :diminish "GG"
-  :init (add-hook 'prog-mode-hook 'git-gutter-mode))
+  :hook (prog-mode . git-gutter-mode))
 
 (use-package haml-mode
   :ensure t
@@ -317,13 +315,12 @@ Optionally takes FRAME for its target and works on current frame if nothing give
 
 (use-package rainbow-delimiters
   :ensure t
-  :init (add-hook 'prog-mode-hook 'rainbow-delimiters-mode))
+  :hook (prog-mode . rainbow-delimiters-mode))
 
 (use-package rainbow-mode
   :ensure t
   :init
-  (dolist (hook '(css-mode-hook scss-mode-hook html-mode-hook lisp-mode-hook web-mode-hook))
-    (add-hook hook (lambda () (rainbow-mode 1)))))
+  :hook (css-mode scss-mode html-mode lisp-mode web-mode))
 
 (use-package ruby-mode
   :mode (("\\.jbuilder\\'"  . ruby-mode)
@@ -391,14 +388,15 @@ Optionally takes FRAME for its target and works on current frame if nothing give
   (setq web-mode-markup-indent-offset 2))
 
 (use-package windmove
-  :init
-  ;; Make windmove work in org-mode:
-  (add-hook 'org-shiftup-final-hook 'windmove-up)
-  (add-hook 'org-shiftleft-final-hook 'windmove-left)
-  (add-hook 'org-shiftdown-final-hook 'windmove-down)
-  (add-hook 'org-shiftright-final-hook 'windmove-right)
   :config
-  (windmove-default-keybindings))
+  (windmove-default-keybindings)
+  :demand
+  ;; Make windmove work in org-mode:
+  :hook
+  ((org-shiftup-final . windmove-up)
+   (org-shiftleft-final . windmove-left)
+   (org-shiftdown-final . windmove-down)
+   (org-shiftright-final . windmove-right)))
 
 (use-package yaml-mode
   :ensure t)
