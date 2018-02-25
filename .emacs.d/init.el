@@ -251,7 +251,7 @@
 (use-package maxframe
   :ensure t
   :if (memq window-system '(ns x mac)) ; cocoa, carbon -> mac, terminal -> nil, X -> x
-  :config
+  :init
   (defun maximize-and-split (&optional frame)
     "Maximize the window and split it horizontally into two buffers.
 Optionally takes FRAME for its target and works on current frame if nothing given."
