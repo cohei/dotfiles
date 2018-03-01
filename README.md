@@ -10,5 +10,5 @@
 ## Install
 
 ```shell
-curl https://cohei.github.io/dotfiles/install.sh | bash
+curl -L http://dotfiles.cohei.me | bash
 ```
