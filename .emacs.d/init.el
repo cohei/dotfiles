@@ -95,6 +95,11 @@
     (interactive)
     (ansi-color-apply-on-region (point-min) (point-max))))
 
+(use-package anzu
+  :ensure t
+  :config
+  (global-anzu-mode +1))
+
 (use-package apib-mode
   :ensure t
   :mode "\\.apib\\'")
