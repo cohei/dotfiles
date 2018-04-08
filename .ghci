@@ -4,3 +4,5 @@
 :set +t
 :set +m
 :seti -Wall
+:seti -Wincomplete-uni-patterns
+:seti -Wincomplete-record-updates
