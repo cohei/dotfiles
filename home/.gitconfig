@@ -37,8 +37,6 @@
 	pushInsteadOf = "https://github.com/"
 [log]
 	date = iso
-[interactive]
-	diffFilter = diff-so-fancy | less
 [ghq]
 	root = ~/src
 [pull]
