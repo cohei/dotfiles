@@ -80,6 +80,13 @@
 (package-install 'use-package)
 (require 'use-package)
 
+(use-package ace-isearch
+  :ensure t
+  :config (global-ace-isearch-mode +1))
+
+(use-package ace-jump-mode
+  :ensure t)
+
 (use-package align
   :bind
   ("C-c a" . align)
