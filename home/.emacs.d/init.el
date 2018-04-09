@@ -280,6 +280,10 @@ Optionally takes FRAME for its target and works on current frame if nothing give
   (migemo-init)
   (helm-migemo-mode 1))
 
+(use-package multiple-cursors
+  :ensure t
+  :bind ("C-c m" . mc/edit-lines))
+
 (use-package open-junk-file
   :ensure t
   :commands open-junk-file
