@@ -368,6 +368,10 @@ Optionally takes FRAME for its target and works on current frame if nothing give
 (use-package tup-mode
   :ensure t)
 
+(use-package undohist
+  :ensure t
+  :config (undohist-initialize))
+
 (use-package undo-tree
   :ensure t
   :diminish ""
