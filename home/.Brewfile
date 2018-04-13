@@ -4,6 +4,7 @@ brew 'cmigemo', args: ['HEAD']
 brew 'tup'
 cask 'appcleaner'
 cask 'aquaskk'
+cask 'clipy'
 cask 'docker'
 cask 'emacs'
 cask 'java'
