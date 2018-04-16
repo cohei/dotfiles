@@ -20,7 +20,7 @@ link() {
 
     while read -r target_with_dot; do
 	target=${target_with_dot#*/}
-	
+
         dir=$(dirname "$target")
         [ -d "$dist/$dir" ] || mkdir -p "$dist/$dir"
 
