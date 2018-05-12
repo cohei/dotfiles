@@ -22,13 +22,13 @@ repeat ()
 }
 
 case $OSTYPE in
-    darwin*)   alias ls='ls --classify --no-group' ;;
+    darwin*)   alias ls='ls --classify --no-group --color' ;;
     linux-gnu) alias ls='ls -F --color=auto' ;;
 esac
 
 alias la='ls --all'
-alias ll='ls -l'
-alias lla='ls --all -l'
+alias ll='ls -l --human-readable'
+alias lla='ls --all -l --human-readable'
 
 if [[ $OSTYPE =~ darwin ]]; then
     alias e='emacsclient --tty --no-wait --alternate-editor="open -a emacs"'
