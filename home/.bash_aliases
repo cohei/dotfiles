@@ -22,13 +22,13 @@ repeat ()
 }
 
 case $OSTYPE in
-    darwin*)   alias ls='ls -FG' ;;
+    darwin*)   alias ls='ls --classify --no-group' ;;
     linux-gnu) alias ls='ls -F --color=auto' ;;
 esac
 
-alias la='ls -a'
+alias la='ls --all'
 alias ll='ls -l'
-alias lla='ls -al'
+alias lla='ls --all -l'
 
 if [[ $OSTYPE =~ darwin ]]; then
     alias e='emacsclient --tty --no-wait --alternate-editor="open -a emacs"'
@@ -49,7 +49,7 @@ alias gsp='git sp'
 alias gss='git ss'
 alias s='git s'
 
-alias dfh='df -h'
+alias dfh='df --human-readable'
 alias ..='cd ..'
 
 # For solarize colored terminals
