@@ -304,19 +304,6 @@ Optionally takes FRAME for its target and works on current frame if nothing give
 
 (use-package org)
 
-(use-package popwin
-  :ensure t
-  :config
-  (popwin-mode 1)
-  (push '("*Warnings*" :height 0.3) popwin:special-display-config)
-  (push '("*Buffer List*" :height 0.3) popwin:special-display-config)
-  (push '("magit:" :regexp t :height 0.5) popwin:special-display-config)
-  (push '("\\*helm" :regexp t) popwin:special-display-config)
-  (push '("*GHC Info*" :height 10) popwin:special-display-config)
-  (push '(" *undo-tree*" :width 0.1 :position right) popwin:special-display-config)
-  (push '("*git-gutter:diff*" :height 0.3 :stick t) popwin:special-display-config)
-  (push '("\\*ag search" :regexp t :height 0.3 :stick t) popwin:special-display-config))
-
 (use-package projectile
   :ensure t
   :defer t ; helm-projectile will load this
@@ -360,6 +347,20 @@ Optionally takes FRAME for its target and works on current frame if nothing give
 (use-package scss-mode
   :ensure t
   :config (setq css-indent-offset 2))
+
+(use-package shackle
+  :ensure t
+  :config
+  (setq shackle-rules
+        '(("*Warnings*" :size 0.3)
+          ("*Buffer List*" :size 0.3)
+          ("magit:" :regexp t :align t :size 0.5)
+          ("\\`\\*helm.*?\\*\\'" :regexp t :align t :size 0.3)
+          ("*GHC Info*" :size 10)
+          (" *undo-tree*" :align right :size 0.1 :inhibit-window-quit t)
+          ("*git-gutter:diff*" :align t :size 0.3)
+          ("\\*ag search" :regexp t :size 0.3)))
+  (shackle-mode))
 
 (use-package solarized-theme
   :ensure t
