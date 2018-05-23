@@ -295,7 +295,8 @@ Optionally takes FRAME for its target and works on current frame if nothing give
 
 (use-package multiple-cursors
   :ensure t
-  :bind ("C-c m" . mc/edit-lines))
+  :bind (("C-c m e" . mc/edit-lines)
+         ("C-c m n" . mc/mark-next-like-this)))
 
 (use-package open-junk-file
   :ensure t
