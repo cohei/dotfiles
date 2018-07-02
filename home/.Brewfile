@@ -1,4 +1,5 @@
-tap 'caskroom/cask'
+tap 'homebrew/core'
+tap 'homebrew/cask'
 tap 'homebrew/bundle'
 brew 'cmigemo', args: ['HEAD']
 brew 'tup'
