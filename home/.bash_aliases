@@ -35,14 +35,14 @@ alias e='emacsclient --alternate-editor="" -n'
 
 # git
 alias g='git'
-alias s='g s'
 alias d='g diff'
-alias glg='g lg'
-alias gl='g l'
-alias gdc='g dc'
 alias gap='g ap'
-alias gsp='g sp'
+alias gdc='g dc'
 alias gg='g g'
+alias gl='g l'
+alias glg='g lg'
+alias gsp='g sp'
+alias s='g s'
 
 alias dfh='df -h'
 
