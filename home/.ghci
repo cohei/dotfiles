@@ -4,5 +4,8 @@
 :set +t
 :set +m
 :seti -Wall
+:seti -Wcompat
 :seti -Wincomplete-uni-patterns
 :seti -Wincomplete-record-updates
+:seti -Wredundant-constraints
+:seti -Wnoncanonical-monad-instances
