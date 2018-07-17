@@ -30,8 +30,11 @@ alias la="ls -a"
 alias ll="ls -l"
 alias lla="ls -al"
 
-# abbreviation for emacs
-alias e='emacsclient --alternate-editor="" -n'
+if [[ $OSTYPE =~ darwin ]]; then
+    alias e='emacsclient --no-wait --alternate-editor="open -a emacs"'
+else
+    alias e='emacsclient --alternate-editor="" --create-frame'
+fi
 
 # git
 alias g='git'

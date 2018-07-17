@@ -7,11 +7,13 @@ export GIT_PS1_SHOWDIRTYSTATE=true
 export GIT_PS1_SHOWUNTRACKEDFILES=true
 export PS1='\n[\t] @$(hostname | cut -c 1-6) \W$(__git_ps1) $ '
 
-# mainly for git commiting
-if [ "$(uname)" = 'Linux' ]; then
-    export EDITOR='emacsclient --alternate-editor="" -c'
+# for
+#   - git commiting
+#   - less v
+if [[ $OSTYPE =~ darwin ]]; then
+    export EDITOR='emacsclient --alternate-editor="open -a emacs"'
 else
-    export EDITOR='emacsclient --alternate-editor=""'
+    export EDITOR='emacsclient --alternate-editor="" --create-frame'
 fi
 
 export PATH=$HOME/bin:$PATH
