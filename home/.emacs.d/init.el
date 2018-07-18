@@ -416,6 +416,14 @@ Optionally takes FRAME for its target and works on current frame if nothing give
   (setq web-mode-css-indent-offset 2)
   (setq web-mode-markup-indent-offset 2))
 
+(use-package whitespace
+  :config
+  (dolist (style '(newline-mark lines tabs empty)) (delete style whitespace-style))
+  (setq whitespace-display-mappings
+        (seq-remove (lambda (x) (eql (car x) 'space-mark)) whitespace-display-mappings))
+  (add-to-list 'whitespace-display-mappings '(space-mark ?\u3000 [?\u25a1]))
+  (global-whitespace-mode 1))
+
 (use-package windmove
   :config
   (windmove-default-keybindings)
