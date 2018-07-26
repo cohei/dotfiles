@@ -82,10 +82,11 @@
 
 (use-package ace-isearch
   :ensure t
-  :config (global-ace-isearch-mode +1))
-
-(use-package ace-jump-mode
-  :ensure t)
+  :init
+  (use-package avy :ensure t)
+  :config
+  (global-ace-isearch-mode +1)
+  (setq ace-isearch-function 'avy-goto-char))
 
 (use-package align
   :bind
