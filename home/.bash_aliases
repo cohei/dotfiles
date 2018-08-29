@@ -37,17 +37,16 @@ else
 fi
 
 # git
-alias g='git'
-alias d='g diff'
-alias gap='g ap'
-alias gb='g co $(git branch | fzf | tr -d "* ")'
-alias gdc='g dc'
-alias gg='g g'
-alias gl='g l'
-alias glg='g lg'
-alias gsp='g sp'
-alias gss='g ss'
-alias s='g s'
+alias d='git d'
+alias gap='git ap'
+alias gb='git co $(git branch | fzf | tr -d "* ")'
+alias gdc='git dc'
+alias gg='git g'
+alias gl='git l'
+alias glg='git lg'
+alias gsp='git sp'
+alias gss='git ss'
+alias s='git s'
 
 alias dfh='df -h'
 
