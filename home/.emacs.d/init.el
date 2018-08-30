@@ -342,9 +342,7 @@ Optionally takes FRAME for its target and works on current frame if nothing give
          ("\\`Gemfile\\'"   . ruby-mode)
          ("\\`Guardfile\\'" . ruby-mode))
   :config
-  (use-package ruby-end
-    :ensure t
-    :config (ruby-end-mode))
+  (use-package ruby-end :ensure t)
   (use-package ruby-interpolation
     :ensure t
     :config (ruby-interpolation-mode)))
