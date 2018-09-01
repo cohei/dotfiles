@@ -350,6 +350,9 @@ Optionally takes FRAME for its target and works on current frame if nothing give
 (use-package ruby-hash-syntax
   :ensure t)
 
+(use-package rust-mode
+  :ensure t)
+
 (use-package scss-mode
   :ensure t
   :config (setq css-indent-offset 2))
