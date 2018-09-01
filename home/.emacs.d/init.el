@@ -299,6 +299,10 @@ Optionally takes FRAME for its target and works on current frame if nothing give
   :bind (("C-c m e" . mc/edit-lines)
          ("C-c m n" . mc/mark-next-like-this)))
 
+(use-package nix-mode
+  :ensure t
+  :mode "\\.nix\\'")
+
 (use-package open-junk-file
   :ensure t
   :commands open-junk-file
