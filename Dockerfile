@@ -1,9 +1,6 @@
 FROM ubuntu:18.10
 
-RUN apt-get update -qq && apt-get install --yes \
-  curl \
-  git \
-  && rm -rf /var/lib/apt/lists/*
+RUN apt-get update -qq && apt-get install --yes curl git
 
 ENV USER docker
 
