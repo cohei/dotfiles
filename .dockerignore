@@ -1,0 +1,6 @@
+/.circleci/
+/.dockerignore
+/.git/
+/Dockerfile
+/README.md
+/docker-compose.yml
