@@ -6,6 +6,3 @@ ENV USER docker
 RUN useradd --create-home $USER
 USER $USER
 WORKDIR /home/$USER
-
-COPY --chown=docker:docker . .dotfiles
-RUN .dotfiles/install.sh

@@ -1,0 +1,3 @@
+FROM cohei/dotfiles
+
+RUN curl -L http://dotfiles.cohei.me | bash

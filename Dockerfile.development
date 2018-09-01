@@ -1,0 +1,4 @@
+FROM cohei/dotfiles
+
+COPY --chown=docker:docker . .dotfiles
+RUN .dotfiles/install.sh
