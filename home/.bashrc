@@ -45,6 +45,11 @@ if ! shopt -oq posix; then
   fi
 fi
 
+# added by Nix installer
+if [ -e $HOME/.nix-profile/etc/profile.d/nix.sh ]; then
+    . $HOME/.nix-profile/etc/profile.d/nix.sh
+fi
+
 if [ -e "$HOME/.nix-profile/etc/bash_completion.d" ]; then
   . "$HOME/.nix-profile/etc/bash_completion.d/git-completion.bash"
   . "$HOME/.nix-profile/etc/bash_completion.d/git-prompt.sh"
