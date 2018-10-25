@@ -10,7 +10,7 @@ add-alias ()
 
 # "repeat" command.  Like:
 #
-#	repeat 10 echo foo
+# repeat 10 echo foo
 repeat ()
 {
     local count="$1";
