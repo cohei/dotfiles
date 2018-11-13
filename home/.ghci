@@ -1,5 +1,4 @@
 :def hoogle \x -> return $ ":! stack exec -- hoogle \"" ++ x ++ "\""
-:seti -i..
 :set +s
 :set +t
 :set +m
