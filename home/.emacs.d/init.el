@@ -183,7 +183,9 @@
   :mode "\\.hamlc\\'")
 
 (use-package haskell-mode
-  :ensure t)
+  :ensure t
+  :custom
+  (haskell-stylish-on-save t))
 
 (use-package helm
   :ensure t
