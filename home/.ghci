@@ -8,3 +8,4 @@
 :seti -Wincomplete-record-updates
 :seti -Wredundant-constraints
 :seti -Wnoncanonical-monad-instances
+:seti -fdefer-typed-holes
