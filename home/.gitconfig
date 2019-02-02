@@ -42,3 +42,5 @@
 	root = ~/src
 [pull]
 	ff = only
+[merge]
+	conflictStyle = diff3
