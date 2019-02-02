@@ -49,7 +49,6 @@
 (set-default 'show-trailing-whitespace t)
 (dolist (hook '(Buffer-menu-mode-hook
                 eshell-mode-hook
-                intero-repl-mode-hook
                 package-menu-mode
                 term-mode-hook
                 undo-tree-visualizer-mode-hook))
@@ -246,10 +245,6 @@
 
 (use-package image+
   :ensure t)
-
-(use-package intero
-  :ensure t
-  :hook (haskell-mode . intero-mode))
 
 (use-package js2-mode
   :ensure t
