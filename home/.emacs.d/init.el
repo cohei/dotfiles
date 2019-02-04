@@ -83,9 +83,9 @@
   :ensure t
   :init
   (use-package avy :ensure t)
-  :config
-  (global-ace-isearch-mode +1)
-  (setq ace-isearch-function 'avy-goto-char))
+  :custom
+  (global-ace-isearch-mode t)
+  (ace-isearch-function 'avy-goto-char))
 
 (use-package align
   :bind
@@ -104,8 +104,8 @@
 
 (use-package anzu
   :ensure t
-  :config
-  (global-anzu-mode +1))
+  :custom
+  (global-anzu-mode t))
 
 (use-package apib-mode
   :ensure t
@@ -116,7 +116,8 @@
   :config
   (ac-config-default)
   (global-auto-complete-mode t)
-  (setq ac-ignore-case nil))
+  :custom
+  (ac-ignore-case nil))
 
 (use-package cc-mode
   :init
@@ -129,15 +130,19 @@
 (use-package coffee-mode
   :ensure t
   :config
-  (setq tab-width 2)
-  (setq coffee-tab-width 2)
-  (auto-complete-mode))
+  (auto-complete-mode)
+  :custom
+  (coffee-tab-width 2))
 
 (use-package csv-mode
   :ensure t)
 
 (use-package diminish
   :ensure t)
+
+(use-package dired
+  :custom
+  (dired-dwim-target t))
 
 (use-package dockerfile-mode
   :ensure t)
@@ -177,6 +182,7 @@
 (use-package haskell-mode
   :ensure t
   :custom
+  (haskell-process-type 'stack-ghci)
   (haskell-stylish-on-save t))
 
 (use-package helm
@@ -243,7 +249,10 @@
   :ensure t
   :mode "\\.js\\'"
   :config
-  (setq js2-strict-missing-semi-warning nil))
+  (setq js2-strict-missing-semi-warning nil)
+  :custom
+  (js-indent-level 2)
+  (js2-indent-switch-body t))
 
 (use-package magit
   :ensure t
@@ -298,7 +307,8 @@ Optionally takes FRAME for its target and works on current frame if nothing give
 (use-package open-junk-file
   :ensure t
   :commands open-junk-file
-  :config (setq open-junk-file-format "~/.emacs.d/junk/%Y/%m/%d-%H%M%S."))
+  :config (setq open-junk-file-format "~/.emacs.d/junk/%Y/%m/%d-%H%M%S.")
+  :custom (open-junk-file-find-file-function 'find-file))
 
 (use-package org)
 
@@ -334,7 +344,9 @@ Optionally takes FRAME for its target and works on current frame if nothing give
   (use-package ruby-end :ensure t)
   (use-package ruby-interpolation
     :ensure t
-    :config (ruby-interpolation-mode)))
+    :config (ruby-interpolation-mode))
+  :custom
+  (ruby-insert-encoding-magic-comment nil))
 
 (use-package ruby-hash-syntax
   :ensure t)
@@ -344,7 +356,8 @@ Optionally takes FRAME for its target and works on current frame if nothing give
 
 (use-package scss-mode
   :ensure t
-  :config (setq css-indent-offset 2))
+  :config (setq css-indent-offset 2)
+  :custom (scss-compile-at-save nil))
 
 (use-package shackle
   :ensure t
@@ -431,6 +444,16 @@ Optionally takes FRAME for its target and works on current frame if nothing give
 (use-package yaml-mode
   :ensure t)
 
+(customize-set-variable 'indent-tabs-mode nil)
+(customize-set-variable 'inhibit-startup-screen t)
+(customize-set-variable 'kill-whole-line t)
+(customize-set-variable 'require-final-newline 'visit)
+(customize-set-variable 'scroll-bar-mode nil)
+(customize-set-variable 'scroll-conservatively 1000)
+(customize-set-variable 'scroll-margin 5)
+(customize-set-variable 'tool-bar-mode nil)
+(customize-set-variable 'use-dialog-box nil)
+
 ;;; Avoid to write `package-selected-packages` in init.el
 ;; (load (setq custom-file (expand-file-name "custom.el" user-emacs-directory)))
 
@@ -441,24 +464,7 @@ Optionally takes FRAME for its target and works on current frame if nothing give
  ;; If there is more than one, they won't work right.
  '(custom-safe-themes
    (quote
-    ("8aebf25556399b58091e533e455dd50a6a9cba958cc4ebb0aab175863c25b9a4" "d677ef584c6dfc0697901a44b885cc18e206f05114c8a3b7fde674fce6180879" default)))
- '(dired-dwim-target t)
- '(haskell-process-type (quote stack-ghci))
- '(indent-tabs-mode nil)
- '(inhibit-startup-screen t)
- '(js-indent-level 2)
- '(js2-basic-offset 2)
- '(js2-indent-switch-body t)
- '(kill-whole-line t)
- '(open-junk-file-find-file-function (quote find-file))
- '(require-final-newline (quote visit))
- '(ruby-insert-encoding-magic-comment nil)
- '(scroll-bar-mode nil)
- '(scroll-conservatively 1000)
- '(scroll-margin 5)
- '(scss-compile-at-save nil)
- '(tool-bar-mode nil)
- '(use-dialog-box nil))
+    ("8aebf25556399b58091e533e455dd50a6a9cba958cc4ebb0aab175863c25b9a4" "d677ef584c6dfc0697901a44b885cc18e206f05114c8a3b7fde674fce6180879" default))))
 
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
