@@ -336,7 +336,6 @@ Optionally takes FRAME for its target and works on current frame if nothing give
          ("\\`Rakefile\\'"  . ruby-mode)
          ("\\`Capfile\\'"   . ruby-mode)
          ("\\.cap\\'"       . ruby-mode)
-         ("\\`Gemfile\\'"   . ruby-mode)
          ("\\`Guardfile\\'" . ruby-mode))
   :config
   (use-package ruby-end :ensure t)
