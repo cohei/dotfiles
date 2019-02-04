@@ -118,13 +118,6 @@
   (global-auto-complete-mode t)
   (setq ac-ignore-case nil))
 
-(use-package cacoo
-  :ensure t
-  :bind ("M--" . toggle-cacoo-minor-mode))
-;; optional
-;; (use-package cacoo-plugins
-;;   :config (setq cacoo:api-key "APIKEY"))
-
 (use-package cc-mode
   :init
   (add-hook
