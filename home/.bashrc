@@ -80,3 +80,7 @@ ghq () {
 eval "$(direnv hook bash)"
 
 eval "$(hub alias -s)"
+
+if [ -d ~/.ghcup ]; then
+    . ~/.ghcup/env
+fi
