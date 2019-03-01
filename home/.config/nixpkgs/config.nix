@@ -1,3 +1,13 @@
+let
+# compilable in GHC 8.6.3
+jlHead = {
+  owner = "chrisdone";
+  repo = "jl";
+  rev = "3eb3d8e22e1565f17a3d73c8464b08975ff03c60";
+  sha256 = "1qjg4fwpgdb4nc2x24hz7a1xcv1i8c4zhpdb0496hk792vivvj64";
+};
+
+in
 {
   packageOverrides = pkgs:
     with pkgs; {
@@ -23,6 +33,7 @@
           haskellPackages.stylish-haskell
           hledger
           ipfs
+          (jl.overrideAttrs (oldAttrs: { version = "HEAD"; src = fetchFromGitHub jlHead; }))
           jq
           nix
           nix-bash-completions
