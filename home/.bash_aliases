@@ -2,8 +2,8 @@
 # the ~/.bash_aliases file.
 add-alias ()
 {
-   local name=$1 value="$2"
-   echo alias "$name"=\'"$value"\' >>~/.bash_aliases
+   local name=$1 value=$2
+   echo alias "$name"=\'"$value"\' >> ~/.bash_aliases
    eval alias "$name"=\'"$value"\'
    alias "$name"
 }
@@ -13,7 +13,7 @@ add-alias ()
 # repeat 10 echo foo
 repeat ()
 {
-    local count="$1";
+    local count=$1;
     shift;
     for _ in $(seq 1 "$count");
     do
@@ -22,13 +22,13 @@ repeat ()
 }
 
 case $OSTYPE in
-    darwin*)   alias ls="ls -FG" ;;
-    linux-gnu) alias ls="ls -F --color=auto" ;;
+    darwin*)   alias ls='ls -FG' ;;
+    linux-gnu) alias ls='ls -F --color=auto' ;;
 esac
 
-alias la="ls -a"
-alias ll="ls -l"
-alias lla="ls -al"
+alias la='ls -a'
+alias ll='ls -l'
+alias lla='ls -al'
 
 if [[ $OSTYPE =~ darwin ]]; then
     alias e='emacsclient --tty --no-wait --alternate-editor="open -a emacs"'
@@ -52,4 +52,4 @@ alias s='git s'
 alias dfh='df -h'
 
 # For solarize colored terminals
-alias icdiff="icdiff --no-bold"
+alias icdiff='icdiff --no-bold'
