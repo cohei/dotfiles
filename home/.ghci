@@ -6,6 +6,12 @@
 :seti -Wcompat
 :seti -Wincomplete-uni-patterns
 :seti -Wincomplete-record-updates
+:seti -Wmonomorphism-restriction
+:seti -Wmissing-local-signatures
+:seti -Wmissing-export-lists
+:seti -Wmissing-import-lists
+:seti -Wmissing-home-modules
+:seti -Widentities
 :seti -Wredundant-constraints
-:seti -Wnoncanonical-monad-instances
+:seti -Wpartial-fields
 :seti -fdefer-typed-holes
