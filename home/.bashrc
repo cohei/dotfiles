@@ -19,7 +19,7 @@ shopt -s checkwinsize
 
 # If set, the pattern "**" used in a pathname expansion context will
 # match all files and zero or more directories and subdirectories.
-if [[ ! $OSTYPE =~ darwin ]]; then
+if [ "${BASH_VERSINFO[0]}" -ge 4 ]; then
     shopt -s globstar
 fi
 
