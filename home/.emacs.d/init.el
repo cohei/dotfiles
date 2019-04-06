@@ -182,7 +182,6 @@
 (use-package haskell-mode
   :ensure t
   :custom
-  (haskell-process-type 'stack-ghci)
   (haskell-stylish-on-save t))
 
 (use-package helm
