@@ -1,4 +1,4 @@
-:def hoogle \x -> return $ ":! stack exec -- hoogle \"" ++ x ++ "\""
+:def hoogle \x -> return $ ":! hoogle \"" ++ x ++ "\""
 :set +s
 :set +t
 :set +m
