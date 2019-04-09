@@ -5,7 +5,7 @@
         name = "my-packages";
         paths = [
           bashCompletion
-          bashInteractive
+          bashInteractive_5
           cacert # not to cause SSL error
           cloc
           coreutils
