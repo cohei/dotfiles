@@ -16,7 +16,7 @@ else
     export EDITOR='emacsclient --alternate-editor="" --create-frame'
 fi
 
-export PATH=$HOME/.local/bin:$PATH
+export PATH=~/.local/bin:$PATH
 
 export LESS='--LONG-PROMPT --RAW-CONTROL-CHARS --quit-if-one-screen --no-init'
 

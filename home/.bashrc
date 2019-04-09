@@ -46,13 +46,13 @@ if ! shopt -oq posix; then
 fi
 
 # added by Nix installer
-if [ -e $HOME/.nix-profile/etc/profile.d/nix.sh ]; then
-    . $HOME/.nix-profile/etc/profile.d/nix.sh
+if [ -e ~/.nix-profile/etc/profile.d/nix.sh ]; then
+    . ~/.nix-profile/etc/profile.d/nix.sh
 fi
 
-if [ -e "$HOME/.nix-profile/etc/bash_completion.d" ]; then
-  . "$HOME/.nix-profile/etc/bash_completion.d/git-completion.bash"
-  . "$HOME/.nix-profile/etc/bash_completion.d/git-prompt.sh"
+if [ -e ~/.nix-profile/etc/bash_completion.d ]; then
+  . ~/.nix-profile/etc/bash_completion.d/git-completion.bash
+  . ~/.nix-profile/etc/bash_completion.d/git-prompt.sh
 fi
 
 if type rbenv >/dev/null 2>&1; then
