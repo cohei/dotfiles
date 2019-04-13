@@ -55,6 +55,11 @@ if [ -e ~/.nix-profile/etc/bash_completion.d ]; then
   . ~/.nix-profile/etc/bash_completion.d/git-prompt.sh
 fi
 
+if [ -e ~/.nix-profile/etc/profile.d/bash_completion.sh ]; then
+    export XDG_DATA_DIRS="$HOME/.nix-profile/share/:$XDG_DATA_DIRS"
+    . ~/.nix-profile/etc/profile.d/bash_completion.sh
+fi
+
 # for fzf from Nix
 if command -v fzf-share > /dev/null; then
     # Auto-completion
