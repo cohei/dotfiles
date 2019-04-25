@@ -55,6 +55,17 @@ if [ -e ~/.nix-profile/etc/bash_completion.d ]; then
   . ~/.nix-profile/etc/bash_completion.d/git-prompt.sh
 fi
 
+# for fzf from Nix
+if command -v fzf-share > /dev/null; then
+    # Auto-completion
+    # ---------------
+    [[ $- == *i* ]] && source "$(fzf-share)/completion.bash" 2> /dev/null
+
+    # Key bindings
+    # ------------
+    source "$(fzf-share)/key-bindings.bash"
+fi
+
 if type rbenv >/dev/null 2>&1; then
     eval "$(rbenv init -)"
 fi
@@ -62,8 +73,6 @@ fi
 if type stack >/dev/null 2>&1; then
     eval "$(stack --bash-completion-script "$(which stack)")"
 fi
-
-[ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
 ENHANCD_DIR=~/src/github.com/b4b4r07/enhancd
 [ -f $ENHANCD_DIR/init.sh ] && . $ENHANCD_DIR/init.sh
