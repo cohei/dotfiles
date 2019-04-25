@@ -50,6 +50,7 @@ alias gss='git ss'
 alias s='git s'
 
 alias dfh='df -h'
+alias ..='cd ..'
 
 # For solarize colored terminals
 alias icdiff='icdiff --no-bold'
