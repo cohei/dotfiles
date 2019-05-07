@@ -74,6 +74,9 @@
 
 (column-number-mode)
 
+;;; for direnv
+(add-to-list 'auto-mode-alist '("\\.envrc\\'" . shell-script-mode))
+
 ;;;; use-package
 
 (package-install 'use-package)
