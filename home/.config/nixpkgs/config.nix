@@ -17,6 +17,7 @@
           gitAndTools.diff-so-fancy
           gitAndTools.hub
           haskellPackages.ghcid
+          haskellPackages.hpack
           haskellPackages.hlint
           haskellPackages.hoogle
           haskellPackages.hpack
