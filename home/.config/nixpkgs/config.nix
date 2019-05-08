@@ -22,6 +22,7 @@
           haskellPackages.hpack
           haskellPackages.stylish-haskell
           hledger
+          icdiff
           ipfs
           jl
           jq
