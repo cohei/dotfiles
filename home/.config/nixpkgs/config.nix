@@ -22,6 +22,7 @@
           haskellPackages.hoogle
           haskellPackages.hpack
           haskellPackages.stylish-haskell
+          # haskellPackages.unused # broken
           hledger
           icdiff
           ipfs
