@@ -17,5 +17,6 @@ mas 'Evernote', id: 406056744
 mas 'Kiritori', id: 585126594
 mas 'Raindrop.io for Safari', id: 957810159
 mas 'Slack', id: 803453959
+mas 'Spark', id: 1176895641
 mas 'The Unarchiver', id: 425424353
 mas 'Things3', id: 904280696
