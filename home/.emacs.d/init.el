@@ -141,6 +141,13 @@
 (use-package diminish
   :ensure t)
 
+(use-package dimmer
+  :ensure t
+  :config
+  (setq dimmer-exclusion-regexp "^\\*helm")
+  (dimmer-mode)
+  :custom (dimmer-fraction 0.3))
+
 (use-package dired
   :custom
   (dired-dwim-target t))
