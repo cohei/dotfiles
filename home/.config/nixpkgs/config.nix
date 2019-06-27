@@ -33,7 +33,7 @@
           sbt
           shellcheck
           stack
-          terraform
+          terraform_0_12
           tmux
           tree
           watch
