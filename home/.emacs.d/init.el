@@ -122,6 +122,10 @@
   :custom
   (ac-ignore-case nil))
 
+(use-package beacon
+  :ensure t
+  :config (beacon-mode 1))
+
 (use-package cc-mode
   :hook
   (java-mode . (lambda ()
