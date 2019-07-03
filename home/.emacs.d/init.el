@@ -155,6 +155,10 @@
 (use-package dockerfile-mode
   :ensure t)
 
+(use-package dumb-jump
+  :ensure t
+  :config (dumb-jump-mode))
+
 (use-package elm-mode
   :ensure t)
 
