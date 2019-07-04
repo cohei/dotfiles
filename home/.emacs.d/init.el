@@ -123,12 +123,10 @@
   (ac-ignore-case nil))
 
 (use-package cc-mode
-  :init
-  (add-hook
-   'java-mode-hook
-   (lambda ()
-     (setq c-basic-offset 2)
-     (c-set-offset 'case-label '+))))
+  :hook
+  (java-mode . (lambda ()
+                 (setq c-basic-offset 2)
+                 (c-set-offset 'case-label '+))))
 
 (use-package coffee-mode
   :ensure t
