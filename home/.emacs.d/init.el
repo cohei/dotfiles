@@ -114,14 +114,6 @@
   :ensure t
   :mode "\\.apib\\'")
 
-(use-package auto-complete-config
-  :ensure auto-complete
-  :config
-  (ac-config-default)
-  (global-auto-complete-mode t)
-  :custom
-  (ac-ignore-case nil))
-
 (use-package beacon
   :ensure t
   :config (beacon-mode 1))
@@ -134,10 +126,12 @@
 
 (use-package coffee-mode
   :ensure t
-  :config
-  (auto-complete-mode)
   :custom
   (coffee-tab-width 2))
+
+(use-package company
+  :ensure t
+  :hook (after-init . global-company-mode))
 
 (use-package csv-mode
   :ensure t)
