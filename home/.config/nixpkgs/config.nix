@@ -34,6 +34,7 @@
           sbt
           shellcheck
           stack
+          terminal-notifier
           terraform_0_12
           tmux
           tree
