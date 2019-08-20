@@ -54,3 +54,5 @@ alias ..='cd ..'
 
 # For solarize colored terminals
 alias icdiff='icdiff --no-bold'
+
+alias doco='docker-compose'
