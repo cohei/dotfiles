@@ -13,10 +13,8 @@
 	l     = log --oneline -5
 	lg    = log --graph --oneline --decorate --all
 	re    = restore
-	sl    = stash list
-	sp    = stash pop
-	ss    = stash show --verbose
 	s     = status --short --branch
+	ss    = !git stash list | fzf --exit-0 --preview 'echo {1} | tr -d : | xargs git stash show -v --color=always' | grep --only-matching stash@{.*} | xargs git stash pop
 	sw    = switch
 	swc   = switch --no-track --create
 	swd   = switch --detach
