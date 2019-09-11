@@ -6,7 +6,7 @@
 	helper = cache
 [alias]
 	amend = commit --amend
-	ap    = add -p
+	ap    = add --patch
 	d     = diff
 	dc    = diff --cached
 	g     = grep
@@ -14,8 +14,8 @@
 	lg    = log --graph --oneline --decorate --all
 	sl    = stash list
 	sp    = stash pop
-	ss    = stash show -v
-	s     = status -sb
+	ss    = stash show --verbose
+	s     = status --short --branch
 	sw    = switch
 	swc   = switch --create
 
