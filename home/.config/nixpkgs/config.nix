@@ -40,7 +40,6 @@
           tree
           watch
           wget
-          xz # for ghcup
         ];
       };
     };
