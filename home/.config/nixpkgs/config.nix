@@ -20,6 +20,7 @@
           git
           gitAndTools.diff-so-fancy
           gitAndTools.hub
+          # haskellPackages.cabal-fmt # broken
           haskellPackages.ghcid
           haskellPackages.hlint
           haskellPackages.hoogle
