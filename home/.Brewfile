@@ -1,6 +1,6 @@
-tap 'homebrew/core'
-tap 'homebrew/cask'
 tap 'homebrew/bundle'
+tap 'homebrew/cask'
+tap 'homebrew/core'
 brew 'cmigemo', args: ['HEAD']
 brew 'mas'
 brew 'tup'
@@ -19,4 +19,4 @@ mas 'Raindrop.io for Safari', id: 957810159
 mas 'Slack', id: 803453959
 mas 'Spark', id: 1176895641
 mas 'The Unarchiver', id: 425424353
-mas 'Things3', id: 904280696
+mas 'Things', id: 904280696
