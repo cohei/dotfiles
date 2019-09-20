@@ -18,6 +18,7 @@
 	s     = status --short --branch
 	sw    = switch
 	swc   = switch --create
+	swd   = switch --detach
 
 [push]
 	default = simple
