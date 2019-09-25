@@ -16,9 +16,9 @@ cask 'font-ricty-diminished'
 cask 'font-symbola'
 cask 'java'
 cask 'karabiner-elements'
+cask 'menumeters'
 cask 'osxfuse'
 cask 'xquartz'
-cask 'yujitach-menumeters'
 mas 'Evernote', id: 406056744
 mas 'Kiritori', id: 585126594
 mas 'Raindrop.io for Safari', id: 957810159
