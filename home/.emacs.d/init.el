@@ -206,8 +206,7 @@
 
 (use-package helm-flycheck
   :ensure t
-  :config
-  (define-key flycheck-mode-map (kbd "C-c !") 'helm-flycheck))
+  :bind (:map flycheck-mode-map ("C-c !" . helm-flycheck)))
 
 (use-package helm-git-grep
   :ensure t
