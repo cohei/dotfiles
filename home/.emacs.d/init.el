@@ -384,12 +384,7 @@ Optionally takes FRAME for its target and works on current frame if nothing give
 
 (use-package solarized-theme
   :ensure t
-  :config
-  (cond
-   ((eq system-type 'darwin)
-    (load-theme 'solarized-dark t))
-   (t
-    (load-theme 'solarized-dark t))))
+  :config (load-theme 'solarized-dark t))
 
 (use-package string-inflection
   :ensure t
