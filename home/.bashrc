@@ -79,9 +79,6 @@ if type stack >/dev/null 2>&1; then
     eval "$(stack --bash-completion-script "$(which stack)")"
 fi
 
-ENHANCD_DIR=~/src/github.com/b4b4r07/enhancd
-[ -f $ENHANCD_DIR/init.sh ] && . $ENHANCD_DIR/init.sh
-
 # for `ghq look` not to use subshell
 ghq () {
     if [ "$1" = look ] && [ -n "$2" ]; then

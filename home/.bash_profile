@@ -20,6 +20,9 @@ export PATH=~/.local/bin:$PATH
 
 export LESS='--LONG-PROMPT --RAW-CONTROL-CHARS --quit-if-one-screen --no-init'
 
+ENHANCD_DIR=~/src/github.com/b4b4r07/enhancd
+[ -f $ENHANCD_DIR/init.sh ] && . $ENHANCD_DIR/init.sh
+
 # shellcheck source=.bashrc
 if [ -f ~/.bashrc ]; then
     . ~/.bashrc
