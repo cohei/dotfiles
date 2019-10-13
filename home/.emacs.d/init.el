@@ -220,23 +220,6 @@
   :ensure t
   :bind ("C-c j" . helm-projectile))
 
-;; (helm-mode 1)
-;; helm-c-source-files-in-current-dir
-;; helm-mini は buffer と recentf と not-found
-;; helm-imenu
-;; (let ((key-and-func
-;;        `((,(kbd "C-r")   helm-for-files)
-;;          (,(kbd "C-^")   helm-c-apropos)
-;;          (,(kbd "C-;")   helm-resume)
-;;          (,(kbd "M-s")   helm-occur)
-;;          (,(kbd "M-x")   helm-M-x)
-;;          (,(kbd "M-y")   helm-show-kill-ring)
-;;          (,(kbd "M-z")   helm-do-grep)
-;;          (,(kbd "C-S-h") helm-descbinds)
-;;         )))
-;;   (loop for (key func) in key-and-func
-;;         do (global-set-key key func)))
-
 (use-package howm
   :ensure t
   :init
@@ -336,7 +319,6 @@ Optionally takes FRAME for its target and works on current frame if nothing give
 
 (use-package rainbow-mode
   :ensure t
-  :init
   :hook (css-mode scss-mode html-mode lisp-mode web-mode))
 
 (use-package ruby-mode
