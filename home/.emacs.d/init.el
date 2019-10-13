@@ -84,8 +84,7 @@
 
 (use-package ace-isearch
   :ensure t
-  :init
-  (use-package avy :ensure t)
+  :requires avy
   :custom
   (global-ace-isearch-mode t)
   (ace-isearch-function 'avy-goto-char))
@@ -113,6 +112,9 @@
 (use-package apib-mode
   :ensure t
   :mode "\\.apib\\'")
+
+(use-package avy
+  :ensure t)
 
 (use-package beacon
   :ensure t
@@ -351,16 +353,20 @@ Optionally takes FRAME for its target and works on current frame if nothing give
          ("\\`Capfile\\'"   . ruby-mode)
          ("\\.cap\\'"       . ruby-mode)
          ("\\`Guardfile\\'" . ruby-mode))
-  :config
-  (use-package ruby-end :ensure t)
-  (use-package ruby-interpolation
-    :ensure t
-    :config (ruby-interpolation-mode))
   :custom
   (ruby-insert-encoding-magic-comment nil))
 
+(use-package ruby-end
+  :ensure t
+  :requires ruby-mode)
+
 (use-package ruby-hash-syntax
   :ensure t)
+
+(use-package ruby-interpolation
+  :ensure t
+  :requires ruby-mode
+  :config (ruby-interpolation-mode))
 
 (use-package rust-mode
   :ensure t)
