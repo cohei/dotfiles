@@ -75,6 +75,12 @@
   (add-to-list 'align-rules-list '(ruby19-hash (regexp . ":\\(\s-*\\)") (modes . '(ruby-mode))))
   (add-to-list 'align-rules-list '(ruby-assignment (regexp . "\\(\s-*\\)=") (modes . '(ruby-mode)))))
 
+(use-package amx
+  :ensure t
+  :config
+  (amx-mode t)
+  (bind-key "M-X" 'amx-major-mode-commands))
+
 (use-package ansi-color
   :config
   (defun my/ansi-colorize-current-buffer ()
@@ -260,7 +266,6 @@
   :bind
   (("C-c h" . helm-mini)
    ("C-c r" . helm-resume)
-   ("M-x"   . helm-M-x)
    ("M-y"   . helm-show-kill-ring)
    ("C-x b" . helm-buffers-list)))
 
