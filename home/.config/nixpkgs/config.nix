@@ -1,6 +1,9 @@
 {
   packageOverrides = pkgs:
-    with pkgs; {
+    with pkgs;
+    let
+      enhancd = import ./enhancd.nix { inherit stdenv fetchFromGitHub runtimeShell; };
+    in {
       myPackages = buildEnv {
         name = "my-packages";
         paths = [
@@ -11,6 +14,7 @@
           coreutils
           direnv
           emacs
+          enhancd
           fzf
           ghq
           git
