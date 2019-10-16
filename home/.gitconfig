@@ -12,6 +12,7 @@
 	g     = grep
 	l     = log --oneline -5
 	lg    = log --graph --oneline --decorate --all
+	re    = restore
 	sl    = stash list
 	sp    = stash pop
 	ss    = stash show --verbose
