@@ -50,8 +50,7 @@ if [ -e ~/.nix-profile/etc/profile.d/nix.sh ]; then
     . ~/.nix-profile/etc/profile.d/nix.sh
 fi
 
-if [ -e ~/.nix-profile/etc/bash_completion.d ]; then
-  . ~/.nix-profile/etc/bash_completion.d/git-completion.bash
+if [ -e ~/.nix-profile/etc/bash_completion.d/git-prompt.sh ]; then
   . ~/.nix-profile/etc/bash_completion.d/git-prompt.sh
 fi
 
