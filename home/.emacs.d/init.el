@@ -164,6 +164,10 @@
   :ensure t
   :config (dumb-jump-mode))
 
+(use-package eglot
+  :ensure t
+  :hook (ruby-mode . eglot-ensure))
+
 (use-package elm-mode
   :ensure t)
 
