@@ -11,9 +11,9 @@
 
 (fset 'yes-or-no-p 'y-or-n-p)
 
-(setq ring-bell-function (lambda () (princ "[RING] ")))
+(customize-set-variable 'ring-bell-function (lambda () (princ "[RING] ")))
 
-(setq confirm-kill-emacs 'y-or-n-p)
+(customize-set-variable 'confirm-kill-emacs 'y-or-n-p)
 
 ;;;; Language
 
@@ -69,7 +69,7 @@
 (add-hook 'text-mode-hook 'goto-address-mode)
 
 ;;; backup
-(setq backup-by-copying t)
+(customize-set-variable 'backup-by-copying t)
 (add-to-list 'backup-directory-alist '("\\.*$" . "~/.emacs.d/backup"))
 
 (column-number-mode)
@@ -146,10 +146,10 @@
 
 (use-package dimmer
   :ensure t
-  :config
-  (setq dimmer-exclusion-regexp "^\\*helm")
-  (dimmer-mode)
-  :custom (dimmer-fraction 0.3))
+  :config (dimmer-mode)
+  :custom
+  (dimmer-exclusion-regexp "^\\*helm")
+  (dimmer-fraction 0.3))
 
 (use-package dired
   :custom
@@ -169,8 +169,7 @@
   :ensure t
   :defer t
   :hook (sgml-mode css-mode)
-  :config
-  (setq emmet-move-cursor-between-quotes t))
+  :custom (emmet-move-cursor-between-quotes t))
 
 (use-package ensime
   :ensure t
@@ -224,13 +223,13 @@
   :ensure t
   :init
   (setq howm-view-title-header "#") ; 先に定義する必要がある
-  :config
-  (setq howm-directory "~/Dropbox/notes"
-        howm-file-name-format "%Y%m%d-%H%M%S.md"
-        howm-keyword-file (concat (file-name-as-directory howm-directory) ".howm-keys")
-        howm-history-file (concat (file-name-as-directory howm-directory) ".howm-history")
-        howm-view-split-horizontally t)
-  :bind ("C-c c" . howm-menu))
+  :bind ("C-c c" . howm-menu)
+  :custom
+  (howm-directory "~/Dropbox/notes")
+  (howm-file-name-format "%Y%m%d-%H%M%S.md")
+  (howm-keyword-file (concat (file-name-as-directory howm-directory) ".howm-keys"))
+  (howm-history-file (concat (file-name-as-directory howm-directory) ".howm-history"))
+  (howm-view-split-horizontally t))
 
 (use-package image+
   :ensure t)
@@ -238,11 +237,10 @@
 (use-package js2-mode
   :ensure t
   :mode "\\.js\\'"
-  :config
-  (setq js2-strict-missing-semi-warning nil)
   :custom
   (js-indent-level 2)
-  (js2-indent-switch-body t))
+  (js2-indent-switch-body t)
+  (js2-strict-missing-semi-warning nil))
 
 (use-package magit
   :ensure t
@@ -276,14 +274,15 @@ Optionally takes FRAME for its target and works on current frame if nothing give
 (use-package migemo
   :ensure t
   :config
-  (setq migemo-command "cmigemo")
-  (setq migemo-options '("-q" "--emacs"))
-  (setq migemo-dictionary "/usr/local/share/migemo/utf-8/migemo-dict")
-  (setq migemo-user-dictionary nil)
-  (setq migemo-regex-dictionary nil)
-  (setq migemo-coding-system 'utf-8-unix)
   (migemo-init)
-  (helm-migemo-mode 1))
+  (helm-migemo-mode 1)
+  :custom
+  (migemo-command "cmigemo")
+  (migemo-options '("-q" "--emacs"))
+  (migemo-dictionary "/usr/local/share/migemo/utf-8/migemo-dict")
+  (migemo-user-dictionary nil)
+  (migemo-regex-dictionary nil)
+  (migemo-coding-system 'utf-8-unix))
 
 (use-package multiple-cursors
   :ensure t
@@ -297,8 +296,9 @@ Optionally takes FRAME for its target and works on current frame if nothing give
 (use-package open-junk-file
   :ensure t
   :commands open-junk-file
-  :config (setq open-junk-file-format "~/.emacs.d/junk/%Y/%m/%d-%H%M%S.")
-  :custom (open-junk-file-find-file-function 'find-file))
+  :custom
+  (open-junk-file-format "~/.emacs.d/junk/%Y/%m/%d-%H%M%S.")
+  (open-junk-file-find-file-function 'find-file))
 
 (use-package org)
 
@@ -307,11 +307,12 @@ Optionally takes FRAME for its target and works on current frame if nothing give
   :defer t ; helm-projectile will load this
   :config
   (projectile-mode)
-  (setq helm-projectile-sources-list
-        '(helm-source-projectile-projects
-          helm-source-projectile-recentf-list
-          helm-source-projectile-buffers-list
-          helm-source-projectile-files-list)))
+  :custom
+  (helm-projectile-sources-list
+   '(helm-source-projectile-projects
+     helm-source-projectile-recentf-list
+     helm-source-projectile-buffers-list
+     helm-source-projectile-files-list)))
 
 (use-package rainbow-delimiters
   :ensure t
@@ -349,21 +350,24 @@ Optionally takes FRAME for its target and works on current frame if nothing give
 
 (use-package scss-mode
   :ensure t
-  :config (setq css-indent-offset 2)
-  :custom (scss-compile-at-save nil))
+  :custom
+  (css-indent-offset 2)
+  (scss-compile-at-save nil))
 
 (use-package shackle
   :ensure t
+  :custom
+  (shackle-rules
+   '(("*Warnings*" :size 0.3)
+     ("*Buffer List*" :size 0.3)
+     ("magit:" :regexp t :align t :size 0.5)
+     ("\\`\\*helm.*?\\*\\'" :regexp t :align t :size 0.3)
+     ("*GHC Info*" :size 10)
+     (" *undo-tree*" :align right :size 0.1 :inhibit-window-quit t)
+     ("*git-gutter:diff*" :align t :size 0.3)
+     ("\\*ag search" :regexp t :size 0.3)
+     ("*Help*" :align t :ratio 0.3 :select t)))
   :config
-  (setq shackle-rules
-        '(("*Warnings*" :size 0.3)
-          ("*Buffer List*" :size 0.3)
-          ("magit:" :regexp t :align t :size 0.5)
-          ("\\`\\*helm.*?\\*\\'" :regexp t :align t :size 0.3)
-          ("*GHC Info*" :size 10)
-          (" *undo-tree*" :align right :size 0.1 :inhibit-window-quit t)
-          ("*git-gutter:diff*" :align t :size 0.3)
-          ("\\*ag search" :regexp t :size 0.3)))
   (shackle-mode))
 
 (use-package solarized-theme
@@ -395,16 +399,16 @@ Optionally takes FRAME for its target and works on current frame if nothing give
   :config (global-undo-tree-mode))
 
 (use-package uniquify
-  :config (setq uniquify-buffer-name-style 'reverse))
+  :custom (uniquify-buffer-name-style 'reverse))
 
 (use-package vue-mode
   :ensure t)
 
 (use-package web-mode
   :ensure t
-  :config
-  (setq web-mode-css-indent-offset 2)
-  (setq web-mode-markup-indent-offset 2))
+  :custom
+  (web-mode-css-indent-offset 2)
+  (web-mode-markup-indent-offset 2))
 
 (use-package which-key
   :ensure t
