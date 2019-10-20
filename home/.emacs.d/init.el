@@ -131,7 +131,9 @@
 
 (use-package company
   :ensure t
-  :custom (company-minimum-prefix-length 2)
+  :custom
+  (company-minimum-prefix-length 2)
+  (company-idle-delay 0)
   :hook (after-init . global-company-mode))
 
 (use-package csv-mode
