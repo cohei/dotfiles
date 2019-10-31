@@ -1,7 +1,8 @@
 ;;; init --- emacs config file
 
 ;;; Commentary:
-;;; aaaa
+
+;; Emacs config file.
 
 ;;; Code:
 
