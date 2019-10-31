@@ -6,48 +6,39 @@
 
 ;;; Code:
 
+;;; Emacs Server
+
 (require 'server)
 (unless (server-running-p)
   (server-start))
-
-(fset 'yes-or-no-p 'y-or-n-p)
-
-(customize-set-variable 'ring-bell-function (lambda () (princ "[RING] ")))
-
-(customize-set-variable 'confirm-kill-emacs 'y-or-n-p)
 
 ;;; Language
 
 (set-language-environment 'Japanese)
 (prefer-coding-system 'utf-8)
 
-;;; Load libraries
+;;; Load packages
 
-;;;; add the directories under site-lisp to load path
-
+;; add the directories under site-lisp to load path
 (let ((default-directory "~/.emacs.d/site-lisp/"))
   (if (file-exists-p default-directory)
       (progn
         (normal-top-level-add-to-load-path '("."))
         (normal-top-level-add-subdirs-to-load-path))))
 
-;;;; add repositories
-
 (require 'package)
 (add-to-list 'package-archives (cons "melpa-stable" "http://melpa-stable.milkbox.net/packages/"))
 (add-to-list 'package-archives (cons "melpa" "http://melpa.milkbox.net/packages/"))
 (package-initialize)
 
-;;; Global Keybinds
+;;; Global keybinds
 
 (global-set-key (kbd "C-x ?") 'help-command) ; to use C-h for DEL
 (global-set-key (kbd "C-h") 'delete-backward-char)
 (global-set-key (kbd "C-x j") 'dired-jump)
 (global-set-key (kbd "M-SPC") 'cycle-spacing)
 
-;;; Buffer Settings
-
-;;;; trailing whitespaces
+;;; Trailing whitespaces
 
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 (set-default 'show-trailing-whitespace t)
@@ -58,29 +49,52 @@
                 undo-tree-visualizer-mode-hook))
   (add-hook hook (lambda () (setq show-trailing-whitespace nil))))
 
-;;;; balance-windows after spliting/deleting windows
+;;; Window balancing
 
 (defun my/balance-windows-advice (&rest args)
   "Advice which execute `balance-window' after something.  ARGS are ignored."
   (balance-windows))
 
+;; balance-windows after spliting/deleting windows
 (dolist (f '(split-window-below split-window-right delete-window))
   (advice-add f :after 'my/balance-windows-advice))
 
-;;;; make file with shebang executable
+;;; Make executable
 
 (add-hook 'after-save-hook 'executable-make-buffer-file-executable-if-script-p)
 
-;;;; backup
+;;; Backup
 
 (customize-set-variable 'backup-by-copying t)
 (add-to-list 'backup-directory-alist '("\\.*$" . "~/.emacs.d/backup"))
 
-(column-number-mode)
-
-;;; for direnv
+;;; direnv
 
 (add-to-list 'auto-mode-alist '("\\.envrc\\'" . shell-script-mode))
+
+;;; Customization
+
+(customize-set-variable 'custom-file (expand-file-name "custom.el" user-emacs-directory))
+(when (file-exists-p custom-file)
+  (load custom-file))
+
+;;; Other settings
+
+(column-number-mode)
+
+(fset 'yes-or-no-p 'y-or-n-p)
+
+(customize-set-variable 'confirm-kill-emacs 'y-or-n-p)
+(customize-set-variable 'indent-tabs-mode nil)
+(customize-set-variable 'inhibit-startup-screen t)
+(customize-set-variable 'kill-whole-line t)
+(customize-set-variable 'require-final-newline 'visit)
+(customize-set-variable 'ring-bell-function (lambda () (princ "[RING] ")))
+(customize-set-variable 'scroll-bar-mode nil)
+(customize-set-variable 'scroll-conservatively 1000)
+(customize-set-variable 'scroll-margin 5)
+(customize-set-variable 'tool-bar-mode nil)
+(customize-set-variable 'use-dialog-box nil)
 
 ;;; use-package
 
@@ -444,19 +458,6 @@ Optionally takes FRAME for its target and works on current frame if nothing give
 
 (use-package yaml-mode
   :ensure t)
-
-(customize-set-variable 'custom-file (expand-file-name "custom.el" user-emacs-directory))
-(customize-set-variable 'indent-tabs-mode nil)
-(customize-set-variable 'inhibit-startup-screen t)
-(customize-set-variable 'kill-whole-line t)
-(customize-set-variable 'require-final-newline 'visit)
-(customize-set-variable 'scroll-bar-mode nil)
-(customize-set-variable 'scroll-conservatively 1000)
-(customize-set-variable 'scroll-margin 5)
-(customize-set-variable 'tool-bar-mode nil)
-(customize-set-variable 'use-dialog-box nil)
-
-(when (file-exists-p custom-file) (load custom-file))
 
 (provide 'init)
 ;;; init.el ends here
