@@ -11,6 +11,7 @@
           bashInteractive_5
           cacert # not to cause SSL error
           cloc
+          cmake
           coreutils
           direnv
           emacs

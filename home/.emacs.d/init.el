@@ -405,6 +405,11 @@ Optionally takes FRAME for its target and works on current frame if nothing give
 (use-package uniquify
   :custom (uniquify-buffer-name-style 'reverse))
 
+(use-package vterm
+  :ensure t
+  :bind ("C-c v" . vterm)
+  :custom (vterm-shell "~/.nix-profile/bin/bash --login"))
+
 (use-package vue-mode
   :ensure t)
 
@@ -424,7 +429,8 @@ Optionally takes FRAME for its target and works on current frame if nothing give
   (setq whitespace-display-mappings
         (seq-remove (lambda (x) (eql (car x) 'space-mark)) whitespace-display-mappings))
   (add-to-list 'whitespace-display-mappings '(space-mark ?\u3000 [?\u25a1]))
-  (global-whitespace-mode 1))
+  (global-whitespace-mode 1)
+  :custom (whitespace-global-modes '(not vterm-mode)))
 
 (use-package windmove
   :config (windmove-default-keybindings)

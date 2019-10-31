@@ -29,3 +29,7 @@ fi
 if command -v enhancd-dir > /dev/null; then
     source "$(enhancd-dir)/init.sh" 2> /dev/null
 fi
+
+if [[ "$INSIDE_EMACS" = vterm ]]; then
+    export FZF_DEFAULT_OPTS=--bind=ctrl-j:accept
+fi
