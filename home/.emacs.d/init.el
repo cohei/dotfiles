@@ -59,12 +59,12 @@
 
 ;;; balance-windows after spliting/deleting windows
 
-(defun balance-windows-advice (&rest args)
+(defun my/balance-windows-advice (&rest args)
   "Advice which execute `balance-window' after something.  ARGS are ignored."
   (balance-windows))
 
 (dolist (f '(split-window-below split-window-right delete-window))
-  (advice-add f :after 'balance-windows-advice))
+  (advice-add f :after 'my/balance-windows-advice))
 
 ;;; make file with shebang executable
 
@@ -108,7 +108,7 @@
 
 (use-package ansi-color
   :config
-  (defun ansi-colorize-current-buffer ()
+  (defun my/ansi-colorize-current-buffer ()
     "Colorize ansi escape sequences in the current buffer."
     (interactive)
     (ansi-color-apply-on-region (point-min) (point-max))))
@@ -255,7 +255,7 @@
   :ensure t
   :if (memq window-system '(ns x mac)) ; cocoa, carbon -> mac, terminal -> nil, X -> x
   :init
-  (defun maximize-and-split (&optional frame)
+  (defun my/maximize-and-split (&optional frame)
     "Maximize the window and split it horizontally into two buffers.
 Optionally takes FRAME for its target and works on current frame if nothing given."
     (if frame
@@ -264,9 +264,9 @@ Optionally takes FRAME for its target and works on current frame if nothing give
     (split-window-horizontally))
   :hook
    ;; when startup
-  ((window-setup . maximize-and-split)
+  ((window-setup . my/maximize-and-split)
    ;; when make-frame
-   (after-make-frame-functions . maximize-and-split)))
+   (after-make-frame-functions . my/maximize-and-split)))
 
 (use-package markdown-mode
   :ensure t
