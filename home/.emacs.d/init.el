@@ -6,12 +6,6 @@
 
 ;;; Code:
 
-;;; Emacs Server
-
-(require 'server)
-(unless (server-running-p)
-  (server-start))
-
 ;;; Language
 
 (set-language-environment 'Japanese)
@@ -368,6 +362,11 @@ Optionally takes FRAME for its target and works on current frame if nothing give
   :custom
   (css-indent-offset 2)
   (scss-compile-at-save nil))
+
+(use-package server
+  :config
+  (unless (server-running-p)
+    (server-start)))
 
 (use-package shackle
   :ensure t
