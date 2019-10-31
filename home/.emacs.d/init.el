@@ -71,11 +71,6 @@
 
 (add-hook 'after-save-hook 'executable-make-buffer-file-executable-if-script-p)
 
-;;; enable goto-address-mode
-
-(add-hook 'prog-mode-hook 'goto-address-prog-mode)
-(add-hook 'text-mode-hook 'goto-address-mode)
-
 ;;; backup
 
 (customize-set-variable 'backup-by-copying t)
@@ -195,6 +190,11 @@
   :defer t
   :diminish "GG"
   :hook (prog-mode . git-gutter-mode))
+
+(use-package goto-addr
+  :hook
+  ((prog-mode . goto-address-prog-mode)
+   (text-mode . goto-address-mode)))
 
 (use-package haml-mode
   :ensure t
