@@ -51,13 +51,8 @@
 
 ;;; Window balancing
 
-(defun my/balance-windows-advice (&rest args)
-  "Advice which execute `balance-window' after something.  ARGS are ignored."
-  (balance-windows))
-
-;; balance-windows after spliting/deleting windows
 (dolist (f '(split-window-below split-window-right delete-window))
-  (advice-add f :after 'my/balance-windows-advice))
+  (advice-add f :after 'balance-windows))
 
 ;;; Make executable
 
