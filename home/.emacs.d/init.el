@@ -37,13 +37,6 @@
 ;;; Trailing whitespaces
 
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
-(set-default 'show-trailing-whitespace t)
-(dolist (hook '(Buffer-menu-mode-hook
-                eshell-mode-hook
-                package-menu-mode
-                term-mode-hook
-                undo-tree-visualizer-mode-hook))
-  (add-hook hook (lambda () (setq show-trailing-whitespace nil))))
 
 ;;; Window balancing
 
