@@ -23,6 +23,7 @@
 ;;;; Load libraries
 
 ;;; add the directories under site-lisp to load path
+
 (let ((default-directory "~/.emacs.d/site-lisp/"))
   (if (file-exists-p default-directory)
       (progn
@@ -30,6 +31,7 @@
         (normal-top-level-add-subdirs-to-load-path))))
 
 ;;; add repositories
+
 (require 'package)
 (add-to-list 'package-archives (cons "melpa-stable" "http://melpa-stable.milkbox.net/packages/"))
 (add-to-list 'package-archives (cons "melpa" "http://melpa.milkbox.net/packages/"))
@@ -45,6 +47,7 @@
 ;;;; Buffer Settings
 
 ;;; trailing whitespaces
+
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 (set-default 'show-trailing-whitespace t)
 (dolist (hook '(Buffer-menu-mode-hook
@@ -55,26 +58,32 @@
   (add-hook hook (lambda () (setq show-trailing-whitespace nil))))
 
 ;;; balance-windows after spliting/deleting windows
+
 (defun balance-windows-advice (&rest args)
   "Advice which execute `balance-window' after something.  ARGS are ignored."
   (balance-windows))
+
 (dolist (f '(split-window-below split-window-right delete-window))
   (advice-add f :after 'balance-windows-advice))
 
 ;;; make file with shebang executable
+
 (add-hook 'after-save-hook 'executable-make-buffer-file-executable-if-script-p)
 
 ;;; enable goto-address-mode
+
 (add-hook 'prog-mode-hook 'goto-address-prog-mode)
 (add-hook 'text-mode-hook 'goto-address-mode)
 
 ;;; backup
+
 (customize-set-variable 'backup-by-copying t)
 (add-to-list 'backup-directory-alist '("\\.*$" . "~/.emacs.d/backup"))
 
 (column-number-mode)
 
 ;;; for direnv
+
 (add-to-list 'auto-mode-alist '("\\.envrc\\'" . shell-script-mode))
 
 ;;;; use-package
