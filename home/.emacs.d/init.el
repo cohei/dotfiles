@@ -16,14 +16,14 @@
 
 (customize-set-variable 'confirm-kill-emacs 'y-or-n-p)
 
-;;;; Language
+;;; Language
 
 (set-language-environment 'Japanese)
 (prefer-coding-system 'utf-8)
 
-;;;; Load libraries
+;;; Load libraries
 
-;;; add the directories under site-lisp to load path
+;;;; add the directories under site-lisp to load path
 
 (let ((default-directory "~/.emacs.d/site-lisp/"))
   (if (file-exists-p default-directory)
@@ -31,23 +31,23 @@
         (normal-top-level-add-to-load-path '("."))
         (normal-top-level-add-subdirs-to-load-path))))
 
-;;; add repositories
+;;;; add repositories
 
 (require 'package)
 (add-to-list 'package-archives (cons "melpa-stable" "http://melpa-stable.milkbox.net/packages/"))
 (add-to-list 'package-archives (cons "melpa" "http://melpa.milkbox.net/packages/"))
 (package-initialize)
 
-;;;; Global Keybinds
+;;; Global Keybinds
 
 (global-set-key (kbd "C-x ?") 'help-command) ; to use C-h for DEL
 (global-set-key (kbd "C-h") 'delete-backward-char)
 (global-set-key (kbd "C-x j") 'dired-jump)
 (global-set-key (kbd "M-SPC") 'cycle-spacing)
 
-;;;; Buffer Settings
+;;; Buffer Settings
 
-;;; trailing whitespaces
+;;;; trailing whitespaces
 
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 (set-default 'show-trailing-whitespace t)
@@ -58,7 +58,7 @@
                 undo-tree-visualizer-mode-hook))
   (add-hook hook (lambda () (setq show-trailing-whitespace nil))))
 
-;;; balance-windows after spliting/deleting windows
+;;;; balance-windows after spliting/deleting windows
 
 (defun my/balance-windows-advice (&rest args)
   "Advice which execute `balance-window' after something.  ARGS are ignored."
@@ -67,11 +67,11 @@
 (dolist (f '(split-window-below split-window-right delete-window))
   (advice-add f :after 'my/balance-windows-advice))
 
-;;; make file with shebang executable
+;;;; make file with shebang executable
 
 (add-hook 'after-save-hook 'executable-make-buffer-file-executable-if-script-p)
 
-;;; backup
+;;;; backup
 
 (customize-set-variable 'backup-by-copying t)
 (add-to-list 'backup-directory-alist '("\\.*$" . "~/.emacs.d/backup"))
@@ -82,7 +82,7 @@
 
 (add-to-list 'auto-mode-alist '("\\.envrc\\'" . shell-script-mode))
 
-;;;; use-package
+;;; use-package
 
 (package-install 'use-package)
 (require 'use-package)
