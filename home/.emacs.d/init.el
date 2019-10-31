@@ -106,8 +106,7 @@
 
 (use-package anzu
   :ensure t
-  :custom
-  (global-anzu-mode t))
+  :custom (global-anzu-mode t))
 
 (use-package apib-mode
   :ensure t
@@ -128,8 +127,7 @@
 
 (use-package coffee-mode
   :ensure t
-  :custom
-  (coffee-tab-width 2))
+  :custom (coffee-tab-width 2))
 
 (use-package company
   :ensure t
@@ -152,8 +150,7 @@
   (dimmer-fraction 0.3))
 
 (use-package dired
-  :custom
-  (dired-dwim-target t))
+  :custom (dired-dwim-target t))
 
 (use-package dockerfile-mode
   :ensure t)
@@ -195,8 +192,7 @@
 
 (use-package haskell-mode
   :ensure t
-  :custom
-  (haskell-stylish-on-save t))
+  :custom (haskell-stylish-on-save t))
 
 (use-package helm
   :ensure t
@@ -221,8 +217,7 @@
 
 (use-package howm
   :ensure t
-  :init
-  (setq howm-view-title-header "#") ; 先に定義する必要がある
+  :init (setq howm-view-title-header "#") ; 先に定義する必要がある
   :bind ("C-c c" . howm-menu)
   :custom
   (howm-directory "~/Dropbox/notes")
@@ -267,9 +262,10 @@ Optionally takes FRAME for its target and works on current frame if nothing give
 (use-package markdown-mode
   :ensure t
   :commands (markdown-mode gfm-mode)
-  :mode (("README\\.md\\'" . gfm-mode)
-         ("\\.md\\'" . markdown-mode)
-         ("\\.markdown\\'" . markdown-mode)))
+  :mode
+  (("README\\.md\\'" . gfm-mode)
+   ("\\.md\\'" . markdown-mode)
+   ("\\.markdown\\'" . markdown-mode)))
 
 (use-package migemo
   :ensure t
@@ -286,8 +282,9 @@ Optionally takes FRAME for its target and works on current frame if nothing give
 
 (use-package multiple-cursors
   :ensure t
-  :bind (("C-c m e" . mc/edit-lines)
-         ("C-c m n" . mc/mark-next-like-this)))
+  :bind
+  (("C-c m e" . mc/edit-lines)
+   ("C-c m n" . mc/mark-next-like-this)))
 
 (use-package nix-mode
   :ensure t
@@ -305,8 +302,7 @@ Optionally takes FRAME for its target and works on current frame if nothing give
 (use-package projectile
   :ensure t
   :defer t ; helm-projectile will load this
-  :config
-  (projectile-mode)
+  :config (projectile-mode)
   :custom
   (helm-projectile-sources-list
    '(helm-source-projectile-projects
@@ -323,15 +319,15 @@ Optionally takes FRAME for its target and works on current frame if nothing give
   :hook (css-mode scss-mode html-mode lisp-mode web-mode))
 
 (use-package ruby-mode
-  :mode (("\\.jbuilder\\'"  . ruby-mode)
-         ("\\.rake\\'"      . ruby-mode)
-         ("\\`Gemfile\\'"   . ruby-mode)
-         ("\\`Rakefile\\'"  . ruby-mode)
-         ("\\`Capfile\\'"   . ruby-mode)
-         ("\\.cap\\'"       . ruby-mode)
-         ("\\`Guardfile\\'" . ruby-mode))
-  :custom
-  (ruby-insert-encoding-magic-comment nil))
+  :mode
+  (("\\.jbuilder\\'"  . ruby-mode)
+   ("\\.rake\\'"      . ruby-mode)
+   ("\\`Gemfile\\'"   . ruby-mode)
+   ("\\`Rakefile\\'"  . ruby-mode)
+   ("\\`Capfile\\'"   . ruby-mode)
+   ("\\.cap\\'"       . ruby-mode)
+   ("\\`Guardfile\\'" . ruby-mode))
+  :custom (ruby-insert-encoding-magic-comment nil))
 
 (use-package ruby-end
   :ensure t
@@ -367,8 +363,7 @@ Optionally takes FRAME for its target and works on current frame if nothing give
      ("*git-gutter:diff*" :align t :size 0.3)
      ("\\*ag search" :regexp t :size 0.3)
      ("*Help*" :align t :ratio 0.3 :select t)))
-  :config
-  (shackle-mode))
+  :config (shackle-mode))
 
 (use-package solarized-theme
   :ensure t
@@ -376,8 +371,7 @@ Optionally takes FRAME for its target and works on current frame if nothing give
 
 (use-package string-inflection
   :ensure t
-  :bind
-  ("C-c C-u" . string-inflection-all-cycle)
+  :bind ("C-c C-u" . string-inflection-all-cycle)
   :hook
   ((ruby-mode . (lambda () (local-set-key (kbd "C-c C-u") 'string-inflection-ruby-style-cycle)))
    (java-mode . (lambda () (local-set-key (kbd "C-c C-u") 'string-inflection-java-style-cycle)))))
@@ -423,8 +417,7 @@ Optionally takes FRAME for its target and works on current frame if nothing give
   (global-whitespace-mode 1))
 
 (use-package windmove
-  :config
-  (windmove-default-keybindings)
+  :config (windmove-default-keybindings)
   :demand
   ;; Make windmove work in org-mode:
   :hook
