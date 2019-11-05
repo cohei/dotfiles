@@ -22,6 +22,7 @@
           gitAndTools.hub
           # haskellPackages.cabal-fmt # broken
           haskellPackages.ghcid
+          haskellPackages.hadolint
           haskellPackages.hlint
           haskellPackages.hoogle
           haskellPackages.hpack
