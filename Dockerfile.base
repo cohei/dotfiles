@@ -1,6 +1,6 @@
 FROM ubuntu:20.04
 
-RUN apt-get update -qq && apt-get install --yes curl git
+RUN apt-get update -qq && apt-get install --no-install-recommends --yes curl git
 
 ENV USER docker
 RUN useradd --create-home $USER
