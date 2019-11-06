@@ -147,6 +147,9 @@
 (use-package csv-mode
   :ensure t)
 
+(use-package delsel
+  :config (delete-selection-mode t))
+
 (use-package diminish
   :ensure t)
 
