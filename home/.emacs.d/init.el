@@ -404,7 +404,8 @@ Optionally takes FRAME for its target and works on current frame if nothing give
 
 (use-package undohist
   :ensure t
-  :config (undohist-initialize))
+  :config (undohist-initialize)
+  :custom (undohist-ignored-files "PULLREQ_EDITMSG"))
 
 (use-package undo-tree
   :ensure t
