@@ -177,10 +177,6 @@
   :hook (sgml-mode css-mode)
   :custom (emmet-move-cursor-between-quotes t))
 
-(use-package ensime
-  :ensure t
-  :pin melpa-stable)
-
 (use-package exec-path-from-shell
   :ensure t
   :config (exec-path-from-shell-initialize))
