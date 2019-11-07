@@ -2,12 +2,12 @@
 
 [![CircleCI](https://circleci.com/gh/cohei/dotfiles.svg?style=svg)](https://circleci.com/gh/cohei/dotfiles)
 
-## Precondition
+## Requirements
 
-- cURL available
-- Git available
+- cURL
+- Git
 
-## Install
+## Installation
 
 ```shell
 curl -L https://dotfiles.cohei.me | bash
