@@ -39,6 +39,7 @@
           pwgen
           sbt
           shellcheck
+          solargraph
           stack
           terminal-notifier
           terraform_0_12
