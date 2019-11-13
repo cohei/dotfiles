@@ -21,7 +21,6 @@ cask 'menumeters'
 cask 'osxfuse'
 cask 'xquartz'
 mas 'Evernote', id: 406056744
-mas 'Kiritori', id: 585126594
 mas 'Raindrop.io for Safari', id: 957810159
 mas 'Slack', id: 803453959
 mas 'Spark', id: 1176895641
