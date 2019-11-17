@@ -1,4 +1,6 @@
 FROM cohei/dotfiles
 
-COPY --chown=docker:docker . .dotfiles
-RUN .dotfiles/install.sh
+ENV repository .dotfiles
+
+COPY --chown=docker:docker . $repository
+RUN $repository/install.sh
