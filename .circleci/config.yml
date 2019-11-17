@@ -4,4 +4,4 @@ jobs:
     machine: true
     steps:
       - checkout
-      - run: docker-compose build install
+      - run: docker build .
