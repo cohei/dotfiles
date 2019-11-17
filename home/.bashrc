@@ -87,9 +87,13 @@ ghq () {
     fi
 }
 
-eval "$(direnv hook bash)"
+if command -v direnv > /dev/null; then
+    eval "$(direnv hook bash)"
+fi
 
-eval "$(hub alias -s)"
+if command -v hub > /dev/null; then
+    eval "$(hub alias -s)"
+fi
 
 if [ -d ~/.ghcup ]; then
     . ~/.ghcup/env
