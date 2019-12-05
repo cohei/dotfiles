@@ -1,0 +1,19 @@
+#!/usr/bin/env cabal
+{- cabal:
+build-depends: base, time
+-}
+{-# LANGUAGE TypeApplications #-}
+import           Data.Time (DiffTime, defaultTimeLocale, formatTime,
+                            parseTimeOrError)
+
+main :: IO ()
+main =
+  putStrLn .
+  formatTime defaultTimeLocale timeFormat .
+  sum @_ @DiffTime .
+  map (parseTimeOrError False defaultTimeLocale timeFormat) .
+  lines
+  =<< getContents
+
+timeFormat :: String
+timeFormat = "%H:%M:%S"
