@@ -3,6 +3,7 @@ tap 'homebrew/cask'
 tap 'homebrew/cask-fonts'
 tap 'homebrew/core'
 brew 'cmigemo', args: ['HEAD']
+brew 'libtool' # for vterm
 brew 'mas'
 brew 'tup'
 cask 'appcleaner'
