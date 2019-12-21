@@ -24,6 +24,8 @@
 (add-to-list 'package-archives (cons "melpa-stable" "http://melpa-stable.milkbox.net/packages/"))
 (add-to-list 'package-archives (cons "melpa" "http://melpa.milkbox.net/packages/"))
 (package-initialize)
+(unless package-archive-contents
+  (package-refresh-contents))
 
 ;;; Global keybinds
 
@@ -87,7 +89,8 @@
 
 ;;; use-package
 
-(package-install 'use-package)
+(when (not (package-installed-p 'use-package))
+  (package-install 'use-package))
 (require 'use-package)
 
 (use-package ace-isearch
