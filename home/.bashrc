@@ -59,6 +59,11 @@ if [ -e ~/.nix-profile/etc/profile.d/bash_completion.sh ]; then
     . ~/.nix-profile/etc/profile.d/bash_completion.sh
 fi
 
+if [ -e ~/.nix-profile/share/chruby/chruby.sh ]; then
+    . ~/.nix-profile/share/chruby/chruby.sh
+    . ~/.nix-profile/share/chruby/auto.sh
+fi
+
 # for fzf from Nix
 if command -v fzf-share > /dev/null; then
     # Auto-completion
@@ -68,10 +73,6 @@ if command -v fzf-share > /dev/null; then
     # Key bindings
     # ------------
     source "$(fzf-share)/key-bindings.bash"
-fi
-
-if type rbenv >/dev/null 2>&1; then
-    eval "$(rbenv init -)"
 fi
 
 if type stack >/dev/null 2>&1; then
