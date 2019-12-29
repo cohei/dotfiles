@@ -124,6 +124,13 @@
   :after dim
   :config
   (dim-minor-name 'company-mode "")
+  :bind
+  (:map company-active-map
+   ("<tab>" . company-complete-common-or-cycle)
+   ("M-p" . nil)
+   ("M-n" . nil)
+   ("C-p" . company-select-previous)
+   ("C-n" . company-select-next))
   :custom
   (company-minimum-prefix-length 2)
   (company-idle-delay 0)
