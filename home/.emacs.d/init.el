@@ -138,6 +138,7 @@
   :custom
   (company-minimum-prefix-length 2)
   (company-idle-delay 0)
+  (company-dabbrev-downcase nil)
   :hook (after-init . global-company-mode))
 
 (use-package csv-mode
