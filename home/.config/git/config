@@ -18,7 +18,7 @@
 	ss    = stash show --verbose
 	s     = status --short --branch
 	sw    = switch
-	swc   = switch --create
+	swc   = switch --no-track --create
 	swd   = switch --detach
 
 [push]
