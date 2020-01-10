@@ -20,7 +20,6 @@ cask 'karabiner-elements'
 cask 'macpass'
 cask 'menumeters'
 cask 'osxfuse'
-cask 'xquartz'
 mas 'Evernote', id: 406056744
 mas 'Raindrop.io for Safari', id: 957810159
 mas 'Slack', id: 803453959
