@@ -315,6 +315,14 @@ Optionally takes FRAME for its target and works on current frame if nothing give
 
 (use-package org)
 
+(use-package peep-dired
+  :ensure t
+  :bind
+  (:map dired-mode-map
+   ("C-x x" . peep-dired)
+   :map peep-dired-mode-map
+   ("C-x x" . peep-dired)))
+
 (use-package projectile
   :ensure t
   :defer t ; helm-projectile will load this
