@@ -405,6 +405,9 @@ Optionally takes FRAME for its target and works on current frame if nothing give
   ((ruby-mode . (lambda () (local-set-key (kbd "C-c C-u") 'string-inflection-ruby-style-cycle)))
    (java-mode . (lambda () (local-set-key (kbd "C-c C-u") 'string-inflection-java-style-cycle)))))
 
+(use-package terraform-mode
+  :ensure t)
+
 (use-package textile-mode
   :ensure t
   :mode "\\.textile\\'")
