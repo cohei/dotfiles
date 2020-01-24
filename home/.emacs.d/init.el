@@ -368,6 +368,9 @@ Optionally takes FRAME for its target and works on current frame if nothing give
 (use-package rust-mode
   :ensure t)
 
+(use-package scala-mode
+  :ensure t)
+
 (use-package scss-mode
   :ensure t
   :custom
