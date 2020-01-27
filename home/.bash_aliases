@@ -27,8 +27,7 @@ case $OSTYPE in
 esac
 
 alias la='ls -A'
-alias ll='ls -l --human-readable'
-alias lla='ls -A -l --human-readable'
+alias ll='ls -A -l --human-readable'
 
 if [[ $OSTYPE =~ darwin ]]; then
     alias e='emacsclient --tty --no-wait --alternate-editor="open -a emacs"'
