@@ -173,6 +173,12 @@
 (use-package elm-mode
   :ensure t)
 
+(use-package emacs-lock
+  :diminish
+  :config
+  (with-current-buffer "*scratch*"
+    (emacs-lock-mode 'kill)))
+
 (use-package emmet-mode
   :ensure t
   :defer t
