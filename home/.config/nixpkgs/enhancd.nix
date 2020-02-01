@@ -6,7 +6,7 @@ stdenv.mkDerivation {
     owner = "b4b4r07";
     repo = "enhancd";
     rev = "master";
-    sha256 = "1rfhqq2f0rrkijmnjbzgjjfnbdsh4bim9yhlmywqsbc8xrp8mhld";
+    sha256 = "17y7s80rr0ir3mawah52nzx8vw7gxbwh2af3dl5cdgcmpyzrjg7d";
   };
   phases = "unpackPhase installPhase";
   installPhase = ''
