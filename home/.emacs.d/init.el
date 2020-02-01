@@ -41,7 +41,7 @@
 ;;; Window balancing
 
 (dolist (f '(split-window-below split-window-right delete-window))
-  (advice-add f :after 'balance-windows))
+  (advice-add f :after (lambda (&optional _) (balance-windows))))
 
 ;;; Make executable
 
