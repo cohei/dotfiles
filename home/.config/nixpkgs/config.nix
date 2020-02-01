@@ -27,7 +27,7 @@
           haskellPackages.hlint
           haskellPackages.hoogle
           haskellPackages.hpack
-          haskellPackages.stylish-haskell
+          # haskellPackages.stylish-haskell # broken
           # haskellPackages.unused # broken
           hledger
           icdiff
