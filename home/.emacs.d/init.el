@@ -70,6 +70,7 @@
 
 (customize-set-variable 'confirm-kill-emacs 'y-or-n-p)
 (customize-set-variable 'indent-tabs-mode nil)
+(customize-set-variable 'indicate-buffer-boundaries 'right)
 (customize-set-variable 'inhibit-startup-screen t)
 (customize-set-variable 'kill-whole-line t)
 (customize-set-variable 'require-final-newline 'visit)
