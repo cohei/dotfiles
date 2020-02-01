@@ -460,7 +460,7 @@ Optionally takes FRAME for its target and works on current frame if nothing give
   :config
   (dolist (style '(newline-mark lines tabs empty)) (delete style whitespace-style))
   (setq whitespace-display-mappings
-        (seq-remove (lambda (x) (equal (subseq x 0 2) '(space-mark ?\ ))) whitespace-display-mappings))
+        (seq-remove (lambda (x) (equal (seq-take x 2) '(space-mark ?\ ))) whitespace-display-mappings))
   (add-to-list 'whitespace-display-mappings '(space-mark ?\u3000 [?\u25a1]))
   (global-whitespace-mode 1)
   :custom (whitespace-global-modes '(not vterm-mode)))
