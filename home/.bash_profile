@@ -5,7 +5,7 @@ export LANG=ja_JP.UTF-8
 
 export GIT_PS1_SHOWDIRTYSTATE=true
 export GIT_PS1_SHOWUNTRACKEDFILES=true
-export PS1='\n[\t] @$(hostname | cut -c 1-6) \W$(__git_ps1)\n$ '
+export PS1='\n\[\e[1;37m\][\t] @$(hostname | cut -c 1-6) \W$(__git_ps1)\[\e[m\]\n$ '
 
 # for
 #   - git commiting
