@@ -441,7 +441,9 @@ Optionally takes FRAME for its target and works on current frame if nothing give
 (use-package vterm
   :ensure t
   :bind ("C-c v" . vterm)
-  :custom (vterm-shell "~/.nix-profile/bin/bash --login"))
+  :custom
+  (vterm-kill-buffer-on-exit t)
+  (vterm-shell "~/.nix-profile/bin/bash --login"))
 
 (use-package vue-mode
   :ensure t)
