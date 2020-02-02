@@ -32,7 +32,6 @@
 (global-set-key (kbd "C-x ?") 'help-command) ; to use C-h for DEL
 (global-set-key (kbd "C-h") 'delete-backward-char)
 (global-set-key (kbd "C-x j") 'dired-jump)
-(global-set-key (kbd "M-SPC") 'cycle-spacing)
 
 ;;; Trailing whitespaces
 
@@ -403,6 +402,11 @@ Optionally takes FRAME for its target and works on current frame if nothing give
      ("\\*ag search" :regexp t :size 0.3)
      ("*Help*" :align t :ratio 0.3 :select t)))
   :config (shackle-mode))
+
+(use-package shrink-whitespace
+  :ensure t
+  :bind
+  ("M-SPC" . shrink-whitespace))
 
 (use-package solarized-theme
   :ensure t
