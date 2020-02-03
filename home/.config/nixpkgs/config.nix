@@ -20,6 +20,7 @@
           ghq
           git
           gitAndTools.diff-so-fancy
+          gitAndTools.gh
           gitAndTools.hub
           google-cloud-sdk
           # haskellPackages.cabal-fmt # broken
