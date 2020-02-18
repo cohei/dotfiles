@@ -175,6 +175,10 @@
   :config
   (add-to-list 'eglot-server-programs '(haskell-mode . ("hie-wrapper" "--lsp"))))
 
+(use-package elec-pair
+  :config
+  (electric-pair-mode t))
+
 (use-package elm-mode
   :ensure t)
 
