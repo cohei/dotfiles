@@ -5,7 +5,15 @@ export LANG=ja_JP.UTF-8
 
 export GIT_PS1_SHOWDIRTYSTATE=true
 export GIT_PS1_SHOWUNTRACKEDFILES=true
-export PS1='\n\[\e[1;37m\][\t] @$(hostname | cut -c 1-6) \W$(__git_ps1)\[\e[m\]\n$ '
+export PS1='\n\[\e[1;37m\][\t] @$(hostname | cut -c 1-6) \W$(__git_ps1_wrapper)\[\e[m\]\n$ '
+
+function __git_ps1_wrapper {
+    if command -v __git_ps1 > /dev/null; then
+        __git_ps1
+    else
+        echo -n
+    fi
+}
 
 # for
 #   - git commiting
