@@ -2,18 +2,18 @@
 {- cabal:
 build-depends: base, time
 -}
-{-# LANGUAGE TypeApplications #-}
-import           Data.Time (DiffTime, defaultTimeLocale, formatTime,
-                            parseTimeOrError)
+import           Data.Time          (DiffTime, defaultTimeLocale, formatTime,
+                                     parseTimeOrError)
+import           System.Environment (getArgs)
 
 main :: IO ()
-main =
-  putStrLn .
-  formatTime defaultTimeLocale timeFormat .
-  sum @_ @DiffTime .
-  map (parseTimeOrError False defaultTimeLocale timeFormat) .
-  lines
-  =<< getContents
+main = putStrLn . showTime . sum . map readTime =<< getArgs
 
 timeFormat :: String
 timeFormat = "%H:%M:%S"
+
+readTime :: String -> DiffTime
+readTime = parseTimeOrError False defaultTimeLocale timeFormat
+
+showTime :: DiffTime -> String
+showTime = formatTime defaultTimeLocale timeFormat
