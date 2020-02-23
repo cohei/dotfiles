@@ -79,15 +79,6 @@ if type stack >/dev/null 2>&1; then
     eval "$(stack --bash-completion-script "$(which stack)")"
 fi
 
-# for `ghq look` not to use subshell
-ghq () {
-    if [ "$1" = look ] && [ -n "$2" ]; then
-        cd "$(command ghq list -p -e "$2")" || exit
-    else
-        command ghq "$@"
-    fi
-}
-
 if command -v direnv > /dev/null; then
     eval "$(direnv hook bash)"
 fi
