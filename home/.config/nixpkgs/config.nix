@@ -1,3 +1,6 @@
+let
+  all-hies = import (fetchTarball "https://github.com/infinisil/all-hies/tarball/master") {};
+in
 {
   packageOverrides = pkgs:
     with pkgs;
@@ -7,9 +10,11 @@
       myPackages = buildEnv {
         name = "my-packages";
         paths = [
+          (all-hies.selection { selector = p: { inherit (p) ghc882; }; })
           bashCompletion
           bashInteractive_5
           cacert # not to cause SSL error
+          cachix
           cloc
           cmake
           coreutils

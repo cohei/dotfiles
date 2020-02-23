@@ -169,7 +169,11 @@
 
 (use-package eglot
   :ensure t
-  :hook (ruby-mode . eglot-ensure))
+  :hook
+  (haskell-mode . eglot-ensure)
+  (ruby-mode . eglot-ensure)
+  :config
+  (add-to-list 'eglot-server-programs '(haskell-mode . ("hie-wrapper" "--lsp"))))
 
 (use-package elm-mode
   :ensure t)
