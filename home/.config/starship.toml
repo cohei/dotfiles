@@ -1,0 +1,23 @@
+[character]
+style_success = ""
+
+[directory]
+style = "white"
+
+[git_branch]
+style = "white"
+
+[git_commit]
+style = "white"
+
+[git_status]
+style = "white"
+
+[haskell]
+disabled = true
+
+[nodejs]
+style = "white"
+
+[ruby]
+style = "white"

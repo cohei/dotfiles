@@ -49,6 +49,7 @@ in
           shellcheck
           solargraph
           # stack # broken
+          starship
           terminal-notifier
           terraform_0_12
           tmux
