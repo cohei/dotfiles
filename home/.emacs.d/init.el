@@ -317,7 +317,7 @@
   :config
   (migemo-init)
   :custom
-  (migemo-dictionary "/usr/local/share/migemo/utf-8/migemo-dict")
+  (migemo-dictionary (expand-file-name "~/.nix-profile/share/migemo/utf-8/migemo-dict"))
   (migemo-user-dictionary nil)
   (migemo-regex-dictionary nil))
 

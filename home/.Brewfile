@@ -2,7 +2,6 @@ tap 'homebrew/bundle'
 tap 'homebrew/cask'
 tap 'homebrew/cask-fonts'
 tap 'homebrew/core'
-brew 'cmigemo', args: ['HEAD']
 brew 'mas'
 brew 'tup'
 cask 'appcleaner'

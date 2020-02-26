@@ -20,6 +20,7 @@
       bashInteractive_5
       bat
       cmake
+      cmigemo
       coreutils
       direnv
       dust
