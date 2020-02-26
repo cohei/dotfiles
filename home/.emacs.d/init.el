@@ -266,8 +266,7 @@
   :bind
   (("C-c h" . helm-mini)
    ("C-c r" . helm-resume)
-   ("M-y"   . helm-show-kill-ring)
-   ("C-x b" . helm-buffers-list)))
+   ("M-y"   . helm-show-kill-ring)))
 
 (use-package helm-projectile
   :ensure t
@@ -292,6 +291,10 @@
   (howm-keyword-file (concat (file-name-as-directory howm-directory) ".howm-keys"))
   (howm-history-file (concat (file-name-as-directory howm-directory) ".howm-history"))
   (howm-view-split-horizontally t))
+
+(use-package ido
+  :config
+  (ido-mode t))
 
 (use-package image+
   :ensure t)
