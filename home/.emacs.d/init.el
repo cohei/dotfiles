@@ -297,7 +297,7 @@ Optionally takes FRAME for its target and works on current frame if nothing give
   (helm-migemo-mode 1)
   :custom
   (migemo-command "cmigemo")
-  (migemo-options '("-q" "--emacs"))
+  (migemo-options '("--quiet" "--emacs"))
   (migemo-dictionary "/usr/local/share/migemo/utf-8/migemo-dict")
   (migemo-user-dictionary nil)
   (migemo-regex-dictionary nil)
