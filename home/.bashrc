@@ -92,3 +92,12 @@ if [ -d ~/.ghcup ]; then
 fi
 
 shopt -s histverify
+
+function ghq-look {
+    declare path
+    path=$(ghq list | fzf | xargs ghq list --full-path --exact)
+
+    if [ -n "$path" ]; then
+        cd "$path" || exit
+    fi
+}

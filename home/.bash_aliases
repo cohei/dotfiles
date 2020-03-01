@@ -55,5 +55,3 @@ alias ..='cd ..'
 alias icdiff='icdiff --no-bold'
 
 alias doco='docker-compose'
-
-alias ghq-fzf='cd $(ghq list --full-path --exact $(ghq list | fzf))'
