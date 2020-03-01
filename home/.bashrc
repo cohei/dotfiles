@@ -90,3 +90,5 @@ fi
 if [ -d ~/.ghcup ]; then
     . ~/.ghcup/env
 fi
+
+shopt -s histverify
