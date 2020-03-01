@@ -21,6 +21,7 @@
           git
           gitAndTools.diff-so-fancy
           gitAndTools.hub
+          google-cloud-sdk
           # haskellPackages.cabal-fmt # broken
           haskellPackages.ghcid
           haskellPackages.hadolint
