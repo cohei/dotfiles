@@ -296,6 +296,14 @@
   :config
   (ido-mode t))
 
+(use-package ido-vertical-mode
+  :ensure t
+  :config
+  (ido-vertical-mode t)
+  :custom
+  (ido-vertical-show-count t)
+  (ido-vertical-define-keys 'C-n-C-p-up-down-left-right))
+
 (use-package image+
   :ensure t)
 
