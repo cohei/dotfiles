@@ -198,6 +198,22 @@
   :ensure t
   :bind ("C-=" . er/expand-region))
 
+(use-package frame
+  :if (memq window-system '(ns x mac)) ; cocoa, carbon -> mac, terminal -> nil, X -> x
+  :init
+  (defun my/maximize-and-split (&optional frame)
+    "Maximize the window and split it horizontally into two buffers.
+Optionally takes FRAME for its target and works on current frame if nothing given."
+    (if frame
+        (select-window (frame-root-window frame)))
+    (toggle-frame-fullscreen)
+    (split-window-horizontally))
+  ;; when make-frame
+  (add-hook 'after-make-frame-functions #'my/maximize-and-split)
+  :hook
+  ;; when startup
+  (window-setup . my/maximize-and-split))
+
 (use-package flycheck
   :ensure t
   :config (global-flycheck-mode))
@@ -268,23 +284,6 @@
   :ensure t
   :demand
   :bind ("C-c g" . magit-status))
-
-(use-package maxframe
-  :ensure t
-  :if (memq window-system '(ns x mac)) ; cocoa, carbon -> mac, terminal -> nil, X -> x
-  :init
-  (defun my/maximize-and-split (&optional frame)
-    "Maximize the window and split it horizontally into two buffers.
-Optionally takes FRAME for its target and works on current frame if nothing given."
-    (if frame
-        (select-window (frame-root-window frame)))
-    (toggle-frame-fullscreen)
-    (split-window-horizontally))
-  ;; when make-frame
-  (add-hook 'after-make-frame-functions #'my/maximize-and-split)
-  :hook
-  ;; when startup
-  (window-setup . my/maximize-and-split))
 
 (use-package markdown-mode
   :ensure t
