@@ -206,13 +206,14 @@
 Optionally takes FRAME for its target and works on current frame if nothing given."
     (if frame
         (select-window (frame-root-window frame)))
-    (toggle-frame-fullscreen)
     (split-window-horizontally))
   ;; when make-frame
   (add-hook 'after-make-frame-functions #'my/fullscreen-and-split)
   :hook
   ;; when startup
-  (window-setup . my/fullscreen-and-split))
+  (window-setup . my/fullscreen-and-split)
+  :custom
+  (default-frame-alist '((fullscreen . fullboth))))
 
 (use-package flycheck
   :ensure t
