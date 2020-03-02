@@ -30,7 +30,7 @@ alias la='ls -A'
 alias ll='ls -A -l --human-readable'
 
 if [[ $OSTYPE =~ darwin ]]; then
-    alias e='emacsclient --tty --no-wait --alternate-editor="open -a emacs"'
+    alias e='emacsclient --no-wait --alternate-editor="open -a emacs"'
 else
     alias e='emacsclient --alternate-editor="" --create-frame'
 fi
