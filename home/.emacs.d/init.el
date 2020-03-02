@@ -199,7 +199,7 @@
   :bind ("C-=" . er/expand-region))
 
 (use-package frame
-  :if (memq window-system '(ns x mac)) ; cocoa, carbon -> mac, terminal -> nil, X -> x
+  :if window-system
   :init
   ;; when make-frame
   (add-hook 'after-make-frame-functions (lambda (frame)
