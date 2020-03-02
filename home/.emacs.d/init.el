@@ -201,17 +201,13 @@
 (use-package frame
   :if (memq window-system '(ns x mac)) ; cocoa, carbon -> mac, terminal -> nil, X -> x
   :init
-  (defun my/fullscreen-and-split (&optional frame)
-    "Fullscreen the window and split it horizontally into two buffers.
-Optionally takes FRAME for its target and works on current frame if nothing given."
-    (if frame
-        (select-window (frame-root-window frame)))
-    (split-window-horizontally))
   ;; when make-frame
-  (add-hook 'after-make-frame-functions #'my/fullscreen-and-split)
+  (add-hook 'after-make-frame-functions (lambda (frame)
+                                          (select-window (frame-root-window frame))
+                                          (split-window-horizontally)))
   :hook
   ;; when startup
-  (window-setup . my/fullscreen-and-split)
+  (window-setup . split-window-horizontally)
   :custom
   (default-frame-alist '((fullscreen . fullboth))))
 
