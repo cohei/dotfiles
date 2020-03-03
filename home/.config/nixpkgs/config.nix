@@ -21,6 +21,7 @@ in
           direnv
           emacs
           enhancd
+          fish
           fzf
           ghq
           git
