@@ -38,7 +38,7 @@ fi
 # git
 alias d='git d'
 alias gap='git ap'
-alias gb='git co $(git branch | fzf | tr -d "* ")'
+alias gb='git sw $(git branch | fzf | tr -d "* ")'
 alias gdc='git dc'
 alias gg='git g'
 alias gl='git l'
