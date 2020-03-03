@@ -29,13 +29,13 @@ in
           gitAndTools.gh
           gitAndTools.hub
           google-cloud-sdk
-          # haskellPackages.cabal-fmt # broken
+          haskellPackages.cabal-fmt
           haskellPackages.ghcid
-          haskellPackages.hadolint
+          # haskellPackages.hadolint # broken
           haskellPackages.hlint
           haskellPackages.hoogle
           haskellPackages.hpack
-          # haskellPackages.stylish-haskell # broken
+          haskellPackages.stylish-haskell
           # haskellPackages.unused # broken
           hledger
           icdiff
@@ -48,7 +48,7 @@ in
           sbt
           shellcheck
           solargraph
-          stack
+          # stack # broken
           terminal-notifier
           terraform_0_12
           tmux
