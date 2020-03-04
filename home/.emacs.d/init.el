@@ -213,6 +213,14 @@
 (use-package fish-mode
   :ensure t)
 
+(use-package flx-ido
+  :ensure t
+  :config
+  (flx-ido-mode t)
+  :custom
+  ;; disable ido faces to see flx highlights.
+  (ido-use-faces nil))
+
 (use-package flycheck
   :ensure t
   :config
@@ -294,7 +302,9 @@
 
 (use-package ido
   :config
-  (ido-mode t))
+  (ido-mode t)
+  :custom
+  (ido-enable-flex-matching t))
 
 (use-package ido-vertical-mode
   :ensure t
