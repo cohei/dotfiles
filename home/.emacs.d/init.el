@@ -254,13 +254,11 @@
   :ensure t
   :bind (:map flycheck-mode-map ("C-c !" . helm-flycheck)))
 
-(use-package helm-git-grep
-  :ensure t
-  :bind ("C-c k" . helm-git-grep-at-point))
-
 (use-package helm-projectile
   :ensure t
-  :bind ("C-c j" . helm-projectile)
+  :bind
+  ("C-c j" . helm-projectile)
+  ("C-c k" . helm-projectile-grep)
   :custom
   (helm-projectile-sources-list
    '(helm-source-projectile-projects
@@ -346,7 +344,10 @@
 (use-package projectile
   :ensure t
   :defer t ; helm-projectile will load this
-  :config (projectile-mode))
+  :config
+  (projectile-mode)
+  :custom
+  (projectile-use-git-grep t))
 
 (use-package rainbow-delimiters
   :ensure t
