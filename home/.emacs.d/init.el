@@ -202,6 +202,9 @@
   :ensure t
   :bind ("C-=" . er/expand-region))
 
+(use-package fish-mode
+  :ensure t)
+
 (use-package frame
   :if window-system
   :init
