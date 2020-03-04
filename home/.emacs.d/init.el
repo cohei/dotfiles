@@ -260,7 +260,13 @@
 
 (use-package helm-projectile
   :ensure t
-  :bind ("C-c j" . helm-projectile))
+  :bind ("C-c j" . helm-projectile)
+  :custom
+  (helm-projectile-sources-list
+   '(helm-source-projectile-projects
+     helm-source-projectile-recentf-list
+     helm-source-projectile-buffers-list
+     helm-source-projectile-files-list)))
 
 (use-package howm
   :ensure t
@@ -340,13 +346,7 @@
 (use-package projectile
   :ensure t
   :defer t ; helm-projectile will load this
-  :config (projectile-mode)
-  :custom
-  (helm-projectile-sources-list
-   '(helm-source-projectile-projects
-     helm-source-projectile-recentf-list
-     helm-source-projectile-buffers-list
-     helm-source-projectile-files-list)))
+  :config (projectile-mode))
 
 (use-package rainbow-delimiters
   :ensure t
