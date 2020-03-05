@@ -130,3 +130,7 @@ fi
 if command -v starship > /dev/null; then
     eval "$(starship init bash)"
 fi
+
+if command -v home-manager > /dev/null; then
+    source "$HOME/.nix-profile/etc/profile.d/hm-session-vars.sh"
+fi
