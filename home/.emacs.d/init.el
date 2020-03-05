@@ -409,7 +409,8 @@
      (" *undo-tree*" :align right :size 0.1 :inhibit-window-quit t)
      ("*git-gutter:diff*" :align t :size 0.3)
      ("\\*ag search" :regexp t :size 0.3)
-     ("*Help*" :align t :ratio 0.3 :select t)))
+     ("*Help*" :align t :ratio 0.3 :select t)
+     ("*xref*" :align t :size 0.3)))
   :config (shackle-mode))
 
 (use-package shrink-whitespace
