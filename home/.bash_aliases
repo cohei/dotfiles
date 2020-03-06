@@ -43,8 +43,6 @@ alias gdc='git dc'
 alias gg='git g'
 alias gl='git l'
 alias glg='git lg'
-alias gsl='git sl'
-alias gsp='git sp'
 alias gss='git ss'
 alias s='git s'
 
