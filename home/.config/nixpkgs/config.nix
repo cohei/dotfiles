@@ -48,7 +48,7 @@ in
           sbt
           shellcheck
           solargraph
-          # stack # broken
+          stack
           starship
           terminal-notifier
           terraform_0_12
