@@ -10,6 +10,9 @@ style = "white"
 [git_commit]
 style = "white"
 
+[git_state]
+style = "bold dimmed white"
+
 [git_status]
 style = "white"
 
