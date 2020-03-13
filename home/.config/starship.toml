@@ -19,6 +19,9 @@ style = "white"
 [haskell]
 disabled = true
 
+[java]
+style = "white"
+
 [nodejs]
 style = "white"
 
