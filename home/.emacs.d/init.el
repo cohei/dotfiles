@@ -328,7 +328,8 @@
 (use-package magit
   :ensure t
   :demand
-  :bind ("C-c g" . magit-status))
+  :bind ("C-c g" . magit-status)
+  :custom (magit-completing-read-function 'magit-ido-completing-read))
 
 (use-package markdown-mode
   :ensure t
