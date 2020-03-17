@@ -47,6 +47,7 @@ in
           nix
           nix-bash-completions
           nkf
+          parallel
           pwgen
           sbt
           shellcheck
