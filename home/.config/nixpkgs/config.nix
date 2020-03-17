@@ -52,6 +52,7 @@ in
           pwgen
           sbt
           shellcheck
+          skktools
           solargraph
           stack
           starship
