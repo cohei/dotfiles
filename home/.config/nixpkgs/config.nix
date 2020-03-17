@@ -48,6 +48,7 @@ in
           nix-bash-completions
           nkf
           parallel
+          pstree
           pwgen
           sbt
           shellcheck
