@@ -23,6 +23,7 @@ in
           enhancd
           ffmpeg
           fish
+          fswatch
           fzf
           ghq
           git
