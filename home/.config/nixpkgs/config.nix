@@ -46,6 +46,7 @@ in
           jq
           nix
           nix-bash-completions
+          nkf
           pwgen
           sbt
           shellcheck
