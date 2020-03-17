@@ -166,10 +166,6 @@
 (use-package dockerfile-mode
   :ensure t)
 
-(use-package dumb-jump
-  :ensure t
-  :config (dumb-jump-mode))
-
 (use-package eglot
   :ensure t
   :hook
@@ -424,6 +420,15 @@
   :ensure t
   :bind
   ("M-SPC" . shrink-whitespace))
+
+(use-package smart-jump
+  :ensure t
+  :config
+  (smart-jump-setup-default-registers)
+  ; plain `ruby-mode' is not registered (but `robe-mode' is)
+  (smart-jump-register :modes 'ruby-mode)
+  ; prevent `xref-find-definitions' from falling back to etags and prompting by `visit-tags-table'
+  (remove-hook 'xref-backend-functions 'etags--xref-backend))
 
 (use-package solarized-theme
   :ensure t
