@@ -13,14 +13,18 @@ in
           (all-hies.selection { selector = p: { inherit (p) ghc882; }; })
           bashCompletion
           bashInteractive_5
+          bat
           cacert # not to cause SSL error
           cachix
           cloc
           cmake
           coreutils
           direnv
+          dust
           emacs
           enhancd
+          exa
+          fd
           ffmpeg
           fish
           fswatch
@@ -48,6 +52,7 @@ in
           nix-bash-completions
           nkf
           parallel
+          procs
           pstree
           pwgen
           sbt
@@ -62,6 +67,7 @@ in
           tree
           watch
           wget
+          ytop
         ];
       };
     };
