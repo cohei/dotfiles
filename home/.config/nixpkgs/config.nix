@@ -21,6 +21,7 @@ in
           direnv
           emacs
           enhancd
+          ffmpeg
           fish
           fzf
           ghq
