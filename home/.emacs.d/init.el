@@ -307,12 +307,9 @@
   :config
   (migemo-init)
   :custom
-  (migemo-command "cmigemo")
-  (migemo-options '("--quiet" "--emacs"))
   (migemo-dictionary "/usr/local/share/migemo/utf-8/migemo-dict")
   (migemo-user-dictionary nil)
-  (migemo-regex-dictionary nil)
-  (migemo-coding-system 'utf-8-unix))
+  (migemo-regex-dictionary nil))
 
 (use-package multiple-cursors
   :ensure t
