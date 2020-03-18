@@ -242,6 +242,8 @@
 
 (use-package helm
   :ensure t
+  :config
+  (helm-migemo-mode t)
   :bind
   (("C-c h" . helm-mini)
    ("C-c r" . helm-resume)
@@ -304,7 +306,6 @@
   :ensure t
   :config
   (migemo-init)
-  (helm-migemo-mode 1)
   :custom
   (migemo-command "cmigemo")
   (migemo-options '("--quiet" "--emacs"))
