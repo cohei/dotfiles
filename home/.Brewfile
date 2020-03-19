@@ -19,6 +19,7 @@ cask 'java'
 cask 'karabiner-elements'
 cask 'macpass'
 cask 'menumeters'
+cask 'michaelvillar-timer'
 cask 'osxfuse'
 mas 'Evernote', id: 406056744
 mas 'Raindrop.io for Safari', id: 957810159
