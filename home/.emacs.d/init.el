@@ -306,6 +306,11 @@
   :custom
   (ido-enable-flex-matching t))
 
+(use-package ido-completing-read+
+  :ensure t
+  :config
+  (ido-ubiquitous-mode t))
+
 (use-package ido-vertical-mode
   :ensure t
   :config
