@@ -352,6 +352,12 @@
   :ensure t
   :hook (css-mode scss-mode html-mode lisp-mode web-mode))
 
+(use-package recentf
+  :config
+  (recentf-mode t)
+  :custom
+  (recentf-max-saved-items 100))
+
 (use-package ruby-mode
   :mode
   (("\\.jbuilder\\'"  . ruby-mode)
