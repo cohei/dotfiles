@@ -219,7 +219,9 @@
 
 (use-package flycheck
   :ensure t
-  :config (global-flycheck-mode))
+  :config
+  (global-flycheck-mode)
+  (bind-key "C-c !" 'flycheck-list-errors flycheck-mode-map))
 
 (use-package git-gutter
   :ensure t
@@ -250,10 +252,6 @@
    ("M-x"   . helm-M-x)
    ("M-y"   . helm-show-kill-ring)
    ("C-x b" . helm-buffers-list)))
-
-(use-package helm-flycheck
-  :ensure t
-  :bind (:map flycheck-mode-map ("C-c !" . helm-flycheck)))
 
 (use-package helm-projectile
   :ensure t
@@ -407,7 +405,8 @@
      ("*git-gutter:diff*" :align t :size 0.3)
      ("\\*ag search" :regexp t :size 0.3)
      ("*Help*" :align t :ratio 0.3 :select t)
-     ("*xref*" :align t :size 0.3)))
+     ("*xref*" :align t :size 0.3)
+     ("*Flycheck errors*" :align t :size 0.3 :select t)))
   :config (shackle-mode))
 
 (use-package shrink-whitespace
