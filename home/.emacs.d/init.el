@@ -109,11 +109,15 @@
 
 (use-package anzu
   :ensure t
+  :diminish
   :custom (global-anzu-mode t))
 
 (use-package apib-mode
   :ensure t
   :mode "\\.apib\\'")
+
+(use-package autorevert
+  :diminish auto-revert-mode)
 
 (use-package avy
   :ensure t)
@@ -226,7 +230,7 @@
 (use-package git-gutter
   :ensure t
   :defer t
-  :diminish "GG"
+  :diminish
   :hook (prog-mode . git-gutter-mode))
 
 (use-package goto-addr
@@ -244,6 +248,7 @@
 
 (use-package helm
   :ensure t
+  :diminish helm-migemo-mode
   :config
   (helm-migemo-mode t)
   :bind
@@ -472,6 +477,7 @@
 
 (use-package which-key
   :ensure t
+  :diminish
   :config (which-key-mode))
 
 (use-package whitespace
