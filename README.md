@@ -16,5 +16,5 @@ curl -L https://dotfiles.cohei.me | bash
 ## Development
 
 ``` shell
-docker run -it $(docker build --file Dockerfile.development --quiet .)
+docker-compose run development
 ```

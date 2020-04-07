@@ -1,7 +1,0 @@
-FROM cohei/dotfiles
-
-ENV repository ${XDG_DATA_HOME:-".local/share"}/dotfiles
-
-RUN mkdir -p $repository
-COPY --chown=docker:docker . $repository
-RUN $repository/install.sh
