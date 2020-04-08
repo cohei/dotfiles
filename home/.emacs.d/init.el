@@ -272,8 +272,7 @@
   :config
   (helm-migemo-mode t)
   :bind
-  (("C-c h" . helm-mini)
-   ("C-c r" . helm-resume)
+  (("C-c r" . helm-resume)
    ("M-y"   . helm-show-kill-ring)))
 
 (use-package helm-projectile
@@ -303,6 +302,10 @@
 (use-package ido
   :config
   (ido-mode t)
+  (defun my/ido-recentf ()
+    (interactive)
+    (find-file (ido-completing-read "Find recent file: " recentf-list)))
+  (bind-key "C-c C-r" 'my/ido-recentf)
   :custom
   (ido-enable-flex-matching t))
 
