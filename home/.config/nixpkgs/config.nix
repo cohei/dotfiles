@@ -35,7 +35,7 @@ in
           gitAndTools.gh
           gitAndTools.hub
           google-cloud-sdk
-          haskellPackages.cabal-fmt
+          # haskellPackages.cabal-fmt # compile error
           haskellPackages.ghcid
           # haskellPackages.hadolint # broken
           haskellPackages.hlint
