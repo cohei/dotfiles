@@ -245,6 +245,7 @@
 (use-package helm
   :ensure t
   :diminish helm-migemo-mode
+  :after migemo
   :config
   (helm-migemo-mode t)
   :bind
