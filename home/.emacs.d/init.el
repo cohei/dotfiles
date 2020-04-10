@@ -87,7 +87,7 @@
 
 (use-package ace-isearch
   :ensure t
-  :requires avy
+  :after avy
   :custom
   (global-ace-isearch-mode t)
   (ace-isearch-function 'avy-goto-char))
