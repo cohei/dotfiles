@@ -126,6 +126,6 @@ if command -v home-manager > /dev/null; then
     source "$HOME/.nix-profile/etc/profile.d/hm-session-vars.sh"
 fi
 
-if command -v fish > /dev/null; then
+if command -v fish > /dev/null && [ -z "$BASH_EXECUTION_STRING" ]; then
     exec fish
 fi
