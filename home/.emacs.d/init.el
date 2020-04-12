@@ -275,19 +275,6 @@
   (("C-c r" . helm-resume)
    ("M-y"   . helm-show-kill-ring)))
 
-(use-package helm-projectile
-  :ensure t
-  :bind
-  ("C-c j" . helm-projectile)
-  ("C-c k" . helm-projectile-grep)
-  :custom
-  (helm-grep-file-path-style 'relative)
-  (helm-projectile-sources-list
-   '(helm-source-projectile-projects
-     helm-source-projectile-recentf-list
-     helm-source-projectile-buffers-list
-     helm-source-projectile-files-list)))
-
 (use-package howm
   :ensure t
   :init (setq howm-view-title-header "#") ; 先に定義する必要がある
@@ -385,8 +372,10 @@
 
 (use-package projectile
   :ensure t
+  :bind-keymap
+  ("C-;" . projectile-command-map)
   :config
-  (projectile-mode)
+  (projectile-mode t)
   :custom
   (projectile-use-git-grep t)
   (projectile-mode-line-prefix " P"))
@@ -477,7 +466,8 @@
      ("\\*ag search" :regexp t :size 0.3)
      ("*Help*" :align t :ratio 0.3 :select t)
      ("*xref*" :align t :size 0.3)
-     ("*Flycheck errors*" :align t :size 0.3 :select t)))
+     ("*Flycheck errors*" :align t :size 0.3 :select t)
+     ("*grep*" :align t :size 0.3 :select t)))
   :config (shackle-mode))
 
 (use-package shrink-whitespace
