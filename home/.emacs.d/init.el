@@ -368,7 +368,8 @@
    ("\\`Rakefile\\'"  . ruby-mode)
    ("\\`Capfile\\'"   . ruby-mode)
    ("\\.cap\\'"       . ruby-mode)
-   ("\\`Guardfile\\'" . ruby-mode))
+   ("\\`Guardfile\\'" . ruby-mode)
+   ("\\.Brewfile\\'" . ruby-mode))
   :custom (ruby-insert-encoding-magic-comment nil))
 
 (use-package ruby-end
