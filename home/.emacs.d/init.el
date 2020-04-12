@@ -60,13 +60,6 @@
   (package-install 'use-package))
 (require 'use-package)
 
-(use-package ace-isearch
-  :ensure t
-  :after avy
-  :custom
-  (global-ace-isearch-mode t)
-  (ace-isearch-function 'avy-goto-char))
-
 (use-package align
   :bind
   ("C-c a" . align)
@@ -102,7 +95,9 @@
   :diminish auto-revert-mode)
 
 (use-package avy
-  :ensure t)
+  :ensure t
+  :config
+  (avy-setup-default))
 
 (use-package beacon
   :ensure t
@@ -519,6 +514,15 @@
   :hook
   ((ruby-mode . (lambda () (local-set-key (kbd "C-c C-u") 'string-inflection-ruby-style-cycle)))
    (java-mode . (lambda () (local-set-key (kbd "C-c C-u") 'string-inflection-java-style-cycle)))))
+
+(use-package swoop
+  :ensure t
+  :custom
+  (swoop-window-split-current-window: t)
+  (swoop-font-size-change: nil)
+  :bind
+  (:map isearch-mode-map ("C-o" . swoop-from-isearch)
+   :map swoop-map ("C-o" . swoop-multi-from-swoop)))
 
 (use-package terraform-mode
   :ensure t)
