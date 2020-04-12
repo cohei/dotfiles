@@ -189,7 +189,6 @@
 
 (use-package emmet-mode
   :ensure t
-  :defer t
   :hook (sgml-mode css-mode)
   :custom (emmet-move-cursor-between-quotes t))
 
@@ -225,7 +224,6 @@
 
 (use-package git-gutter
   :ensure t
-  :defer t
   :diminish
   :hook (prog-mode . git-gutter-mode))
 
@@ -340,7 +338,6 @@
 
 (use-package projectile
   :ensure t
-  :defer t ; helm-projectile will load this
   :config
   (projectile-mode)
   :custom
