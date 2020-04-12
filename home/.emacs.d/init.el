@@ -362,13 +362,7 @@
 
 (use-package ruby-mode
   :mode
-  (("\\.jbuilder\\'"  . ruby-mode)
-   ("\\.rake\\'"      . ruby-mode)
-   ("\\`Gemfile\\'"   . ruby-mode)
-   ("\\`Rakefile\\'"  . ruby-mode)
-   ("\\`Capfile\\'"   . ruby-mode)
-   ("\\.cap\\'"       . ruby-mode)
-   ("\\`Guardfile\\'" . ruby-mode)
+  (("\\.cap\\'" . ruby-mode)
    ("\\.Brewfile\\'" . ruby-mode))
   :custom (ruby-insert-encoding-magic-comment nil))
 
