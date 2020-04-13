@@ -341,7 +341,8 @@
   :config
   (projectile-mode)
   :custom
-  (projectile-use-git-grep t))
+  (projectile-use-git-grep t)
+  (projectile-mode-line-prefix " P"))
 
 (use-package rainbow-delimiters
   :ensure t
