@@ -14,7 +14,7 @@
 ;;; Load packages
 
 ;; add the directories under site-lisp to load path
-(let ((default-directory "~/.emacs.d/site-lisp/"))
+(let ((default-directory (expand-file-name "site-lisp/" user-emacs-directory)))
   (if (file-exists-p default-directory)
       (progn
         (normal-top-level-add-to-load-path '("."))
