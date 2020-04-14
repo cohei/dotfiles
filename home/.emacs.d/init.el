@@ -272,8 +272,7 @@
   :config
   (helm-migemo-mode t)
   :bind
-  (("C-c r" . helm-resume)
-   ("M-y"   . helm-show-kill-ring)))
+  ("C-c r" . helm-resume))
 
 (use-package howm
   :ensure t
@@ -319,6 +318,22 @@
   (js-indent-level 2)
   (js2-indent-switch-body t)
   (js2-strict-missing-semi-warning nil))
+
+(progn
+  (unless (package-installed-p 'kill-ring-ido)
+    (with-current-buffer
+        (url-retrieve-synchronously
+         "http://www.emacswiki.org/emacs/download/kill-ring-ido.el"
+         'silent 'inhibit-cookies)
+      (goto-char (point-max))
+      (insert ";;; kill-ring-ido.el ends here\n")
+      (package-install-from-buffer)))
+
+  (use-package kill-ring-ido
+    :init
+    (use-package noflet :ensure t)
+    :bind
+    ("M-y" . kill-ring-ido)))
 
 (use-package magit
   :ensure t
