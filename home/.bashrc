@@ -88,10 +88,6 @@ if type stack >/dev/null 2>&1; then
     eval "$(stack --bash-completion-script "$(which stack)")"
 fi
 
-if command -v direnv > /dev/null; then
-    eval "$(direnv hook bash)"
-fi
-
 if command -v hub > /dev/null; then
     eval "$(hub alias -s)"
 fi
