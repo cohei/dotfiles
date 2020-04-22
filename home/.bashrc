@@ -73,17 +73,6 @@ if [ -e ~/.nix-profile/share/chruby/chruby.sh ]; then
     . ~/.nix-profile/share/chruby/auto.sh
 fi
 
-# for fzf from Nix
-if command -v fzf-share > /dev/null; then
-    # Auto-completion
-    # ---------------
-    [[ $- == *i* ]] && source "$(fzf-share)/completion.bash" 2> /dev/null
-
-    # Key bindings
-    # ------------
-    source "$(fzf-share)/key-bindings.bash"
-fi
-
 if type stack >/dev/null 2>&1; then
     eval "$(stack --bash-completion-script "$(which stack)")"
 fi
