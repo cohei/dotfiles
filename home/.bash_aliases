@@ -29,27 +29,8 @@ esac
 alias la='ls -A'
 alias ll='ls -A -l --human-readable'
 
-if [[ $OSTYPE =~ darwin ]]; then
-    alias e='emacsclient --tty --no-wait --alternate-editor="open -a emacs"'
-else
-    alias e='emacsclient --alternate-editor="" --create-frame'
-fi
-
-# git
-alias d='git d'
-alias gap='git ap'
-alias gb='git sw $(git branch | fzf | tr -d "* ")'
-alias gdc='git dc'
-alias gg='git g'
-alias gl='git l'
-alias glg='git lg'
-alias gss='git ss'
-alias s='git s'
-
 alias dfh='df --human-readable'
 alias ..='cd ..'
 
 # For solarize colored terminals
 alias icdiff='icdiff --no-bold'
-
-alias doco='docker-compose'

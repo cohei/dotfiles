@@ -1,0 +1,1 @@
+alias gss 'git ss'

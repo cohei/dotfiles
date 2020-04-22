@@ -98,15 +98,6 @@ fi
 
 shopt -s histverify
 
-function ghq-look {
-    declare path
-    path=$(ghq list | fzf | xargs ghq list --full-path --exact)
-
-    if [ -n "$path" ]; then
-        cd "$path" || exit
-    fi
-}
-
 if type brew &>/dev/null; then
     HOMEBREW_PREFIX="$(brew --prefix)"
     if [[ -r "${HOMEBREW_PREFIX}/etc/profile.d/bash_completion.sh" ]]; then
