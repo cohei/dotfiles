@@ -1,3 +1,5 @@
+set --export PATH ~/.local/bin $PATH
+
 if type --quiet direnv
     eval (direnv hook fish)
 end
