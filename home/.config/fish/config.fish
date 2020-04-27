@@ -14,3 +14,5 @@ end
 if type --quiet fzf-share
     source (fzf-share)/key-bindings.fish
 end
+
+set --export LESS '--LONG-PROMPT --RAW-CONTROL-CHARS --quit-if-one-screen --no-init'

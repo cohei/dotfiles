@@ -25,8 +25,6 @@ else
     export EDITOR='emacsclient --alternate-editor="" --create-frame'
 fi
 
-export LESS='--LONG-PROMPT --RAW-CONTROL-CHARS --quit-if-one-screen --no-init'
-
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
 shopt -s checkwinsize
