@@ -1,5 +1,3 @@
-export LANG=ja_JP.UTF-8
-
 # added by Nix installer
 if [ -e ~/.nix-profile/etc/profile.d/nix.sh ]; then
     . ~/.nix-profile/etc/profile.d/nix.sh
