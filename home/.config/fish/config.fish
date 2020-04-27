@@ -16,3 +16,12 @@ if type --quiet fzf-share
 end
 
 set --export LESS '--LONG-PROMPT --RAW-CONTROL-CHARS --quit-if-one-screen --no-init'
+
+# for
+#   - git commiting
+#   - less v
+if test (uname) = "Darwin"
+    set --export EDITOR 'emacsclient --alternate-editor="open -a emacs"'
+else
+    set --export EDITOR 'emacsclient --alternate-editor="" --create-frame'
+end

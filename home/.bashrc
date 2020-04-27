@@ -16,15 +16,6 @@ export HISTCONTROL=ignoreboth:erasedups
 shopt -s histappend
 PROMPT_COMMAND="history -n; history -w; history -c; history -r; $PROMPT_COMMAND"
 
-# for
-#   - git commiting
-#   - less v
-if [[ $OSTYPE =~ darwin ]]; then
-    export EDITOR='emacsclient --alternate-editor="open -a emacs"'
-else
-    export EDITOR='emacsclient --alternate-editor="" --create-frame'
-fi
-
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
 shopt -s checkwinsize
