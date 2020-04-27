@@ -388,6 +388,18 @@
   (css-indent-offset 2)
   (scss-compile-at-save nil))
 
+(use-package selected
+  :ensure t
+  :config
+  (bind-keys :map selected-keymap
+             ("%" . query-replace)
+             (";" . comment-dwim)
+             ("m" . apply-macro-to-region-lines)
+             ("q" . selected-off)
+             ("s" . sort-lines)
+             ("w" . count-words-region))
+  (selected-global-mode t))
+
 (use-package server
   :config
   (unless (server-running-p)
