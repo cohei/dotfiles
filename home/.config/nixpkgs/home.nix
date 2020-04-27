@@ -17,7 +17,6 @@
   home.packages =
     with pkgs;
     [
-      bashCompletion
       bashInteractive_5
       bat
       cloc
@@ -51,7 +50,6 @@
       ipfs
       jl
       jq
-      nix-bash-completions
       nkf
       parallel
       pijul
