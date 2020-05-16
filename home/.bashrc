@@ -57,11 +57,6 @@ if [ -e ~/.nix-profile/etc/profile.d/bash_completion.sh ]; then
     . ~/.nix-profile/etc/profile.d/bash_completion.sh
 fi
 
-if [ -e ~/.nix-profile/share/chruby/chruby.sh ]; then
-    . ~/.nix-profile/share/chruby/chruby.sh
-    . ~/.nix-profile/share/chruby/auto.sh
-fi
-
 if type stack >/dev/null 2>&1; then
     eval "$(stack --bash-completion-script "$(which stack)")"
 fi

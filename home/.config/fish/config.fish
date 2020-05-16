@@ -29,3 +29,9 @@ if test (uname) = "Darwin"
 else
     set --export EDITOR 'emacsclient --alternate-editor="" --create-frame'
 end
+
+if test -e ~/.nix-profile/share/chruby/chruby.fish
+    set --export CHRUBY_ROOT ~/.nix-profile
+    source ~/.nix-profile/share/chruby/chruby.fish
+    source ~/.nix-profile/share/chruby/auto.fish
+end
