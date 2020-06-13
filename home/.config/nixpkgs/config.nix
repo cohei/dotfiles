@@ -10,7 +10,6 @@
           bashCompletion
           bashInteractive_5
           bat
-          cacert # not to cause SSL error
           cloc
           cmake
           coreutils
@@ -43,7 +42,6 @@
           ipfs
           jl
           jq
-          nix
           nix-bash-completions
           nkf
           parallel
