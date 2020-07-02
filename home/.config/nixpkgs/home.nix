@@ -36,6 +36,7 @@
         fish
         fswatch
         fzf
+        ghcid
         ghq
         git
         gitAndTools.diff-so-fancy
@@ -43,7 +44,6 @@
         gitAndTools.hub
         google-cloud-sdk
         # haskellPackages.cabal-fmt # compile error
-        haskellPackages.ghcid
         # haskellPackages.hadolint # broken
         haskellPackages.hlint
         haskellPackages.hoogle
