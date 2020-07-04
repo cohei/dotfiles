@@ -347,6 +347,11 @@
   (projectile-use-git-grep t)
   (projectile-mode-line-prefix " P"))
 
+(use-package purescript-mode
+  :ensure t
+  :init
+  (add-hook 'purescript-mode-hook (lambda () (turn-on-purescript-indentation))))
+
 (use-package rainbow-delimiters
   :ensure t
   :hook (prog-mode . rainbow-delimiters-mode))
