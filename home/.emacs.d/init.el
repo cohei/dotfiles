@@ -150,6 +150,9 @@
 (use-package delsel
   :config (delete-selection-mode t))
 
+(use-package dhall-mode
+  :ensure t)
+
 (use-package diminish
   :ensure t)
 
