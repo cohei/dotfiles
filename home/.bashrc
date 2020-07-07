@@ -107,11 +107,6 @@ function ghq-look {
     fi
 }
 
-# for enhancd from Nix
-if command -v enhancd-dir > /dev/null; then
-    source "$(enhancd-dir)/init.sh" 2> /dev/null
-fi
-
 if type brew &>/dev/null; then
     HOMEBREW_PREFIX="$(brew --prefix)"
     if [[ -r "${HOMEBREW_PREFIX}/etc/profile.d/bash_completion.sh" ]]; then
