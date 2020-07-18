@@ -54,6 +54,7 @@
       nix-bash-completions
       nkf
       parallel
+      pijul
       procs
       pstree
       pwgen
