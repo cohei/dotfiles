@@ -145,6 +145,14 @@
   :bind
   ("C-x j" . dired-jump))
 
+(use-package dmacro
+  :ensure t
+  :diminish
+  :custom
+  (dmacro-key (kbd "C-c d"))
+  :config
+  (global-dmacro-mode))
+
 (use-package dockerfile-mode
   :ensure t)
 
