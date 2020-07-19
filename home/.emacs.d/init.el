@@ -254,6 +254,7 @@
   ("C-c j" . helm-projectile)
   ("C-c k" . helm-projectile-grep)
   :custom
+  (helm-grep-file-path-style 'relative)
   (helm-projectile-sources-list
    '(helm-source-projectile-projects
      helm-source-projectile-recentf-list
