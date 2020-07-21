@@ -1,0 +1,1 @@
+alias gdc 'git dc'
