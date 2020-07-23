@@ -462,9 +462,6 @@
   :ensure t
   :mode "\\.textile\\'")
 
-(use-package tup-mode
-  :ensure t)
-
 (use-package undohist
   :ensure t
   :config (undohist-initialize)
