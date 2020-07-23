@@ -137,7 +137,6 @@
   :ensure t
   :config (dimmer-mode)
   :custom
-  (dimmer-exclusion-regexp "^\\*helm")
   (dimmer-fraction 0.3))
 
 (use-package dired
@@ -259,15 +258,6 @@
 (use-package haskell-mode
   :ensure t
   :custom (haskell-stylish-on-save t))
-
-(use-package helm
-  :ensure t
-  :diminish helm-migemo-mode
-  :after migemo
-  :config
-  (helm-migemo-mode t)
-  :bind
-  ("C-c r" . helm-resume))
 
 (use-package howm
   :ensure t
@@ -469,7 +459,6 @@
    '(("*Warnings*" :size 0.3)
      ("*Buffer List*" :size 0.3)
      ("magit:" :regexp t :align t :size 0.5)
-     ("\\`\\*helm.*?\\*\\'" :regexp t :align t :size 0.3)
      ("*GHC Info*" :size 10)
      (" *undo-tree*" :align right :size 0.1 :inhibit-window-quit t)
      ("*git-gutter:diff*" :align t :size 0.3)
