@@ -356,7 +356,8 @@
   :config
   (recentf-mode t)
   :custom
-  (recentf-max-saved-items 100))
+  (recentf-max-saved-items 100)
+  (recentf-save-file "~/.emacs.d/recentf"))
 
 (use-package ruby-mode
   :mode
