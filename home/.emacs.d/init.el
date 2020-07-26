@@ -29,30 +29,11 @@
 ;;; Global keybinds
 
 (global-set-key (kbd "C-x ?") 'help-command) ; to use C-h for DEL
-(global-set-key (kbd "C-h") 'delete-backward-char)
-(global-set-key (kbd "C-x j") 'dired-jump)
-
-;;; Trailing whitespaces
-
-(add-hook 'before-save-hook 'delete-trailing-whitespace)
 
 ;;; Window balancing
 
 (dolist (f '(split-window-below split-window-right delete-window))
   (advice-add f :after (lambda (&optional _) (balance-windows))))
-
-;;; Make executable
-
-(add-hook 'after-save-hook 'executable-make-buffer-file-executable-if-script-p)
-
-;;; Backup
-
-(customize-set-variable 'backup-by-copying t)
-(add-to-list 'backup-directory-alist '("\\.*$" . "~/.emacs.d/backup"))
-
-;;; direnv
-
-(add-to-list 'auto-mode-alist '("\\.envrc\\'" . shell-script-mode))
 
 ;;; Customization
 
@@ -62,18 +43,12 @@
 
 ;;; Other settings
 
-(column-number-mode)
-
 (fset 'yes-or-no-p 'y-or-n-p)
 
-(customize-set-variable 'confirm-kill-emacs 'y-or-n-p)
 (customize-set-variable 'indent-tabs-mode nil)
 (customize-set-variable 'indicate-buffer-boundaries 'right)
 (customize-set-variable 'inhibit-startup-screen t)
-(customize-set-variable 'kill-whole-line t)
-(customize-set-variable 'require-final-newline 'visit)
 (customize-set-variable 'ring-bell-function (lambda () (princ "[RING] ")))
-(customize-set-variable 'scroll-bar-mode nil)
 (customize-set-variable 'scroll-conservatively 1000)
 (customize-set-variable 'scroll-margin 5)
 (customize-set-variable 'tool-bar-mode nil)
@@ -166,6 +141,10 @@
 (use-package dired
   :custom (dired-dwim-target t))
 
+(use-package dired-x
+  :bind
+  ("C-x j" . dired-jump))
+
 (use-package dockerfile-mode
   :ensure t)
 
@@ -199,9 +178,22 @@
   :ensure t
   :config (exec-path-from-shell-initialize))
 
+(use-package executable
+  :hook
+  (after-save . executable-make-buffer-file-executable-if-script-p))
+
 (use-package expand-region
   :ensure t
   :bind ("C-=" . er/expand-region))
+
+(use-package files
+  :config
+  (add-to-list 'auto-mode-alist '("\\.envrc\\'" . shell-script-mode))
+  (add-to-list 'backup-directory-alist '("\\.*$" . "~/.emacs.d/backup"))
+  :custom
+  (backup-by-copying t)
+  (confirm-kill-emacs 'y-or-n-p)
+  (require-final-newline 'visit))
 
 (use-package fish-mode
   :ensure t)
@@ -390,6 +382,10 @@
 (use-package scala-mode
   :ensure t)
 
+(use-package scroll-bar
+  :custom
+  (scroll-bar-mode nil))
+
 (use-package scss-mode
   :ensure t
   :custom
@@ -434,6 +430,16 @@
   :ensure t
   :bind
   ("M-SPC" . shrink-whitespace))
+
+(use-package simple
+  :hook
+  (before-save . delete-trailing-whitespace)
+  :config
+  (column-number-mode t)
+  :bind
+  ("C-h" . delete-backward-char)
+  :custom
+  (kill-whole-line t))
 
 (use-package smart-jump
   :ensure t
