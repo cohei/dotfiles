@@ -21,7 +21,7 @@
         (normal-top-level-add-subdirs-to-load-path))))
 
 (require 'package)
-(add-to-list 'package-archives (cons "melpa" "http://melpa.milkbox.net/packages/"))
+(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
 (package-initialize)
 (unless package-archive-contents
   (package-refresh-contents))
