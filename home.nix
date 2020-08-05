@@ -19,7 +19,6 @@
     [
       bashInteractive_5
       bat
-      cloc
       cmake
       coreutils
       direnv
@@ -65,6 +64,7 @@
       terminal-notifier
       terraform_0_12
       tmux
+      tokei
       tree
       watch
       wget
