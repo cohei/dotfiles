@@ -230,6 +230,11 @@
   :diminish
   :hook (prog-mode . git-gutter-mode))
 
+(use-package google-this
+  :ensure t
+  :config
+  (google-this-mode 1))
+
 (use-package goto-addr
   :hook
   ((prog-mode . goto-address-prog-mode)
@@ -408,6 +413,7 @@
   (bind-keys :map selected-keymap
              ("%" . query-replace)
              (";" . comment-dwim)
+             ("g" . google-this-region)
              ("m" . apply-macro-to-region-lines)
              ("q" . selected-off)
              ("s" . sort-lines)
