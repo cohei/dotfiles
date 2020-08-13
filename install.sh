@@ -2,7 +2,7 @@
 
 set -eux
 
-repository=${XDG_DATA_HOME:-$HOME/.local/share}/dotfiles
+repository=$HOME/src/github.com/cohei/dotfiles
 
 download() {
     git clone https://github.com/cohei/dotfiles.git "$repository"

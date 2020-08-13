@@ -3,4 +3,4 @@ services:
   development:
     build: .
     volumes:
-      - .:/home/docker/.local/share/dotfiles
+      - .:/home/docker/src/github.com/cohei/dotfiles
