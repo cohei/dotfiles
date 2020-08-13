@@ -478,6 +478,10 @@
   :ensure t
   :mode "\\.textile\\'")
 
+(use-package time
+  :hook
+  (after-init . (lambda () (message "init time: %s" (emacs-init-time)))))
+
 (use-package undohist
   :ensure t
   :config (undohist-initialize)
