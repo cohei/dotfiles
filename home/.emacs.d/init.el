@@ -287,7 +287,8 @@
     (find-file (ido-completing-read "Find recent file: " recentf-list)))
   (bind-key "C-c C-r" 'my/ido-recentf)
   :custom
-  (ido-enable-flex-matching t))
+  (ido-enable-flex-matching t)
+  (ido-auto-merge-work-directories-length -1))
 
 (use-package ido-completing-read+
   :ensure t
