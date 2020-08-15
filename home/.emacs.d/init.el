@@ -85,7 +85,8 @@
 (use-package anzu
   :ensure t
   :diminish
-  :custom (global-anzu-mode t))
+  :config
+  (global-anzu-mode t))
 
 (use-package apib-mode
   :ensure t
