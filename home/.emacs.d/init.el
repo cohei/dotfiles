@@ -225,6 +225,9 @@
   :custom
   (default-frame-alist '((fullscreen . fullboth))))
 
+(use-package free-keys
+  :ensure t)
+
 (use-package git-gutter
   :ensure t
   :diminish
