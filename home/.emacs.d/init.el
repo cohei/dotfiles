@@ -206,6 +206,12 @@
 (use-package fish-mode
   :ensure t)
 
+(use-package flycheck
+  :ensure t
+  :config
+  (global-flycheck-mode)
+  (bind-key "C-c !" 'flycheck-list-errors flycheck-mode-map))
+
 (use-package frame
   :if window-system
   :init
@@ -218,12 +224,6 @@
   (window-setup . split-window-horizontally)
   :custom
   (default-frame-alist '((fullscreen . fullboth))))
-
-(use-package flycheck
-  :ensure t
-  :config
-  (global-flycheck-mode)
-  (bind-key "C-c !" 'flycheck-list-errors flycheck-mode-map))
 
 (use-package git-gutter
   :ensure t
