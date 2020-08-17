@@ -23,7 +23,7 @@
       coreutils
       direnv
       dust
-      emacsMacport
+      emacs
       exa
       fd
       ffmpeg
