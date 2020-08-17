@@ -214,7 +214,6 @@
   (bind-key "C-c !" 'flycheck-list-errors flycheck-mode-map))
 
 (use-package frame
-  :if window-system
   :init
   ;; when make-frame
   (add-hook 'after-make-frame-functions (lambda (frame)
