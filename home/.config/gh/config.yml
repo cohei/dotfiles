@@ -1,0 +1,7 @@
+# What protocol to use when performing git operations. Supported values: ssh, https
+git_protocol: https
+# What editor gh should run when creating issues, pull requests, etc. If blank, will refer to environment.
+editor:
+# Aliases allow you to create nicknames for gh commands
+aliases:
+    ci-status: '!gh api --header ''Accept: application/vnd.github.antiope-preview+json'' repos/:owner/:repo/commits/$(git rev-parse $1)/check-runs | jq --raw-output ''.check_runs[] | "\(.conclusion)  \(.name)  \(.html_url)"'''

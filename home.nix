@@ -35,7 +35,6 @@
       git
       gitAndTools.diff-so-fancy
       gitAndTools.gh
-      gitAndTools.hub
       google-cloud-sdk
       # haskellPackages.cabal-fmt # compile error
       # haskellPackages.hadolint # broken
@@ -81,6 +80,7 @@
       source = ./home/.config/fish;
       recursive = true;
     };
+    ".config/gh/config.yml".source = ./home/.config/gh/config.yml;
     ".config/git" = {
       source = ./home/.config/git;
       recursive = true;
