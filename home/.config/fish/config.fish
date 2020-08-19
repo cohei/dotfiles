@@ -28,3 +28,7 @@ if test -e ~/.nix-profile/share/chruby/chruby.fish
     source ~/.nix-profile/share/chruby/chruby.fish
     source ~/.nix-profile/share/chruby/auto.fish
 end
+
+if type --quiet gh
+    eval (gh completion --shell fish)
+end
