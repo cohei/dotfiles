@@ -1,3 +1,5 @@
+set fish_greeting
+
 set --export LANG ja_JP.UTF-8
 
 set --export PATH ~/.local/bin $PATH
