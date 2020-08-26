@@ -49,6 +49,7 @@
       ipfs
       jl
       jq
+      libvterm-neovim # Emacs vterm package
       nkf
       parallel
       pijul
