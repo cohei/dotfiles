@@ -33,7 +33,7 @@
       ghcid
       ghq
       git
-      gitAndTools.diff-so-fancy
+      gitAndTools.delta
       gitAndTools.gh
       google-cloud-sdk
       # haskellPackages.cabal-fmt # compile error

@@ -30,10 +30,12 @@
 [core]
 	precomposeunicode = true
 	quotepath = false
-	pager = diff-so-fancy | less
+	pager = delta
 [diff]
 	renames = copy
 	compactionHeuristic = true
+[interactive]
+	diffFilter = delta --color-only
 [url "git@github.com:"]
 	pushInsteadOf = "git://github.com/"
 	pushInsteadOf = "https://github.com/"
@@ -45,3 +47,5 @@
 	ff = only
 [merge]
 	conflictStyle = diff3
+[delta]
+	features = diff-so-fancy
