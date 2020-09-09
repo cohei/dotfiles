@@ -19,7 +19,13 @@ style = "white"
 [java]
 style = "white"
 
+[nix_shell]
+style = "white"
+
 [nodejs]
+style = "white"
+
+[purescript]
 style = "white"
 
 [ruby]
