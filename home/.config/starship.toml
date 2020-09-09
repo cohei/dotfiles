@@ -16,9 +16,6 @@ style = "bold dimmed white"
 [git_status]
 style = "white"
 
-[haskell]
-disabled = true
-
 [java]
 style = "white"
 
