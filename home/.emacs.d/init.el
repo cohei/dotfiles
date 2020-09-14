@@ -60,13 +60,6 @@
   (package-install 'use-package))
 (require 'use-package)
 
-(use-package ace-isearch
-  :ensure t
-  :after avy
-  :custom
-  (global-ace-isearch-mode t)
-  (ace-isearch-function 'avy-goto-char))
-
 (use-package align
   :bind
   ("C-c a" . align)
@@ -74,6 +67,12 @@
   :config
   (add-to-list 'align-rules-list '(ruby19-hash (regexp . ":\\(\s-*\\)") (modes . '(ruby-mode))))
   (add-to-list 'align-rules-list '(ruby-assignment (regexp . "\\(\s-*\\)=") (modes . '(ruby-mode)))))
+
+(use-package amx
+  :ensure t
+  :config
+  (amx-mode t)
+  (bind-key "M-X" 'amx-major-mode-commands))
 
 (use-package ansi-color
   :config
@@ -96,7 +95,9 @@
   :diminish auto-revert-mode)
 
 (use-package avy
-  :ensure t)
+  :ensure t
+  :config
+  (avy-setup-default))
 
 (use-package beacon
   :ensure t
@@ -136,7 +137,6 @@
   :ensure t
   :config (dimmer-mode)
   :custom
-  (dimmer-exclusion-regexp "^\\*helm")
   (dimmer-fraction 0.3))
 
 (use-package dired
@@ -207,6 +207,14 @@
 (use-package fish-mode
   :ensure t)
 
+(use-package flx-ido
+  :ensure t
+  :config
+  (flx-ido-mode t)
+  :custom
+  ;; disable ido faces to see flx highlights.
+  (ido-use-faces nil))
+
 (use-package flycheck
   :ensure t
   :config
@@ -251,32 +259,6 @@
   :ensure t
   :custom (haskell-stylish-on-save t))
 
-(use-package helm
-  :ensure t
-  :diminish helm-migemo-mode
-  :after migemo
-  :config
-  (helm-migemo-mode t)
-  :bind
-  (("C-c h" . helm-mini)
-   ("C-c r" . helm-resume)
-   ("M-x"   . helm-M-x)
-   ("M-y"   . helm-show-kill-ring)
-   ("C-x b" . helm-buffers-list)))
-
-(use-package helm-projectile
-  :ensure t
-  :bind
-  ("C-c j" . helm-projectile)
-  ("C-c k" . helm-projectile-grep)
-  :custom
-  (helm-grep-file-path-style 'relative)
-  (helm-projectile-sources-list
-   '(helm-source-projectile-projects
-     helm-source-projectile-recentf-list
-     helm-source-projectile-buffers-list
-     helm-source-projectile-files-list)))
-
 (use-package howm
   :ensure t
   :init (setq howm-view-title-header "#") ; 先に定義する必要がある
@@ -287,6 +269,29 @@
   (howm-keyword-file (concat (file-name-as-directory howm-directory) ".howm-keys"))
   (howm-history-file (concat (file-name-as-directory howm-directory) ".howm-history"))
   (howm-view-split-horizontally t))
+
+(use-package ido
+  :config
+  (ido-mode t)
+  (defun my/ido-recentf ()
+    (interactive)
+    (find-file (ido-completing-read "Find recent file: " recentf-list)))
+  (bind-key "C-c C-r" 'my/ido-recentf)
+  :custom
+  (ido-enable-flex-matching t))
+
+(use-package ido-completing-read+
+  :ensure t
+  :config
+  (ido-ubiquitous-mode t))
+
+(use-package ido-vertical-mode
+  :ensure t
+  :config
+  (ido-vertical-mode t)
+  :custom
+  (ido-vertical-show-count t)
+  (ido-vertical-define-keys 'C-n-C-p-up-down-left-right))
 
 (use-package image+
   :ensure t)
@@ -299,10 +304,27 @@
   (js2-indent-switch-body t)
   (js2-strict-missing-semi-warning nil))
 
+(progn
+  (unless (package-installed-p 'kill-ring-ido)
+    (with-current-buffer
+        (url-retrieve-synchronously
+         "http://www.emacswiki.org/emacs/download/kill-ring-ido.el"
+         'silent 'inhibit-cookies)
+      (goto-char (point-max))
+      (insert ";;; kill-ring-ido.el ends here\n")
+      (package-install-from-buffer)))
+
+  (use-package kill-ring-ido
+    :init
+    (use-package noflet :ensure t)
+    :bind
+    ("M-y" . kill-ring-ido)))
+
 (use-package magit
   :ensure t
   :demand
-  :bind ("C-c g" . magit-status))
+  :bind ("C-c g" . magit-status)
+  :custom (magit-completing-read-function 'magit-ido-completing-read))
 
 (use-package markdown-mode
   :ensure t
@@ -350,8 +372,10 @@
 
 (use-package projectile
   :ensure t
+  :bind-keymap
+  ("C-;" . projectile-command-map)
   :config
-  (projectile-mode)
+  (projectile-mode t)
   :custom
   (projectile-use-git-grep t)
   (projectile-mode-line-prefix " P"))
@@ -435,14 +459,14 @@
    '(("*Warnings*" :size 0.3)
      ("*Buffer List*" :size 0.3)
      ("magit:" :regexp t :align t :size 0.5)
-     ("\\`\\*helm.*?\\*\\'" :regexp t :align t :size 0.3)
      ("*GHC Info*" :size 10)
      (" *undo-tree*" :align right :size 0.1 :inhibit-window-quit t)
      ("*git-gutter:diff*" :align t :size 0.3)
      ("\\*ag search" :regexp t :size 0.3)
      ("*Help*" :align t :ratio 0.3 :select t)
      ("*xref*" :align t :size 0.3)
-     ("*Flycheck errors*" :align t :size 0.3 :select t)))
+     ("*Flycheck errors*" :align t :size 0.3 :select t)
+     ("*grep*" :align t :size 0.3 :select t)))
   :config (shackle-mode))
 
 (use-package shrink-whitespace
@@ -479,6 +503,15 @@
   :hook
   ((ruby-mode . (lambda () (local-set-key (kbd "C-c C-u") 'string-inflection-ruby-style-cycle)))
    (java-mode . (lambda () (local-set-key (kbd "C-c C-u") 'string-inflection-java-style-cycle)))))
+
+(use-package swoop
+  :ensure t
+  :custom
+  (swoop-window-split-current-window: t)
+  (swoop-font-size-change: nil)
+  :bind
+  (:map isearch-mode-map ("C-o" . swoop-from-isearch)
+   :map swoop-map ("C-o" . swoop-multi-from-swoop)))
 
 (use-package terraform-mode
   :ensure t)
