@@ -259,6 +259,15 @@
   :ensure t
   :custom (haskell-stylish-on-save t))
 
+(use-package hledger-mode
+  :ensure t
+  :mode "\\.journal\\'"
+  :init
+  (add-hook 'hledger-mode-hook
+            (lambda ()
+              (make-local-variable 'company-backends)
+              (add-to-list 'company-backends 'hledger-company))))
+
 (use-package howm
   :ensure t
   :init (setq howm-view-title-header "#") ; 先に定義する必要がある
