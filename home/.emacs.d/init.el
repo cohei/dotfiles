@@ -83,16 +83,12 @@
 
 (use-package anzu
   :ensure t
-  :diminish
   :config
   (global-anzu-mode t))
 
 (use-package apib-mode
   :ensure t
   :mode "\\.apib\\'")
-
-(use-package autorevert
-  :diminish auto-revert-mode)
 
 (use-package avy
   :ensure t
@@ -130,8 +126,17 @@
 (use-package dhall-mode
   :ensure t)
 
-(use-package diminish
-  :ensure t)
+(use-package dim
+  :ensure t
+  :config
+  (dim-minor-names
+   '((anzu-mode "" anzu)
+     (auto-revert-mode "" autorevert)
+     (dmacro-mode "" dmacro)
+     (emacs-lock-mode "" emacs-lock)
+     (git-gutter-mode "" git-gutter)
+     (undo-tree-mode "" undo-tree)
+     (which-key-mode "" which-key))))
 
 (use-package dimmer
   :ensure t
@@ -148,7 +153,6 @@
 
 (use-package dmacro
   :ensure t
-  :diminish
   :custom
   (dmacro-key (kbd "C-c d"))
   :config
@@ -173,7 +177,6 @@
   :ensure t)
 
 (use-package emacs-lock
-  :diminish
   :config
   (with-current-buffer "*scratch*"
     (emacs-lock-mode 'kill)))
@@ -238,7 +241,6 @@
 
 (use-package git-gutter
   :ensure t
-  :diminish
   :hook (prog-mode . git-gutter-mode))
 
 (use-package google-this
@@ -541,7 +543,6 @@
 
 (use-package undo-tree
   :ensure t
-  :diminish ""
   :config (global-undo-tree-mode))
 
 (use-package uniquify
@@ -566,7 +567,6 @@
 
 (use-package which-key
   :ensure t
-  :diminish
   :config (which-key-mode))
 
 (use-package whitespace
