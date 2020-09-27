@@ -132,9 +132,14 @@
   (dim-minor-names
    '((anzu-mode "" anzu)
      (auto-revert-mode "" autorevert)
+     (beacon-mode "" beacon)
+     (company-mode "" company)
      (dmacro-mode "" dmacro)
      (emacs-lock-mode "" emacs-lock)
      (git-gutter-mode "" git-gutter)
+     (global-whitespace-mode "" whitespace)
+     (google-this-mode "" google-this)
+     (selected-minor-mode "" selected)
      (undo-tree-mode "" undo-tree)
      (which-key-mode "" which-key))))
 
