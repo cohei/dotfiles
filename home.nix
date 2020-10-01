@@ -62,7 +62,6 @@
       solargraph
       stack
       starship
-      terminal-notifier
       terraform_0_12
       tmux
       tokei
@@ -70,7 +69,7 @@
       watch
       wget
       ytop
-    ];
+    ] ++ lib.optionals stdenv.isDarwin [ terminal-notifier ];
 
   home.file = {
     ".bash_profile".source = ./home/.bash_profile;
