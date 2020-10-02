@@ -4,3 +4,5 @@ services:
     build: .
     volumes:
       - .:/home/docker/src/github.com/cohei/dotfiles
+  test:
+    build: .
