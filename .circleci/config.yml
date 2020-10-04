@@ -1,7 +1,16 @@
 version: 2.1
 jobs:
-  build:
+  network-install-test:
     machine: true
     steps:
       - checkout
       - run: docker-compose build test
+workflows:
+  version: 2
+  testing:
+    jobs:
+      - network-install-test:
+          filters:
+            branches:
+              only:
+                - master
