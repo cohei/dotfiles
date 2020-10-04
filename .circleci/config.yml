@@ -1,14 +1,20 @@
 version: 2.1
 jobs:
+  local-install-test:
+    machine: true
+    steps:
+      - checkout
+      - run: docker-compose run development /home/docker/src/github.com/cohei/dotfiles/install.sh
   network-install-test:
     machine: true
     steps:
       - checkout
-      - run: docker-compose build test
+      - run: docker-compose up test
 workflows:
   version: 2
   testing:
     jobs:
+      - local-install-test
       - network-install-test:
           filters:
             branches:

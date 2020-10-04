@@ -6,3 +6,4 @@ services:
       - .:/home/docker/src/github.com/cohei/dotfiles
   test:
     build: .
+    command: bash -c 'set -o pipefail && curl -L https://dotfiles.cohei.me | bash'

@@ -6,5 +6,3 @@ RUN apt-get update -qq && apt-get install --no-install-recommends --yes \
         curl \
         git
 USER docker
-
-RUN bash -c 'set -o pipefail && curl -L https://dotfiles.cohei.me | bash'
