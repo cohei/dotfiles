@@ -172,7 +172,10 @@
   (haskell-mode . eglot-ensure)
   (ruby-mode . eglot-ensure)
   :config
-  (add-to-list 'eglot-server-programs '(haskell-mode . ("haskell-language-server-wrapper" "--lsp"))))
+  (add-to-list 'eglot-server-programs '(haskell-mode . ("haskell-language-server-wrapper" "--lsp")))
+  :bind
+  (:map eglot-mode-map
+        ("C-c e" . 'eglot-code-actions)))
 
 (use-package elec-pair
   :config
