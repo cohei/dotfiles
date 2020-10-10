@@ -4,6 +4,9 @@ success_symbol = "❯"
 [directory]
 style = "white"
 
+[gcloud]
+disabled = true
+
 [git_branch]
 style = "white"
 
