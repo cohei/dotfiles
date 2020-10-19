@@ -95,6 +95,6 @@
     ".ssh/config".source = ./home/.ssh/config;
   };
 
-  home.homeDirectory = "";
-  home.username = "";
+  home.homeDirectory = "/hoge";
+  home.username = "fuga";
 }

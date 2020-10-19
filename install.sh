@@ -1,6 +1,14 @@
-#!/bin/bash
-
 set -eux
+
+has() {
+    command -v "$1" >/dev/null 2>&1
+}
+
+install_home_manager() {
+    nix-channel --add https://github.com/nix-community/home-manager/archive/master.tar.gz home-manager
+    nix-channel --update
+    nix-shell '<home-manager>' -A install
+}
 
 repository=$HOME/src/github.com/cohei/dotfiles
 
@@ -19,5 +27,11 @@ link() {
     ln -s -f                          "$repository/home.nix" "$target"
 }
 
+if ! has home-manager; then
+    install_home_manager
+fi
+
 [ -d "$repository" ] || download
 link
+
+home-manager switch

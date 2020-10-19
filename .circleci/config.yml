@@ -1,21 +1,28 @@
 version: 2.1
-commands:
-  docker-login:
-    steps:
-      - run: echo $DOCKER_HUB_TOKEN | docker login --username $DOCKER_HUB_USER --password-stdin
+executors:
+  nix:
+    docker:
+      - image: nixos/nix
+        environment:
+          TERM: xterm
+        auth:
+          username: $DOCKER_HUB_USER
+          password: $DOCKER_HUB_TOKEN
 jobs:
   local-install-test:
-    machine: true
+    executor: nix
+    working_directory: /root/src/github.com/cohei/dotfiles
     steps:
-      - docker-login
       - checkout
-      - run: docker-compose run development /home/docker/src/github.com/cohei/dotfiles/install.sh
+      - run: ./install.sh
   network-install-test:
-    machine: true
+    executor: nix
     steps:
-      - docker-login
+      - run: apk add git
       - checkout
-      - run: docker-compose up test
+      - run: |
+          set -o pipefail
+          wget -O- https://dotfiles.cohei.me | sh
 workflows:
   version: 2
   testing:

@@ -1,9 +1,6 @@
 version: "3"
 services:
   development:
-    build: .
+    image: nixos/nix
     volumes:
-      - .:/home/docker/src/github.com/cohei/dotfiles
-  test:
-    build: .
-    command: bash -c 'set -o pipefail && curl -L https://dotfiles.cohei.me | bash'
+      - .:/root/src/github.com/cohei/dotfiles

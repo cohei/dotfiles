@@ -4,13 +4,13 @@
 
 ## Requirements
 
-- cURL
+- [Nix](https://nixos.org)
 - Git
 
 ## Installation
 
 ```shell
-curl -L https://dotfiles.cohei.me | bash
+wget -O- https://dotfiles.cohei.me | sh
 ```
 
 ## Development
