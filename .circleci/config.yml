@@ -1,15 +1,19 @@
 version: 2.1
+commands:
+  docker-login:
+    steps:
+      - run: echo $DOCKER_HUB_TOKEN | docker login --username $DOCKER_HUB_USER --password-stdin
 jobs:
   local-install-test:
     machine: true
     steps:
-      - run: echo $DOCKER_HUB_TOKEN | docker login --username $DOCKER_HUB_USER --password-stdin
+      - docker-login
       - checkout
       - run: docker-compose run development /home/docker/src/github.com/cohei/dotfiles/install.sh
   network-install-test:
     machine: true
     steps:
-      - run: echo $DOCKER_HUB_TOKEN | docker login --username $DOCKER_HUB_USER --password-stdin
+      - docker-login
       - checkout
       - run: docker-compose up test
 workflows:
