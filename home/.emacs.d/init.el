@@ -210,6 +210,10 @@
   :config
   (add-to-list 'auto-mode-alist '("\\.envrc\\'" . shell-script-mode))
   (add-to-list 'backup-directory-alist '("\\.*$" . "~/.emacs.d/backup"))
+  (defun my/reload-init-file ()
+    "Reload user’s initialization file."
+    (interactive)
+    (load-file user-init-file))
   :custom
   (backup-by-copying t)
   (confirm-kill-emacs 'y-or-n-p)
