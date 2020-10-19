@@ -307,6 +307,18 @@
   :custom
   (haskell-stylish-on-save t))
 
+(use-package highlight-indent-guides
+  :ensure t
+  :after dim
+  :hook
+  (prog-mode . highlight-indent-guides-mode)
+  :config
+  (dim-minor-name 'highlight-indent-guides-mode "")
+  :custom
+  (highlight-indent-guides-method 'bitmap)
+  (highlight-indent-guides-bitmap-function 'highlight-indent-guides--bitmap-line)
+  (highlight-indent-guides-responsive 'top))
+
 (use-package hledger-mode
   :ensure t
   :mode "\\.journal\\'"
