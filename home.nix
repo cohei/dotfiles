@@ -62,7 +62,7 @@
       solargraph
       stack
       starship
-      terraform_0_12
+      terraform_0_13
       tmux
       tokei
       tree
