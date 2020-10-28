@@ -66,7 +66,6 @@
       terraform_0_13
       tmux
       tokei
-      tree
       watch
       wget
     ] ++ lib.optionals stdenv.isDarwin [ terminal-notifier ];
