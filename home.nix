@@ -19,6 +19,7 @@
     [
       bashInteractive_5
       bat
+      bottom
       cmake
       cmigemo
       coreutils
@@ -68,7 +69,6 @@
       tree
       watch
       wget
-      ytop
     ] ++ lib.optionals stdenv.isDarwin [ terminal-notifier ];
 
   home.file = {
