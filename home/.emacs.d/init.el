@@ -100,10 +100,12 @@
   :config (beacon-mode 1))
 
 (use-package cc-mode
+  :config
+  (defun my/indent-by-two ()
+    (setq c-basic-offset 2)
+    (c-set-offset 'case-label '+))
   :hook
-  (java-mode . (lambda ()
-                 (setq c-basic-offset 2)
-                 (c-set-offset 'case-label '+))))
+  (java-mode . my/indent-by-two))
 
 (use-package coffee-mode
   :ensure t
@@ -169,8 +171,7 @@
 (use-package eglot
   :ensure t
   :hook
-  (haskell-mode . eglot-ensure)
-  (ruby-mode . eglot-ensure)
+  ((haskell-mode ruby-mode) . eglot-ensure)
   :config
   (add-to-list 'eglot-server-programs '(haskell-mode . ("haskell-language-server-wrapper" "--lsp")))
   :bind
@@ -276,11 +277,12 @@
 (use-package hledger-mode
   :ensure t
   :mode "\\.journal\\'"
-  :init
-  (add-hook 'hledger-mode-hook
-            (lambda ()
-              (make-local-variable 'company-backends)
-              (add-to-list 'company-backends 'hledger-company))))
+  :config
+  (defun my/setup-hledger-company ()
+    (make-local-variable 'company-backends)
+    (add-to-list 'company-backends 'hledger-company))
+  :hook
+  (hledger-mode . my/setup-hledger-company))
 
 (use-package howm
   :ensure t
@@ -406,8 +408,8 @@
 
 (use-package purescript-mode
   :ensure t
-  :init
-  (add-hook 'purescript-mode-hook (lambda () (turn-on-purescript-indentation))))
+  :hook
+  (purescript-mode . turn-on-purescript-indentation))
 
 (use-package rainbow-delimiters
   :ensure t
@@ -523,10 +525,15 @@
 
 (use-package string-inflection
   :ensure t
+  :config
+  (defun my/string-inflection-for-ruby ()
+    (local-set-key (kbd "C-c C-u") 'string-inflection-ruby-style-cycle))
+  (defun my/string-inflection-for-java ()
+    (local-set-key (kbd "C-c C-u") 'string-inflection-java-style-cycle))
   :bind ("C-c C-u" . string-inflection-all-cycle)
   :hook
-  ((ruby-mode . (lambda () (local-set-key (kbd "C-c C-u") 'string-inflection-ruby-style-cycle)))
-   (java-mode . (lambda () (local-set-key (kbd "C-c C-u") 'string-inflection-java-style-cycle)))))
+  ((ruby-mode . my/string-inflection-for-ruby)
+   (java-mode . my/string-inflection-for-java)))
 
 (use-package swoop
   :ensure t
@@ -545,8 +552,11 @@
   :mode "\\.textile\\'")
 
 (use-package time
+  :init
+  (defun my/display-init-time ()
+    (message "init time: %s" (emacs-init-time)))
   :hook
-  (after-init . (lambda () (message "init time: %s" (emacs-init-time)))))
+  (after-init . my/display-init-time))
 
 (use-package undohist
   :ensure t
