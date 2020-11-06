@@ -97,7 +97,8 @@
 
 (use-package beacon
   :ensure t
-  :config (beacon-mode 1))
+  :config
+  (beacon-mode 1))
 
 (use-package cc-mode
   :config
@@ -109,7 +110,8 @@
 
 (use-package coffee-mode
   :ensure t
-  :custom (coffee-tab-width 2))
+  :custom
+  (coffee-tab-width 2))
 
 (use-package company
   :ensure t
@@ -117,7 +119,8 @@
   (company-minimum-prefix-length 2)
   (company-idle-delay 0)
   (company-dabbrev-downcase nil)
-  :hook (after-init . global-company-mode))
+  :hook
+  (after-init . global-company-mode))
 
 (use-package csv-mode
   :ensure t)
@@ -147,12 +150,14 @@
 
 (use-package dimmer
   :ensure t
-  :config (dimmer-mode)
+  :config
+  (dimmer-mode)
   :custom
   (dimmer-fraction 0.3))
 
 (use-package dired
-  :custom (dired-dwim-target t))
+  :custom
+  (dired-dwim-target t))
 
 (use-package dired-x
   :bind
@@ -192,12 +197,15 @@
 
 (use-package emmet-mode
   :ensure t
-  :hook (sgml-mode css-mode)
-  :custom (emmet-move-cursor-between-quotes t))
+  :hook
+  (sgml-mode css-mode)
+  :custom
+  (emmet-move-cursor-between-quotes t))
 
 (use-package exec-path-from-shell
   :ensure t
-  :config (exec-path-from-shell-initialize))
+  :config
+  (exec-path-from-shell-initialize))
 
 (use-package executable
   :hook
@@ -205,7 +213,8 @@
 
 (use-package expand-region
   :ensure t
-  :bind ("C-=" . er/expand-region))
+  :bind
+  ("C-=" . er/expand-region))
 
 (use-package files
   :config
@@ -254,7 +263,8 @@
 
 (use-package git-gutter
   :ensure t
-  :hook (prog-mode . git-gutter-mode))
+  :hook
+  (prog-mode . git-gutter-mode))
 
 (use-package google-this
   :ensure t
@@ -272,7 +282,8 @@
 
 (use-package haskell-mode
   :ensure t
-  :custom (haskell-stylish-on-save t))
+  :custom
+  (haskell-stylish-on-save t))
 
 (use-package hledger-mode
   :ensure t
@@ -286,8 +297,10 @@
 
 (use-package howm
   :ensure t
-  :init (setq howm-view-title-header "#") ; 先に定義する必要がある
-  :bind ("C-c c" . howm-menu)
+  :init
+  (setq howm-view-title-header "#") ; 先に定義する必要がある
+  :bind
+  ("C-c c" . howm-menu)
   :custom
   (howm-directory "~/Dropbox/notes")
   (howm-file-name-format "%Y%m%d-%H%M%S.md")
@@ -349,8 +362,10 @@
 (use-package magit
   :ensure t
   :demand
-  :bind ("C-c g" . magit-status)
-  :custom (magit-completing-read-function 'magit-ido-completing-read))
+  :bind
+  ("C-c g" . magit-status)
+  :custom
+  (magit-completing-read-function 'magit-ido-completing-read))
 
 (use-package markdown-mode
   :ensure t
@@ -413,11 +428,13 @@
 
 (use-package rainbow-delimiters
   :ensure t
-  :hook (prog-mode . rainbow-delimiters-mode))
+  :hook
+  (prog-mode . rainbow-delimiters-mode))
 
 (use-package rainbow-mode
   :ensure t
-  :hook (css-mode scss-mode html-mode lisp-mode web-mode))
+  :hook
+  (css-mode scss-mode html-mode lisp-mode web-mode))
 
 (use-package recentf
   :config
@@ -430,7 +447,8 @@
   :mode
   (("\\.cap\\'" . ruby-mode)
    ("\\.Brewfile\\'" . ruby-mode))
-  :custom (ruby-insert-encoding-magic-comment nil))
+  :custom
+  (ruby-insert-encoding-magic-comment nil))
 
 (use-package ruby-end
   :ensure t
@@ -442,7 +460,8 @@
 (use-package ruby-interpolation
   :ensure t
   :requires ruby-mode
-  :config (ruby-interpolation-mode))
+  :config
+  (ruby-interpolation-mode))
 
 (use-package rust-mode
   :ensure t)
@@ -521,7 +540,8 @@
 
 (use-package solarized-theme
   :ensure t
-  :config (load-theme 'solarized-dark t))
+  :config
+  (load-theme 'solarized-dark t))
 
 (use-package string-inflection
   :ensure t
@@ -530,7 +550,8 @@
     (local-set-key (kbd "C-c C-u") 'string-inflection-ruby-style-cycle))
   (defun my/string-inflection-for-java ()
     (local-set-key (kbd "C-c C-u") 'string-inflection-java-style-cycle))
-  :bind ("C-c C-u" . string-inflection-all-cycle)
+  :bind
+  ("C-c C-u" . string-inflection-all-cycle)
   :hook
   ((ruby-mode . my/string-inflection-for-ruby)
    (java-mode . my/string-inflection-for-java)))
@@ -560,19 +581,24 @@
 
 (use-package undohist
   :ensure t
-  :config (undohist-initialize)
-  :custom (undohist-ignored-files "PULLREQ_EDITMSG"))
+  :config
+  (undohist-initialize)
+  :custom
+  (undohist-ignored-files "PULLREQ_EDITMSG"))
 
 (use-package undo-tree
   :ensure t
-  :config (global-undo-tree-mode))
+  :config
+  (global-undo-tree-mode))
 
 (use-package uniquify
-  :custom (uniquify-buffer-name-style 'reverse))
+  :custom
+  (uniquify-buffer-name-style 'reverse))
 
 (use-package vterm
   :ensure t
-  :bind ("C-c v" . vterm)
+  :bind
+  ("C-c v" . vterm)
   :custom
   (vterm-kill-buffer-on-exit t)
   (vterm-module-cmake-args "-DCMAKE_PREFIX_PATH=~/.nix-profile")
@@ -589,7 +615,8 @@
 
 (use-package which-key
   :ensure t
-  :config (which-key-mode))
+  :config
+  (which-key-mode))
 
 (use-package whitespace
   :config
@@ -598,10 +625,12 @@
         (seq-remove (lambda (x) (equal (seq-take x 2) '(space-mark ?\ ))) whitespace-display-mappings))
   (add-to-list 'whitespace-display-mappings '(space-mark ?\u3000 [?\u25a1]))
   (global-whitespace-mode 1)
-  :custom (whitespace-global-modes '(not vterm-mode)))
+  :custom
+  (whitespace-global-modes '(not vterm-mode)))
 
 (use-package windmove
-  :config (windmove-default-keybindings)
+  :config
+  (windmove-default-keybindings)
   :demand
   ;; Make windmove work in org-mode:
   :hook
