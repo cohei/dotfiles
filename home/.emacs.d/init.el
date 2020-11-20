@@ -401,7 +401,8 @@
   (open-junk-file-format "~/.emacs.d/junk/%Y/%m/%d-%H%M%S.")
   (open-junk-file-find-file-function 'find-file))
 
-(use-package org)
+(use-package org
+  :commands orgtbl-mode)
 
 (use-package peep-dired
   :ensure t
