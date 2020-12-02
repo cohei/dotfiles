@@ -43,7 +43,7 @@
 
 ;;; Other settings
 
-(fset 'yes-or-no-p 'y-or-n-p)
+(defalias 'yes-or-no-p 'y-or-n-p)
 
 (customize-set-variable 'indent-tabs-mode nil)
 (customize-set-variable 'indicate-buffer-boundaries 'right)
