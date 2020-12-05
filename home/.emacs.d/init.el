@@ -527,8 +527,6 @@
   (shackle-rules
    '(("*Warnings*" :size 0.3)
      ("*Buffer List*" :size 0.3)
-     ("*GHC Info*" :size 10)
-     ("\\*ag search" :regexp t :size 0.3)
      ("*Help*" :align t :ratio 0.3 :select t)
      ("*xref*" :align t :size 0.3)
      ("*grep*" :align t :size 0.3 :select t)))
