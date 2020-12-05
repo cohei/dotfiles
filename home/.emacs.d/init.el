@@ -126,7 +126,8 @@
   :ensure t)
 
 (use-package delsel
-  :config (delete-selection-mode t))
+  :config
+  (delete-selection-mode t))
 
 (use-package dhall-mode
   :ensure t)
@@ -181,7 +182,7 @@
   (add-to-list 'eglot-server-programs '(haskell-mode . ("haskell-language-server-wrapper" "--lsp")))
   :bind
   (:map eglot-mode-map
-        ("C-c e" . 'eglot-code-actions)))
+   ("C-c e" . 'eglot-code-actions)))
 
 (use-package elec-pair
   :config
@@ -354,7 +355,8 @@
 
   (use-package kill-ring-ido
     :init
-    (use-package noflet :ensure t)
+    (use-package noflet
+      :ensure t)
     :bind
     ("M-y" . kill-ring-ido)))
 
@@ -512,7 +514,8 @@
      ("*xref*" :align t :size 0.3)
      ("*Flycheck errors*" :align t :size 0.3 :select t)
      ("*grep*" :align t :size 0.3 :select t)))
-  :config (shackle-mode t))
+  :config
+  (shackle-mode t))
 
 (use-package shrink-whitespace
   :ensure t
