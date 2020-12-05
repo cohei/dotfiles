@@ -83,7 +83,9 @@
 
 (use-package anzu
   :ensure t
+  :after dim
   :config
+  (dim-minor-name 'anzu-mode "")
   (global-anzu-mode t))
 
 (use-package apib-mode
@@ -97,7 +99,9 @@
 
 (use-package beacon
   :ensure t
+  :after dim
   :config
+  (dim-minor-name 'beacon-mode "")
   (beacon-mode t))
 
 (use-package cc-mode
@@ -115,6 +119,9 @@
 
 (use-package company
   :ensure t
+  :after dim
+  :config
+  (dim-minor-name 'company-mode "")
   :custom
   (company-minimum-prefix-length 2)
   (company-idle-delay 0)
@@ -135,19 +142,7 @@
 (use-package dim
   :ensure t
   :config
-  (dim-minor-names
-   '((anzu-mode "" anzu)
-     (auto-revert-mode "" autorevert)
-     (beacon-mode "" beacon)
-     (company-mode "" company)
-     (dmacro-mode "" dmacro)
-     (emacs-lock-mode "" emacs-lock)
-     (git-gutter-mode "" git-gutter)
-     (global-whitespace-mode "" whitespace)
-     (google-this-mode "" google-this)
-     (selected-minor-mode "" selected)
-     (undo-tree-mode "" undo-tree)
-     (which-key-mode "" which-key))))
+  (dim-minor-name 'auto-revert-mode "" 'autorevert))
 
 (use-package dimmer
   :ensure t
@@ -166,9 +161,11 @@
 
 (use-package dmacro
   :ensure t
+  :after dim
   :custom
   (dmacro-key (kbd "C-c d"))
   :config
+  (dim-minor-name 'dmacro-mode "")
   (global-dmacro-mode))
 
 (use-package dockerfile-mode
@@ -192,7 +189,9 @@
   :ensure t)
 
 (use-package emacs-lock
+  :after dim
   :config
+  (dim-minor-name 'emacs-lock-mode "")
   (with-current-buffer "*scratch*"
     (emacs-lock-mode 'kill)))
 
@@ -264,12 +263,17 @@
 
 (use-package git-gutter
   :ensure t
+  :after dim
   :hook
-  (prog-mode . git-gutter-mode))
+  (prog-mode . git-gutter-mode)
+  :config
+  (dim-minor-name 'git-gutter-mode ""))
 
 (use-package google-this
   :ensure t
+  :after dim
   :config
+  (dim-minor-name 'google-this-mode "")
   (google-this-mode t))
 
 (use-package goto-addr
@@ -483,7 +487,9 @@
 
 (use-package selected
   :ensure t
+  :after dim
   :config
+  (dim-minor-name 'selected-minor-mode "")
   (bind-keys :map selected-keymap
              ("%" . query-replace)
              (";" . comment-dwim)
@@ -591,7 +597,9 @@
 
 (use-package undo-tree
   :ensure t
+  :after dim
   :config
+  (dim-minor-name 'undo-tree-mode "")
   (global-undo-tree-mode t))
 
 (use-package uniquify
@@ -618,11 +626,15 @@
 
 (use-package which-key
   :ensure t
+  :after dim
   :config
+  (dim-minor-name 'which-key-mode "")
   (which-key-mode t))
 
 (use-package whitespace
+  :after dim
   :config
+  (dim-minor-name 'global-whitespace-mode "")
   (dolist (style '(newline-mark lines tabs empty)) (delete style whitespace-style))
   (setq whitespace-display-mappings
         (seq-remove (lambda (x) (equal (seq-take x 2) '(space-mark ?\ ))) whitespace-display-mappings))
