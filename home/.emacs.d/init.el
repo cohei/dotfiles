@@ -98,7 +98,7 @@
 (use-package beacon
   :ensure t
   :config
-  (beacon-mode 1))
+  (beacon-mode t))
 
 (use-package cc-mode
   :config
@@ -243,7 +243,7 @@
 (use-package flycheck
   :ensure t
   :config
-  (global-flycheck-mode)
+  (global-flycheck-mode t)
   (bind-key "C-c !" 'flycheck-list-errors flycheck-mode-map))
 
 (use-package frame
@@ -269,7 +269,7 @@
 (use-package google-this
   :ensure t
   :config
-  (google-this-mode 1))
+  (google-this-mode t))
 
 (use-package goto-addr
   :hook
@@ -461,7 +461,7 @@
   :ensure t
   :requires ruby-mode
   :config
-  (ruby-interpolation-mode))
+  (ruby-interpolation-mode t))
 
 (use-package rust-mode
   :ensure t)
@@ -512,7 +512,7 @@
      ("*xref*" :align t :size 0.3)
      ("*Flycheck errors*" :align t :size 0.3 :select t)
      ("*grep*" :align t :size 0.3 :select t)))
-  :config (shackle-mode))
+  :config (shackle-mode t))
 
 (use-package shrink-whitespace
   :ensure t
@@ -589,7 +589,7 @@
 (use-package undo-tree
   :ensure t
   :config
-  (global-undo-tree-mode))
+  (global-undo-tree-mode t))
 
 (use-package uniquify
   :custom
@@ -616,7 +616,7 @@
 (use-package which-key
   :ensure t
   :config
-  (which-key-mode))
+  (which-key-mode t))
 
 (use-package whitespace
   :config
@@ -624,7 +624,7 @@
   (setq whitespace-display-mappings
         (seq-remove (lambda (x) (equal (seq-take x 2) '(space-mark ?\ ))) whitespace-display-mappings))
   (add-to-list 'whitespace-display-mappings '(space-mark ?\u3000 [?\u25a1]))
-  (global-whitespace-mode 1)
+  (global-whitespace-mode t)
   :custom
   (whitespace-global-modes '(not vterm-mode)))
 
