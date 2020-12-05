@@ -290,8 +290,7 @@
   :mode "\\.journal\\'"
   :config
   (defun my/setup-hledger-company ()
-    (make-local-variable 'company-backends)
-    (add-to-list 'company-backends 'hledger-company))
+    (setq-local company-backends (cons 'hledger-company company-backends)))
   :hook
   (hledger-mode . my/setup-hledger-company))
 
