@@ -244,12 +244,15 @@
 
 (use-package flycheck
   :ensure t
+  :after shackle
   :demand
   :config
   (global-flycheck-mode t)
   :bind
   (:map flycheck-mode-map
-   ("C-c !" . flycheck-list-errors)))
+   ("C-c !" . flycheck-list-errors))
+  :custom
+  (shackle-rules (cons '("*Flycheck errors*" :align t :size 0.3 :select t) shackle-rules)))
 
 (use-package frame
   :init
@@ -268,11 +271,13 @@
 
 (use-package git-gutter
   :ensure t
-  :after dim
+  :after (dim shackle)
   :hook
   (prog-mode . git-gutter-mode)
   :config
-  (dim-minor-name 'git-gutter-mode ""))
+  (dim-minor-name 'git-gutter-mode "")
+  :custom
+  (shackle-rules (cons '("*git-gutter:diff*" :align t :size 0.3) shackle-rules)))
 
 (use-package google-this
   :ensure t
@@ -373,11 +378,13 @@
 
 (use-package magit
   :ensure t
+  :after shackle
   :demand
   :bind
   ("C-c g" . magit-status)
   :custom
-  (magit-completing-read-function 'magit-ido-completing-read))
+  (magit-completing-read-function 'magit-ido-completing-read)
+  (shackle-rules (cons '("magit:" :regexp t :align t :size 0.5) shackle-rules)))
 
 (use-package markdown-mode
   :ensure t
@@ -520,14 +527,10 @@
   (shackle-rules
    '(("*Warnings*" :size 0.3)
      ("*Buffer List*" :size 0.3)
-     ("magit:" :regexp t :align t :size 0.5)
      ("*GHC Info*" :size 10)
-     (" *undo-tree*" :align right :size 0.1 :inhibit-window-quit t)
-     ("*git-gutter:diff*" :align t :size 0.3)
      ("\\*ag search" :regexp t :size 0.3)
      ("*Help*" :align t :ratio 0.3 :select t)
      ("*xref*" :align t :size 0.3)
-     ("*Flycheck errors*" :align t :size 0.3 :select t)
      ("*grep*" :align t :size 0.3 :select t)))
   :config
   (shackle-mode t))
@@ -606,10 +609,12 @@
 
 (use-package undo-tree
   :ensure t
-  :after dim
+  :after (dim shackle)
   :config
   (dim-minor-name 'undo-tree-mode "")
-  (global-undo-tree-mode t))
+  (global-undo-tree-mode t)
+  :custom
+  (shackle-rules (cons '(" *undo-tree*" :align right :size 0.1 :inhibit-window-quit t) shackle-rules)))
 
 (use-package uniquify
   :custom
