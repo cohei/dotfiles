@@ -70,9 +70,11 @@
 
 (use-package amx
   :ensure t
+  :demand
   :config
   (amx-mode t)
-  (bind-key "M-X" 'amx-major-mode-commands))
+  :bind
+  ("M-X" . amx-major-mode-commands))
 
 (use-package ansi-color
   :config
@@ -242,9 +244,12 @@
 
 (use-package flycheck
   :ensure t
+  :demand
   :config
   (global-flycheck-mode t)
-  (bind-key "C-c !" 'flycheck-list-errors flycheck-mode-map))
+  :bind
+  (:map flycheck-mode-map
+   ("C-c !" . flycheck-list-errors)))
 
 (use-package frame
   :init
@@ -313,12 +318,14 @@
   (howm-view-split-horizontally t))
 
 (use-package ido
+  :demand
   :config
   (ido-mode t)
   (defun my/ido-recentf ()
     (interactive)
     (find-file (ido-completing-read "Find recent file: " recentf-list)))
-  (bind-key "C-c C-r" 'my/ido-recentf)
+  :bind
+  ("C-c C-r" . my/ido-recentf)
   :custom
   (ido-enable-flex-matching t)
   (ido-auto-merge-work-directories-length -1))
@@ -487,18 +494,20 @@
 
 (use-package selected
   :ensure t
+  :demand
   :after dim
   :config
   (dim-minor-name 'selected-minor-mode "")
-  (bind-keys :map selected-keymap
-             ("%" . query-replace)
-             (";" . comment-dwim)
-             ("g" . google-this-region)
-             ("m" . apply-macro-to-region-lines)
-             ("q" . selected-off)
-             ("s" . sort-lines)
-             ("w" . count-words-region))
-  (selected-global-mode t))
+  (selected-global-mode t)
+  :bind
+  (:map selected-keymap
+   ("%" . query-replace)
+   (";" . comment-dwim)
+   ("g" . google-this-region)
+   ("m" . apply-macro-to-region-lines)
+   ("q" . selected-off)
+   ("s" . sort-lines)
+   ("w" . count-words-region)))
 
 (use-package server
   :config
