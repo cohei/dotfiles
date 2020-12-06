@@ -109,7 +109,7 @@
 (use-package cc-mode
   :config
   (defun my/indent-by-two ()
-    (setq c-basic-offset 2)
+    (setq-local c-basic-offset 2)
     (c-set-offset 'case-label '+))
   :hook
   (java-mode . my/indent-by-two))
@@ -667,9 +667,9 @@
   :config
   (dim-minor-name 'global-whitespace-mode "")
   (dolist (style '(newline-mark lines tabs empty)) (delete style whitespace-style))
-  (setq whitespace-display-mappings
-        (seq-remove (lambda (x) (equal (seq-take x 2) '(space-mark ?\ ))) whitespace-display-mappings))
-  (add-to-list 'whitespace-display-mappings '(space-mark ?\u3000 [?\u25a1]))
+  (customize-set-variable 'whitespace-display-mappings
+                          (cons '(space-mark ?\u3000 [?\u25a1])
+                                (seq-remove (lambda (x) (equal (seq-take x 2) '(space-mark ?\ ))) whitespace-display-mappings)))
   (global-whitespace-mode t)
   :custom
   (whitespace-global-modes '(not vterm-mode)))
