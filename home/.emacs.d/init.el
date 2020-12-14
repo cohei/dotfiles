@@ -307,9 +307,7 @@
   :mode "\\.hamlc\\'")
 
 (use-package haskell-mode
-  :ensure t
-  :custom
-  (haskell-stylish-on-save t))
+  :ensure t)
 
 (use-package highlight-indent-guides
   :ensure t

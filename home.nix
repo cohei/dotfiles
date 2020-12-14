@@ -40,7 +40,6 @@
       haskellPackages.hoogle
       haskellPackages.hpack
       hledger
-      hlint
       icdiff
       ipfs
       jl
@@ -58,7 +57,6 @@
       skktools
       solargraph
       stack
-      stylish-haskell
       terraform_0_13
       tmux
       tokei
