@@ -38,8 +38,8 @@
       gitAndTools.delta
       gitAndTools.gh
       google-cloud-sdk
+      hadolint
       # haskellPackages.cabal-fmt # compile error
-      # haskellPackages.hadolint # broken
       haskellPackages.hlint
       haskellPackages.hoogle
       haskellPackages.hpack
