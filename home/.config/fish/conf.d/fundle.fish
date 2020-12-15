@@ -6,10 +6,6 @@ fundle plugin 'jethrokuan/z'
 fundle plugin 'jorgebucaran/fish-bax'
 fundle init
 
-if test -e ~/.ghcup/env
-    bax source ~/.ghcup/env
-end
-
 if type --quiet home-manager
     bax source "$HOME/.nix-profile/etc/profile.d/hm-session-vars.sh"
 end

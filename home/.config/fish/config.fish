@@ -31,3 +31,5 @@ end
 if type --quiet gh
     eval (gh completion --shell fish)
 end
+
+set --export GHCUP_USE_XDG_DIRS yes
