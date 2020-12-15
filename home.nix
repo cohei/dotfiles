@@ -39,7 +39,7 @@
       gitAndTools.gh
       google-cloud-sdk
       hadolint
-      # haskellPackages.cabal-fmt # compile error
+      haskellPackages.cabal-fmt
       haskellPackages.hlint
       haskellPackages.hoogle
       haskellPackages.hpack
