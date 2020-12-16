@@ -40,11 +40,10 @@
       google-cloud-sdk
       hadolint
       haskellPackages.cabal-fmt
-      haskellPackages.hlint
       haskellPackages.hoogle
       haskellPackages.hpack
-      haskellPackages.stylish-haskell
       hledger
+      hlint
       icdiff
       ipfs
       jl
@@ -62,6 +61,7 @@
       solargraph
       stack
       starship
+      stylish-haskell
       terraform_0_13
       tmux
       tokei
