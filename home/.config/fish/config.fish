@@ -5,7 +5,7 @@ set --export LANG ja_JP.UTF-8
 set --export PATH ~/.local/bin $PATH
 
 if type --quiet direnv
-    eval (direnv hook fish)
+    direnv hook fish | source
 end
 
 if type --quiet starship
