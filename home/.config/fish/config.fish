@@ -9,7 +9,7 @@ if type --quiet direnv
 end
 
 if type --quiet starship
-    eval (starship init fish)
+    starship init fish | source
 end
 
 set --export LESS '--LONG-PROMPT --RAW-CONTROL-CHARS --quit-if-one-screen --no-init'
