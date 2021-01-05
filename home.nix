@@ -24,7 +24,7 @@
       cmigemo
       coreutils
       direnv
-      dust
+      du-dust
       emacs
       exa
       fd
