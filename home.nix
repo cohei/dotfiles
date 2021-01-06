@@ -20,7 +20,7 @@
       bashInteractive_5
       bat
       bottom
-      cmake
+      cmake # Emacs vterm package
       cmigemo
       coreutils
       direnv
