@@ -1,1 +1,0 @@
-alias gg 'git g'

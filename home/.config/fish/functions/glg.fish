@@ -1,1 +1,0 @@
-alias glg 'git lg'
