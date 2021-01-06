@@ -58,7 +58,6 @@
       skktools
       solargraph
       stack
-      starship
       stylish-haskell
       terraform_0_13
       tmux
@@ -116,10 +115,6 @@
     shellInit = ''
       set fish_greeting
 
-      if type --quiet starship
-          starship init fish | source
-      end
-
       if test -e ~/.nix-profile/share/chruby/chruby.fish
           source ~/.nix-profile/share/chruby/chruby.fish
           source ~/.nix-profile/share/chruby/auto.fish
@@ -129,5 +124,9 @@
           eval (gh completion --shell fish)
       end
     '';
+  };
+
+  programs.starship = {
+    enable = true;
   };
 }
