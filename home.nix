@@ -23,7 +23,6 @@
       cmake # Emacs vterm package
       cmigemo
       coreutils
-      direnv
       du-dust
       emacs
       exa
@@ -107,14 +106,14 @@
     '';
   };
 
+  programs.direnv = {
+    enable = true;
+  };
+
   programs.fish = {
     enable = true;
     shellInit = ''
       set fish_greeting
-
-      if type --quiet direnv
-          direnv hook fish | source
-      end
 
       if type --quiet starship
           starship init fish | source
