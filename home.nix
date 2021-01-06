@@ -76,4 +76,18 @@
 
   home.homeDirectory = "/hoge";
   home.username = "fuga";
+
+  programs.bash = {
+    enable = true;
+    initExtra = ''
+      if command -v fish > /dev/null && [ -z "$BASH_EXECUTION_STRING" ]; then
+        exec fish
+      fi
+    '';
+    profileExtra = ''
+      if [ -e ~/.nix-profile/etc/profile.d/nix.sh ]; then
+        . ~/.nix-profile/etc/profile.d/nix.sh
+      fi
+    '';
+  };
 }
