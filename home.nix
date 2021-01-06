@@ -112,6 +112,17 @@
 
   programs.fish = {
     enable = true;
+    plugins = [
+      {
+        name = "z";
+        src = pkgs.fetchFromGitHub {
+          owner = "jethrokuan";
+          repo = "z";
+          rev = "master";
+          sha256 = "0z7l7fgd9khcq1fi9ymjjrxj58pw5xdzg8k6mxqmqw1345hkpr4f";
+        };
+      }
+    ];
     shellInit = ''
       set fish_greeting
 
