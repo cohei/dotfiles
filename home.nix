@@ -108,6 +108,7 @@
 
   programs.direnv = {
     enable = true;
+    enableNixDirenvIntegration = true;
   };
 
   programs.fish = {
