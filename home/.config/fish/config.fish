@@ -1,26 +1,11 @@
 set fish_greeting
 
-set --export LANG ja_JP.UTF-8
-
-set --export PATH ~/.local/bin $PATH
-
 if type --quiet direnv
     direnv hook fish | source
 end
 
 if type --quiet starship
     starship init fish | source
-end
-
-set --export LESS '--LONG-PROMPT --RAW-CONTROL-CHARS --quit-if-one-screen --no-init'
-
-# for
-#   - git commiting
-#   - less v
-if test (uname) = "Darwin"
-    set --export EDITOR 'emacsclient --alternate-editor="open -a emacs"'
-else
-    set --export EDITOR 'emacsclient --alternate-editor="" --create-frame'
 end
 
 if test -e ~/.nix-profile/share/chruby/chruby.fish
@@ -31,5 +16,3 @@ end
 if type --quiet gh
     eval (gh completion --shell fish)
 end
-
-set --export GHCUP_USE_XDG_DIRS yes
