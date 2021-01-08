@@ -69,28 +69,9 @@
       wget
     ] ++ lib.optionals stdenv.isDarwin [ terminal-notifier ];
 
-  home.file = {
-    ".bash_profile".source = ./home/.bash_profile;
-    ".bashrc".source = ./home/.bashrc;
-    ".Brewfile".source = ./home/.Brewfile;
-    ".bundle/config".source = ./home/.bundle/config;
-    ".config/fish" = {
-      source = ./home/.config/fish;
-      recursive = true;
-    };
-    ".config/gh/config.yml".source = ./home/.config/gh/config.yml;
-    ".config/git" = {
-      source = ./home/.config/git;
-      recursive = true;
-    };
-    ".config/starship.toml".source = ./home/.config/starship.toml;
-    ".emacs.d/init.el".source = ./home/.emacs.d/init.el;
-    ".ghci".source = ./home/.ghci;
-    ".local/bin" = {
-      source = ./home/.local/bin;
-      recursive = true;
-    };
-    ".ssh/config".source = ./home/.ssh/config;
+  home.file."." = {
+    source = ./home;
+    recursive = true;
   };
 
   home.homeDirectory = "/hoge";
