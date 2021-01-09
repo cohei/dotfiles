@@ -10,7 +10,7 @@ install_home_manager() {
     nix-shell '<home-manager>' -A install
 }
 
-repository=$HOME/src/github.com/cohei/dotfiles
+repository=$HOME/.local/share/dotfiles
 
 download() {
     git clone https://github.com/cohei/dotfiles.git "$repository"

@@ -3,4 +3,4 @@ services:
   development:
     image: nixos/nix
     volumes:
-      - .:/root/src/github.com/cohei/dotfiles
+      - .:/root/.local/share/dotfiles

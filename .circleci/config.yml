@@ -11,7 +11,7 @@ executors:
 jobs:
   local-install-test:
     executor: nix
-    working_directory: /root/src/github.com/cohei/dotfiles
+    working_directory: /root/.local/share/dotfiles
     steps:
       - checkout
       - run: ./install.sh
