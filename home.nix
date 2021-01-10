@@ -17,7 +17,6 @@
   home.packages =
     with pkgs;
     [
-      bashInteractive_5
       bat
       bottom
       cmake # Emacs vterm package
@@ -89,20 +88,6 @@
     LESS = "--LONG-PROMPT --RAW-CONTROL-CHARS --quit-if-one-screen --no-init";
   };
 
-  programs.bash = {
-    enable = true;
-    initExtra = ''
-      if command -v fish > /dev/null && [ -z "$BASH_EXECUTION_STRING" ]; then
-        exec fish
-      fi
-    '';
-    profileExtra = ''
-      if [ -e ~/.nix-profile/etc/profile.d/nix.sh ]; then
-        . ~/.nix-profile/etc/profile.d/nix.sh
-      fi
-    '';
-  };
-
   programs.direnv = {
     enable = true;
     enableNixDirenvIntegration = true;
@@ -111,6 +96,15 @@
   programs.fish = {
     enable = true;
     plugins = [
+      {
+        name = "nix-env.fish";
+        src = pkgs.fetchFromGitHub {
+          owner = "lilyball";
+          repo = "nix-env.fish";
+          rev = "master";
+          sha256 = "qt63SHfHWQnDBvaL+NOVgGA1Pt6tbWhV+1op0JoQNMM=";
+        };
+      }
       {
         name = "z";
         src = pkgs.fetchFromGitHub {
