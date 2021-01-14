@@ -72,9 +72,6 @@
     recursive = true;
   };
 
-  home.homeDirectory = "/${if pkgs.stdenv.isDarwin then "Users" else "home"}/${config.home.username}";
-  home.username = "hoge";
-
   home.language.base = "ja_JP.UTF-8";
   home.sessionPath = [ "$HOME/.local/bin" ];
   home.sessionVariables = {
