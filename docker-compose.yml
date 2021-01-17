@@ -4,3 +4,4 @@ services:
     image: nixos/nix
     volumes:
       - .:/root/.local/share/dotfiles
+    working_dir: /root/.local/share/dotfiles
