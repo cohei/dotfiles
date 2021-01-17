@@ -18,7 +18,6 @@ jobs:
   network-install-test:
     executor: nix
     steps:
-      - run: apk add git
       - checkout
       - run: |
           set -o pipefail

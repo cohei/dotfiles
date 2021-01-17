@@ -13,7 +13,7 @@ install_home_manager() {
 repository=$HOME/.local/share/dotfiles
 
 download() {
-    git clone https://github.com/cohei/dotfiles.git "$repository"
+    nix-shell --packages git --command 'git clone https://github.com/cohei/dotfiles.git '"$repository"
 }
 
 link() {

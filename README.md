@@ -5,7 +5,6 @@
 ## Requirements
 
 - [Nix](https://nixos.org)
-- Git
 
 ## Installation
 
