@@ -183,7 +183,7 @@
 (use-package eglot
   :ensure t
   :hook
-  ((haskell-mode ruby-mode) . eglot-ensure)
+  ((haskell-mode nix-mode ruby-mode) . eglot-ensure)
   :bind
   (:map eglot-mode-map
    ("C-c e" . 'eglot-code-actions)))

@@ -53,6 +53,7 @@
       procs
       pstree
       pwgen
+      rnix-lsp
       sbt
       shellcheck
       skktools
