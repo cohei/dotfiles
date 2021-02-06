@@ -2,38 +2,14 @@
 
 set -eux
 
-has() {
-    command -v "$1" >/dev/null 2>&1
+ensure_nix_flakes() {
+    nix-env --install --attr nixpkgs.nixFlakes
 }
 
-install_home_manager() {
-    nix-channel --add https://github.com/nix-community/home-manager/archive/master.tar.gz home-manager
-    nix-channel --update
-    nix-shell '<home-manager>' -A install
+switch() {
+    nix --experimental-features 'nix-command flakes' shell nixpkgs#git \
+        --command nix --experimental-features 'nix-command flakes' run 'github:cohei/dotfiles#switch'
 }
 
-repository=$HOME/.local/share/dotfiles
-
-download() {
-    nix-shell --packages git --command 'git clone https://github.com/cohei/dotfiles.git '"$repository"
-}
-
-link() {
-    target=~/.config/nixpkgs/home.nix
-
-    dir=$(dirname "$target")
-    [ -d "$dir" ] || mkdir -p "$dir"
-
-    ln --symbolic --relative --backup "$repository/home.nix" "$target" || \
-    ln --symbolic            --backup "$repository/home.nix" "$target" || \
-    ln -s -f                          "$repository/home.nix" "$target"
-}
-
-if ! has home-manager; then
-    install_home_manager
-fi
-
-[ -d "$repository" ] || download
-link
-
-home-manager switch
+ensure_nix_flakes
+switch
