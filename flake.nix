@@ -28,6 +28,8 @@
         };
     in
       utils.lib.eachSystem ["x86_64-linux" "x86_64-darwin"] (system: {
+        defaultApp = self.apps.${system}.switch;
+
         apps.switch = {
           type = "app";
           program = "${(homeManagerConfiguration system).activationPackage}/activate";
