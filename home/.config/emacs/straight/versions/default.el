@@ -49,6 +49,7 @@
  ("howm" . "bac98b873d07baf039fe252b9d67f71c235dca06")
  ("ht.el" . "c4c1be487d6ecb353d07881526db05d7fc90ea87")
  ("image-plus" . "6834d0c09bb4df9ecc0d7a559bd7827fed48fffc")
+ ("imenu-list" . "76f2335ee6f2f066d87fe4e4729219d70c9bc70d")
  ("js2-mode" . "b891edecedf30be6321e2f109fdfeb25b0edad27")
  ("jsonrpc" . "dbfa30971026dacd9389f4312b0dd7a12fef0d87")
  ("magit" . "71f57c5582448be81b02ba53750dd2ea39ed0eaf")

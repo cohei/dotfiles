@@ -373,6 +373,13 @@
 (use-package image+
   :straight t)
 
+(use-package imenu-list
+  :straight t
+  :bind
+  ("C-'" . imenu-list-smart-toggle)
+  :custom
+  (imenu-list-auto-resize t))
+
 (use-package js2-mode
   :straight t
   :mode "\\.js\\'"
