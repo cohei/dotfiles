@@ -269,7 +269,7 @@
   ;; when startup
   (window-setup . split-window-horizontally)
   :custom
-  (default-frame-alist '((fullscreen . fullboth))))
+  (default-frame-alist '((fullscreen . fullboth) (font . "Cica-14"))))
 
 (use-package free-keys
   :ensure t)
