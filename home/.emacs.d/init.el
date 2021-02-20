@@ -327,8 +327,11 @@
   :config
   (defun my/setup-hledger-company ()
     (setq-local company-backends (cons 'hledger-company company-backends)))
+  (defun my/hledger-set-tab-width ()
+    (setq tab-width 4))
   :hook
-  (hledger-mode . my/setup-hledger-company))
+  (hledger-mode . my/setup-hledger-company)
+  (hledger-mode . my/hledger-set-tab-width))
 
 (use-package howm
   :ensure t
