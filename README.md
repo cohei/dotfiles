@@ -9,6 +9,12 @@
 ## Installation
 
 ```shell
+curl -L https://dotfiles.cohei.me | sh
+```
+
+or
+
+```
 wget -O- https://dotfiles.cohei.me | sh
 ```
 
