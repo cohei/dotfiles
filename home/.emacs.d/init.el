@@ -340,7 +340,7 @@
   :bind
   ("C-c c" . howm-menu)
   :custom
-  (howm-directory "~/Dropbox/notes")
+  (howm-directory "~/iCloud Drive/notes")
   (howm-file-name-format "%Y%m%d-%H%M%S.md")
   (howm-keyword-file (concat (file-name-as-directory howm-directory) ".howm-keys"))
   (howm-history-file (concat (file-name-as-directory howm-directory) ".howm-history"))
