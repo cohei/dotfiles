@@ -18,7 +18,7 @@ cask 'menumeters'
 cask 'michaelvillar-timer'
 cask 'osxfuse'
 mas 'Evernote', id: 406056744
-mas 'Raindrop.io for Safari', id: 957810159
+mas 'Save to Raindrop.io', id: 1549370672
 mas 'Slack', id: 803453959
 mas 'Spark', id: 1176895641
 mas 'The Unarchiver', id: 425424353
