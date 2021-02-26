@@ -17,7 +17,6 @@ cask 'karabiner-elements'
 cask 'menumeters'
 cask 'michaelvillar-timer'
 cask 'osxfuse'
-mas 'Evernote', id: 406056744
 mas 'Save to Raindrop.io', id: 1549370672
 mas 'Slack', id: 803453959
 mas 'Spark', id: 1176895641
