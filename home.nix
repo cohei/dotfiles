@@ -49,7 +49,7 @@
       libvterm-neovim # Emacs vterm package
       nkf
       parallel
-      pijul
+      # pijul # 1.0.0-alpha.46 fails
       procs
       pstree
       pwgen
