@@ -17,12 +17,14 @@
   home.packages =
     with pkgs;
     [
+      abduco
       bat
       bottom
       cmake # Emacs vterm package
       cmigemo
       coreutils
       du-dust
+      dvtm
       emacs
       exa
       fd
@@ -58,7 +60,6 @@
       solargraph
       stack
       terraform_0_13
-      tmux
       tokei
       watch
       wget
