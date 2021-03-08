@@ -48,6 +48,7 @@
       stack
       terraform_0_13
       tokei
+      # tup # broken
       watch
       wget
     ] ++ lib.optionals stdenv.isDarwin [ mas terminal-notifier ];
