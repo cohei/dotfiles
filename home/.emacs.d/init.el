@@ -425,7 +425,8 @@
   :custom
   (migemo-dictionary (expand-file-name "~/.nix-profile/share/migemo/utf-8/migemo-dict"))
   (migemo-user-dictionary nil)
-  (migemo-regex-dictionary nil))
+  (migemo-regex-dictionary nil)
+  (migemo-use-default-isearch-keybinding nil))
 
 (use-package multiple-cursors
   :ensure t
