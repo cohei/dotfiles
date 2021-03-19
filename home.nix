@@ -138,7 +138,7 @@
           source ~/.nix-profile/share/chruby/auto.fish
       end
 
-      if type --quiet gh
+      if type --query gh
           eval (gh completion --shell fish)
       end
     '';
