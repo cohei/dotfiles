@@ -106,6 +106,7 @@
       }
     ];
     shellAbbrs = {
+      aa = "arch -arm64";
       doco = "docker compose";
     };
     shellInit = ''
