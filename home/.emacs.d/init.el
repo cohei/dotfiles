@@ -681,6 +681,10 @@
    (org-shiftdown-final . windmove-down)
    (org-shiftright-final . windmove-right)))
 
+(use-package winner
+  :config
+  (winner-mode))
+
 (use-package yaml-mode
   :ensure t)
 
