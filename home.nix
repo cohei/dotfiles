@@ -37,7 +37,7 @@
       gitAndTools.delta
       gitAndTools.gh
       google-cloud-sdk
-      hadolint
+      # hadolint
       haskellPackages.cabal-fmt
       haskellPackages.hoogle
       haskellPackages.hpack
