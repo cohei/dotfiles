@@ -40,9 +40,6 @@
       fzf
       ghcid
       ghq
-      git
-      gitAndTools.delta
-      gitAndTools.gh
       google-cloud-sdk
       # hadolint
       haskellPackages.cabal-fmt
@@ -124,24 +121,11 @@
       doco = "docker-compose";
     };
     shellAliases = {
-      d = "git d";
       e = "emacsclient --no-wait --create-frame --alternate-editor=''";
       ekill = "emacsclient --eval '(kill-emacs)'";
-      gap = "git ap";
-      gb = "git sw (git branch | fzf | tr -d '* ')";
-      gdc = "git dc";
-      gg = "git g";
-      gl = "git l";
-      glg = "git lg";
-      gss = "git ss";
-      s = "git s";
     };
     shellInit = ''
       set fish_greeting
-
-      if type --query gh
-          eval (gh completion --shell fish)
-      end
 
       if test -e /opt/homebrew/bin/brew
           eval (/opt/homebrew/bin/brew shellenv)
