@@ -28,7 +28,6 @@
       abduco
       bat
       bottom
-      cmake # Emacs vterm package
       cmigemo
       coreutils
       du-dust
@@ -54,7 +53,6 @@
       ipfs
       jl
       jq
-      libvterm-neovim # Emacs vterm package
       nkf
       parallel
       # pijul # 1.0.0-alpha.46 fails
