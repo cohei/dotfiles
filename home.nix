@@ -14,6 +14,14 @@
   # changes in each release.
   home.stateVersion = "20.09";
 
+  imports =
+    let
+      moduleDir = ./module;
+      toModulePath = f: moduleDir + ("/" + f);
+      modules = builtins.map toModulePath (builtins.attrNames (builtins.readDir moduleDir));
+    in
+      modules;
+
   home.packages =
     with pkgs;
     [
