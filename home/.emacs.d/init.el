@@ -151,7 +151,8 @@
 (use-package dim
   :ensure t
   :config
-  (dim-minor-name 'auto-revert-mode "" 'autorevert))
+  (dim-minor-name 'auto-revert-mode "" 'autorevert)
+  (dim-minor-name 'ruby-end-mode "" 'ruby-end)) ; doesn't work in `use-package ruby-end`
 
 (use-package dimmer
   :ensure t
