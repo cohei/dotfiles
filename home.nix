@@ -28,11 +28,9 @@
       abduco
       bat
       bottom
-      cmigemo
       coreutils
       du-dust
       dvtm
-      emacs
       exa
       fd
       ffmpeg
@@ -76,16 +74,6 @@
   home.language.base = "ja_JP.UTF-8";
   home.sessionPath = [ "$HOME/.local/bin" ];
   home.sessionVariables = {
-    # for
-    #   - git commiting
-    #   - less v
-    EDITOR =
-      let
-        options =
-          if pkgs.stdenv.isDarwin
-          then "--alternate-editor='open -a emacs'"
-          else "--alternate-editor='' --create-frame";
-      in "emacsclient ${options}";
     GHCUP_USE_XDG_DIRS = "yes";
     LESS = "--LONG-PROMPT --RAW-CONTROL-CHARS --quit-if-one-screen --no-init";
   };
@@ -119,10 +107,6 @@
     ];
     shellAbbrs = {
       doco = "docker-compose";
-    };
-    shellAliases = {
-      e = "emacsclient --no-wait --create-frame --alternate-editor=''";
-      ekill = "emacsclient --eval '(kill-emacs)'";
     };
     shellInit = ''
       set fish_greeting
