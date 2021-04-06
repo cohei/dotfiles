@@ -303,6 +303,9 @@
   ((prog-mode . goto-address-prog-mode)
    (text-mode . goto-address-mode)))
 
+(use-package groovy-mode
+  :ensure t)
+
 (use-package haml-mode
   :ensure t
   :mode "\\.hamlc\\'")
