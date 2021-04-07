@@ -51,6 +51,7 @@
 (customize-set-variable 'ring-bell-function (lambda () (princ "[RING] ")))
 (customize-set-variable 'scroll-conservatively 1000)
 (customize-set-variable 'scroll-margin 5)
+(customize-set-variable 'set-mark-command-repeat-pop t)
 (customize-set-variable 'tool-bar-mode nil)
 (customize-set-variable 'use-dialog-box nil)
 
