@@ -64,7 +64,7 @@
       tokei
       watch
       wget
-    ] ++ lib.optionals stdenv.isDarwin [ terminal-notifier ];
+    ] ++ lib.optionals stdenv.isDarwin [ mas terminal-notifier ];
 
   home.file."." = {
     source = ./home;
