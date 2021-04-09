@@ -645,8 +645,7 @@
   ("C-c v" . vterm)
   :custom
   (vterm-kill-buffer-on-exit t)
-  (vterm-module-cmake-args "-DCMAKE_PREFIX_PATH=~/.nix-profile")
-  (vterm-shell "~/.nix-profile/bin/fish --login"))
+  (vterm-module-cmake-args "-DCMAKE_PREFIX_PATH=~/.nix-profile"))
 
 (use-package vue-mode
   :ensure t)
