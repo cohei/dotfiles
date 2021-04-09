@@ -641,12 +641,19 @@
 
 (use-package vterm
   :ensure t
-  :bind
-  ("C-c v" . vterm)
   :custom
   (vterm-buffer-name-string "vterm: %s")
   (vterm-kill-buffer-on-exit t)
   (vterm-module-cmake-args "-DCMAKE_PREFIX_PATH=~/.nix-profile"))
+
+(use-package vterm-toggle
+  :ensure t
+  :after shackle
+  :bind
+  ("C-c v" . vterm-toggle)
+  :custom
+  (shackle-rules (cons '("vterm:" :regexp t :align t :size 0.5) shackle-rules))
+  (vterm-toggle-scope 'project))
 
 (use-package vue-mode
   :ensure t)
