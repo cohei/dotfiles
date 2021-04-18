@@ -106,7 +106,7 @@
       }
     ];
     shellAbbrs = {
-      doco = "docker-compose";
+      doco = "docker compose";
     };
     shellInit = ''
       set fish_greeting
