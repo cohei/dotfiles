@@ -319,6 +319,7 @@
   :after dim
   :hook
   (prog-mode . highlight-indent-guides-mode)
+  (yaml-mode . highlight-indent-guides-mode)
   :config
   (dim-minor-name 'highlight-indent-guides-mode "")
   :custom
