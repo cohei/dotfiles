@@ -48,6 +48,7 @@
       ipfs
       jl
       jq
+      multitime
       nkf
       parallel
       # pijul # 1.0.0-alpha.46 fails
