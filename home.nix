@@ -48,6 +48,7 @@
       ipfs
       jl
       jq
+      metals
       multitime
       nkf
       parallel
