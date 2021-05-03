@@ -112,6 +112,9 @@
       aa = "arch -arm64";
       doco = "docker compose";
     };
+    shellAliases = {
+      ls = "exa --classify";
+    };
     shellInit = ''
       set fish_greeting
 
