@@ -8,7 +8,8 @@ ensure_nix_flakes() {
 }
 
 switch() {
-    nix shell nixpkgs#git --command nix run 'github:cohei/dotfiles#switch'
+    nix shell nixpkgs#git \
+        --command nix run 'github:cohei/dotfiles#home-manager' -- switch --flake github:cohei/dotfiles
 }
 
 ensure_nix_flakes

@@ -1,28 +1,23 @@
 version: 2.1
-executors:
-  nix:
-    docker:
-      - image: nixos/nix
-        environment:
-          TERM: xterm
-        auth:
-          username: $DOCKER_HUB_USER
-          password: $DOCKER_HUB_TOKEN
+orbs:
+  docker: circleci/docker@1.5.0
 jobs:
   local-install-test:
-    executor: nix
+    machine: true
     steps:
+      - docker/check:
+          docker-username: DOCKER_HUB_USER
+          docker-password: DOCKER_HUB_TOKEN
       - checkout
-      - run: echo 'experimental-features = nix-command flakes' >> /etc/nix/nix.conf
-      - run: ./install.sh
+      - run: docker-compose run development ./install.sh
   network-install-test:
-    executor: nix
+    machine: true
     steps:
+      - docker/check:
+          docker-username: DOCKER_HUB_USER
+          docker-password: DOCKER_HUB_TOKEN
       - checkout
-      - run: echo 'experimental-features = nix-command flakes' >> /etc/nix/nix.conf
-      - run: |
-          set -o pipefail
-          wget -O- https://dotfiles.cohei.me | sh
+      - run: docker-compose run development sh -c 'set -o pipefail; wget -O- https://dotfiles.cohei.me | sh'
 workflows:
   version: 2
   testing:

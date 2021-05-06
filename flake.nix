@@ -14,25 +14,26 @@
 
   outputs = { self, nixpkgs, home-manager, utils }:
     let
-      username = "hoge";
-
       isDarwin = system: (import nixpkgs { inherit system; }).stdenv.isDarwin;
 
-      homeDirectory = isDarwin: "/${if isDarwin then "Users" else "home"}/${username}";
+      homeDirectory = isDarwin: username: "/${if isDarwin then "Users" else "home"}/${username}";
 
-      homeManagerConfiguration = system:
+      homeManagerConfiguration = system: username:
         home-manager.lib.homeManagerConfiguration {
           configuration = ./home.nix;
           inherit system username;
-          homeDirectory = homeDirectory (isDarwin system);
+          homeDirectory = homeDirectory (isDarwin system) username;
         };
     in
       utils.lib.eachSystem ["x86_64-linux" "x86_64-darwin" "aarch64-linux"] (system: {
-        defaultApp = self.apps.${system}.switch;
-
-        apps.switch = {
+        apps.home-manager = {
           type = "app";
-          program = "${(homeManagerConfiguration system).activationPackage}/activate";
+          program = "${home-manager.defaultPackage.${system}}/bin/home-manager";
         };
-      });
+      }) // {
+        homeConfigurations = {
+          "root@testcontainer" = homeManagerConfiguration "x86_64-linux" "root";
+          hoge = homeManagerConfiguration "x86_64-linux" "hoge";
+        };
+      };
 }

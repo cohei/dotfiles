@@ -2,6 +2,7 @@ version: "3"
 services:
   development:
     build: .
+    hostname: testcontainer
     volumes:
       - .:/root/dotfiles
     working_dir: /root/dotfiles
