@@ -267,6 +267,15 @@
   :custom
   (shackle-rules (cons '("*Flycheck errors*" :align t :size 0.3 :select t) shackle-rules)))
 
+(use-package flymake-diagnostic-at-point
+  :ensure t
+  :after flymake
+  :hook
+  (flymake-mode . flymake-diagnostic-at-point-mode)
+  :custom
+  (flymake-diagnostic-at-point-timer-delay 0)
+  (flymake-diagnostic-at-point-display-diagnostic-function 'flymake-diagnostic-at-point-display-minibuffer))
+
 (use-package frame
   :init
   ;; when make-frame
