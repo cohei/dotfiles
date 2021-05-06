@@ -21,5 +21,5 @@ wget -O- https://dotfiles.cohei.me | sh
 ## Development
 
 ``` shell
-docker-compose run development
+docker compose run development
 ```
