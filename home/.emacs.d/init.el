@@ -73,7 +73,7 @@
   :ensure t
   :demand
   :config
-  (amx-mode t)
+  (amx-mode)
   :bind
   ("M-X" . amx-major-mode-commands))
 
@@ -89,7 +89,7 @@
   :after dim
   :config
   (dim-minor-name 'anzu-mode "")
-  (global-anzu-mode t))
+  (global-anzu-mode))
 
 (use-package apib-mode
   :ensure t
@@ -105,7 +105,7 @@
   :after dim
   :config
   (dim-minor-name 'beacon-mode "")
-  (beacon-mode t))
+  (beacon-mode))
 
 (use-package cc-mode
   :config
@@ -144,7 +144,7 @@
 
 (use-package delsel
   :config
-  (delete-selection-mode t))
+  (delete-selection-mode))
 
 (use-package dhall-mode
   :ensure t)
@@ -198,7 +198,7 @@
 
 (use-package elec-pair
   :config
-  (electric-pair-mode t))
+  (electric-pair-mode))
 
 (use-package elm-mode
   :ensure t)
@@ -250,7 +250,7 @@
 (use-package flx-ido
   :ensure t
   :config
-  (flx-ido-mode t)
+  (flx-ido-mode)
   :custom
   ;; disable ido faces to see flx highlights.
   (ido-use-faces nil))
@@ -260,7 +260,7 @@
   :after shackle
   :demand
   :config
-  (global-flycheck-mode t)
+  (global-flycheck-mode)
   :bind
   (:map flycheck-mode-map
    ("C-c !" . flycheck-list-errors))
@@ -297,7 +297,7 @@
   :after dim
   :config
   (dim-minor-name 'google-this-mode "")
-  (google-this-mode t))
+  (google-this-mode))
 
 (use-package goto-addr
   :hook
@@ -355,7 +355,7 @@
 (use-package ido
   :demand
   :config
-  (ido-mode t)
+  (ido-mode)
   (defun my/ido-recentf ()
     (interactive)
     (find-file (ido-completing-read "Find recent file: " recentf-list)))
@@ -368,12 +368,12 @@
 (use-package ido-completing-read+
   :ensure t
   :config
-  (ido-ubiquitous-mode t))
+  (ido-ubiquitous-mode))
 
 (use-package ido-vertical-mode
   :ensure t
   :config
-  (ido-vertical-mode t)
+  (ido-vertical-mode)
   :custom
   (ido-vertical-show-count t)
   (ido-vertical-define-keys 'C-n-C-p-up-down-left-right))
@@ -467,7 +467,7 @@
   :bind-keymap
   ("C-;" . projectile-command-map)
   :config
-  (projectile-mode t)
+  (projectile-mode)
   :custom
   (projectile-use-git-grep t)
   (projectile-mode-line-prefix " P"))
@@ -489,7 +489,7 @@
 
 (use-package recentf
   :config
-  (recentf-mode t)
+  (recentf-mode)
   :custom
   (recentf-max-saved-items 100)
   (recentf-save-file "~/.emacs.d/recentf"))
@@ -512,7 +512,7 @@
   :ensure t
   :requires ruby-mode
   :config
-  (ruby-interpolation-mode t))
+  (ruby-interpolation-mode))
 
 (use-package rust-mode
   :ensure t)
@@ -536,7 +536,7 @@
   :after dim
   :config
   (dim-minor-name 'selected-minor-mode "")
-  (selected-global-mode t)
+  (selected-global-mode)
   :bind
   (:map selected-keymap
    ("%" . query-replace)
@@ -562,7 +562,7 @@
      ("*xref*" :align t :size 0.3)
      ("*grep*" :align t :size 0.3 :select t)))
   :config
-  (shackle-mode t))
+  (shackle-mode))
 
 (use-package shrink-whitespace
   :ensure t
@@ -573,7 +573,7 @@
   :hook
   (before-save . delete-trailing-whitespace)
   :config
-  (column-number-mode t)
+  (column-number-mode)
   :bind
   ("C-h" . delete-backward-char)
   :custom
@@ -632,7 +632,7 @@
   :after (dim shackle)
   :config
   (dim-minor-name 'undo-tree-mode "")
-  (global-undo-tree-mode t)
+  (global-undo-tree-mode)
   :custom
   (shackle-rules (cons '(" *undo-tree*" :align right :size 0.1 :inhibit-window-quit t) shackle-rules)))
 
@@ -670,7 +670,7 @@
   :after dim
   :config
   (dim-minor-name 'which-key-mode "")
-  (which-key-mode t))
+  (which-key-mode))
 
 (use-package whitespace
   :after dim
@@ -680,7 +680,7 @@
   (customize-set-variable 'whitespace-display-mappings
                           (cons '(space-mark ?\u3000 [?\u25a1])
                                 (seq-remove (lambda (x) (equal (seq-take x 2) '(space-mark ?\ ))) whitespace-display-mappings)))
-  (global-whitespace-mode t)
+  (global-whitespace-mode)
   :custom
   (whitespace-global-modes '(not vterm-mode)))
 
