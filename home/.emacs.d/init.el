@@ -260,17 +260,15 @@
   ;; disable ido faces to see flx highlights.
   (ido-use-faces nil))
 
-(use-package flycheck
-  :straight t
+(use-package flymake
   :after shackle
-  :demand
-  :config
-  (global-flycheck-mode)
   :bind
-  (:map flycheck-mode-map
-   ("C-c !" . flycheck-list-errors))
+  (:map flymake-mode-map
+        ("C-c !" . flymake-show-diagnostics-buffer))
+  :hook
+  (prog-mode . flymake-mode)
   :custom
-  (shackle-rules (cons '(flycheck-error-list-mode :align t :size 0.3 :select t) shackle-rules)))
+  (shackle-rules (cons '(flymake-diagnostics-buffer-mode :align t :size 0.2 :select t) shackle-rules)))
 
 (use-package flymake-diagnostic-at-point
   :straight t
