@@ -48,6 +48,7 @@
 (customize-set-variable 'indent-tabs-mode nil)
 (customize-set-variable 'indicate-buffer-boundaries 'right)
 (customize-set-variable 'inhibit-startup-screen t)
+(customize-set-variable 'initial-scratch-message nil)
 (customize-set-variable 'ring-bell-function (lambda () (princ "[RING] ")))
 (customize-set-variable 'scroll-conservatively 1000)
 (customize-set-variable 'scroll-margin 5)
