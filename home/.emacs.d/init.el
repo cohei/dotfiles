@@ -286,7 +286,10 @@
   :hook
   ;; when startup
   (window-setup . split-window-horizontally)
+  :config
+  (blink-cursor-mode)
   :custom
+  (blink-cursor-blinks 0)
   (default-frame-alist '((fullscreen . fullboth) (font . "Cica-14"))))
 
 (use-package free-keys
