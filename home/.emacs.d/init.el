@@ -180,6 +180,9 @@
   (dim-minor-name 'dmacro-mode "")
   (global-dmacro-mode))
 
+(use-package docker-tramp
+  :ensure t)
+
 (use-package dockerfile-mode
   :ensure t)
 
