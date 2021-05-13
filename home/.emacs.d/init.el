@@ -11,21 +11,6 @@
 (set-language-environment "Japanese")
 (prefer-coding-system 'utf-8)
 
-;;; Load packages
-
-;; add the directories under site-lisp to load path
-(let ((default-directory (expand-file-name "site-lisp/" user-emacs-directory)))
-  (if (file-exists-p default-directory)
-      (progn
-        (normal-top-level-add-to-load-path '("."))
-        (normal-top-level-add-subdirs-to-load-path))))
-
-(require 'package)
-(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
-(package-initialize)
-(unless package-archive-contents
-  (package-refresh-contents))
-
 ;;; Window balancing
 
 (dolist (f '(split-window-below split-window-right delete-window))
@@ -54,11 +39,22 @@
 (customize-set-variable 'tool-bar-mode nil)
 (customize-set-variable 'use-dialog-box nil)
 
-;;; use-package
+;;; Packages
 
-(unless (package-installed-p 'use-package)
-  (package-install 'use-package))
-(require 'use-package)
+(defvar bootstrap-version)
+(let ((bootstrap-file
+       (expand-file-name "straight/repos/straight.el/bootstrap.el" user-emacs-directory))
+      (bootstrap-version 5))
+  (unless (file-exists-p bootstrap-file)
+    (with-current-buffer
+        (url-retrieve-synchronously
+         "https://raw.githubusercontent.com/raxod502/straight.el/develop/install.el"
+         'silent 'inhibit-cookies)
+      (goto-char (point-max))
+      (eval-print-last-sexp)))
+  (load bootstrap-file nil 'nomessage))
+
+(straight-use-package 'use-package)
 
 (use-package align
   :bind
@@ -69,7 +65,7 @@
   (add-to-list 'align-rules-list '(ruby-assignment (regexp . "\\(\s-*\\)=") (modes . '(ruby-mode)))))
 
 (use-package amx
-  :ensure t
+  :straight t
   :demand
   :config
   (amx-mode)
@@ -84,23 +80,23 @@
     (ansi-color-apply-on-region (point-min) (point-max))))
 
 (use-package anzu
-  :ensure t
+  :straight t
   :after dim
   :config
   (dim-minor-name 'anzu-mode "")
   (global-anzu-mode))
 
 (use-package apib-mode
-  :ensure t
+  :straight t
   :mode "\\.apib\\'")
 
 (use-package avy
-  :ensure t
+  :straight t
   :config
   (avy-setup-default))
 
 (use-package beacon
-  :ensure t
+  :straight t
   :after dim
   :config
   (dim-minor-name 'beacon-mode "")
@@ -115,12 +111,12 @@
   (java-mode . my/indent-by-two))
 
 (use-package coffee-mode
-  :ensure t
+  :straight t
   :custom
   (coffee-tab-width 2))
 
 (use-package company
-  :ensure t
+  :straight t
   :after dim
   :config
   (dim-minor-name 'company-mode "")
@@ -139,29 +135,29 @@
   (after-init . global-company-mode))
 
 (use-package consult
-  :ensure t
+  :straight t
   :bind
   ("C-c C-r" . consult-recent-file)
   ([remap yank-pop] . consult-yank-pop))
 
 (use-package csv-mode
-  :ensure t)
+  :straight t)
 
 (use-package delsel
   :config
   (delete-selection-mode))
 
 (use-package dhall-mode
-  :ensure t)
+  :straight t)
 
 (use-package dim
-  :ensure t
+  :straight t
   :config
   (dim-minor-name 'auto-revert-mode "" 'autorevert)
   (dim-minor-name 'ruby-end-mode "" 'ruby-end)) ; doesn't work in `use-package ruby-end`
 
 (use-package dimmer
-  :ensure t
+  :straight t
   :config
   (dimmer-mode)
   :custom
@@ -176,7 +172,7 @@
   ("C-x j" . dired-jump))
 
 (use-package dmacro
-  :ensure t
+  :straight t
   :after dim
   :custom
   (dmacro-key (kbd "C-c d"))
@@ -185,19 +181,19 @@
   (global-dmacro-mode))
 
 (use-package docker-tramp
-  :ensure t)
+  :straight t)
 
 (use-package dockerfile-mode
-  :ensure t)
+  :straight t)
 
 (use-package dumb-jump
-  :ensure t
+  :straight t
   :commands (dumb-jump-xref-activate)
   :init
   (add-hook 'xref-backend-functions #'dumb-jump-xref-activate))
 
 (use-package eglot
-  :ensure t
+  :straight t
   :hook
   ((haskell-mode nix-mode ruby-mode scala-mode) . eglot-ensure)
   :bind
@@ -209,7 +205,7 @@
   (electric-pair-mode))
 
 (use-package elm-mode
-  :ensure t)
+  :straight t)
 
 (use-package emacs-lock
   :after dim
@@ -219,14 +215,14 @@
     (emacs-lock-mode 'kill)))
 
 (use-package emmet-mode
-  :ensure t
+  :straight t
   :hook
   (sgml-mode css-mode)
   :custom
   (emmet-move-cursor-between-quotes t))
 
 (use-package exec-path-from-shell
-  :ensure t
+  :straight t
   :config
   (exec-path-from-shell-initialize))
 
@@ -235,7 +231,7 @@
   (after-save . executable-make-buffer-file-executable-if-script-p))
 
 (use-package expand-region
-  :ensure t
+  :straight t
   :bind
   ("C-=" . er/expand-region))
 
@@ -253,10 +249,10 @@
   (require-final-newline 'visit))
 
 (use-package fish-mode
-  :ensure t)
+  :straight t)
 
 (use-package flx-ido
-  :ensure t
+  :straight t
   :config
   (flx-ido-mode)
   :custom
@@ -264,7 +260,7 @@
   (ido-use-faces nil))
 
 (use-package flycheck
-  :ensure t
+  :straight t
   :after shackle
   :demand
   :config
@@ -276,7 +272,7 @@
   (shackle-rules (cons '("*Flycheck errors*" :align t :size 0.3 :select t) shackle-rules)))
 
 (use-package flymake-diagnostic-at-point
-  :ensure t
+  :straight t
   :after flymake
   :hook
   (flymake-mode . flymake-diagnostic-at-point-mode)
@@ -300,10 +296,10 @@
   (default-frame-alist '((fullscreen . fullboth) (font . "Cica-14"))))
 
 (use-package free-keys
-  :ensure t)
+  :straight t)
 
 (use-package git-gutter
-  :ensure t
+  :straight t
   :after (dim shackle)
   :hook
   (prog-mode . git-gutter-mode)
@@ -313,7 +309,7 @@
   (shackle-rules (cons '("*git-gutter:diff*" :align t :size 0.3) shackle-rules)))
 
 (use-package google-this
-  :ensure t
+  :straight t
   :after dim
   :config
   (dim-minor-name 'google-this-mode "")
@@ -325,14 +321,14 @@
    (text-mode . goto-address-mode)))
 
 (use-package groovy-mode
-  :ensure t)
+  :straight t)
 
 (use-package haml-mode
-  :ensure t
+  :straight t
   :mode "\\.hamlc\\'")
 
 (use-package haskell-mode
-  :ensure t)
+  :straight t)
 
 (use-package help
   :bind
@@ -340,7 +336,7 @@
   ("C-x ?" . help-command))
 
 (use-package highlight-indent-guides
-  :ensure t
+  :straight t
   :after dim
   :hook
   (prog-mode . highlight-indent-guides-mode)
@@ -353,7 +349,7 @@
   (highlight-indent-guides-responsive 'top))
 
 (use-package hledger-mode
-  :ensure t
+  :straight t
   :mode "\\.journal\\'"
   :config
   (defun my/setup-hledger-company ()
@@ -365,7 +361,7 @@
   (hledger-mode . my/hledger-set-tab-width))
 
 (use-package howm
-  :ensure t
+  :straight t
   :init
   (setq howm-view-title-header "#") ; 先に定義する必要がある
   :bind
@@ -385,12 +381,12 @@
   (ido-auto-merge-work-directories-length -1))
 
 (use-package ido-completing-read+
-  :ensure t
+  :straight t
   :config
   (ido-ubiquitous-mode))
 
 (use-package ido-vertical-mode
-  :ensure t
+  :straight t
   :config
   (ido-vertical-mode)
   :custom
@@ -398,10 +394,10 @@
   (ido-vertical-define-keys 'C-n-C-p-up-down-left-right))
 
 (use-package image+
-  :ensure t)
+  :straight t)
 
 (use-package js2-mode
-  :ensure t
+  :straight t
   :mode "\\.js\\'"
   :custom
   (js-indent-level 2)
@@ -409,7 +405,7 @@
   (js2-strict-missing-semi-warning nil))
 
 (use-package magit
-  :ensure t
+  :straight t
   :after shackle
   :demand
   :bind
@@ -419,7 +415,7 @@
   (shackle-rules (cons '("magit:" :regexp t :align t :size 0.5) shackle-rules)))
 
 (use-package markdown-mode
-  :ensure t
+  :straight t
   :commands (markdown-mode gfm-mode)
   :mode
   (("README\\.md\\'" . gfm-mode)
@@ -427,7 +423,7 @@
    ("\\.markdown\\'" . markdown-mode)))
 
 (use-package migemo
-  :ensure t
+  :straight t
   :config
   (migemo-init)
   :custom
@@ -437,17 +433,17 @@
   (migemo-use-default-isearch-keybinding nil))
 
 (use-package multiple-cursors
-  :ensure t
+  :straight t
   :bind
   (("C-c m e" . mc/edit-lines)
    ("C-c m n" . mc/mark-next-like-this)))
 
 (use-package nix-mode
-  :ensure t
+  :straight t
   :mode "\\.nix\\'")
 
 (use-package open-junk-file
-  :ensure t
+  :straight t
   :commands open-junk-file
   :custom
   (open-junk-file-format "~/.emacs.d/junk/%Y/%m/%d-%H%M%S.")
@@ -457,7 +453,7 @@
   :commands orgtbl-mode)
 
 (use-package peep-dired
-  :ensure t
+  :straight t
   :bind
   (:map dired-mode-map
    ("C-x x" . peep-dired)
@@ -465,7 +461,7 @@
    ("C-x x" . peep-dired)))
 
 (use-package projectile
-  :ensure t
+  :straight t
   :bind-keymap
   ("C-;" . projectile-command-map)
   :config
@@ -475,17 +471,17 @@
   (projectile-mode-line-prefix " P"))
 
 (use-package purescript-mode
-  :ensure t
+  :straight t
   :hook
   (purescript-mode . turn-on-purescript-indentation))
 
 (use-package rainbow-delimiters
-  :ensure t
+  :straight t
   :hook
   (prog-mode . rainbow-delimiters-mode))
 
 (use-package rainbow-mode
-  :ensure t
+  :straight t
   :hook
   (css-mode scss-mode html-mode lisp-mode web-mode))
 
@@ -504,36 +500,36 @@
   (ruby-insert-encoding-magic-comment nil))
 
 (use-package ruby-end
-  :ensure t
+  :straight t
   :requires ruby-mode)
 
 (use-package ruby-hash-syntax
-  :ensure t)
+  :straight t)
 
 (use-package ruby-interpolation
-  :ensure t
+  :straight t
   :requires ruby-mode
   :config
   (ruby-interpolation-mode))
 
 (use-package rust-mode
-  :ensure t)
+  :straight t)
 
 (use-package scala-mode
-  :ensure t)
+  :straight t)
 
 (use-package scroll-bar
   :custom
   (scroll-bar-mode nil))
 
 (use-package scss-mode
-  :ensure t
+  :straight t
   :custom
   (css-indent-offset 2)
   (scss-compile-at-save nil))
 
 (use-package selected
-  :ensure t
+  :straight t
   :demand
   :after dim
   :config
@@ -555,7 +551,7 @@
     (server-start)))
 
 (use-package shackle
-  :ensure t
+  :straight t
   :custom
   (shackle-rules
    '(("*Warnings*" :size 0.3)
@@ -567,7 +563,7 @@
   (shackle-mode))
 
 (use-package shrink-whitespace
-  :ensure t
+  :straight t
   :bind
   ("M-SPC" . shrink-whitespace))
 
@@ -582,12 +578,12 @@
   (kill-whole-line t))
 
 (use-package solarized-theme
-  :ensure t
+  :straight t
   :config
   (load-theme 'solarized-dark t))
 
 (use-package string-inflection
-  :ensure t
+  :straight t
   :config
   (defun my/string-inflection-for-ruby ()
     (local-set-key (kbd "C-c C-u") 'string-inflection-ruby-style-cycle))
@@ -600,7 +596,7 @@
    (java-mode . my/string-inflection-for-java)))
 
 (use-package swoop
-  :ensure t
+  :straight t
   :custom
   (swoop-window-split-current-window: t)
   (swoop-font-size-change: nil)
@@ -609,10 +605,10 @@
    :map swoop-map ("C-o" . swoop-multi-from-swoop)))
 
 (use-package terraform-mode
-  :ensure t)
+  :straight t)
 
 (use-package textile-mode
-  :ensure t
+  :straight t
   :mode "\\.textile\\'")
 
 (use-package time
@@ -623,14 +619,14 @@
   (after-init . my/display-init-time))
 
 (use-package undohist
-  :ensure t
+  :straight t
   :config
   (undohist-initialize)
   :custom
   (undohist-ignored-files "PULLREQ_EDITMSG"))
 
 (use-package undo-tree
-  :ensure t
+  :straight t
   :after (dim shackle)
   :config
   (dim-minor-name 'undo-tree-mode "")
@@ -643,14 +639,14 @@
   (uniquify-buffer-name-style 'reverse))
 
 (use-package vterm
-  :ensure t
+  :straight t
   :custom
   (vterm-buffer-name-string "vterm: %s")
   (vterm-kill-buffer-on-exit t)
   (vterm-module-cmake-args "-DCMAKE_PREFIX_PATH=~/.nix-profile"))
 
 (use-package vterm-toggle
-  :ensure t
+  :straight t
   :after shackle
   :bind
   ("C-c v" . vterm-toggle)
@@ -659,16 +655,16 @@
   (vterm-toggle-scope 'project))
 
 (use-package vue-mode
-  :ensure t)
+  :straight t)
 
 (use-package web-mode
-  :ensure t
+  :straight t
   :custom
   (web-mode-css-indent-offset 2)
   (web-mode-markup-indent-offset 2))
 
 (use-package which-key
-  :ensure t
+  :straight t
   :after dim
   :config
   (dim-minor-name 'which-key-mode "")
@@ -702,7 +698,7 @@
   (winner-mode))
 
 (use-package yaml-mode
-  :ensure t)
+  :straight t)
 
 (provide 'init)
 ;;; init.el ends here
