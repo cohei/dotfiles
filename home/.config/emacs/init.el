@@ -255,14 +255,6 @@
 (use-package fish-mode
   :straight t)
 
-(use-package flx-ido
-  :straight t
-  :config
-  (flx-ido-mode)
-  :custom
-  ;; disable ido faces to see flx highlights.
-  (ido-use-faces nil))
-
 (use-package flymake
   :after shackle
   :bind
@@ -374,25 +366,25 @@
   (howm-history-file (concat (file-name-as-directory howm-directory) ".howm-history"))
   (howm-view-split-horizontally t))
 
-(use-package ido
+(use-package icomplete
   :config
-  (ido-mode)
+  (icomplete-mode)
+  (fido-mode)
   :custom
-  (ido-enable-flex-matching t)
-  (ido-auto-merge-work-directories-length -1))
+  (icomplete-compute-delay 0))
 
-(use-package ido-completing-read+
+(use-package icomplete-vertical
   :straight t
+  :demand
+  :after icomplete
   :config
-  (ido-ubiquitous-mode))
-
-(use-package ido-vertical-mode
-  :straight t
-  :config
-  (ido-vertical-mode)
-  :custom
-  (ido-vertical-show-count t)
-  (ido-vertical-define-keys 'C-n-C-p-up-down-left-right))
+  (icomplete-vertical-mode)
+  :bind
+  (:map icomplete-minibuffer-map
+   ("C-n" . icomplete-forward-completions)
+   ("C-p" . icomplete-backward-completions)
+   ("<down>" . icomplete-forward-completions)
+   ("<up>" . icomplete-backward-completions)))
 
 (use-package image+
   :straight t)
@@ -412,7 +404,6 @@
   :bind
   ("C-c g" . magit-status)
   :custom
-  (magit-completing-read-function 'magit-ido-completing-read)
   (shackle-rules (cons '(magit-status-mode :align t :size 0.5) shackle-rules)))
 
 (use-package markdown-mode
