@@ -573,7 +573,7 @@
   :custom
   (shackle-rules
    '(("*Warnings*" :size 0.3)
-     ("*Buffer List*" :size 0.3)
+     ("*Buffer List*" :align t :size 0.2 :select t)
      ("*Help*" :align t :ratio 0.3 :select t)
      ("*xref*" :align t :size 0.3)
      ("*grep*" :align t :size 0.3 :select t)))
