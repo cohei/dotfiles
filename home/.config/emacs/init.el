@@ -561,7 +561,7 @@
    '(("*Warnings*" :size 0.3)
      (Buffer-menu-mode :align t :size 0.2 :select t)
      (grep-mode :align t :size 0.3 :select t)
-     (help-mode :align t :size 0.3 :select t)
+     (help-mode :align right :size 72 :select t)
      (xref--xref-buffer-mode :align t :size 0.3)))
   :config
   (shackle-mode))
