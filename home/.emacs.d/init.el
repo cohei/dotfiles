@@ -140,6 +140,12 @@
   :hook
   (after-init . global-company-mode))
 
+(use-package consult
+  :ensure t
+  :bind
+  ("C-c C-r" . consult-recent-file)
+  ([remap yank-pop] . consult-yank-pop))
+
 (use-package csv-mode
   :ensure t)
 
@@ -369,14 +375,8 @@
   (howm-view-split-horizontally t))
 
 (use-package ido
-  :demand
   :config
   (ido-mode)
-  (defun my/ido-recentf ()
-    (interactive)
-    (find-file (ido-completing-read "Find recent file: " recentf-list)))
-  :bind
-  ("C-c C-r" . my/ido-recentf)
   :custom
   (ido-enable-flex-matching t)
   (ido-auto-merge-work-directories-length -1))
@@ -404,23 +404,6 @@
   (js-indent-level 2)
   (js2-indent-switch-body t)
   (js2-strict-missing-semi-warning nil))
-
-(progn
-  (unless (package-installed-p 'kill-ring-ido)
-    (with-current-buffer
-        (url-retrieve-synchronously
-         "http://www.emacswiki.org/emacs/download/kill-ring-ido.el"
-         'silent 'inhibit-cookies)
-      (goto-char (point-max))
-      (insert ";;; kill-ring-ido.el ends here\n")
-      (package-install-from-buffer)))
-
-  (use-package kill-ring-ido
-    :init
-    (use-package noflet
-      :ensure t)
-    :bind
-    ("M-y" . kill-ring-ido)))
 
 (use-package magit
   :ensure t
