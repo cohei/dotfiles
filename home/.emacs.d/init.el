@@ -16,28 +16,9 @@
 (dolist (f '(split-window-below split-window-right delete-window))
   (advice-add f :after (lambda (&optional _) (balance-windows))))
 
-;;; Customization
-
-(customize-set-variable 'custom-file (expand-file-name "custom.el" user-emacs-directory))
-(defun my/delete-custom-file ()
-  "Delete custom file if exists."
-  (if (file-exists-p custom-file) (delete-file custom-file)))
-(add-hook 'kill-emacs-hook 'my/delete-custom-file)
-
 ;;; Other settings
 
 (defalias 'yes-or-no-p 'y-or-n-p)
-
-(customize-set-variable 'indent-tabs-mode nil)
-(customize-set-variable 'indicate-buffer-boundaries 'right)
-(customize-set-variable 'inhibit-startup-screen t)
-(customize-set-variable 'initial-scratch-message nil)
-(customize-set-variable 'ring-bell-function (lambda () (princ "[RING] ")))
-(customize-set-variable 'scroll-conservatively 1000)
-(customize-set-variable 'scroll-margin 5)
-(customize-set-variable 'set-mark-command-repeat-pop t)
-(customize-set-variable 'tool-bar-mode nil)
-(customize-set-variable 'use-dialog-box nil)
 
 ;;; Packages
 
@@ -139,6 +120,26 @@
   :bind
   ("C-c C-r" . consult-recent-file)
   ([remap yank-pop] . consult-yank-pop))
+
+(use-package cus-edit
+  :init
+  (setq custom-file (expand-file-name "custom.el" user-emacs-directory))
+  :config
+  (defun my/delete-custom-file ()
+    (if (file-exists-p custom-file) (delete-file custom-file)))
+  :hook
+  (kill-emacs . my/delete-custom-file)
+  :custom
+  (indent-tabs-mode nil)
+  (indicate-buffer-boundaries 'right)
+  (inhibit-startup-screen t)
+  (initial-scratch-message nil)
+  (ring-bell-function (lambda () (princ "[RING] ")))
+  (scroll-conservatively 1000)
+  (scroll-margin 5)
+  (set-mark-command-repeat-pop t)
+  (tool-bar-mode nil)
+  (use-dialog-box nil))
 
 (use-package csv-mode
   :straight t)
