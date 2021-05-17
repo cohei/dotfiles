@@ -26,10 +26,6 @@
 (unless package-archive-contents
   (package-refresh-contents))
 
-;;; Global keybinds
-
-(global-set-key (kbd "C-x ?") 'help-command) ; to use C-h for DEL
-
 ;;; Window balancing
 
 (dolist (f '(split-window-below split-window-right delete-window))
@@ -335,6 +331,11 @@
 
 (use-package haskell-mode
   :ensure t)
+
+(use-package help
+  :bind
+  ;; to use C-h for DEL
+  ("C-x ?" . help-command))
 
 (use-package highlight-indent-guides
   :ensure t
