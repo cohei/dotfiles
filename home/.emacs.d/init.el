@@ -34,8 +34,10 @@
 ;;; Customization
 
 (customize-set-variable 'custom-file (expand-file-name "custom.el" user-emacs-directory))
-(when (file-exists-p custom-file)
-  (load custom-file))
+(defun my/delete-custom-file ()
+  "Delete custom file if exists."
+  (if (file-exists-p custom-file) (delete-file custom-file)))
+(add-hook 'kill-emacs-hook 'my/delete-custom-file)
 
 ;;; Other settings
 
