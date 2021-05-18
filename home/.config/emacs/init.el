@@ -414,6 +414,11 @@
    ("\\.md\\'" . markdown-mode)
    ("\\.markdown\\'" . markdown-mode)))
 
+(use-package marginalia
+  :straight t
+  :config
+  (marginalia-mode))
+
 (use-package migemo
   :straight t
   :config

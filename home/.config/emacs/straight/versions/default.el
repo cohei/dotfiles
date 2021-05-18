@@ -53,6 +53,7 @@
  ("js2-mode" . "b891edecedf30be6321e2f109fdfeb25b0edad27")
  ("jsonrpc" . "dbfa30971026dacd9389f4312b0dd7a12fef0d87")
  ("magit" . "b68a760c9e7694c687adedec7dffab0a5609ea93")
+ ("marginalia" . "624028c69b55deb3387452b9eeabe9cb963bd2a4")
  ("markdown-mode" . "de365c070c7deecbabfd5a7294bc8c2603d9ec22")
  ("melpa" . "6cee0395aa57874032cb75c9f3f71e62bd139235")
  ("migemo" . "f756cba3d5268968da361463c2e29b3a659a3de7")
