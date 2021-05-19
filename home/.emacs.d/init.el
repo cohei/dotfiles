@@ -265,7 +265,7 @@
   (:map flycheck-mode-map
    ("C-c !" . flycheck-list-errors))
   :custom
-  (shackle-rules (cons '("*Flycheck errors*" :align t :size 0.3 :select t) shackle-rules)))
+  (shackle-rules (cons '(flycheck-error-list-mode :align t :size 0.3 :select t) shackle-rules)))
 
 (use-package flymake-diagnostic-at-point
   :straight t
@@ -408,7 +408,7 @@
   ("C-c g" . magit-status)
   :custom
   (magit-completing-read-function 'magit-ido-completing-read)
-  (shackle-rules (cons '("magit:" :regexp t :align t :size 0.5) shackle-rules)))
+  (shackle-rules (cons '(magit-status-mode :align t :size 0.5) shackle-rules)))
 
 (use-package markdown-mode
   :straight t
@@ -556,10 +556,10 @@
   :custom
   (shackle-rules
    '(("*Warnings*" :size 0.3)
-     ("*Buffer List*" :align t :size 0.2 :select t)
-     ("*Help*" :align t :ratio 0.3 :select t)
-     ("*xref*" :align t :size 0.3)
-     ("*grep*" :align t :size 0.3 :select t)))
+     (Buffer-menu-mode :align t :size 0.2 :select t)
+     (grep-mode :align t :size 0.3 :select t)
+     (help-mode :align t :size 0.3 :select t)
+     (xref--xref-buffer-mode :align t :size 0.3)))
   :config
   (shackle-mode))
 
@@ -652,7 +652,7 @@
   :bind
   ("C-c v" . vterm-toggle)
   :custom
-  (shackle-rules (cons '("vterm:" :regexp t :align t :size 0.5) shackle-rules))
+  (shackle-rules (cons '(vterm-mode :align t :size 0.5) shackle-rules))
   (vterm-toggle-scope 'project))
 
 (use-package vue-mode
