@@ -11,15 +11,6 @@
 (set-language-environment "Japanese")
 (prefer-coding-system 'utf-8)
 
-;;; Window balancing
-
-(dolist (f '(split-window-below split-window-right delete-window))
-  (advice-add f :after (lambda (&optional _) (balance-windows))))
-
-;;; Other settings
-
-(defalias 'yes-or-no-p 'y-or-n-p)
-
 ;;; Packages
 
 (defvar bootstrap-version)
@@ -207,6 +198,10 @@
 
 (use-package elm-mode
   :straight t)
+
+(use-package emacs
+  :config
+  (defalias 'yes-or-no-p 'y-or-n-p))
 
 (use-package emacs-lock
   :after dim
@@ -438,6 +433,11 @@
   :bind
   (("C-c m e" . mc/edit-lines)
    ("C-c m n" . mc/mark-next-like-this)))
+
+(use-package nadvice
+  :config
+  (dolist (f '(split-window-below split-window-right delete-window))
+  (advice-add f :after (lambda (&optional _) (balance-windows)))))
 
 (use-package nix-mode
   :straight t
