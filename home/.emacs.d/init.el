@@ -239,7 +239,7 @@
 (use-package files
   :config
   (add-to-list 'auto-mode-alist '("\\.envrc\\'" . shell-script-mode))
-  (add-to-list 'backup-directory-alist '("\\.*$" . "~/.emacs.d/backup"))
+  (add-to-list 'backup-directory-alist `("\\.*$" . ,(expand-file-name "backup" user-emacs-directory)))
   (defun my/reload-init-file ()
     "Reload user’s initialization file."
     (interactive)
@@ -451,7 +451,7 @@
   :straight t
   :commands open-junk-file
   :custom
-  (open-junk-file-format "~/.emacs.d/junk/%Y/%m/%d-%H%M%S.")
+  (open-junk-file-format (expand-file-name "junk/%Y/%m/%d-%H%M%S." user-emacs-directory))
   (open-junk-file-find-file-function 'find-file))
 
 (use-package org
@@ -495,7 +495,7 @@
   (recentf-mode)
   :custom
   (recentf-max-saved-items 100)
-  (recentf-save-file "~/.emacs.d/recentf"))
+  (recentf-save-file (expand-file-name "recentf" user-emacs-directory)))
 
 (use-package ruby-mode
   :mode
