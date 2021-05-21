@@ -3,6 +3,7 @@
 set -eux
 
 ensure_nix_flakes() {
+    nix-channel --update
     nix-env --install --attr nixpkgs.nixFlakes
 }
 
