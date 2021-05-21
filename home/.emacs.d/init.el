@@ -184,6 +184,11 @@
   :init
   (add-hook 'xref-backend-functions #'dumb-jump-xref-activate))
 
+(use-package duplicate-thing
+  :straight t
+  :bind
+  ("C-c C-c" . duplicate-thing))
+
 (use-package eglot
   :straight t
   :hook
