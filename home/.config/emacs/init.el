@@ -98,8 +98,15 @@
 (use-package consult
   :straight t
   :bind
-  ("C-c C-r" . consult-recent-file)
-  ([remap yank-pop] . consult-yank-pop))
+  (("C-c C-r" . consult-recent-file)
+   ([remap goto-line] . consult-goto-line)
+   ([remap switch-to-buffer] . consult-buffer)
+   ([remap yank-pop] . consult-yank-pop)
+   :map flymake-mode-map
+   ("C-c !" . consult-flymake))
+  :custom
+  (xref-show-definitions-function #'consult-xref)
+  (xref-show-xrefs-function #'consult-xref))
 
 (use-package ctrlf
   :straight t
@@ -260,14 +267,8 @@
   :straight t)
 
 (use-package flymake
-  :after shackle
-  :bind
-  (:map flymake-mode-map
-        ("C-c !" . flymake-show-diagnostics-buffer))
   :hook
-  (prog-mode-hook . flymake-mode)
-  :custom
-  (shackle-rules (cons '(flymake-diagnostics-buffer-mode :align t :size 0.2 :select t) shackle-rules)))
+  (prog-mode-hook . flymake-mode))
 
 (use-package flymake-diagnostic-at-point
   :straight t
