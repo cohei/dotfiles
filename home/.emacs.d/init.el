@@ -283,14 +283,15 @@
 (use-package frame
   :init
   ;; when make-frame
-  (add-hook 'after-make-frame-functions (lambda (frame)
-                                          (select-window (frame-root-window frame))
-                                          (split-window-horizontally)))
+  (add-hook 'after-make-frame-functions #'my/split-frame-into-two-windows-horizontally)
   :hook
   ;; when startup
   (window-setup . split-window-horizontally)
   :config
   (blink-cursor-mode)
+  (defun my/split-frame-into-two-windows-horizontally (frame)
+    (select-window (frame-root-window frame))
+    (split-window-horizontally))
   :custom
   (blink-cursor-blinks 0)
   (default-frame-alist '((fullscreen . fullboth) (font . "Cica-14"))))
