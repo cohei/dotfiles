@@ -28,6 +28,10 @@
 
 (straight-use-package 'use-package)
 
+(use-package use-package
+  :custom
+  (use-package-hook-name-suffix nil))
+
 (use-package align
   :bind
   ("C-c a" . align)
@@ -80,7 +84,7 @@
     (setq-local c-basic-offset 2)
     (c-set-offset 'case-label '+))
   :hook
-  (java-mode . my/indent-by-two))
+  (java-mode-hook . my/indent-by-two))
 
 (use-package coffee-mode
   :straight t
@@ -104,7 +108,7 @@
   (company-idle-delay 0)
   (company-dabbrev-downcase nil)
   :hook
-  (after-init . global-company-mode))
+  (after-init-hook . global-company-mode))
 
 (use-package consult
   :straight t
@@ -119,7 +123,7 @@
   (defun my/delete-custom-file ()
     (if (file-exists-p custom-file) (delete-file custom-file)))
   :hook
-  (kill-emacs . my/delete-custom-file)
+  (kill-emacs-hook . my/delete-custom-file)
   :custom
   (indent-tabs-mode nil)
   (indicate-buffer-boundaries 'right)
@@ -180,9 +184,8 @@
 
 (use-package dumb-jump
   :straight t
-  :commands (dumb-jump-xref-activate)
-  :init
-  (add-hook 'xref-backend-functions #'dumb-jump-xref-activate))
+  :hook
+  (xref-backend-functions . dumb-jump-xref-activate))
 
 (use-package duplicate-thing
   :straight t
@@ -192,7 +195,7 @@
 (use-package eglot
   :straight t
   :hook
-  ((haskell-mode nix-mode ruby-mode scala-mode) . eglot-ensure)
+  ((haskell-mode-hook nix-mode-hook ruby-mode-hook scala-mode-hook) . eglot-ensure)
   :bind
   (:map eglot-mode-map
    ("C-c e" . 'eglot-code-actions)))
@@ -218,7 +221,7 @@
 (use-package emmet-mode
   :straight t
   :hook
-  (sgml-mode css-mode)
+  (sgml-mode-hook css-mode-hook)
   :custom
   (emmet-move-cursor-between-quotes t))
 
@@ -229,7 +232,7 @@
 
 (use-package executable
   :hook
-  (after-save . executable-make-buffer-file-executable-if-script-p))
+  (after-save-hook . executable-make-buffer-file-executable-if-script-p))
 
 (use-package expand-region
   :straight t
@@ -266,7 +269,7 @@
   (:map flymake-mode-map
         ("C-c !" . flymake-show-diagnostics-buffer))
   :hook
-  (prog-mode . flymake-mode)
+  (prog-mode-hook . flymake-mode)
   :custom
   (shackle-rules (cons '(flymake-diagnostics-buffer-mode :align t :size 0.2 :select t) shackle-rules)))
 
@@ -274,17 +277,16 @@
   :straight t
   :after flymake
   :hook
-  (flymake-mode . flymake-diagnostic-at-point-mode)
+  (flymake-mode-hook . flymake-diagnostic-at-point-mode)
   :custom
   (flymake-diagnostic-at-point-timer-delay 0))
 
 (use-package frame
-  :init
-  ;; when make-frame
-  (add-hook 'after-make-frame-functions #'my/split-frame-into-two-windows-horizontally)
   :hook
-  ;; when startup
-  (window-setup . split-window-horizontally)
+  (;; when startup
+   (window-setup-hook . split-window-horizontally)
+   ;; when make-frame
+   (after-make-frame-functions . #'my/split-frame-into-two-windows-horizontally))
   :config
   (blink-cursor-mode)
   (defun my/split-frame-into-two-windows-horizontally (frame)
@@ -301,7 +303,7 @@
   :straight t
   :after (dim shackle)
   :hook
-  (prog-mode . git-gutter-mode)
+  (prog-mode-hook . git-gutter-mode)
   :config
   (dim-minor-name 'git-gutter-mode "")
   :custom
@@ -316,8 +318,8 @@
 
 (use-package goto-addr
   :hook
-  ((prog-mode . goto-address-prog-mode)
-   (text-mode . goto-address-mode)))
+  ((prog-mode-hook . goto-address-prog-mode)
+   (text-mode-hook . goto-address-mode)))
 
 (use-package groovy-mode
   :straight t)
@@ -338,8 +340,8 @@
   :straight t
   :after dim
   :hook
-  (prog-mode . highlight-indent-guides-mode)
-  (yaml-mode . highlight-indent-guides-mode)
+  (prog-mode-hook . highlight-indent-guides-mode)
+  (yaml-mode-hook . highlight-indent-guides-mode)
   :config
   (dim-minor-name 'highlight-indent-guides-mode "")
   :custom
@@ -356,8 +358,8 @@
   (defun my/hledger-set-tab-width ()
     (setq tab-width 4))
   :hook
-  (hledger-mode . my/setup-hledger-company)
-  (hledger-mode . my/hledger-set-tab-width))
+  (hledger-mode-hook . my/setup-hledger-company)
+  (hledger-mode-hook . my/hledger-set-tab-width))
 
 (use-package howm
   :straight t
@@ -477,17 +479,17 @@
 (use-package purescript-mode
   :straight t
   :hook
-  (purescript-mode . turn-on-purescript-indentation))
+  (purescript-mode-hook . turn-on-purescript-indentation))
 
 (use-package rainbow-delimiters
   :straight t
   :hook
-  (prog-mode . rainbow-delimiters-mode))
+  (prog-mode-hook . rainbow-delimiters-mode))
 
 (use-package rainbow-mode
   :straight t
   :hook
-  (css-mode scss-mode html-mode lisp-mode web-mode))
+  (css-mode-hook scss-mode-hook html-mode-hook lisp-mode-hook web-mode-hook))
 
 (use-package recentf
   :config
@@ -573,7 +575,7 @@
 
 (use-package simple
   :hook
-  (before-save . delete-trailing-whitespace)
+  (before-save-hook . delete-trailing-whitespace)
   :config
   (column-number-mode)
   :bind
@@ -596,8 +598,8 @@
   :bind
   ("C-c C-u" . string-inflection-all-cycle)
   :hook
-  ((ruby-mode . my/string-inflection-for-ruby)
-   (java-mode . my/string-inflection-for-java)))
+  ((ruby-mode-hook . my/string-inflection-for-ruby)
+   (java-mode-hook . my/string-inflection-for-java)))
 
 (use-package swoop
   :straight t
@@ -620,7 +622,7 @@
   (defun my/display-init-time ()
     (message "init time: %s" (emacs-init-time)))
   :hook
-  (after-init . my/display-init-time))
+  (after-init-hook . my/display-init-time))
 
 (use-package undohist
   :straight t
@@ -692,10 +694,10 @@
   :demand
   ;; Make windmove work in org-mode:
   :hook
-  ((org-shiftup-final . windmove-up)
-   (org-shiftleft-final . windmove-left)
-   (org-shiftdown-final . windmove-down)
-   (org-shiftright-final . windmove-right)))
+  ((org-shiftup-final-hook . windmove-up)
+   (org-shiftleft-final-hook . windmove-left)
+   (org-shiftdown-final-hook . windmove-down)
+   (org-shiftright-final-hook . windmove-right)))
 
 (use-package winner
   :config
