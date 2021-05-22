@@ -27,7 +27,7 @@
           homeDirectory = homeDirectory (isDarwin system);
         };
     in
-      utils.lib.eachSystem ["x86_64-linux" "x86_64-darwin"] (system: {
+      utils.lib.eachSystem ["x86_64-linux" "x86_64-darwin" "aarch64-linux"] (system: {
         defaultApp = self.apps.${system}.switch;
 
         apps.switch = {
