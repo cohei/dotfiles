@@ -1,7 +1,7 @@
 version: "3"
 services:
   development:
-    image: nixos/nix
+    build: .
     volumes:
       - .:/root/dotfiles
     working_dir: /root/dotfiles

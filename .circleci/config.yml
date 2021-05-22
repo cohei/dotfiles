@@ -13,11 +13,13 @@ jobs:
     executor: nix
     steps:
       - checkout
+      - run: echo 'experimental-features = nix-command flakes' >> /etc/nix/nix.conf
       - run: ./install.sh
   network-install-test:
     executor: nix
     steps:
       - checkout
+      - run: echo 'experimental-features = nix-command flakes' >> /etc/nix/nix.conf
       - run: |
           set -o pipefail
           wget -O- https://dotfiles.cohei.me | sh
