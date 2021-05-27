@@ -371,26 +371,6 @@
   (howm-history-file (concat (file-name-as-directory howm-directory) ".howm-history"))
   (howm-view-split-horizontally t))
 
-(use-package icomplete
-  :config
-  (icomplete-mode)
-  (fido-mode)
-  :custom
-  (icomplete-compute-delay 0))
-
-(use-package icomplete-vertical
-  :straight t
-  :demand
-  :after icomplete
-  :config
-  (icomplete-vertical-mode)
-  :bind
-  (:map icomplete-minibuffer-map
-   ("C-n" . icomplete-forward-completions)
-   ("C-p" . icomplete-backward-completions)
-   ("<down>" . icomplete-forward-completions)
-   ("<up>" . icomplete-backward-completions)))
-
 (use-package image+
   :straight t)
 
@@ -533,6 +513,10 @@
 (use-package rust-mode
   :straight t)
 
+(use-package savehist
+  :config
+  (savehist-mode))
+
 (use-package scala-mode
   :straight t)
 
@@ -646,6 +630,13 @@
 (use-package uniquify
   :custom
   (uniquify-buffer-name-style 'reverse))
+
+(use-package vertico
+  :straight t
+  :config
+  (vertico-mode)
+  :custom
+  (completion-styles (append completion-styles '(substring flex))))
 
 (use-package vterm
   :straight t
