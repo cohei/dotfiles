@@ -494,6 +494,13 @@
   (recentf-max-saved-items 100)
   (recentf-save-file (expand-file-name "recentf" user-emacs-directory)))
 
+(use-package restart-emacs
+  :straight t
+  :bind
+  ("C-x M-c" . restart-emacs)
+  :custom
+  (restart-emacs-restore-frames t))
+
 (use-package ruby-mode
   :mode
   (("\\.cap\\'" . ruby-mode)

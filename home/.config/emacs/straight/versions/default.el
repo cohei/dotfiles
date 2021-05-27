@@ -70,6 +70,7 @@
  ("purescript-mode" . "0acd1af446424ba855153161fe07a20f67dc0a89")
  ("rainbow-delimiters" . "d576e6694ad3a3e88b2bb1363305b38fa364c149")
  ("rainbow-mode" . "949166cc0146bc9fabf74ce70c1c4a097f4cffd4")
+ ("restart-emacs" . "1607da2bc657fe05ae01f7fdf26f716eafead02c")
  ("ruby-end.el" . "a136f75abb6d5577ce40d61dfeb778c2e9bb09c0")
  ("ruby-hash-syntax" . "d458fb5891e0da85271b1cba3ee0ee69ea66a374")
  ("ruby-interpolation.el" . "1978e337601222cedf00e117bf4b5cac15d1f203")
