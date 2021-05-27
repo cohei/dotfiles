@@ -1,0 +1,16 @@
+#! /usr/bin/env sh
+
+set -eux
+
+function update_straight_lockfile {
+    local lockfile_relative=.config/emacs/straight/versions/default.el
+    local lockfile=~/$lockfile_relative
+    local lockfile_dotfiles=./home/$lockfile_relative
+
+    [ -f $lockfile ] && rm $lockfile
+    emacsclient --eval '(straight-freeze-versions)'
+    mv $lockfile $lockfile_dotfiles
+    home-manager switch --flake .
+}
+
+update_straight_lockfile
