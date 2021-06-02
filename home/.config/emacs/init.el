@@ -200,6 +200,11 @@
   (:map eglot-mode-map
    ("C-c e" . 'eglot-code-actions)))
 
+(use-package eldoc
+  :after dim
+  :config
+  (dim-minor-name 'eldoc-mode "" 'eldoc))
+
 (use-package elec-pair
   :config
   (electric-pair-mode))
