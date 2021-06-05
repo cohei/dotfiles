@@ -55,13 +55,6 @@
     (interactive)
     (ansi-color-apply-on-region (point-min) (point-max))))
 
-(use-package anzu
-  :straight t
-  :after dim
-  :config
-  (dim-minor-name 'anzu-mode "")
-  (global-anzu-mode))
-
 (use-package apib-mode
   :straight t
   :mode "\\.apib\\'")
@@ -115,6 +108,13 @@
   :bind
   ("C-c C-r" . consult-recent-file)
   ([remap yank-pop] . consult-yank-pop))
+
+(use-package ctrlf
+  :straight t
+  :config
+  (ctrlf-mode)
+  :custom
+  (ctrlf-auto-recenter t))
 
 (use-package cus-edit
   :init
@@ -608,15 +608,6 @@
   :hook
   ((ruby-mode-hook . my/string-inflection-for-ruby)
    (java-mode-hook . my/string-inflection-for-java)))
-
-(use-package swoop
-  :straight t
-  :custom
-  (swoop-window-split-current-window: t)
-  (swoop-font-size-change: nil)
-  :bind
-  (:map isearch-mode-map ("C-o" . swoop-from-isearch)
-   :map swoop-map ("C-o" . swoop-multi-from-swoop)))
 
 (use-package terraform-mode
   :straight t)
