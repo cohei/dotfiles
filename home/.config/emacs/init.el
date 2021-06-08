@@ -135,6 +135,7 @@
   :hook
   (kill-emacs-hook . my/delete-custom-file)
   :custom
+  (enable-recursive-minibuffers t)
   (indent-tabs-mode nil)
   (indicate-buffer-boundaries 'right)
   (inhibit-startup-screen t)
@@ -422,6 +423,10 @@
   :bind
   (:map minibuffer-local-map
    ("M-A" . marginalia-cycle)))
+
+(use-package mb-depth
+  :config
+  (minibuffer-depth-indicate-mode))
 
 (use-package migemo
   :straight t
