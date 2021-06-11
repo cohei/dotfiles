@@ -421,8 +421,12 @@
 
 (use-package marginalia
   :straight t
+  :demand
   :config
-  (marginalia-mode))
+  (marginalia-mode)
+  :bind
+  (:map minibuffer-local-map
+   ("M-A" . marginalia-cycle)))
 
 (use-package migemo
   :straight t
