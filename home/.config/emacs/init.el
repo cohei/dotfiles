@@ -40,14 +40,6 @@
   (add-to-list 'align-rules-list '(ruby19-hash (regexp . ":\\(\s-*\\)") (modes . '(ruby-mode))))
   (add-to-list 'align-rules-list '(ruby-assignment (regexp . "\\(\s-*\\)=") (modes . '(ruby-mode)))))
 
-(use-package amx
-  :straight t
-  :demand
-  :config
-  (amx-mode)
-  :bind
-  ("M-X" . amx-major-mode-commands))
-
 (use-package ansi-color
   :config
   (defun my/ansi-colorize-current-buffer ()
