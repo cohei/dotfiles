@@ -283,7 +283,7 @@
   (;; when startup
    (window-setup-hook . split-window-horizontally)
    ;; when make-frame
-   (after-make-frame-functions . #'my/split-frame-into-two-windows-horizontally))
+   (after-make-frame-functions . my/split-frame-into-two-windows-horizontally))
   :config
   (blink-cursor-mode)
   (defun my/split-frame-into-two-windows-horizontally (frame)
