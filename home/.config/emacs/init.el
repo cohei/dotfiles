@@ -108,6 +108,12 @@
   :custom
   (ctrlf-auto-recenter t))
 
+(use-package cursor-sensor
+  :hook
+  (minibuffer-setup-hook . cursor-intangible-mode)
+  :custom
+  (minibuffer-prompt-properties (append minibuffer-prompt-properties '(cursor-intangible t))))
+
 (use-package cus-edit
   :init
   (setq custom-file (expand-file-name "custom.el" user-emacs-directory))
