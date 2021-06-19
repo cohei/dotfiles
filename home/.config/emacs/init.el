@@ -100,6 +100,7 @@
 
 (use-package consult
   :straight t
+  :after projectile
   :bind
   (("C-c C-r" . consult-recent-file)
    ([remap goto-line] . consult-goto-line)
@@ -108,6 +109,7 @@
    :map flymake-mode-map
    ("C-c !" . consult-flymake))
   :custom
+  (consult-project-root-function #'projectile-project-root)
   (xref-show-definitions-function #'consult-xref)
   (xref-show-xrefs-function #'consult-xref))
 
