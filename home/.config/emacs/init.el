@@ -680,7 +680,7 @@
                                 (seq-remove (lambda (x) (equal (seq-take x 2) '(space-mark ?\ ))) whitespace-display-mappings)))
   (global-whitespace-mode)
   :custom
-  (whitespace-global-modes '(not vterm-mode)))
+  (whitespace-global-modes '(not vterm-mode magit-log-mode)))
 
 (use-package windmove
   :config
