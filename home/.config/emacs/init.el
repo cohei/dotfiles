@@ -445,6 +445,7 @@
 
 (use-package projectile
   :straight t
+  :demand
   :bind-keymap
   ("C-;" . projectile-command-map)
   :config
