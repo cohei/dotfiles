@@ -388,7 +388,7 @@
   :bind
   ("C-c g" . magit-status)
   :custom
-  (shackle-rules (cons '(magit-status-mode :align t :size 0.5) shackle-rules)))
+  (shackle-rules (cons '(magit-status-mode :align t :size 0.6) shackle-rules)))
 
 (use-package markdown-mode
   :straight t
