@@ -253,6 +253,7 @@
   :custom
   (backup-by-copying t)
   (confirm-kill-emacs 'y-or-n-p)
+  (remote-file-name-inhibit-cache 600)
   (require-final-newline 'visit))
 
 (use-package fish-mode
