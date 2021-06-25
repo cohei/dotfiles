@@ -52,6 +52,7 @@
       multitime
       ncdu
       nkf
+      nodePackages.typescript-language-server
       parallel
       # pijul # 1.0.0-alpha.46 fails
       procs

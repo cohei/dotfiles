@@ -193,7 +193,7 @@
 (use-package eglot
   :straight t
   :hook
-  ((haskell-mode-hook nix-mode-hook ruby-mode-hook scala-mode-hook) . eglot-ensure)
+  ((haskell-mode-hook js-mode nix-mode-hook ruby-mode-hook scala-mode-hook) . eglot-ensure)
   :bind
   (:map eglot-mode-map
    ("C-c e" . 'eglot-code-actions)))
