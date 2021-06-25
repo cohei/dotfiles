@@ -274,7 +274,7 @@
   :hook
   (flymake-mode-hook . flymake-diagnostic-at-point-mode)
   :custom
-  (flymake-diagnostic-at-point-timer-delay 0))
+  (flymake-diagnostic-at-point-timer-delay 1))
 
 (use-package frame
   :hook
