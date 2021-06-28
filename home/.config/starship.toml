@@ -4,6 +4,9 @@ success_symbol = "❯"
 [directory]
 style = "white"
 
+[docker_context]
+disabled = true
+
 [gcloud]
 disabled = true
 
