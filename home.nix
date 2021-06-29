@@ -4,14 +4,6 @@
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 
-  imports =
-    let
-      moduleDir = ./module;
-      toModulePath = f: moduleDir + ("/" + f);
-      modules = builtins.map toModulePath (builtins.attrNames (builtins.readDir moduleDir));
-    in
-      modules;
-
   home.packages =
     with pkgs;
     [

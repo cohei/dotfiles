@@ -18,11 +18,15 @@
 
       homeDirectory = isDarwin: username: "/${if isDarwin then "Users" else "home"}/${username}";
 
+      modules =
+        builtins.map (f: ./module + ("/" + f)) (builtins.attrNames (builtins.readDir ./module));
+
       homeManagerConfiguration = system: username:
         home-manager.lib.homeManagerConfiguration {
           configuration = ./home.nix;
           inherit system username;
           homeDirectory = homeDirectory (isDarwin system) username;
+          extraModules = modules;
           # This value determines the Home Manager release that your
           # configuration is compatible with. This helps avoid breakage
           # when a new Home Manager release introduces backwards
