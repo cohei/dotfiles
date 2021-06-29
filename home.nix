@@ -60,9 +60,19 @@
       wget
     ] ++ lib.optionals stdenv.isDarwin [ mas terminal-notifier ];
 
-  home.file."." = {
-    source = ./home;
-    recursive = true;
+  home.file = {
+    ".Brewfile".source = ./home/.Brewfile;
+    ".bundle/config".source = ./home/.bundle/config;
+    ".config" = {
+      source = ./home/.config;
+      recursive = true;
+    };
+    ".ghci".source = ./home/.ghci;
+    ".local" = {
+      source = ./home/.local;
+      recursive = true;
+    };
+    ".ssh/config".source = ./home/.ssh/config;
   };
 
   home.language.base = "ja_JP.UTF-8";
