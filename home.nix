@@ -55,7 +55,6 @@
 
   home.file = {
     ".Brewfile".source = ./home/.Brewfile;
-    ".bundle/config".source = ./home/.bundle/config;
     ".config" = {
       source = ./home/.config;
       recursive = true;
