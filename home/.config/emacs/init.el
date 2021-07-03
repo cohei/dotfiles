@@ -421,6 +421,17 @@
   (migemo-regex-dictionary nil)
   (migemo-use-default-isearch-keybinding nil))
 
+(use-package mini-modeline
+  :straight t
+  :after dim
+  :config
+  (dim-minor-name 'mini-modeline-mode "")
+  (mini-modeline-mode)
+  :custom
+  (mini-modeline-face-attr nil)
+  (mini-modeline-l-format (default-value 'mode-line-format))
+  (mini-modeline-r-format nil))
+
 (use-package multiple-cursors
   :straight t
   :bind
