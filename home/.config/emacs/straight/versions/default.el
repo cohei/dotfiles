@@ -57,6 +57,7 @@
  ("migemo" . "f756cba3d5268968da361463c2e29b3a659a3de7")
  ("mmm-mode" . "0d00cdf4d02cc166304f6967a20fa22e2eaf208b")
  ("multiple-cursors.el" . "588daf8c520f4545323e36b8900f02693ddcf5d3")
+ ("mwim.el" . "b4f3edb4c0fb8f8b71cecbf8095c2c25a8ffbf85")
  ("nix-mode" . "8e20de5ba7061d810b08df5557b1fdb60c94b639")
  ("open-junk-file" . "558bec7372b0fed4c4cb6074ab906535fae615bd")
  ("peep-dired" . "29f6e7058f635b0084880a1f890a6c92501e8c29")
