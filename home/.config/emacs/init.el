@@ -151,6 +151,14 @@
 (use-package dhall-mode
   :straight t)
 
+(use-package diff-hl
+  :straight t
+  :demand
+  :hook
+  (dired-mode-hook . diff-hl-dired-mode)
+  :config
+  (global-diff-hl-mode))
+
 (use-package dim
   :straight t
   :config
@@ -296,16 +304,6 @@
 (use-package free-keys
   :straight t)
 
-(use-package git-gutter
-  :straight t
-  :after (dim shackle)
-  :hook
-  (prog-mode-hook . git-gutter-mode)
-  :config
-  (dim-minor-name 'git-gutter-mode "")
-  :custom
-  (shackle-rules (cons '("*git-gutter:diff*" :align t :size 0.3) shackle-rules)))
-
 (use-package google-this
   :straight t
   :after dim
@@ -394,7 +392,7 @@
   :after shackle
   :demand
   :bind
-  ("C-c g" . magit-status)
+  ("C-c g" . magit-status-here)
   :custom
   (shackle-rules (cons '(magit-status-mode :align t :size 0.6) shackle-rules)))
 
