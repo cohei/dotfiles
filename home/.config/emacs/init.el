@@ -394,6 +394,7 @@
   :bind
   ("C-c g" . magit-status-here)
   :custom
+  (magit-diff-refine-hunk 'all)
   (shackle-rules (cons '(magit-status-mode :align t :size 0.6) shackle-rules)))
 
 (use-package markdown-mode
