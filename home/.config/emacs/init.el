@@ -369,9 +369,6 @@
   (howm-history-file (concat (file-name-as-directory howm-directory) ".howm-history"))
   (howm-view-split-horizontally t))
 
-(use-package image+
-  :straight t)
-
 (use-package imenu-list
   :straight t
   :bind

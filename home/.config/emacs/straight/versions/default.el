@@ -46,7 +46,6 @@
  ("highlight-indent-guides" . "cf352c85cd15dd18aa096ba9d9ab9b7ab493e8f6")
  ("hledger-mode" . "f1deebb0cbe9ca040856d3cc99942335250d9566")
  ("howm" . "bac98b873d07baf039fe252b9d67f71c235dca06")
- ("image-plus" . "6834d0c09bb4df9ecc0d7a559bd7827fed48fffc")
  ("imenu-list" . "76f2335ee6f2f066d87fe4e4729219d70c9bc70d")
  ("js2-mode" . "4eaf98e3cc3789381a37a05cd70a248db9ac8c1b")
  ("jsonrpc" . "dbfa30971026dacd9389f4312b0dd7a12fef0d87")
