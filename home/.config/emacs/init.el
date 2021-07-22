@@ -638,6 +638,7 @@
 (use-package vertico
   :straight t
   :config
+  (setq completion-ignore-case t) ; not a customization variable
   (vertico-mode)
   :custom
   (completion-styles (append completion-styles '(substring flex))))
