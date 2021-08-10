@@ -582,7 +582,7 @@
 (use-package shrink-whitespace
   :straight t
   :bind
-  ("M-SPC" . shrink-whitespace))
+  ([remap just-one-space] . shrink-whitespace))
 
 (use-package simple
   :hook
