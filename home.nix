@@ -48,6 +48,7 @@
       solargraph
       stack
       terraform_0_13
+      tldr
       tokei
       # tup # broken
       watch
