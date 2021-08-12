@@ -12,6 +12,7 @@
       bottom
       coreutils
       du-dust
+      duf
       dvtm
       exa
       fd
