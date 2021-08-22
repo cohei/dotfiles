@@ -63,6 +63,9 @@
   (dim-minor-name 'beacon-mode "")
   (beacon-mode))
 
+(use-package browse-at-remote
+  :straight t)
+
 (use-package cc-mode
   :config
   (defun my/indent-by-two ()

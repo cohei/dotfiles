@@ -1,6 +1,7 @@
 (("apib-mode" . "c6dd05201f6eb9295736d8668a79a7510d11159e")
  ("avy" . "e92cb37457b43336b765630dbfbea8ba4be601fa")
  ("beacon" . "bde78180c678b233c94321394f46a81dc6dce1da")
+ ("browse-at-remote" . "cef26f2c063f2473af42d0e126c8613fe2f709e4")
  ("coffee-mode" . "35a41c7d8233eac0b267d9593e67fb8b6235e134")
  ("company-mode" . "a3e487966f7e116a328aa5764ab907c1f7729d21")
  ("consult" . "e3418a995a48e221a0dddd22693c17e6b786933c")
