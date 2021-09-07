@@ -25,8 +25,8 @@
       hadolint
       haskellPackages.cabal-fmt
       haskellPackages.hoogle
-      haskellPackages.hpack
       hledger
+      hpack
       icdiff
       ipfs
       jl
