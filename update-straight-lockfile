@@ -2,10 +2,10 @@
 
 set -eux
 
-function update_straight_lockfile {
-    local lockfile_relative=.config/emacs/straight/versions/default.el
-    local lockfile=~/$lockfile_relative
-    local lockfile_dotfiles=./home/$lockfile_relative
+update_straight_lockfile () {
+    lockfile_relative=.config/emacs/straight/versions/default.el
+    lockfile=~/$lockfile_relative
+    lockfile_dotfiles=./home/$lockfile_relative
 
     [ -f $lockfile ] && rm $lockfile
     emacsclient --eval '(straight-freeze-versions)'
