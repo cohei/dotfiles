@@ -27,6 +27,7 @@
       haskellPackages.hoogle
       hledger
       hpack
+      hyperfine
       icdiff
       ipfs
       jl
