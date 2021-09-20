@@ -13,7 +13,19 @@ timeFormat :: String
 timeFormat = "%H:%M:%S"
 
 readTime :: String -> DiffTime
-readTime = parseTimeOrError False defaultTimeLocale timeFormat
+readTime ('-' : s) = - readPositiveTime s
+readTime s         =   readPositiveTime s
+
+readPositiveTime :: String -> DiffTime
+readPositiveTime = parseTimeOrError False defaultTimeLocale timeFormat
 
 showTime :: DiffTime -> String
-showTime = formatTime defaultTimeLocale timeFormat
+showTime t
+  | negative t = "-" <> showPositiveTime (abs t)
+  | otherwise  = showPositiveTime t
+
+showPositiveTime :: DiffTime -> String
+showPositiveTime = formatTime defaultTimeLocale timeFormat
+
+negative :: (Ord a, Num a) => a -> Bool
+negative = (< 0)
