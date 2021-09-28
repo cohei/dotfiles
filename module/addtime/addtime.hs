@@ -1,7 +1,5 @@
-#!/usr/bin/env cabal
-{- cabal:
-build-depends: base, time
--}
+module Main (main) where
+
 import           Data.Time          (DiffTime, defaultTimeLocale, formatTime,
                                      parseTimeOrError)
 import           System.Environment (getArgs)
