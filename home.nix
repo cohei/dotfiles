@@ -47,7 +47,6 @@
       sbt
       shellcheck
       skktools
-      solargraph
       stack
       terraform_0_13
       tldr
