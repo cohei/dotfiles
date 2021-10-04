@@ -54,6 +54,7 @@
       # tup # broken
       watch
       wget
+      yaml-language-server
     ] ++ lib.optionals stdenv.isDarwin [ mas terminal-notifier ];
 
   home.file = {
