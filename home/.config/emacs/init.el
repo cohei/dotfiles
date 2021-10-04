@@ -183,6 +183,11 @@
   :bind
   ("C-x j" . dired-jump))
 
+(use-package direnv
+  :straight t
+  :config
+  (direnv-mode))
+
 (use-package dmacro
   :straight t
   :after dim
