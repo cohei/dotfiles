@@ -43,6 +43,9 @@
 	autosquash = true
 [rerere]
 	enabled = true
+[stash]
+	showIncludeUntracked = true
+	showPatch = true
 [url "git@github.com:"]
 	pushInsteadOf = "git://github.com/"
 	pushInsteadOf = "https://github.com/"
