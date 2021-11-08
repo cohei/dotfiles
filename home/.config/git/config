@@ -1,9 +1,3 @@
-[user]
-	name = TANIGUCHI Kohei
-[color]
-	ui = auto
-[credential]
-	helper = cache
 [alias]
 	amend = commit --amend
 	ap    = add --patch
@@ -18,34 +12,39 @@
 	sw    = switch
 	swc   = switch --no-track --create
 	swd   = switch --detach
-
+[color]
+	ui = auto
+[core]
+	precomposeunicode = true
+	quotepath = false
+	pager = delta
+[credential]
+	helper = cache
+[delta]
+	features = diff-so-fancy
+[diff]
+	renames = copy
+	compactionHeuristic = true
+[ghq]
+	root = ~/src
+[help]
+	autocorrect = 1
+[interactive]
+	diffFilter = delta --color-only
+[log]
+	date = iso
+[merge]
+	conflictStyle = diff3
+[pull]
+	ff = only
 [push]
 	default = simple
 [rebase]
 	autosquash = true
 [rerere]
 	enabled = true
-[help]
-	autocorrect = 1
-[core]
-	precomposeunicode = true
-	quotepath = false
-	pager = delta
-[diff]
-	renames = copy
-	compactionHeuristic = true
-[interactive]
-	diffFilter = delta --color-only
 [url "git@github.com:"]
 	pushInsteadOf = "git://github.com/"
 	pushInsteadOf = "https://github.com/"
-[log]
-	date = iso
-[ghq]
-	root = ~/src
-[pull]
-	ff = only
-[merge]
-	conflictStyle = diff3
-[delta]
-	features = diff-so-fancy
+[user]
+	name = TANIGUCHI Kohei
