@@ -12,6 +12,7 @@
 	ss    = !git stash list | fzf --exit-0 --preview-window up:80% --preview 'echo {1} | tr -d : | xargs git stash show -v --color=always' | grep --only-matching stash@{.*} | xargs git stash pop
 	sw    = switch
 	swc   = switch --no-track --create
+	swcm  = "!f() { git switch --no-track --create \"$1\" origin/master; }; f"
 	swd   = switch --detach
 [color]
 	ui = auto
