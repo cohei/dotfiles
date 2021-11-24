@@ -3,6 +3,7 @@
  ("beacon" . "85261a928ae0ec3b41e639f05291ffd6bf7c231c")
  ("blackout" . "7707211370f03f03a2f74df15f42ac24a1e99300")
  ("browse-at-remote" . "76aa27dfd469fcae75ed7031bb73830831aaccbf")
+ ("cape" . "db3059af52718c7f55485ef183bdad3e40f58df9")
  ("coffee-mode" . "35a41c7d8233eac0b267d9593e67fb8b6235e134")
  ("compat" . "cd28402790821ce95ea4c3ea0de5c2d9dcfce31f")
  ("consult" . "eff54e49e057e3c9527ae1119a929d24d315db78")

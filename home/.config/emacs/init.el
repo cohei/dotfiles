@@ -78,6 +78,16 @@
 (leaf browse-at-remote
   :straight t)
 
+(leaf cape
+  :straight t
+  :config
+  (advice-add 'eglot-completion-at-point :around #'cape-wrap-nonexclusive)
+  :hook
+  (prog-mode-hook
+   . (lambda ()
+       (dolist (f (list #'cape-file #'cape-dabbrev #'cape-keyword))
+         (add-hook 'completion-at-point-functions f nil t)))))
+
 (leaf cc-mode
   :config
   (defun my/indent-by-two ()
