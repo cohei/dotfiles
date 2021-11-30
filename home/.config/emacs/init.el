@@ -642,13 +642,6 @@
   :hook
   (after-init-hook . my/display-init-time))
 
-(use-package undohist
-  :straight t
-  :config
-  (undohist-initialize)
-  :custom
-  (undohist-ignored-files "PULLREQ_EDITMSG"))
-
 (use-package undo-tree
   :straight t
   :after (dim shackle)

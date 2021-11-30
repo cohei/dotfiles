@@ -86,7 +86,6 @@
  ("textile-mode" . "a49d9bf42166584cca395a92311e9d0a199efc46")
  ("transient" . "4e8aa09b3f9b909dddde85269eb5051b5801a07c")
  ("undo-tree" . "e326c6135e62f5fe8536528d3acd5e798f847407")
- ("undohist" . "56c6f58873f8ebb743e4dc5aff143744720375bd")
  ("use-package" . "a7422fb8ab1baee19adb2717b5b47b9c3812a84c")
  ("vertico" . "104f65de357deed07ad4553ced39a169a0c9dda7")
  ("vterm-toggle" . "ea0bfeaa200d9ed02b51bbbd83222657b02637e7")
