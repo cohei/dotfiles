@@ -92,7 +92,7 @@
           owner = "lilyball";
           repo = "nix-env.fish";
           rev = "master";
-          sha256 = "qt63SHfHWQnDBvaL+NOVgGA1Pt6tbWhV+1op0JoQNMM=";
+          sha256 = "RG/0rfhgq6aEKNZ0XwIqOaZ6K5S4+/Y5EEMnIdtfPhk=";
         };
       }
       {
