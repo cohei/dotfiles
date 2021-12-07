@@ -3,6 +3,7 @@
 	ap    = add --patch
 	d     = diff
 	dc    = diff --cached
+	f     = fetch --all --tags --prune --prune-tags
 	g     = grep
 	l     = log --oneline -5
 	lg    = log --graph --oneline --decorate --all

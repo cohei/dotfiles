@@ -15,6 +15,7 @@
       gap = "git ap";
       gb = "git sw (git branch | fzf | tr -d '* ')";
       gdc = "git dc";
+      gf = "git f";
       gg = "git g";
       gl = "git l";
       glg = "git lg";
