@@ -615,6 +615,11 @@
   :config
   (load-theme 'solarized-dark t))
 
+(use-package subword
+  :hook
+  ((ruby-mode-hook . subword-mode)
+   (haskell-mode-hook . subword-mode)))
+
 (use-package string-inflection
   :straight t
   :config
