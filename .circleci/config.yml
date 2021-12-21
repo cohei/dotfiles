@@ -9,7 +9,7 @@ jobs:
           docker-username: DOCKER_HUB_USER
           docker-password: DOCKER_HUB_TOKEN
       - checkout
-      - run: docker-compose run development ./install.sh
+      - run: docker-compose run development ./install.sh .
   network-install-test:
     machine: true
     steps:

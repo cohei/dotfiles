@@ -6,7 +6,7 @@ switch() {
     # ncurses for tput
     # inetutils for hostname
     nix shell nixpkgs#git nixpkgs#ncurses nixpkgs#inetutils \
-        --command nix run 'github:cohei/dotfiles#home-manager' -- switch --flake github:cohei/dotfiles
+        --command nix run "${1}#home-manager" -- switch --flake $1
 }
 
-switch
+switch ${1:-github:cohei/dotfiles}
