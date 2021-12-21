@@ -38,7 +38,7 @@
           stateVersion = "21.05";
         };
     in
-      utils.lib.eachSystem ["x86_64-linux" "x86_64-darwin" "aarch64-linux"] (system: {
+      utils.lib.eachSystem ["x86_64-linux" "x86_64-darwin" "aarch64-linux" "aarch64-darwin"] (system: {
         apps.home-manager = {
           type = "app";
           program = "${home-manager.defaultPackage.${system}}/bin/home-manager";
