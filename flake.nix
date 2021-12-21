@@ -43,10 +43,10 @@
           type = "app";
           program = "${home-manager.defaultPackage.${system}}/bin/home-manager";
         };
-      }) // {
-        homeConfigurations = {
-          "root@testcontainer" = homeManagerConfiguration "x86_64-linux" "root";
-          hoge = homeManagerConfiguration "x86_64-linux" "hoge";
+
+        packages.homeConfigurations = {
+          "root@testcontainer" = homeManagerConfiguration system "root";
+          hoge = homeManagerConfiguration system "hoge";
         };
-      };
+      });
 }
