@@ -17,7 +17,7 @@ jobs:
           docker-username: DOCKER_HUB_USER
           docker-password: DOCKER_HUB_TOKEN
       - checkout
-      - run: docker-compose run development sh -c 'set -o pipefail; wget -O- https://dotfiles.cohei.me | sh'
+      - run: docker-compose run development sh -c 'set -o pipefail; nix run nixpkgs#wget -- -O- https://dotfiles.cohei.me | sh'
 workflows:
   version: 2
   testing:

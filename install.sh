@@ -8,7 +8,9 @@ ensure_nix_flakes() {
 }
 
 switch() {
-    nix shell nixpkgs#git \
+    # ncurses for tput
+    # inetutils for hostname
+    nix shell nixpkgs#git nixpkgs#ncurses nixpkgs#inetutils \
         --command nix run 'github:cohei/dotfiles#home-manager' -- switch --flake github:cohei/dotfiles
 }
 
