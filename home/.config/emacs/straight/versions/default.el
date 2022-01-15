@@ -98,5 +98,6 @@
  ("web-mode" . "efa853e5cfff8e0bcacbda9d1c6696b33da91b03")
  ("with-editor" . "54d1e816ac0f3203f0065ea9e6a551b9d103dad4")
  ("xref" . "a1a368105cb6abd26b465f379e10d4955f0bee3c")
- ("yaml-mode" . "535273d5a1eb76999d20afbcf4d9f056d8ffd2da"))
+ ("yaml-mode" . "535273d5a1eb76999d20afbcf4d9f056d8ffd2da")
+ ("yasnippet" . "5cbdbf0d2015540c59ed8ee0fcf4788effdf75b6"))
 :beta

@@ -711,5 +711,10 @@
 (leaf yaml-mode
   :straight t)
 
+(leaf yasnippet
+  :straight t
+  :global-minor-mode yas-global-mode
+  :blackout yas-minor-mode)
+
 (provide 'init)
 ;;; init.el ends here
