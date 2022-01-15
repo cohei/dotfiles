@@ -344,6 +344,18 @@
   ;; to use C-h for DEL
   ("C-x ?" . help-command))
 
+(use-package helpful
+  :straight t
+  :after shackle
+  :demand
+  :bind
+  (("C-c C-h" . helpful-at-point)
+   ([remap describe-function] . helpful-callable)
+   ([remap describe-key] . helpful-key)
+   ([remap describe-variable] . helpful-variable))
+  :custom
+  (shackle-rules (cons '(helpful-mode :align right :size 72) shackle-rules)))
+
 (use-package highlight-indent-guides
   :straight t
   :after dim
