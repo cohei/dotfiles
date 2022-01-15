@@ -458,7 +458,7 @@
 (use-package mwim
   :straight t
   :bind
-  (([remap move-beginning-of-line]. mwim-beginning-of-line-or-code)
+  (([remap move-beginning-of-line] . mwim-beginning-of-line-or-code)
    ([rempa move-end-of-line] . mwim-end-of-line-or-code)))
 
 (use-package nadvice
