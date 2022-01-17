@@ -523,10 +523,14 @@
 
 (use-package restart-emacs
   :straight t
+  :demand
   :bind
   ("C-x M-c" . restart-emacs)
-  :custom
-  (restart-emacs-restore-frames t))
+  :config
+  (defun my/restart-emacs-with-restoring-frames ()
+    (interactive)
+    (let ((restart-emacs-restore-frames t))
+      (restart-emacs))))
 
 (use-package ruby-mode
   :mode
