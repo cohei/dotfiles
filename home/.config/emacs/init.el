@@ -628,8 +628,9 @@
 
 (use-package subword
   :hook
-  ((ruby-mode-hook . subword-mode)
-   (haskell-mode-hook . subword-mode)))
+  ((haskell-mode-hook . subword-mode)
+   (nix-mode-hook . subword-mode)
+   (ruby-mode-hook . subword-mode)))
 
 (use-package string-inflection
   :straight t
