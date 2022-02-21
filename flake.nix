@@ -2,14 +2,14 @@
   description = "My Home";
 
   inputs = {
-    nixpkgs.url = "nixpkgs/nixpkgs-unstable";
+    nixpkgs.url = "nixpkgs";
 
     home-manager = {
-      url = "github:nix-community/home-manager";
+      url = "home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    utils.url = "github:numtide/flake-utils";
+    utils.url = "flake-utils";
   };
 
   outputs = { self, nixpkgs, home-manager, utils }:
