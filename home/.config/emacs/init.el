@@ -79,25 +79,6 @@
   :custom
   (coffee-tab-width 2))
 
-(use-package company
-  :straight t
-  :after dim
-  :config
-  (dim-minor-name 'company-mode "")
-  :bind
-  (:map company-active-map
-   ("<tab>" . company-complete-common-or-cycle)
-   ("M-p" . nil)
-   ("M-n" . nil)
-   ("C-p" . company-select-previous)
-   ("C-n" . company-select-next))
-  :custom
-  (company-minimum-prefix-length 1)
-  (company-idle-delay 0)
-  (company-dabbrev-downcase nil)
-  :hook
-  (after-init-hook . global-company-mode))
-
 (use-package consult
   :straight t
   :after projectile
@@ -112,6 +93,14 @@
   (consult-project-root-function #'projectile-project-root)
   (xref-show-definitions-function #'consult-xref)
   (xref-show-xrefs-function #'consult-xref))
+
+(use-package corfu
+  :straight t
+  :config
+  (corfu-global-mode)
+  :custom
+  (corfu-auto t)
+  (corfu-auto-prefix 1))
 
 (use-package ctrlf
   :straight t
@@ -149,6 +138,15 @@
 
 (use-package csv-mode
   :straight t)
+
+(use-package dabbrev
+  :config
+  (defun my/dabbrev-completion-with-all-buffers ()
+    (interactive)
+    (dabbrev-completion 16)) ; C-u C-u to searche all buffers
+  :bind
+  (("M-/" . my/dabbrev-completion-with-all-buffers)
+   ("C-M-/" . dabbrev-expand)))
 
 (use-package delsel
   :config
@@ -373,12 +371,9 @@
   :straight t
   :mode "\\.journal\\'"
   :config
-  (defun my/setup-hledger-company ()
-    (setq-local company-backends (cons 'hledger-company company-backends)))
   (defun my/hledger-set-tab-width ()
     (setq tab-width 4))
   :hook
-  (hledger-mode-hook . my/setup-hledger-company)
   (hledger-mode-hook . my/hledger-set-tab-width))
 
 (use-package howm
