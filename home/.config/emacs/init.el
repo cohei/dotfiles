@@ -26,58 +26,52 @@
       (eval-print-last-sexp)))
   (load bootstrap-file nil 'nomessage))
 
-(straight-use-package 'use-package)
+(straight-use-package 'leaf)
+(straight-use-package 'leaf-keywords)
 
-(use-package use-package
-  :custom
-  (use-package-hook-name-suffix nil))
+(leaf leaf-keywords
+  :config
+  (leaf-keywords-init))
 
-(use-package align
+(leaf align
   :bind
   ("C-c a" . align)
   ("C-x a r" . align-regexp)
-  :config
-  (add-to-list 'align-rules-list '(ruby19-hash (regexp . ":\\(\s-*\\)") (modes . '(ruby-mode))))
-  (add-to-list 'align-rules-list '(ruby-assignment (regexp . "\\(\s-*\\)=") (modes . '(ruby-mode)))))
+  :push
+  ((align-rules-list . '(ruby19-hash (regexp . ":\\(\s-*\\)") (modes . (ruby-mode))))
+   (align-rules-list . '(ruby-assignment (regexp . "\\(\s-*\\)=") (modes . (ruby-mode))))))
 
-(use-package ansi-color
+(leaf ansi-color
   :config
   (defun my/ansi-colorize-current-buffer ()
     "Colorize ansi escape sequences in the current buffer."
     (interactive)
     (ansi-color-apply-on-region (point-min) (point-max))))
 
-(use-package apib-mode
+(leaf apib-mode
   :straight t
   :mode "\\.apib\\'")
 
-(use-package autorevert
-  :after blackout
-  :config
-  (blackout 'auto-revert-mode))
+(leaf autorevert
+  :blackout auto-revert-mode)
 
-(use-package avy
+(leaf avy
   :straight t
   :config
   (avy-setup-default))
 
-(use-package beacon
+(leaf beacon
   :straight t
-  :after blackout
-  :config
-  (beacon-mode)
-  (blackout 'beacon-mode))
+  :global-minor-mode t
+  :blackout t)
 
-(use-package blackout
-  :straight t
-  :config
-  (with-eval-after-load 'ruby-end
-    (blackout 'ruby-end-mode))) ; doesn't work in `use-package ruby-end`
-
-(use-package browse-at-remote
+(leaf blackout
   :straight t)
 
-(use-package cc-mode
+(leaf browse-at-remote
+  :straight t)
+
+(leaf cc-mode
   :config
   (defun my/indent-by-two ()
     (setq-local c-basic-offset 2)
@@ -85,72 +79,57 @@
   :hook
   (java-mode-hook . my/indent-by-two))
 
-(use-package coffee-mode
+(leaf coffee-mode
   :straight t
   :custom
-  (coffee-tab-width 2))
+  (coffee-tab-width . 2))
 
-(use-package consult
+(leaf consult
   :straight t
-  :after projectile
   :bind
-  (("C-c C-r" . consult-recent-file)
-   ([remap goto-line] . consult-goto-line)
-   ([remap switch-to-buffer] . consult-buffer)
-   ([remap yank-pop] . consult-yank-pop)
-   :map flymake-mode-map
+  ("C-c C-r" . consult-recent-file)
+  ([remap goto-line] . consult-goto-line)
+  ([remap switch-to-buffer] . consult-buffer)
+  ([remap yank-pop] . consult-yank-pop)
+  (flymake-mode-map
    ("C-c !" . consult-flymake))
   :custom
-  (consult-project-root-function #'projectile-project-root)
-  (xref-show-definitions-function #'consult-xref)
-  (xref-show-xrefs-function #'consult-xref))
+  (consult-project-root-function . #'projectile-project-root)
+  (xref-show-definitions-function . #'consult-xref)
+  (xref-show-xrefs-function . #'consult-xref))
 
-(use-package corfu
+(leaf corfu
   :straight t
-  :config
-  (corfu-global-mode)
+  :global-minor-mode corfu-global-mode
   :custom
-  (corfu-auto t)
-  (corfu-auto-prefix 1))
+  (corfu-auto . t)
+  (corfu-auto-prefix . 1))
 
-(use-package ctrlf
+(leaf ctrlf
   :straight t
-  :config
-  (ctrlf-mode)
+  :global-minor-mode t
   :custom
-  (ctrlf-auto-recenter t))
+  (ctrlf-auto-recenter . t))
 
-(use-package cursor-sensor
+(leaf cursor-sensor
   :hook
   (minibuffer-setup-hook . cursor-intangible-mode)
-  :custom
-  (minibuffer-prompt-properties (append minibuffer-prompt-properties '(cursor-intangible t))))
+  :push
+  ((minibuffer-prompt-properties . '(cursor-intangible t))))
 
-(use-package cus-edit
+(leaf cus-edit
   :init
   (setq custom-file (expand-file-name "custom.el" user-emacs-directory))
   :config
   (defun my/delete-custom-file ()
     (if (file-exists-p custom-file) (delete-file custom-file)))
   :hook
-  (kill-emacs-hook . my/delete-custom-file)
-  :custom
-  (enable-recursive-minibuffers t)
-  (indent-tabs-mode nil)
-  (indicate-buffer-boundaries 'right)
-  (inhibit-startup-screen t)
-  (initial-scratch-message nil)
-  (ring-bell-function (lambda () (princ "[RING] ")))
-  (scroll-conservatively 1000)
-  (scroll-margin 5)
-  (set-mark-command-repeat-pop t)
-  (tool-bar-mode nil)
-  (use-dialog-box nil))
+  (kill-emacs-hook . my/delete-custom-file))
 
-(use-package csv-mode
+(leaf csv-mode
   :straight t)
 
-(use-package dabbrev
+(leaf dabbrev
   :config
   (defun my/dabbrev-completion-with-all-buffers ()
     (interactive)
@@ -161,120 +140,122 @@
   :custom
   (dabbrev-case-replace . nil))
 
-(use-package delsel
-  :config
-  (delete-selection-mode))
+(leaf delsel
+  :global-minor-mode delete-selection-mode)
 
-(use-package dhall-mode
+(leaf dhall-mode
   :straight t)
 
-(use-package diff-hl
+(leaf diff-hl
   :straight t
-  :demand
+  :global-minor-mode global-diff-hl-mode
   :hook
-  (dired-mode-hook . diff-hl-dired-mode)
-  :config
-  (global-diff-hl-mode))
+  (dired-mode-hook . diff-hl-dired-mode))
 
-(use-package dimmer
+(leaf dimmer
   :straight t
-  :config
-  (dimmer-mode)
+  :global-minor-mode t
   :custom
-  (dimmer-fraction 0.3))
+  (dimmer-fraction . 0.3))
 
-(use-package dired
+(leaf dired
   :custom
-  (dired-dwim-target t))
+  (dired-dwim-target . t))
 
-(use-package dired-x
+(leaf dired-x
   :bind
   ("C-x j" . dired-jump))
 
-(use-package direnv
+(leaf direnv
   :straight t
-  :config
-  (direnv-mode))
+  :global-minor-mode t)
 
-(use-package dmacro
+(leaf dmacro
   :straight t
+  :global-minor-mode global-dmacro-mode
   :blackout t
   :custom
-  (dmacro-key (kbd "C-c d"))
-  :config
-  (global-dmacro-mode))
+  (dmacro-key . `,(kbd "C-c d")))
 
-(use-package docker-tramp
+(leaf docker-tramp
   :straight t)
 
-(use-package dockerfile-mode
+(leaf dockerfile-mode
   :straight t)
 
-(use-package dumb-jump
+(leaf dumb-jump
   :straight t
   :hook
   (xref-backend-functions . dumb-jump-xref-activate))
 
-(use-package duplicate-thing
+(leaf duplicate-thing
   :straight t
   :bind
   ("C-c C-c" . duplicate-thing))
 
-(use-package eglot
+(leaf eglot
   :straight t
-  :config
-  (add-to-list 'eglot-server-programs '(yaml-mode . ("yaml-language-server" "--stdio")))
+  :push
+  ((eglot-server-programs . '(yaml-mode . ("yaml-language-server" "--stdio"))))
   :hook
   ((haskell-mode-hook js-mode-hook nix-mode-hook ruby-mode-hook scala-mode-hook sh-mode-hook yaml-mode-hook) . eglot-ensure)
   :bind
-  (:map eglot-mode-map
+  (eglot-mode-map
    ("C-c e" . 'eglot-code-actions)))
 
-(use-package eldoc
+(leaf eldoc
   :custom
-  (eldoc-minor-mode-string nil))
+  (eldoc-minor-mode-string . nil))
 
-(use-package elec-pair
-  :config
-  (electric-pair-mode))
+(leaf elec-pair
+  :global-minor-mode electric-pair-mode)
 
-(use-package elm-mode
+(leaf elm-mode
   :straight t)
 
-(use-package emacs
+(leaf emacs
   :bind
   ("C-c C-d" . delete-pair)
   :config
-  (defalias 'yes-or-no-p 'y-or-n-p))
+  (defalias 'yes-or-no-p 'y-or-n-p)
+  :custom
+  (enable-recursive-minibuffers . t)
+  (indent-tabs-mode . nil)
+  (indicate-buffer-boundaries . 'right)
+  (inhibit-startup-screen . t)
+  (initial-scratch-message . nil)
+  (scroll-conservatively . 1000)
+  (scroll-margin . 5)
+  (use-dialog-box . nil))
 
-(use-package emacs-lock
+(leaf emacs-lock
   :blackout t
   :config
   (with-current-buffer "*scratch*"
     (emacs-lock-mode 'kill)))
 
-(use-package emmet-mode
+(leaf emmet-mode
   :straight t
   :hook
   (sgml-mode-hook css-mode-hook)
   :custom
-  (emmet-move-cursor-between-quotes t))
+  (emmet-move-cursor-between-quotes . t))
 
-(use-package exec-path-from-shell
+(leaf exec-path-from-shell
   :straight t
   :config
   (exec-path-from-shell-initialize))
 
-(use-package executable
+(leaf executable
   :hook
   (after-save-hook . executable-make-buffer-file-executable-if-script-p))
 
-(use-package expand-region
+(leaf expand-region
   :straight t
   :bind
   ("C-=" . er/expand-region))
 
-(use-package files
+(leaf files
   :config
   (add-to-list 'auto-mode-alist '("\\.envrc\\'" . shell-script-mode))
   (add-to-list 'backup-directory-alist `("\\.*$" . ,(expand-file-name "backup" user-emacs-directory)))
@@ -283,94 +264,86 @@
     (interactive)
     (load-file user-init-file))
   :custom
-  (backup-by-copying t)
-  (confirm-kill-emacs 'y-or-n-p)
-  (remote-file-name-inhibit-cache 600)
-  (require-final-newline 'visit))
+  (backup-by-copying . t)
+  (confirm-kill-emacs . 'y-or-n-p)
+  (remote-file-name-inhibit-cache . 600)
+  (require-final-newline . 'visit))
 
-(use-package fish-mode
+(leaf fish-mode
   :straight t)
 
-(use-package flymake
-  :hook
-  (prog-mode-hook . flymake-mode))
+(leaf flymake
+  :hook prog-mode-hook)
 
-(use-package flymake-diagnostic-at-point
+(leaf flymake-diagnostic-at-point
   :straight t
-  :after flymake
-  :hook
-  (flymake-mode-hook . flymake-diagnostic-at-point-mode)
+  :hook flymake-mode-hook
   :custom
-  (flymake-diagnostic-at-point-timer-delay 1))
+  (flymake-diagnostic-at-point-timer-delay . 1))
 
-(use-package frame
+(leaf frame
+  :global-minor-mode blink-cursor-mode
   :hook
-  (;; when startup
-   (window-setup-hook . split-window-horizontally)
-   ;; when make-frame
-   (after-make-frame-functions . my/split-frame-into-two-windows-horizontally))
+  ;; when startup
+  (window-setup-hook . split-window-horizontally)
+  ;; when make-frame
+  (after-make-frame-functions . my/split-frame-into-two-windows-horizontally)
   :config
-  (blink-cursor-mode)
   (defun my/split-frame-into-two-windows-horizontally (frame)
     (select-window (frame-root-window frame))
     (split-window-horizontally))
   :custom
-  (blink-cursor-blinks 0)
-  (default-frame-alist '((fullscreen . fullboth) (font . "Cica-14"))))
+  (blink-cursor-blinks . 0)
+  (default-frame-alist . '((fullscreen . fullboth) (font . "Cica-14"))))
 
-(use-package free-keys
+(leaf free-keys
   :straight t)
 
-(use-package google-this
+(leaf google-this
   :straight t
-  :blackout t
-  :config
-  (google-this-mode))
+  :global-minor-mode t
+  :blackout t)
 
-(use-package goto-addr
+(leaf goto-addr
   :hook
-  ((prog-mode-hook . goto-address-prog-mode)
-   (text-mode-hook . goto-address-mode)))
+  (prog-mode-hook . goto-address-prog-mode)
+  (text-mode-hook . goto-address-mode))
 
-(use-package groovy-mode
+(leaf groovy-mode
   :straight t)
 
-(use-package haml-mode
+(leaf haml-mode
   :straight t
   :mode "\\.hamlc\\'")
 
-(use-package haskell-mode
+(leaf haskell-mode
   :straight t)
 
-(use-package help
+(leaf help
   :bind
   ;; to use C-h for DEL
   ("C-x ?" . help-command))
 
-(use-package helpful
+(leaf helpful
   :straight t
-  :after shackle
-  :demand
   :bind
-  (("C-c C-h" . helpful-at-point)
-   ([remap describe-function] . helpful-callable)
-   ([remap describe-key] . helpful-key)
-   ([remap describe-variable] . helpful-variable))
-  :custom
-  (shackle-rules (cons '(helpful-mode :align right :size 72) shackle-rules)))
+  ("C-c C-h" . helpful-at-point)
+  ([remap describe-function] . helpful-callable)
+  ([remap describe-key] . helpful-key)
+  ([remap describe-variable] . helpful-variable)
+  :push
+  ((shackle-rules . '(helpful-mode :align right :size 72))))
 
-(use-package highlight-indent-guides
+(leaf highlight-indent-guides
   :straight t
   :blackout t
-  :hook
-  (prog-mode-hook . highlight-indent-guides-mode)
-  (yaml-mode-hook . highlight-indent-guides-mode)
+  :hook prog-mode-hook yaml-mode-hook
   :custom
-  (highlight-indent-guides-method 'bitmap)
-  (highlight-indent-guides-bitmap-function 'highlight-indent-guides--bitmap-line)
-  (highlight-indent-guides-responsive 'top))
+  (highlight-indent-guides-method . 'bitmap)
+  (highlight-indent-guides-bitmap-function . 'highlight-indent-guides--bitmap-line)
+  (highlight-indent-guides-responsive . 'top))
 
-(use-package hledger-mode
+(leaf hledger-mode
   :straight t
   :mode "\\.journal\\'"
   :config
@@ -379,216 +352,199 @@
   :hook
   (hledger-mode-hook . my/hledger-set-tab-width))
 
-(use-package howm
+(leaf howm
   :straight t
   :init
   (setq howm-view-title-header "#") ; 先に定義する必要がある
   :bind
   ("C-c c" . howm-menu)
   :custom
-  (howm-directory "~/iCloud Drive/notes")
-  (howm-file-name-format "%Y%m%d-%H%M%S.md")
-  (howm-keyword-file (concat (file-name-as-directory howm-directory) ".howm-keys"))
-  (howm-history-file (concat (file-name-as-directory howm-directory) ".howm-history"))
-  (howm-view-split-horizontally t))
+  (howm-directory . "~/iCloud Drive/notes")
+  (howm-file-name-format . "%Y%m%d-%H%M%S.md")
+  (howm-keyword-file . `,(concat (file-name-as-directory howm-directory) ".howm-keys"))
+  (howm-history-file . `,(concat (file-name-as-directory howm-directory) ".howm-history"))
+  (howm-view-split-horizontally . t))
 
-(use-package imenu-list
+(leaf imenu-list
   :straight t
   :bind
   ("C-'" . imenu-list-smart-toggle)
   :custom
-  (imenu-list-auto-resize t))
+  (imenu-list-auto-resize . t))
 
-(use-package js2-mode
+(leaf js2-mode
   :straight t
   :mode "\\.js\\'"
   :custom
-  (js-indent-level 2)
-  (js2-indent-switch-body t)
-  (js2-strict-missing-semi-warning nil))
+  (js-indent-level . 2)
+  (js2-indent-switch-body . t)
+  (js2-strict-missing-semi-warning . nil))
 
-(use-package magit
+(leaf magit
   :straight t
-  :after shackle
-  :demand
   :bind
   ("C-c g" . magit-status-here)
   :custom
-  (magit-diff-refine-hunk 'all)
-  (shackle-rules (cons '(magit-status-mode :align t :size 0.6) shackle-rules)))
+  (magit-diff-refine-hunk . 'all)
+  :push
+  ((shackle-rules . '(magit-status-mode :align t :size 0.6))))
 
-(use-package markdown-mode
+(leaf markdown-mode
   :straight t
-  :commands (markdown-mode gfm-mode)
+  :commands markdown-mode gfm-mode
   :mode
-  (("README\\.md\\'" . gfm-mode)
-   ("\\.md\\'" . markdown-mode)
-   ("\\.markdown\\'" . markdown-mode)))
+  ("README\\.md\\'" . gfm-mode)
+  ("\\.md\\'" . markdown-mode)
+  ("\\.markdown\\'" . markdown-mode))
 
-(use-package marginalia
+(leaf marginalia
   :straight t
-  :demand
-  :config
-  (marginalia-mode)
+  :global-minor-mode t
   :bind
-  (:map minibuffer-local-map
+  (minibuffer-local-map
    ("M-A" . marginalia-cycle)))
 
-(use-package mb-depth
-  :config
-  (minibuffer-depth-indicate-mode))
+(leaf mb-depth
+  :global-minor-mode minibuffer-depth-indicate-mode)
 
-(use-package migemo
+(leaf migemo
   :straight t
+  :require t
   :config
   (migemo-init)
   :custom
-  (migemo-dictionary (expand-file-name "~/.nix-profile/share/migemo/utf-8/migemo-dict"))
-  (migemo-user-dictionary nil)
-  (migemo-regex-dictionary nil)
-  (migemo-use-default-isearch-keybinding nil))
+  (migemo-dictionary . `,(expand-file-name "~/.nix-profile/share/migemo/utf-8/migemo-dict"))
+  (migemo-user-dictionary . nil)
+  (migemo-regex-dictionary . nil)
+  (migemo-use-default-isearch-keybinding . nil))
 
-(use-package mini-modeline
+(leaf mini-modeline
   :straight t
+  :global-minor-mode t
   :blackout t
-  :config
-  (mini-modeline-mode)
   :custom
-  (mini-modeline-face-attr nil)
-  (mini-modeline-l-format (default-value 'mode-line-format))
-  (mini-modeline-r-format nil))
+  (mini-modeline-face-attr . nil)
+  (mini-modeline-l-format . `,(default-value 'mode-line-format))
+  (mini-modeline-r-format . nil))
 
-(use-package multiple-cursors
+(leaf multiple-cursors
   :straight t
   :bind
-  (("C-c m e" . mc/edit-lines)
-   ("C-c m n" . mc/mark-next-like-this)))
+  ("C-c m e" . mc/edit-lines)
+  ("C-c m n" . mc/mark-next-like-this))
 
-(use-package mwim
+(leaf mwim
   :straight t
   :bind
-  (([remap move-beginning-of-line] . mwim-beginning-of-line-or-code)
-   ([rempa move-end-of-line] . mwim-end-of-line-or-code)))
+  ([remap move-beginning-of-line] . mwim-beginning-of-line-or-code)
+  ([rempa move-end-of-line] . mwim-end-of-line-or-code))
 
-(use-package nadvice
-  :config
-  (dolist (f '(split-window-below split-window-right delete-window))
-  (advice-add f :after (lambda (&optional _) (balance-windows)))))
-
-(use-package nix-mode
+(leaf nix-mode
   :straight t
   :mode "\\.nix\\'")
 
-(use-package open-junk-file
+(leaf open-junk-file
   :straight t
   :commands open-junk-file
   :custom
-  (open-junk-file-format (expand-file-name "junk/%Y/%m/%d-%H%M%S." user-emacs-directory))
-  (open-junk-file-find-file-function 'find-file))
+  (open-junk-file-format . `,(expand-file-name "junk/%Y/%m/%d-%H%M%S." user-emacs-directory))
+  (open-junk-file-find-file-function . 'find-file))
 
-(use-package org
+(leaf org
   :commands orgtbl-mode)
 
-(use-package peep-dired
+(leaf peep-dired
   :straight t
   :bind
-  (:map dired-mode-map
-   ("C-x x" . peep-dired)
-   :map peep-dired-mode-map
+  (dired-mode-map
+   ("C-x x" . peep-dired))
+  (peep-dired-mode-map
    ("C-x x" . peep-dired)))
 
-(use-package projectile
+(leaf projectile
   :straight t
-  :demand
+  :global-minor-mode t
+  ;; Eager macro-expansion failure: (void-variable projectile-command-map)
+  ;; no real harm
   :bind-keymap
   ("C-;" . projectile-command-map)
-  :config
-  (projectile-mode)
   :custom
-  (projectile-use-git-grep t)
-  (projectile-mode-line-prefix " P"))
+  (projectile-use-git-grep . t)
+  (projectile-mode-line-prefix . " P"))
 
-(use-package purescript-mode
+(leaf purescript-mode
   :straight t
   :hook
   (purescript-mode-hook . turn-on-purescript-indentation))
 
-(use-package rainbow-delimiters
+(leaf rainbow-delimiters
   :straight t
-  :hook
-  (prog-mode-hook . rainbow-delimiters-mode))
+  :hook prog-mode-hook)
 
-(use-package rainbow-mode
+(leaf rainbow-mode
   :straight t
   :hook
   (css-mode-hook scss-mode-hook html-mode-hook lisp-mode-hook web-mode-hook))
 
-(use-package recentf
-  :config
-  (recentf-mode)
+(leaf recentf
+  :global-minor-mode t
   :custom
-  (recentf-max-saved-items 100)
-  (recentf-save-file (expand-file-name "recentf" user-emacs-directory)))
+  (recentf-max-saved-items . 100)
+  (recentf-save-file . `,(expand-file-name "recentf" user-emacs-directory)))
 
-(use-package restart-emacs
+(leaf restart-emacs
   :straight t
-  :demand
   :bind
   ("C-x M-c" . restart-emacs)
+  :commands my/restart-emacs-with-restoring-frames
   :config
   (defun my/restart-emacs-with-restoring-frames ()
     (interactive)
     (let ((restart-emacs-restore-frames t))
       (restart-emacs))))
 
-(use-package ruby-mode
-  :mode
-  (("\\.cap\\'" . ruby-mode)
-   ("\\.Brewfile\\'" . ruby-mode))
+(leaf ruby-mode
+  :mode "\\.cap\\'" "\\.Brewfile\\'"
   :custom
-  (ruby-insert-encoding-magic-comment nil))
+  (ruby-insert-encoding-magic-comment . nil))
 
-(use-package ruby-end
+(leaf ruby-end
   :straight t
-  :requires ruby-mode)
+  :blackout t)
 
-(use-package ruby-hash-syntax
+(leaf ruby-hash-syntax
   :straight t)
 
-(use-package ruby-interpolation
+(leaf ruby-interpolation
   :straight t
-  :requires ruby-mode
   :config
   (ruby-interpolation-mode))
 
-(use-package rust-mode
+(leaf rust-mode
   :straight t)
 
-(use-package savehist
-  :config
-  (savehist-mode))
+(leaf savehist
+  :global-minor-mode t)
 
-(use-package scala-mode
+(leaf scala-mode
   :straight t)
 
-(use-package scroll-bar
+(leaf scroll-bar
   :custom
-  (scroll-bar-mode nil))
+  (scroll-bar-mode . nil))
 
-(use-package scss-mode
+(leaf scss-mode
   :straight t
   :custom
-  (css-indent-offset 2)
-  (scss-compile-at-save nil))
+  (css-indent-offset . 2)
+  (scss-compile-at-save . nil))
 
-(use-package selected
+(leaf selected
   :straight t
-  :demand
+  :global-minor-mode selected-global-mode
   :blackout selected-minor-mode
-  :config
-  (selected-global-mode)
   :bind
-  (:map selected-keymap
+  (selected-keymap
    ("%" . query-replace)
    (";" . comment-dwim)
    ("g" . google-this-region)
@@ -597,50 +553,47 @@
    ("s" . sort-lines)
    ("w" . count-words-region)))
 
-(use-package server
+(leaf server
+  :require t
   :config
-  (unless (server-running-p)
-    (server-start)))
+  (unless (server-running-p) (server-start)))
 
-(use-package shackle
+(leaf shackle
   :straight t
+  :global-minor-mode t
   :custom
-  (shackle-rules
+  (shackle-rules .
    '(("*Warnings*" :size 0.3)
      (Buffer-menu-mode :align t :size 0.2 :select t)
      (grep-mode :align t :size 0.3 :select t)
      (help-mode :align right :size 72 :select t)
-     (xref--xref-buffer-mode :align t :size 0.3)))
-  :config
-  (shackle-mode))
+     (xref--xref-buffer-mode :align t :size 0.3))))
 
-(use-package shrink-whitespace
+(leaf shrink-whitespace
   :straight t
   :bind
   ([remap just-one-space] . shrink-whitespace))
 
-(use-package simple
+(leaf simple
+  :global-minor-mode column-number-mode
   :hook
   (before-save-hook . delete-trailing-whitespace)
-  :config
-  (column-number-mode)
   :bind
   ("C-h" . delete-backward-char)
   :custom
-  (kill-whole-line t))
+  (kill-whole-line . t)
+  (set-mark-command-repeat-pop . t))
 
-(use-package solarized-theme
+(leaf solarized-theme
   :straight t
   :config
   (load-theme 'solarized-dark t))
 
-(use-package subword
+(leaf subword
   :hook
-  ((haskell-mode-hook . subword-mode)
-   (nix-mode-hook . subword-mode)
-   (ruby-mode-hook . subword-mode)))
+  (haskell-mode-hook nix-mode-hook ruby-mode-hook))
 
-(use-package string-inflection
+(leaf string-inflection
   :straight t
   :config
   (defun my/string-inflection-for-ruby ()
@@ -650,103 +603,113 @@
   :bind
   ("C-c C-u" . string-inflection-all-cycle)
   :hook
-  ((ruby-mode-hook . my/string-inflection-for-ruby)
-   (java-mode-hook . my/string-inflection-for-java)))
+  (ruby-mode-hook . my/string-inflection-for-ruby)
+  (java-mode-hook . my/string-inflection-for-java))
 
-(use-package terraform-mode
+(leaf terminal
+  :custom
+  (ring-bell-function . (lambda () (princ "[RING] "))))
+
+(leaf terraform-mode
   :straight t)
 
-(use-package textile-mode
+(leaf textile-mode
   :straight t
   :mode "\\.textile\\'")
 
-(use-package time
+(leaf time
   :init
   (defun my/display-init-time ()
     (message "init time: %s" (emacs-init-time)))
   :hook
   (after-init-hook . my/display-init-time))
 
-(use-package undo-tree
+(leaf tool-bar
+  :custom
+  (tool-bar-mode . nil))
+
+(leaf undo-tree
   :straight t
+  :global-minor-mode global-undo-tree-mode
   :blackout t
-  :after shackle
-  :config
-  (global-undo-tree-mode)
-  (add-to-list 'undo-tree-history-directory-alist `("\\.*$" . ,(expand-file-name "undo-tree-auto-save" user-emacs-directory)))
-  :custom
-  (shackle-rules (cons '(" *undo-tree*" :align right :size 0.1 :inhibit-window-quit t) shackle-rules)))
+  :push
+  ((shackle-rules . '(" *undo-tree*" :align right :size 0.1 :inhibit-window-quit t))
+   (undo-tree-history-directory-alist . `("\\.*$" . ,(expand-file-name "undo-tree-auto-save" user-emacs-directory)))))
 
-(use-package uniquify
+(leaf uniquify
   :custom
-  (uniquify-buffer-name-style 'reverse))
+  (uniquify-buffer-name-style . 'reverse))
 
-(use-package vertico
+(leaf vertico
   :straight t
+  :global-minor-mode t
   :config
   (setq completion-ignore-case t) ; not a customization variable
-  (vertico-mode)
-  :custom
-  (completion-styles (append completion-styles '(substring flex))))
+  :push
+  ((completion-styles . 'flex)
+   (completion-styles . 'substring)))
 
-(use-package vterm
+(leaf vterm
   :straight t
   :custom
-  (vterm-buffer-name-string "vterm: %s")
-  (vterm-kill-buffer-on-exit t)
-  (vterm-module-cmake-args "-DCMAKE_PREFIX_PATH=~/.nix-profile"))
+  (vterm-buffer-name-string . "vterm: %s")
+  (vterm-kill-buffer-on-exit . t)
+  (vterm-module-cmake-args . "-DCMAKE_PREFIX_PATH=~/.nix-profile"))
 
-(use-package vterm-toggle
+(leaf vterm-toggle
   :straight t
-  :after shackle
   :bind
   ("C-c v" . vterm-toggle)
   :custom
-  (shackle-rules (cons '(vterm-mode :align t :size 0.5) shackle-rules))
-  (vterm-toggle-scope 'project))
+  (vterm-toggle-scope . 'project)
+  :push
+  ((shackle-rules . '(vterm-mode :align t :size 0.5))))
 
-(use-package vue-mode
+(leaf vue-mode
   :straight t)
 
-(use-package web-mode
+(leaf web-mode
   :straight t
   :custom
-  (web-mode-css-indent-offset 2)
-  (web-mode-markup-indent-offset 2))
+  (web-mode-css-indent-offset . 2)
+  (web-mode-markup-indent-offset . 2))
 
-(use-package which-key
+(leaf which-key
   :straight t
-  :blackout t
-  :config
-  (which-key-mode))
+  :global-minor-mode t
+  :blackout t)
 
-(use-package whitespace
+(leaf whitespace
+  :global-minor-mode global-whitespace-mode
   :blackout global-whitespace-mode
   :config
   (dolist (style '(newline-mark lines tabs empty)) (delete style whitespace-style))
   (customize-set-variable 'whitespace-display-mappings
                           (cons '(space-mark ?\u3000 [?\u25a1])
                                 (seq-remove (lambda (x) (equal (seq-take x 2) '(space-mark ?\ ))) whitespace-display-mappings)))
-  (global-whitespace-mode)
   :custom
-  (whitespace-global-modes '(not vterm-mode magit-log-mode magit-status-mode)))
+  (whitespace-global-modes . '(not vterm-mode magit-log-mode magit-status-mode)))
 
-(use-package windmove
+(leaf windmove
+  :leaf-defer nil
   :config
   (windmove-default-keybindings)
-  :demand
-  ;; Make windmove work in org-mode:
   :hook
-  ((org-shiftup-final-hook . windmove-up)
-   (org-shiftleft-final-hook . windmove-left)
-   (org-shiftdown-final-hook . windmove-down)
-   (org-shiftright-final-hook . windmove-right)))
+  ;; Make windmove work in org-mode
+  (org-shiftup-final-hook . windmove-up)
+  (org-shiftleft-final-hook . windmove-left)
+  (org-shiftdown-final-hook . windmove-down)
+  (org-shiftright-final-hook . windmove-right))
 
-(use-package winner
+(leaf window
   :config
-  (winner-mode))
+  (dolist (f '(split-window-below split-window-right delete-window))
+    (advice-add f :after (lambda (&optional _) (balance-windows)))))
 
-(use-package yaml-mode
+(leaf winner
+  :global-minor-mode t)
+
+(leaf yaml-mode
   :straight t)
 
 (provide 'init)
