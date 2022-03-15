@@ -51,6 +51,11 @@
   :straight t
   :mode "\\.apib\\'")
 
+(use-package autorevert
+  :after blackout
+  :config
+  (blackout 'auto-revert-mode))
+
 (use-package avy
   :straight t
   :config
@@ -58,10 +63,16 @@
 
 (use-package beacon
   :straight t
-  :after dim
+  :after blackout
   :config
-  (dim-minor-name 'beacon-mode "")
-  (beacon-mode))
+  (beacon-mode)
+  (blackout 'beacon-mode))
+
+(use-package blackout
+  :straight t
+  :config
+  (with-eval-after-load 'ruby-end
+    (blackout 'ruby-end-mode))) ; doesn't work in `use-package ruby-end`
 
 (use-package browse-at-remote
   :straight t)
@@ -163,12 +174,6 @@
   :config
   (global-diff-hl-mode))
 
-(use-package dim
-  :straight t
-  :config
-  (dim-minor-name 'auto-revert-mode "" 'autorevert)
-  (dim-minor-name 'ruby-end-mode "" 'ruby-end)) ; doesn't work in `use-package ruby-end`
-
 (use-package dimmer
   :straight t
   :config
@@ -191,11 +196,10 @@
 
 (use-package dmacro
   :straight t
-  :after dim
+  :blackout t
   :custom
   (dmacro-key (kbd "C-c d"))
   :config
-  (dim-minor-name 'dmacro-mode "")
   (global-dmacro-mode))
 
 (use-package docker-tramp
@@ -225,9 +229,8 @@
    ("C-c e" . 'eglot-code-actions)))
 
 (use-package eldoc
-  :after dim
-  :config
-  (dim-minor-name 'eldoc-mode "" 'eldoc))
+  :custom
+  (eldoc-minor-mode-string nil))
 
 (use-package elec-pair
   :config
@@ -241,9 +244,8 @@
   (defalias 'yes-or-no-p 'y-or-n-p))
 
 (use-package emacs-lock
-  :after dim
+  :blackout t
   :config
-  (dim-minor-name 'emacs-lock-mode "")
   (with-current-buffer "*scratch*"
     (emacs-lock-mode 'kill)))
 
@@ -317,9 +319,8 @@
 
 (use-package google-this
   :straight t
-  :after dim
+  :blackout t
   :config
-  (dim-minor-name 'google-this-mode "")
   (google-this-mode))
 
 (use-package goto-addr
@@ -356,12 +357,10 @@
 
 (use-package highlight-indent-guides
   :straight t
-  :after dim
+  :blackout t
   :hook
   (prog-mode-hook . highlight-indent-guides-mode)
   (yaml-mode-hook . highlight-indent-guides-mode)
-  :config
-  (dim-minor-name 'highlight-indent-guides-mode "")
   :custom
   (highlight-indent-guides-method 'bitmap)
   (highlight-indent-guides-bitmap-function 'highlight-indent-guides--bitmap-line)
@@ -447,9 +446,8 @@
 
 (use-package mini-modeline
   :straight t
-  :after dim
+  :blackout t
   :config
-  (dim-minor-name 'mini-modeline-mode "")
   (mini-modeline-mode)
   :custom
   (mini-modeline-face-attr nil)
@@ -582,9 +580,8 @@
 (use-package selected
   :straight t
   :demand
-  :after dim
+  :blackout selected-minor-mode
   :config
-  (dim-minor-name 'selected-minor-mode "")
   (selected-global-mode)
   :bind
   (:map selected-keymap
@@ -668,9 +665,9 @@
 
 (use-package undo-tree
   :straight t
-  :after (dim shackle)
+  :blackout t
+  :after shackle
   :config
-  (dim-minor-name 'undo-tree-mode "")
   (global-undo-tree-mode)
   :custom
   (shackle-rules (cons '(" *undo-tree*" :align right :size 0.1 :inhibit-window-quit t) shackle-rules)))
@@ -714,15 +711,13 @@
 
 (use-package which-key
   :straight t
-  :after dim
+  :blackout t
   :config
-  (dim-minor-name 'which-key-mode "")
   (which-key-mode))
 
 (use-package whitespace
-  :after dim
+  :blackout global-whitespace-mode
   :config
-  (dim-minor-name 'global-whitespace-mode "")
   (dolist (style '(newline-mark lines tabs empty)) (delete style whitespace-style))
   (customize-set-variable 'whitespace-display-mappings
                           (cons '(space-mark ?\u3000 [?\u25a1])
