@@ -669,6 +669,7 @@
   :after shackle
   :config
   (global-undo-tree-mode)
+  (add-to-list 'undo-tree-history-directory-alist `("\\.*$" . ,(expand-file-name "undo-tree-auto-save" user-emacs-directory)))
   :custom
   (shackle-rules (cons '(" *undo-tree*" :align right :size 0.1 :inhibit-window-quit t) shackle-rules)))
 
