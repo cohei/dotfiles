@@ -68,6 +68,7 @@
  ("project" . "4fe1eec8035969d59ab461eb1674343378182a0b")
  ("projectile" . "3c07cca10713e8212442143b6999a96ca32b68ac")
  ("purescript-mode" . "0acd1af446424ba855153161fe07a20f67dc0a89")
+ ("queue" . "130c2d656cd5d7376552272fab9e50a7c37d0c4a")
  ("rainbow-delimiters" . "a32b39bdfe6c61c322c37226d66e1b6d4f107ed0")
  ("rainbow-mode" . "949166cc0146bc9fabf74ce70c1c4a097f4cffd4")
  ("restart-emacs" . "1607da2bc657fe05ae01f7fdf26f716eafead02c")
