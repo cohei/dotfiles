@@ -157,7 +157,9 @@
     (dabbrev-completion 16)) ; C-u C-u to search all buffers
   :bind
   (("M-/" . my/dabbrev-completion-with-all-buffers)
-   ("C-M-/" . dabbrev-expand)))
+   ("C-M-/" . dabbrev-expand))
+  :custom
+  (dabbrev-case-replace . nil))
 
 (use-package delsel
   :config
