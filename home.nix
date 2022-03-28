@@ -52,6 +52,8 @@
       tldr
       tokei
       # tup # broken
+      universal-ctags
+      unused
       watch
       wget
       yaml-language-server
