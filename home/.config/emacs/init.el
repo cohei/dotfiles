@@ -240,6 +240,8 @@
   :straight t)
 
 (use-package emacs
+  :bind
+  ("C-c C-d" . delete-pair)
   :config
   (defalias 'yes-or-no-p 'y-or-n-p))
 
