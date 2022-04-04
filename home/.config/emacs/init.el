@@ -120,7 +120,7 @@
   :global-minor-mode global-corfu-mode
   :custom
   (corfu-auto . t)
-  (corfu-auto-prefix . 1))
+  (corfu-auto-prefix . 2))
 
 (leaf ctrlf
   :straight t
