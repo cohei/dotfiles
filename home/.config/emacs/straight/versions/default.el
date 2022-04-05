@@ -39,7 +39,7 @@
  ("exec-path-from-shell" . "6336db9be13d46e2d4bc3b50bc37a3fbf30fdc9e")
  ("expand-region.el" . "7e5bbe2763c12bae3e77fe0c49bcad05ff91dbfe")
  ("f.el" . "b5cb884b3b4372a6f3d1d4428cf092ca1e5c8044")
- ("flymake" . "166b6cd4c38a062bee6f397144ef7a9370376639")
+ ("flymake" . "46e3682127c183e4a58601bcba18a67e6bb27912")
  ("flymake-diagnostic-at-point" . "379616b1c6f5ebeaf08fbe54ae765008a78b3be7")
  ("free-keys" . "7348ce68192871b8a69b687ec124d9f816d493ca")
  ("gnu-elpa-mirror" . "e9835abfa99d368c35fe698dc46ad34d0204f2c4")

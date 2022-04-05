@@ -162,10 +162,6 @@
   :custom
   (dired-dwim-target . t))
 
-(leaf dired-x
-  :bind
-  ("C-x j" . dired-jump))
-
 (leaf direnv
   :straight t
   :global-minor-mode t)
@@ -216,8 +212,6 @@
 (leaf emacs
   :bind
   ("C-c C-d" . delete-pair)
-  :config
-  (defalias 'yes-or-no-p 'y-or-n-p)
   :custom
   (enable-recursive-minibuffers . t)
   (indent-tabs-mode . nil)
@@ -226,7 +220,8 @@
   (initial-scratch-message . nil)
   (scroll-conservatively . 1000)
   (scroll-margin . 5)
-  (use-dialog-box . nil))
+  (use-dialog-box . nil)
+  (use-short-answers . t))
 
 (leaf emacs-lock
   :blackout t
@@ -452,6 +447,10 @@
 
 (leaf org
   :commands orgtbl-mode)
+
+(leaf paren
+  :custom
+  (show-paren-mode . nil))
 
 (leaf peep-dired
   :straight t
