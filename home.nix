@@ -101,7 +101,7 @@
           owner = "jethrokuan";
           repo = "z";
           rev = "master";
-          sha256 = "pWkEhjbcxXduyKz1mAFo90IuQdX7R8bLCQgb0R+hXs4=";
+          sha256 = "sha256-+FUBM7CodtZrYKqU542fQD+ZDGrd2438trKM0tIESs0=";
         };
       }
     ];
