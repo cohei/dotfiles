@@ -30,7 +30,7 @@
       hyperfine
       icdiff
       ipfs
-      jl
+      # jl # build failed due to Aeson 2
       jq
       metals
       multitime
