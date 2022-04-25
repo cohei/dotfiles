@@ -100,7 +100,7 @@
 
 (leaf corfu
   :straight t
-  :global-minor-mode corfu-global-mode
+  :global-minor-mode global-corfu-mode
   :custom
   (corfu-auto . t)
   (corfu-auto-prefix . 1))
