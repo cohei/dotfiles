@@ -88,15 +88,25 @@
   :straight t
   :bind
   ("C-c C-r" . consult-recent-file)
+  ("C-; g" . consult-git-grep)
   ([remap goto-line] . consult-goto-line)
   ([remap switch-to-buffer] . consult-buffer)
   ([remap yank-pop] . consult-yank-pop)
   (flymake-mode-map
    ("C-c !" . consult-flymake))
   :custom
-  (consult-project-root-function . #'projectile-project-root)
   (xref-show-definitions-function . #'consult-xref)
   (xref-show-xrefs-function . #'consult-xref))
+
+(leaf consult-ls-git
+  :straight t
+  :bind
+  ("C-; l" . consult-ls-git))
+
+(leaf consult-project-extra
+  :straight t
+  :bind
+  ("C-; f" . consult-project-extra-find))
 
 (leaf corfu
   :straight t
@@ -459,17 +469,6 @@
    ("C-x x" . peep-dired))
   (peep-dired-mode-map
    ("C-x x" . peep-dired)))
-
-(leaf projectile
-  :straight t
-  :global-minor-mode t
-  ;; Eager macro-expansion failure: (void-variable projectile-command-map)
-  ;; no real harm
-  :bind-keymap
-  ("C-;" . projectile-command-map)
-  :custom
-  (projectile-use-git-grep . t)
-  (projectile-mode-line-prefix . " P"))
 
 (leaf purescript-mode
   :straight t
