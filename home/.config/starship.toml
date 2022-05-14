@@ -22,6 +22,9 @@ format = "on [$symbol$branch]($style) "
 [git_commit]
 style = "white"
 
+[git_metrics]
+disabled = false
+
 [git_state]
 style = "bold dimmed white"
 
