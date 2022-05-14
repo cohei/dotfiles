@@ -516,6 +516,7 @@
 
 (leaf ruby-interpolation
   :straight t
+  :blackout t
   :config
   (ruby-interpolation-mode))
 
