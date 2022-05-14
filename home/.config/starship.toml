@@ -17,6 +17,7 @@ disabled = true
 
 [git_branch]
 style = "white"
+format = "on [$symbol$branch]($style) "
 
 [git_commit]
 style = "white"
