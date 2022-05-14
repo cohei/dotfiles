@@ -114,8 +114,8 @@
 (leaf cursor-sensor
   :hook
   (minibuffer-setup-hook . cursor-intangible-mode)
-  :push
-  ((minibuffer-prompt-properties . '(cursor-intangible t))))
+  :custom
+  (minibuffer-prompt-properties . `,(plist-put minibuffer-prompt-properties 'cursor-intangible t)))
 
 (leaf cus-edit
   :init
