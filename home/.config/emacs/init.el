@@ -640,8 +640,10 @@
   (uniquify-buffer-name-style . 'reverse))
 
 (leaf vertico
-  :straight t
+  :straight (vertico :files (:defaults "extensions/vertico-repeat.el"))
   :global-minor-mode t
+  :hook
+  (minibuffer-setup-hook . vertico-repeat-save)
   :config
   (setq completion-ignore-case t) ; not a customization variable
   :push
