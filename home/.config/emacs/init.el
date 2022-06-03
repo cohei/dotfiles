@@ -455,6 +455,12 @@
   (open-junk-file-format . `,(expand-file-name "junk/%Y/%m/%d-%H%M%S." user-emacs-directory))
   (open-junk-file-find-file-function . 'find-file))
 
+(leaf orderless
+  :straight t
+  :custom
+  (completion-styles . '(orderless basic))
+  (completion-category-overrides . '((file (styles basic partial-completion)))))
+
 (leaf org
   :commands orgtbl-mode)
 
@@ -645,10 +651,7 @@
   :hook
   (minibuffer-setup-hook . vertico-repeat-save)
   :config
-  (setq completion-ignore-case t) ; not a customization variable
-  :push
-  ((completion-styles . 'flex)
-   (completion-styles . 'substring)))
+  (setq completion-ignore-case t)) ; not a customization variable
 
 (leaf vterm
   :straight t
