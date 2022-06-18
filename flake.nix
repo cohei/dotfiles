@@ -35,7 +35,7 @@
           # You can update Home Manager without changing this value. See
           # the Home Manager release notes for a list of state version
           # changes in each release.
-          stateVersion = "21.11";
+          stateVersion = "22.05";
         };
     in
       utils.lib.eachSystem ["x86_64-linux" "x86_64-darwin" "aarch64-linux" "aarch64-darwin"] (system: {
