@@ -49,7 +49,6 @@
       shellcheck
       skktools
       stack
-      terraform_0_13
       tldr
       tokei
       # tup # broken
