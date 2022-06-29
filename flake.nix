@@ -19,25 +19,23 @@
     in
       utils.lib.eachSystem ["x86_64-linux" "x86_64-darwin" "aarch64-linux" "aarch64-darwin"] (system:
         let
-          isDarwin = (import nixpkgs { inherit system; }).stdenv.isDarwin;
+          pkgs = nixpkgs.legacyPackages.${system};
 
-          homeDirectory = username: "/${if isDarwin then "Users" else "home"}/${username}";
+          isDarwin = pkgs.stdenv.isDarwin;
 
           homeManagerConfiguration = username:
             home-manager.lib.homeManagerConfiguration {
-              configuration = ./home.nix;
-              inherit system username;
-              homeDirectory = homeDirectory username;
-              extraModules = modules;
-              # This value determines the Home Manager release that your
-              # configuration is compatible with. This helps avoid breakage
-              # when a new Home Manager release introduces backwards
-              # incompatible changes.
-              #
-              # You can update Home Manager without changing this value. See
-              # the Home Manager release notes for a list of state version
-              # changes in each release.
-              stateVersion = "22.05";
+              inherit pkgs;
+              modules = [
+                ./home.nix
+                {
+                  home = {
+                    inherit username;
+                    homeDirectory = "/${if isDarwin then "Users" else "home"}/${username}";
+                    stateVersion = "22.05";
+                  };
+                }
+              ] ++ modules;
             };
 
         in {
