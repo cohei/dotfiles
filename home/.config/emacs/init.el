@@ -387,6 +387,8 @@
 
 (leaf magit
   :straight t
+  :after shackle
+  :global-minor-mode global-git-commit-mode
   :bind
   ("C-c g" . magit-status-here)
   :custom
