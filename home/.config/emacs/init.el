@@ -424,15 +424,6 @@
   (migemo-regex-dictionary . nil)
   (migemo-use-default-isearch-keybinding . nil))
 
-(leaf mini-modeline
-  :straight t
-  :global-minor-mode t
-  :blackout t
-  :custom
-  (mini-modeline-face-attr . nil)
-  (mini-modeline-l-format . `,(default-value 'mode-line-format))
-  (mini-modeline-r-format . nil))
-
 (leaf multiple-cursors
   :straight t
   :bind

@@ -33,7 +33,6 @@
  ("emacs-hcl-mode" . "e4d9eef631e8a386341ae8f94f7c2579586e65b5")
  ("emacs-htmlize" . "dd27bc3f26efd728f2b1f01f9e4ac4f61f2ffbf9")
  ("emacs-libvterm" . "3155a477b43c1567d754768f5be79296440ebaf8")
- ("emacs-mini-modeline" . "434b98b22c69c8b3b08e9c267c935591c49a8301")
  ("emacs-reformatter" . "84cff54b0873fcca6fc0314d7584284e86708e8d")
  ("emacs-scala-mode" . "598cb680f321d9609295aa9b4679040cc703b602")
  ("emacs-which-key" . "1ab1d0cc88843c9a614ed3226c5a1070e32e4823")
