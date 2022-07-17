@@ -1,6 +1,12 @@
 { config, pkgs, ... }:
 
+let
+  isDarwin = pkgs.stdenv.isDarwin;
+in
 {
+  home.homeDirectory = "/${if isDarwin then "Users" else "home"}/${config.home.username}";
+  home.stateVersion = "22.05";
+
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 
@@ -56,7 +62,7 @@
       watch
       wget
       yaml-language-server
-    ] ++ lib.optionals stdenv.isDarwin [ mas terminal-notifier ];
+    ] ++ lib.optionals isDarwin [ mas terminal-notifier ];
 
   home.file = {
     ".Brewfile".source = ./home/.Brewfile;
