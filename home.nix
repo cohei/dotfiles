@@ -14,7 +14,6 @@
       du-dust
       duf
       dvtm
-      exa
       fd
       ffmpeg
       fswatch
@@ -110,9 +109,6 @@
     shellAbbrs = {
       aa = "arch -arm64";
       doco = "docker compose";
-    };
-    shellAliases = {
-      ls = "exa --classify";
     };
     shellInit = ''
       set fish_greeting
