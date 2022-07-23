@@ -393,8 +393,7 @@
   ("C-c g" . magit-status-here)
   :custom
   (magit-diff-refine-hunk . 'all)
-  :push
-  ((shackle-rules . '(magit-status-mode :align t :size 0.6))))
+  (shackle-rules . `((magit-status-mode :align t :size 0.6) ,@shackle-rules)))
 
 (leaf markdown-mode
   :straight t
