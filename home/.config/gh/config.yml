@@ -8,4 +8,4 @@ prompt: enabled
 pager:
 # Aliases allow you to create nicknames for gh commands
 aliases:
-    ci-status: '!gh api --header ''Accept: application/vnd.github.antiope-preview+json'' repos/:owner/:repo/commits/$(git rev-parse $1)/check-runs | jq --raw-output ''.check_runs[] | "\(.conclusion)  \(.name)  \(.html_url)"'''
+    ci-status: '!fish -c "gh-ci-status $1"'
