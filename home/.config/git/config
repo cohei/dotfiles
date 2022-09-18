@@ -1,5 +1,6 @@
 [alias]
 	amend = commit --amend
+	extend = commit --amend --no-edit
 	ap    = add --patch
 	d     = diff
 	dc    = diff --cached
