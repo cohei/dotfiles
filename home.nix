@@ -77,10 +77,6 @@ in
         recursive = true;
       };
       ".ghci".source = ./home/.ghci;
-      ".local" = {
-        source = ./home/.local;
-        recursive = true;
-      };
       ".ssh/config".source = ./home/.ssh/config;
     } // iCloudDriveLink;
 
