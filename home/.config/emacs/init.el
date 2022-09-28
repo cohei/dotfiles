@@ -199,6 +199,11 @@
   :bind
   ("C-c C-c" . duplicate-thing))
 
+(leaf ediff
+  :custom
+  (ediff-split-window-function . 'split-window-horizontally)
+  (ediff-window-setup-function . 'ediff-setup-windows-plain))
+
 (leaf eglot
   :straight t
   :push
