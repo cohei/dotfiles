@@ -37,6 +37,12 @@
 (leaf blackout
   :straight t)
 
+;; make an effect early
+(leaf gcmh
+  :straight t
+  :global-minor-mode t
+  :blackout t)
+
 (leaf align
   :bind
   ("C-c a" . align)
