@@ -33,6 +33,10 @@
   :config
   (leaf-keywords-init))
 
+;; for leaf's blackout keyword
+(leaf blackout
+  :straight t)
+
 (leaf align
   :bind
   ("C-c a" . align)
@@ -64,9 +68,6 @@
   :straight t
   :global-minor-mode t
   :blackout t)
-
-(leaf blackout
-  :straight t)
 
 (leaf browse-at-remote
   :straight t)
