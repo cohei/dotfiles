@@ -206,8 +206,6 @@
 
 (leaf eglot
   :straight t
-  :push
-  ((eglot-server-programs . '(yaml-mode . ("yaml-language-server" "--stdio"))))
   :hook
   ((haskell-mode-hook js-mode-hook nix-mode-hook ruby-mode-hook scala-mode-hook sh-mode-hook yaml-mode-hook) . eglot-ensure)
   :bind
