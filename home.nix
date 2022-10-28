@@ -41,6 +41,7 @@ in
       metals
       multitime
       ncdu
+      nil
       nkf
       nodePackages.bash-language-server
       nodePackages.typescript-language-server
@@ -49,7 +50,6 @@ in
       procs
       pstree
       pwgen
-      rnix-lsp
       sbt
       shellcheck
       skktools
