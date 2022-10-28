@@ -212,7 +212,7 @@
   (ediff-window-setup-function . 'ediff-setup-windows-plain))
 
 (leaf eglot
-  :straight t
+  :straight (eglot :source gnu-elpa-mirror)
   :hook
   ((haskell-mode-hook js-mode-hook nix-mode-hook ruby-mode-hook scala-mode-hook sh-mode-hook yaml-mode-hook) . eglot-ensure)
   :bind

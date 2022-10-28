@@ -21,7 +21,7 @@
  ("dumb-jump" . "0a783d1db610ff1dc4e1b7869589cff16ff92f7a")
  ("duplicate-thing" . "9d8fd05e3e5caa35d3f2a0c0032c92f0c0908e21")
  ("edit-indirect" . "f80f63822ffae78de38dbe72cacaeb1aaa96c732")
- ("eglot" . "e501275e06952889056268dabe08ccd0dbaf23e5")
+ ("eglot" . "b034e7df3911eb6640fe59943152d693c2e216f7")
  ("el-get" . "0a9d5684089bb1be9bd2ff670358006add4c6aff")
  ("eldoc" . "192bcd5571a84e4b4084a840565f40fbec0b0abc")
  ("elisp-refs" . "af73739084637c8ebadad337a8fe58ff4f1d2ec1")
