@@ -650,6 +650,8 @@
 (leaf vertico
   :straight (vertico :files (:defaults "extensions/vertico-repeat.el"))
   :global-minor-mode t
+  :bind
+  ("C-c r" . vertico-repeat)
   :hook
   (minibuffer-setup-hook . vertico-repeat-save)
   :config
