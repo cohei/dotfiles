@@ -400,7 +400,7 @@
   :after shackle
   :global-minor-mode global-git-commit-mode
   :bind
-  ("C-c g" . magit-status-here)
+  ("C-; m" . magit-status-here)
   :custom
   (magit-diff-refine-hunk . 'all)
   (shackle-rules . `((magit-status-mode :align t :size 0.6) ,@shackle-rules)))
