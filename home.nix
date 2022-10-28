@@ -53,7 +53,6 @@ in
       sbt
       shellcheck
       skktools
-      stack
       tldr
       tokei
       # tup # broken
