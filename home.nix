@@ -63,19 +63,26 @@ in
       yaml-language-server
     ] ++ lib.optionals isDarwin [ mas terminal-notifier ];
 
-  home.file = {
-    ".Brewfile".source = ./home/.Brewfile;
-    ".config" = {
-      source = ./home/.config;
-      recursive = true;
-    };
-    ".ghci".source = ./home/.ghci;
-    ".local" = {
-      source = ./home/.local;
-      recursive = true;
-    };
-    ".ssh/config".source = ./home/.ssh/config;
-  };
+  home.file =
+    let
+      iCloudDrivePath = "${config.home.homeDirectory}/Library/Mobile Documents/com~apple~CloudDocs";
+      iCloudDriveLink =
+        pkgs.lib.attrsets.optionalAttrs isDarwin {
+          "iCloud Drive".source = config.lib.file.mkOutOfStoreSymlink iCloudDrivePath;
+        };
+    in {
+      ".Brewfile".source = ./home/.Brewfile;
+      ".config" = {
+        source = ./home/.config;
+        recursive = true;
+      };
+      ".ghci".source = ./home/.ghci;
+      ".local" = {
+        source = ./home/.local;
+        recursive = true;
+      };
+      ".ssh/config".source = ./home/.ssh/config;
+    } // iCloudDriveLink;
 
   home.language.base = "ja_JP.UTF-8";
   home.sessionPath = [ "$HOME/.local/bin" ];
