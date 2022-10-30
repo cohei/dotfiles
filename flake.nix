@@ -26,13 +26,12 @@
           ] ++ modules;
         };
     in
-      utils.lib.eachSystem ["x86_64-linux" "x86_64-darwin" "aarch64-linux" "aarch64-darwin"] (system:
-        {
-          apps.home-manager = utils.lib.mkApp { drv = home-manager.defaultPackage.${system}; };
-        }) // {
-          homeConfigurations = {
-            "root@testcontainer" = homeManagerConfiguration "root" "x86_64-linux";
-            hoge = homeManagerConfiguration "hoge" "aarch64-darwin";
-          };
+      utils.lib.eachDefaultSystem (system: {
+        apps.home-manager = utils.lib.mkApp { drv = home-manager.defaultPackage.${system}; };
+      }) // {
+        homeConfigurations = {
+          "root@testcontainer" = homeManagerConfiguration "root" "x86_64-linux";
+          hoge = homeManagerConfiguration "hoge" "aarch64-darwin";
         };
+      };
 }
