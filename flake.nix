@@ -30,8 +30,10 @@
         apps.home-manager = utils.lib.mkApp { drv = home-manager.defaultPackage.${system}; };
       }) // {
         homeConfigurations = with utils.lib; {
-          "root@testcontainer" = homeManagerConfiguration "root" system.x86_64-linux;
-          hoge = homeManagerConfiguration "hoge" system.aarch64-darwin;
+          "root:${system.x86_64-linux}" = homeManagerConfiguration "root" system.x86_64-linux;
+          "root:${system.aarch64-linux}" = homeManagerConfiguration "root" system.aarch64-linux;
+          "cohei:${system.x86_64-darwin}" = homeManagerConfiguration "cohei" system.x86_64-darwin;
+          "cohei:${system.aarch64-darwin}" = homeManagerConfiguration "cohei" system.aarch64-darwin;
         };
       };
 }
