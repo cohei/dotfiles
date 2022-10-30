@@ -29,9 +29,9 @@
       utils.lib.eachDefaultSystem (system: {
         apps.home-manager = utils.lib.mkApp { drv = home-manager.defaultPackage.${system}; };
       }) // {
-        homeConfigurations = {
-          "root@testcontainer" = homeManagerConfiguration "root" "x86_64-linux";
-          hoge = homeManagerConfiguration "hoge" "aarch64-darwin";
+        homeConfigurations = with utils.lib; {
+          "root@testcontainer" = homeManagerConfiguration "root" system.x86_64-linux;
+          hoge = homeManagerConfiguration "hoge" system.aarch64-darwin;
         };
       };
 }
