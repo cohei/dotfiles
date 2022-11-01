@@ -1,6 +1,6 @@
 # Dotfiles
 
-[![CircleCI](https://circleci.com/gh/cohei/dotfiles.svg?style=svg)](https://circleci.com/gh/cohei/dotfiles)
+[![Testing](https://github.com/cohei/dotfiles/actions/workflows/testing.yml/badge.svg)](https://github.com/cohei/dotfiles/actions/workflows/testing.yml)
 
 ## Requirements
 
