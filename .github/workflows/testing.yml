@@ -1,0 +1,16 @@
+name: Testing
+
+on: push
+
+jobs:
+  local-install-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - run: docker compose run development ./install.sh .
+  network-install-test:
+    if: github.ref == 'refs/heads/master'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - run: docker compose run development sh -c 'set -o pipefail; nix run nixpkgs#wget -- -O- https://dotfiles.cohei.me | sh'
