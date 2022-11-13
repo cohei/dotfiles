@@ -11,6 +11,7 @@ update_straight_lockfile () {
     emacsclient --eval '(straight-freeze-versions)'
     mv $lockfile $lockfile_dotfiles
     home-manager switch --flake .
+    git commit --message 'Emacs: update straight lockfile' $lockfile_dotfiles
 }
 
 update_straight_lockfile
