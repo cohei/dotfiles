@@ -633,6 +633,15 @@
   :custom
   (tool-bar-mode . nil))
 
+(leaf tree-sitter
+  :straight t
+  :global-minor-mode global-tree-sitter-mode
+  :blackout t
+  :hook (tree-sitter-after-on-hook . tree-sitter-hl-mode)
+  :config
+  (leaf tree-sitter-langs
+    :straight t))
+
 (leaf undo-tree
   :straight t
   :global-minor-mode global-undo-tree-mode
