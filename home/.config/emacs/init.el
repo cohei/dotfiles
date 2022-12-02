@@ -309,7 +309,9 @@
     (split-window-horizontally))
   :custom
   (blink-cursor-blinks . 0)
-  (default-frame-alist . '((fullscreen . fullboth) (font . "Cica-14"))))
+  (default-frame-alist . '((fullscreen . fullboth)
+                           (font . "Cica-14")
+                           (vertical-scroll-bars . nil))))
 
 (leaf free-keys
   :straight t)
@@ -535,10 +537,6 @@
 
 (leaf scala-mode
   :straight t)
-
-(leaf scroll-bar
-  :custom
-  (scroll-bar-mode . nil))
 
 (leaf scss-mode
   :straight t
