@@ -7,7 +7,7 @@ cask 'appcleaner'
 cask 'aquaskk'
 cask 'clipy'
 cask 'docker'
-cask 'firefox'
+cask 'firefox', greedy: true
 cask 'font-cica'
 cask 'font-fira-code'
 cask 'font-ricty-diminished'
