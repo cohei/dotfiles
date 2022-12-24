@@ -8,7 +8,7 @@ main :: IO ()
 main = putStrLn . showTime . sum . map readTime =<< getArgs
 
 timeFormat :: String
-timeFormat = "%H:%0M:%0S"
+timeFormat = "%h:%0M:%0S"
 
 readTime :: String -> DiffTime
 readTime ('-' : s) = - readPositiveTime s
