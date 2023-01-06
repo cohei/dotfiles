@@ -19,16 +19,16 @@
 [color]
 	ui = auto
 [core]
+	pager = delta
 	precomposeunicode = true
 	quotepath = false
-	pager = delta
 [credential]
 	helper = cache
 [delta]
 	features = diff-so-fancy
 [diff]
-	renames = copy
 	compactionHeuristic = true
+	renames = copy
 [ghq]
 	root = ~/src
 [help]
