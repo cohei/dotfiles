@@ -26,7 +26,9 @@
 	helper = cache
 [delta]
 	features = diff-so-fancy
+	navigate = true
 [diff]
+	colorMoved = default
 	compactionHeuristic = true
 	renames = copy
 [ghq]
