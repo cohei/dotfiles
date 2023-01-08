@@ -12,7 +12,7 @@ cask 'font-cica'
 cask 'font-fira-code'
 cask 'font-ricty-diminished'
 cask 'google-drive', greedy: true
-cask 'karabiner-elements'
+cask 'karabiner-elements', greedy: true
 cask 'menumeters'
 cask 'michaelvillar-timer'
 mas 'Save to Raindrop.io', id: 1549370672
