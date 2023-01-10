@@ -11,7 +11,7 @@ cask 'firefox'
 cask 'font-cica'
 cask 'font-fira-code'
 cask 'font-ricty-diminished'
-cask 'google-drive'
+cask 'google-drive', greedy: true
 cask 'karabiner-elements'
 cask 'menumeters'
 cask 'michaelvillar-timer'
