@@ -387,7 +387,8 @@
   :bind
   ("C-'" . imenu-list-smart-toggle)
   :custom
-  (imenu-list-auto-resize . t))
+  (imenu-list-auto-resize . t)
+  (imenu-list-focus-after-activation . t))
 
 (leaf js2-mode
   :straight t
