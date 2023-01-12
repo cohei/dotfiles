@@ -26,7 +26,12 @@
 	helper = cache
 [delta]
 	features = diff-so-fancy
+	map-styles = moved-color.from-style => red bold black, moved-color.from2-style => magenta bold black, moved-color.to-style => green bold black
 	navigate = true
+[delta "moved-color"]
+	from-style = bold magenta
+	from2-style = bold blue
+	to-style = bold cyan
 [diff]
 	colorMoved = default
 	compactionHeuristic = true
