@@ -6,7 +6,7 @@ brew 'mas'
 cask 'appcleaner'
 cask 'aquaskk'
 cask 'clipy'
-cask 'docker'
+cask 'docker', greedy: true
 cask 'firefox', greedy: true
 cask 'font-cica'
 cask 'font-fira-code'
