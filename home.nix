@@ -24,7 +24,6 @@ in
       ffmpeg
       fswatch
       fzf
-      ghcid
       ghq
       google-cloud-sdk
       hadolint
@@ -36,13 +35,11 @@ in
       hyperfine
       icdiff
       ipfs
-      jl
       jq
       metals
       multitime
       ncdu
       nil
-      nkf
       nodePackages.bash-language-server
       nodePackages.typescript-language-server
       parallel
@@ -56,7 +53,6 @@ in
       tldr
       tokei
       # tup # broken
-      universal-ctags
       unused
       watch
       wget
