@@ -1,0 +1,1 @@
+nix run github:reckenrode/mkalias -- --read-link ~/Applications/'Home Manager Apps'/Emacs.app ~/Applications/Emacs.app
