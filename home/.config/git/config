@@ -9,6 +9,7 @@
 	l     = log --oneline -5
 	lg    = log --graph --oneline --decorate --all
 	peek  = "!f() { git switch --detach && git merge --no-edit origin/$1; }; f"
+	rb-continue-no-edit = "-c core.editor=true rebase --continue"
 	re    = restore
 	s     = status --short --branch
 	ss    = !git stash list | fzf --exit-0 --preview-window up:80% --preview 'echo {1} | tr -d : | xargs git stash show -v --color=always' | grep --only-matching stash@{.*} | xargs git stash pop
