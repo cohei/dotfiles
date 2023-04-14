@@ -73,7 +73,6 @@ in
         recursive = true;
       };
       ".ghci".source = ./home/.ghci;
-      ".ssh/config".source = ./home/.ssh/config;
     } // iCloudDriveLink;
 
   home.language.base = "ja_JP.UTF-8";
