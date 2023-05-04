@@ -565,6 +565,7 @@
    (";" . comment-dwim)
    ("g" . google-this-region)
    ("m" . apply-macro-to-region-lines)
+   ("r" . reverse-region)
    ("q" . selected-off)
    ("s" . sort-lines)
    ("w" . count-words-region)))
