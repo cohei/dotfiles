@@ -2,9 +2,16 @@
 
 let
   isDarwin = pkgs.stdenv.isDarwin;
+  homeDirectory =
+    let
+      username = config.home.username;
+    in
+      if isDarwin
+      then "/Users/${username}"
+      else if username == "root" then "/root" else "/home/${username}";
 in
 {
-  home.homeDirectory = "/${if isDarwin then "Users" else "home"}/${config.home.username}";
+  home.homeDirectory = homeDirectory;
   home.stateVersion = "22.05";
 
   # Let Home Manager install and manage itself.
