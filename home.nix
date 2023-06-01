@@ -45,7 +45,7 @@ in
       jq
       metals
       multitime
-      # ncdu # build failed
+      ncdu
       nil
       nodePackages.bash-language-server
       nodePackages.typescript-language-server
