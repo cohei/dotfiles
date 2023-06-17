@@ -7,10 +7,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - run: docker compose run development ./install.sh .
+      - run: docker compose run development nix run .#install -- .
   network-install-test:
     if: github.ref == 'refs/heads/master'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - run: docker compose run development sh -c 'set -o pipefail; nix run nixpkgs#wget -- -O- https://raw.githubusercontent.com/cohei/dotfiles/HEAD/install.sh | sh'
+      - run: docker compose run development nix run github:cohei/dotfiles#install

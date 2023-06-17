@@ -9,13 +9,7 @@
 ## Installation
 
 ```shell
-curl https://raw.githubusercontent.com/cohei/dotfiles/HEAD/install.sh | sh
-```
-
-or
-
-```
-wget -O- https://raw.githubusercontent.com/cohei/dotfiles/HEAD/install.sh | sh
+nix run github:cohei/dotfiles#install
 ```
 
 ## Development
