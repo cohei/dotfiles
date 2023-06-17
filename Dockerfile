@@ -1,6 +1,6 @@
 FROM nixos/nix
 
-# remove packages causing conflict
-RUN nix-env --uninstall coreutils-full git man-db wget
+# lower priority of packages causing conflict
+RUN nix-env --set-flag priority 0 coreutils-full git man-db wget
 
 RUN echo 'experimental-features = nix-command flakes' >> /etc/nix/nix.conf
