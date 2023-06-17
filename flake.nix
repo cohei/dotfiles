@@ -19,9 +19,7 @@
           ] ++ modules;
         };
     in
-      flake-utils.lib.eachDefaultSystem (system: {
-        apps.home-manager = flake-utils.lib.mkApp { drv = home-manager.defaultPackage.${system}; };
-      }) // {
+      {
         homeConfigurations = with flake-utils.lib; {
           "root:${system.x86_64-linux}" = homeManagerConfiguration "root" system.x86_64-linux;
           "root:${system.aarch64-linux}" = homeManagerConfiguration "root" system.aarch64-linux;
