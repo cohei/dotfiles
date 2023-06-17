@@ -24,7 +24,9 @@
           drv = nixpkgs.legacyPackages.${system}.writeShellApplication {
             name = "install";
             runtimeInputs = [ home-manager.packages.${system}.default ];
-            text = ./install.sh;
+            text = ''
+              home-manager switch --flake "''${1:-github:cohei/dotfiles}#''${USER}:${system}"
+            '';
           };
         };
       }) // {
