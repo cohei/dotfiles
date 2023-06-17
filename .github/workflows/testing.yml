@@ -13,4 +13,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - run: docker compose run development sh -c 'set -o pipefail; nix run nixpkgs#wget -- -O- https://dotfiles.cohei.me | sh'
+      - run: docker compose run development sh -c 'set -o pipefail; nix run nixpkgs#wget -- -O- https://raw.githubusercontent.com/cohei/dotfiles/HEAD/install.sh | sh'
