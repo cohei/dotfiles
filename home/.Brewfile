@@ -13,7 +13,7 @@ cask 'google-drive', greedy: true
 cask 'karabiner-elements', greedy: true
 cask 'menumeters'
 cask 'michaelvillar-timer'
-cask 'readdle-spark'
+cask 'readdle-spark', greedy: true
 mas 'Save to Raindrop.io', id: 1549370672
 mas 'Slack', id: 803453959
 mas 'The Unarchiver', id: 425424353
