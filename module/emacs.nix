@@ -6,7 +6,7 @@
     [
       cmake # vterm
       cmigemo
-      emacs
+      emacs29
       libvterm-neovim
     ];
 
