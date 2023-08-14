@@ -4,8 +4,10 @@
   home.packages =
     with pkgs;
     [
+      cmake # vterm
       cmigemo
       emacs
+      libvterm-neovim
     ];
 
   # for
