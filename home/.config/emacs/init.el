@@ -208,11 +208,6 @@
   :hook
   (xref-backend-functions . dumb-jump-xref-activate))
 
-(leaf duplicate-thing
-  :straight t
-  :bind
-  ("C-c C-c" . duplicate-thing))
-
 (leaf ediff
   :custom
   (ediff-split-window-function . 'split-window-horizontally)
@@ -443,6 +438,10 @@
   (migemo-user-dictionary . nil)
   (migemo-regex-dictionary . nil)
   (migemo-use-default-isearch-keybinding . nil))
+
+(leaf misc
+  :bind
+  ("C-c C-c" . duplicate-dwim))
 
 (leaf multiple-cursors
   :straight t
