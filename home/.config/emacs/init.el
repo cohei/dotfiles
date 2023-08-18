@@ -574,7 +574,7 @@
 (leaf shrink-whitespace
   :straight t
   :bind
-  ([remap just-one-space] . shrink-whitespace))
+  ([remap cycle-spacing] . shrink-whitespace))
 
 (leaf simple
   :global-minor-mode column-number-mode
