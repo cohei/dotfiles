@@ -200,9 +200,6 @@
   :custom
   (dmacro-key . `,(kbd "C-c d")))
 
-(leaf docker-tramp
-  :straight t)
-
 (leaf dockerfile-mode
   :straight t)
 
