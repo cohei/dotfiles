@@ -507,17 +507,6 @@
   (recentf-max-saved-items . 100)
   (recentf-save-file . `,(expand-file-name "recentf" user-emacs-directory)))
 
-(leaf restart-emacs
-  :straight t
-  :bind
-  ("C-x M-c" . restart-emacs)
-  :commands my/restart-emacs-with-restoring-frames
-  :config
-  (defun my/restart-emacs-with-restoring-frames ()
-    (interactive)
-    (let ((restart-emacs-restore-frames t))
-      (restart-emacs))))
-
 (leaf ruby-mode
   :mode "\\.cap\\'" "\\.Brewfile\\'"
   :custom
