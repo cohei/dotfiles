@@ -716,7 +716,7 @@
 (leaf window
   :config
   (dolist (f '(split-window-below split-window-right delete-window))
-    (advice-add f :after (lambda (&optional _) (balance-windows)))))
+    (advice-add f :after (lambda (&rest _) (balance-windows)))))
 
 (leaf winner
   :global-minor-mode t)
