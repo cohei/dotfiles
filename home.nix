@@ -33,7 +33,7 @@ in
       fzf
       ghq
       google-cloud-sdk
-      hadolint
+      # hadolint # broken
       haskellPackages.cabal-fmt
       haskellPackages.hoogle
       hledger
@@ -45,7 +45,7 @@ in
       jq
       metals
       multitime
-      ncdu
+      # ncdu # broken
       nil
       nodePackages.bash-language-server
       nodePackages.typescript-language-server
