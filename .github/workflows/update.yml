@@ -6,7 +6,7 @@ on:
     - cron: '0 0 * * 6' # runs weekly on Saturday at 00:00
 
 jobs:
-  update-flack-lock:
+  update-flake-lock:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
