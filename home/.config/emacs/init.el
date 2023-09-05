@@ -542,8 +542,9 @@
 
 (leaf selected
   :straight t
-  :global-minor-mode selected-global-mode
   :blackout selected-minor-mode
+  :hook
+  ((prog-mode-hook text-mode-hook) . selected-minor-mode)
   :bind
   (selected-keymap
    ("%" . query-replace)
