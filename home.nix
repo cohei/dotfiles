@@ -94,6 +94,12 @@ in
     nix-direnv.enable = true;
   };
 
+  programs.eza = {
+    enable = true;
+    enableAliases = true;
+    extraOptions = [ "--classify" ];
+  };
+
   programs.fish = {
     enable = true;
     plugins = [
