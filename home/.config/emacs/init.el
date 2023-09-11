@@ -549,6 +549,7 @@
   (selected-keymap
    ("%" . query-replace)
    (";" . comment-dwim)
+   ("c" . duplicate-dwim)
    ("g" . google-this-region)
    ("m" . apply-macro-to-region-lines)
    ("r" . reverse-region)
