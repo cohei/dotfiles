@@ -561,12 +561,15 @@
    ("%" . query-replace)
    (";" . comment-dwim)
    ("c" . duplicate-dwim)
+   ("e" . mc/edit-lines)
    ("g" . google-this-region)
+   ("i" . indent-rigidly)
    ("m" . apply-macro-to-region-lines)
+   ("n" . count-words-region)
    ("q" . selected-off)
    ("r" . reverse-region)
    ("s" . sort-lines)
-   ("w" . count-words-region)))
+   ("w" . kill-ring-save)))
 
 (leaf server
   :require t
