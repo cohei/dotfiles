@@ -49,7 +49,7 @@
 [merge]
 	conflictStyle = diff3
 [pull]
-	ff = only
+	rebase = true
 [push]
 	default = simple
 [rebase]
