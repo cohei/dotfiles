@@ -33,7 +33,7 @@ in
       fzf
       ghq
       google-cloud-sdk
-      # hadolint # broken
+      hadolint
       haskellPackages.cabal-fmt
       haskellPackages.hoogle
       hledger
