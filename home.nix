@@ -1,8 +1,5 @@
 { config, pkgs, ... }:
 
-let
-  isDarwin = pkgs.stdenv.isDarwin;
-in
 {
   home.stateVersion = "23.05";
 
@@ -10,9 +7,7 @@ in
     let
       username = config.home.username;
     in
-      if isDarwin
-      then "/Users/${username}"
-      else if username == "root" then "/root" else "/home/${username}";
+      if username == "root" then "/root" else "/home/${username}";
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
@@ -64,23 +59,16 @@ in
       watch
       wget
       yaml-language-server
-    ] ++ lib.optionals isDarwin [ mas terminal-notifier ];
+    ];
 
-  home.file =
-    let
-      iCloudDrivePath = "${config.home.homeDirectory}/Library/Mobile Documents/com~apple~CloudDocs";
-      iCloudDriveLink =
-        pkgs.lib.attrsets.optionalAttrs isDarwin {
-          "iCloud Drive".source = config.lib.file.mkOutOfStoreSymlink iCloudDrivePath;
-        };
-    in {
-      ".Brewfile".source = ./home/.Brewfile;
-      ".config" = {
-        source = ./home/.config;
-        recursive = true;
-      };
-      ".ghci".source = ./home/.ghci;
-    } // iCloudDriveLink;
+  home.file = {
+    ".Brewfile".source = ./home/.Brewfile;
+    ".config" = {
+      source = ./home/.config;
+      recursive = true;
+    };
+    ".ghci".source = ./home/.ghci;
+  };
 
   home.language.base = "ja_JP.UTF-8";
   home.sessionPath = [ "$HOME/.local/bin" "$HOME/.docker/bin" ];
