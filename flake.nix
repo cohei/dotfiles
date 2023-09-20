@@ -3,9 +3,13 @@
 
   inputs = {
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
+    mkalias = {
+      url = "github:reckenrode/mkalias";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = { self, nixpkgs, home-manager, flake-utils }:
+  outputs = { self, nixpkgs, home-manager, flake-utils, mkalias }:
     let
       modules =
         builtins.map (f: ./module + ("/" + f)) (builtins.attrNames (builtins.readDir ./module));
@@ -17,6 +21,9 @@
             { home.username = username; }
             ./home.nix
           ] ++ modules;
+          extraSpecialArgs = {
+            mkalias = mkalias.apps.${system}.default.program;
+          };
         };
     in
       flake-utils.lib.eachDefaultSystem (system: {
