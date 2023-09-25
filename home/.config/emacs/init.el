@@ -601,9 +601,9 @@
   :straight t
   :config
   (defun my/string-inflection-for-ruby ()
-    (local-set-key (kbd "C-c C-u") 'string-inflection-ruby-style-cycle))
+    (keymap-local-set (kbd "C-c C-u") 'string-inflection-ruby-style-cycle))
   (defun my/string-inflection-for-java ()
-    (local-set-key (kbd "C-c C-u") 'string-inflection-java-style-cycle))
+    (keymap-local-set (kbd "C-c C-u") 'string-inflection-java-style-cycle))
   :bind
   ("C-c C-u" . string-inflection-all-cycle)
   :hook
