@@ -220,7 +220,7 @@
 (leaf eglot
   :straight (eglot :source gnu-elpa-mirror)
   :hook
-  ((haskell-mode-hook js-mode-hook nix-mode-hook ruby-mode-hook scala-mode-hook sh-mode-hook yaml-mode-hook) . eglot-ensure)
+  ((haskell-mode-hook js-mode-hook nix-mode-hook ruby-base-mode-hook scala-mode-hook sh-mode-hook yaml-mode-hook) . eglot-ensure)
   :bind
   (eglot-mode-map
    ("C-c e" . 'eglot-code-actions)))
@@ -526,8 +526,8 @@
 (leaf ruby-interpolation
   :straight t
   :blackout t
-  :config
-  (ruby-interpolation-mode))
+  :hook
+  ruby-base-mode-hook)
 
 (leaf rust-mode
   :straight t)
@@ -599,7 +599,7 @@
 
 (leaf subword
   :hook
-  (haskell-mode-hook nix-mode-hook ruby-mode-hook))
+  (haskell-mode-hook nix-mode-hook ruby-base-mode-hook))
 
 (leaf string-inflection
   :straight t
@@ -611,7 +611,7 @@
   :bind
   ("C-c C-u" . string-inflection-all-cycle)
   :hook
-  (ruby-mode-hook . my/string-inflection-for-ruby)
+  (ruby-base-mode-hook . my/string-inflection-for-ruby)
   (java-mode-hook . my/string-inflection-for-java))
 
 (leaf terminal
@@ -636,14 +636,11 @@
   :custom
   (tool-bar-mode . nil))
 
-(leaf tree-sitter
+(leaf treesit-auto
   :straight t
-  :global-minor-mode global-tree-sitter-mode
-  :blackout t
-  :hook (tree-sitter-after-on-hook . tree-sitter-hl-mode)
-  :config
-  (leaf tree-sitter-langs
-    :straight t))
+  :global-minor-mode global-treesit-auto-mode
+  :custom
+  (treesit-auto-install . 'prompt))
 
 (leaf undo-tree
   :straight t
