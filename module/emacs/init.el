@@ -255,6 +255,14 @@
   (with-current-buffer "*scratch*"
     (emacs-lock-mode 'kill)))
 
+(leaf embark
+  :straight t
+  :bind
+  ("C-." . embark-act))
+
+(leaf embark-consult
+  :straight t)
+
 (leaf emmet-mode
   :straight t
   :hook

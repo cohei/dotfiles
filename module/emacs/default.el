@@ -35,6 +35,7 @@
  ("emacs-scala-mode" . "5d7cf21c37e345c49f921fe5111a49fd54efd1e0")
  ("emacs-which-key" . "4d20bc852545a2e602f59084a630f888542052b1")
  ("emacsmirror-mirror" . "89c404d254fab44cad60bf80e4f73ba432e3718f")
+ ("embark" . "99cb35d7d228f57ce8e096f0c3afbf4335aa307b")
  ("emmet-mode" . "63b6932603184956b5ea8919036d2b307b48d7fd")
  ("exec-path-from-shell" . "4e1a938157515734019ad5b4e3cc09d849013da8")
  ("expand-region.el" . "9e3f86c02c5e2ab6f0d95da8a34045b54f6166d1")
