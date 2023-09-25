@@ -135,6 +135,10 @@
 (leaf ctrlf
   :straight t
   :global-minor-mode t
+  :defer-config
+  (add-to-list 'ctrlf-style-alist '(migemo :prompt "migemo"
+                                           :translator migemo-search-pattern-get
+                                           :case-fold ctrlf-no-uppercase-regexp-p))
   :custom
   (ctrlf-auto-recenter . t))
 
