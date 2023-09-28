@@ -85,7 +85,7 @@
   programs.eza = {
     enable = true;
     enableAliases = true;
-    extraOptions = [ "--classify" ];
+    extraOptions = [ "--classify" "--time-style=long-iso" ];
   };
 
   programs.fish = {
