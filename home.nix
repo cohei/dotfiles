@@ -60,13 +60,7 @@
       yaml-language-server
     ];
 
-  home.file = {
-    ".config" = {
-      source = ./home/.config;
-      recursive = true;
-    };
-    ".ghci".source = ./home/.ghci;
-  };
+  home.file.".ghci".source = ./home/.ghci;
 
   home.language.base = "ja_JP.UTF-8";
   home.sessionPath = [ "$HOME/.local/bin" "$HOME/.docker/bin" ];

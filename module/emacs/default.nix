@@ -10,6 +10,11 @@
       libvterm-neovim
     ];
 
+  home.file = {
+    ".config/emacs/init.el".source = ./init.el;
+    ".config/emacs/straight/versions/default.el".source = ./default.el;
+  };
+
   # for
   #   - git commiting
   #   - less v

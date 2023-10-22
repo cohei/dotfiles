@@ -5,7 +5,7 @@ set -eux
 update_straight_lockfile () {
     lockfile_relative=.config/emacs/straight/versions/default.el
     lockfile=~/$lockfile_relative
-    lockfile_dotfiles=./home/$lockfile_relative
+    lockfile_dotfiles=./module/emacs/default.el
 
     [ -f $lockfile ] && rm $lockfile
     emacsclient --eval '(straight-freeze-versions)'
