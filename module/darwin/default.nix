@@ -9,6 +9,8 @@ lib.mkIf pkgs.stdenv.isDarwin {
       terminal-notifier
     ];
 
+  home.file.".Brewfile".source = ./.Brewfile;
+
   home.activation.aliasApplications =
     let
       apps = pkgs.buildEnv {

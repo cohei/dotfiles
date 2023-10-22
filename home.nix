@@ -61,7 +61,6 @@
     ];
 
   home.file = {
-    ".Brewfile".source = ./home/.Brewfile;
     ".config" = {
       source = ./home/.config;
       recursive = true;
