@@ -26,7 +26,6 @@
       ffmpeg
       fswatch
       fzf
-      ghq
       google-cloud-sdk
       hadolint
       haskellPackages.cabal-fmt
