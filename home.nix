@@ -122,8 +122,4 @@
       end
     '';
   };
-
-  programs.starship = {
-    enable = true;
-  };
 }
