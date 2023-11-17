@@ -650,14 +650,6 @@
   :custom
   (treesit-auto-install . 'prompt))
 
-(leaf undo-tree
-  :straight t
-  :global-minor-mode global-undo-tree-mode
-  :blackout t
-  :push
-  ((shackle-rules . '(" *undo-tree*" :align right :size 0.1 :inhibit-window-quit t))
-   (undo-tree-history-directory-alist . `("\\.*$" . ,(expand-file-name "undo-tree-auto-save" user-emacs-directory)))))
-
 (leaf uniquify
   :custom
   (uniquify-buffer-name-style . 'reverse))
@@ -690,6 +682,11 @@
 
 (leaf vue-mode
   :straight t)
+
+(leaf vundo
+  :straight t
+  :bind
+  ("C-c u" . vundo))
 
 (leaf web-mode
   :straight t
