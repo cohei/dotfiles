@@ -8,6 +8,7 @@ lib.mkIf pkgs.stdenv.isDarwin {
       mas
       terminal-notifier
       (callPackage ./clean-links.nix {})
+      (callPackage ./vimari.nix {})
     ];
 
   home.file.".Brewfile".source = ./.Brewfile;
