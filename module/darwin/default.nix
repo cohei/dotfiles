@@ -32,4 +32,10 @@ lib.mkIf pkgs.stdenv.isDarwin {
 
   home.file."iCloud Drive".source =
     config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/Library/Mobile Documents/com~apple~CloudDocs";
+
+  programs.fish.shellInit = ''
+    if test -e /opt/homebrew/bin/brew
+        eval (/opt/homebrew/bin/brew shellenv)
+    end
+  '';
 }
