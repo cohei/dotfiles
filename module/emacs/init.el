@@ -484,9 +484,6 @@
   (completion-styles . '(orderless basic))
   (completion-category-overrides . '((file (styles basic partial-completion)))))
 
-(leaf org
-  :commands orgtbl-mode)
-
 (leaf paren
   :custom
   (show-paren-mode . nil))
