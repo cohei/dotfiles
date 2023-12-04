@@ -425,7 +425,9 @@
 (leaf markdown-mode
   :straight t
   :mode
-  ("README\\.md\\'" . gfm-mode))
+  ("README\\.md\\'" . gfm-mode)
+  :custom
+  (markdown-fontify-code-blocks-natively . t))
 
 (leaf marginalia
   :straight t
