@@ -603,7 +603,7 @@
 
 (leaf subword
   :hook
-  (haskell-mode-hook nix-mode-hook ruby-base-mode-hook))
+  (haskell-mode-hook js-base-mode-hook nix-mode-hook ruby-base-mode-hook))
 
 (leaf string-inflection
   :straight t
