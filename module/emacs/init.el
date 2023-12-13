@@ -560,8 +560,8 @@
    ("c" . duplicate-dwim)
    ("g" . google-this-region)
    ("m" . apply-macro-to-region-lines)
-   ("r" . reverse-region)
    ("q" . selected-off)
+   ("r" . reverse-region)
    ("s" . sort-lines)
    ("w" . count-words-region)))
 
