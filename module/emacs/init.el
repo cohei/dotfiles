@@ -372,7 +372,7 @@
   :custom
   (highlight-indent-guides-method . 'bitmap)
   (highlight-indent-guides-bitmap-function . 'highlight-indent-guides--bitmap-line)
-  (highlight-indent-guides-responsive . 'top))
+  (highlight-indent-guides-auto-character-face-perc . 100))
 
 (leaf hledger-mode
   :straight t
