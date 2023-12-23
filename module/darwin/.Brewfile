@@ -1,6 +1,5 @@
 tap 'homebrew/bundle'
 tap 'homebrew/cask-fonts'
-tap 'homebrew/core'
 cask 'appcleaner', greedy: true
 cask 'aquaskk'
 cask 'clipy'
