@@ -223,7 +223,7 @@
 (leaf eglot
   :straight (eglot :source gnu-elpa-mirror)
   :hook
-  ((haskell-mode-hook js-mode-hook nix-mode-hook ruby-base-mode-hook scala-mode-hook sh-mode-hook yaml-mode-hook) . eglot-ensure)
+  ((haskell-mode-hook js-base-mode-hook nix-mode-hook ruby-base-mode-hook scala-mode-hook sh-mode-hook yaml-mode-hook) . eglot-ensure)
   :bind
   (eglot-mode-map
    ("C-c e" . 'eglot-code-actions)))
