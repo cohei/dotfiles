@@ -12,6 +12,7 @@ timeFormat = "%h:%0M:%0S"
 
 readTime :: String -> DiffTime
 readTime ('-' : s) = - readPositiveTime s
+readTime ('+' : s) =   readPositiveTime s
 readTime s         =   readPositiveTime s
 
 readPositiveTime :: String -> DiffTime
