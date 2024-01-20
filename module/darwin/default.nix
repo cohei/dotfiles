@@ -5,6 +5,7 @@ lib.mkIf pkgs.stdenv.isDarwin {
 
   home.packages =
     with pkgs; [
+      unfree.appcleaner
       mas
       terminal-notifier
       (callPackage ./clean-links.nix {})

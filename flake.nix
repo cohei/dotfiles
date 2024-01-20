@@ -18,7 +18,12 @@
         home-manager.lib.homeManagerConfiguration {
           pkgs = nixpkgs.legacyPackages.${system};
           modules = [
-            { home.username = username; }
+            {
+              home.username = username;
+              nixpkgs.overlays = [
+                (_self: _super: { unfree = import nixpkgs { inherit system; config.allowUnfree = true; }; })
+              ];
+            }
             ./home.nix
           ] ++ modules;
           extraSpecialArgs = {
