@@ -30,6 +30,7 @@
       duf
       dust
       dvtm
+      elan
       fd
       ffmpeg
       fswatch

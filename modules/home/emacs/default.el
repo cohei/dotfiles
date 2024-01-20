@@ -67,6 +67,7 @@
  ("mmm-mode" . "b1f5c7dbdc405e6e10d9ddd99a43a6b2ad61b176")
  ("multiple-cursors.el" . "9017f3be6b00c1d82e33409db4a178133fb39d47")
  ("mwim.el" . "b4f3edb4c0fb8f8b71cecbf8095c2c25a8ffbf85")
+ ("nael" . "858444193a932611b5df77f25ced56eac69d19a3")
  ("nix-mode" . "719feb7868fb567ecfe5578f6119892c771ac5e5")
  ("nongnu-elpa" . "e34e708c5adbd71f9d7abe138a62947ccae23eb2")
  ("open-junk-file" . "558bec7372b0fed4c4cb6074ab906535fae615bd")

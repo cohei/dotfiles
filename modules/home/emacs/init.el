@@ -440,6 +440,12 @@
   ([remap move-beginning-of-line] . mwim-beginning-of-line-or-code)
   ([rempa move-end-of-line] . mwim-end-of-line-or-code))
 
+(leaf nael
+  :straight t
+  :hook
+  (nael-mode-hook . abbrev-mode)
+  (nael-mode-hook . eglot-ensure))
+
 (leaf nix-mode
   :straight t
   :mode "\\.nix\\'")
