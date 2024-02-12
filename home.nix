@@ -110,4 +110,15 @@
       set fish_greeting
     '';
   };
+
+  programs.jujutsu = {
+    enable = true;
+    settings = {
+      colors.rest = "black";
+      user = {
+        email = "a.d.xvii.kal.mai@gmail.com";
+        name = "TANIGUCHI Kohei";
+      };
+    };
+  };
 }
