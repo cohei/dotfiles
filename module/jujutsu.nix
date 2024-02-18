@@ -4,8 +4,13 @@
   programs.jujutsu = {
     enable = true;
     settings = {
-      colors.rest = "black";
       aliases.s = ["status"];
+      colors = {
+        rest = "black";
+        "working_copy commit_id" = "blue";
+        "working_copy change_id" = "magenta";
+        "working_copy timestamp" = "cyan";
+      };
       ui.default-command = "log";
       user = {
         email = "a.d.xvii.kal.mai@gmail.com";
