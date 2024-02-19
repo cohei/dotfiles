@@ -11,7 +11,11 @@
         "working_copy change_id" = "magenta";
         "working_copy timestamp" = "cyan";
       };
-      ui.default-command = "log";
+      ui = {
+        default-command = "log";
+        diff.format = "git";
+        pager = "delta";
+      };
       user = {
         email = "a.d.xvii.kal.mai@gmail.com";
         name = "TANIGUCHI Kohei";
