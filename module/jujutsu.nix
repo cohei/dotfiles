@@ -4,7 +4,10 @@
   programs.jujutsu = {
     enable = true;
     settings = {
-      aliases.s = ["status"];
+      aliases = {
+        s = ["status"];
+        la = ["log" "--revisions" "all()"];
+      };
       colors = {
         rest = "black";
         "working_copy commit_id" = "blue";
