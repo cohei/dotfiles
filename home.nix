@@ -69,6 +69,25 @@
     LESS = "--LONG-PROMPT --RAW-CONTROL-CHARS --quit-if-one-screen --no-init";
   };
 
+  programs.alacritty = {
+    enable = true;
+    settings = {
+      font = {
+        normal.family = "Cica";
+        size = 14.5;
+      };
+      window = {
+        padding = { x = 5; y = 5; };
+        dimensions = { columns = 150; lines = 50; };
+        option_as_alt = "Both";
+      };
+      cursor = {
+        style.blinking = "On";
+        blink_timeout = 0;
+      };
+    };
+  };
+
   programs.direnv = {
     enable = true;
     nix-direnv.enable = true;
