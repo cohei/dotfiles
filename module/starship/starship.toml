@@ -11,6 +11,11 @@ success_symbol = "[❯](white)"
 [directory]
 style = "white"
 
+[direnv]
+disabled = false
+format ='$symbol[$loaded/$allowed]($style) '
+style = "white"
+
 [docker_context]
 disabled = true
 
