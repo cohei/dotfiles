@@ -30,5 +30,8 @@
     shellAbbrs = {
       j = "jj";
     };
+    shellAliases = {
+      glgj = "git log --graph --oneline --decorate (git for-each-ref --exclude=refs/jj --format='%(refname)')";
+    };
   };
 }
