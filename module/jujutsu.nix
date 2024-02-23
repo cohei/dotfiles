@@ -5,6 +5,7 @@
     enable = true;
     settings = {
       aliases = {
+        d = ["diff"];
         s = ["status"];
         la = ["log" "--revisions" "all()"];
       };
