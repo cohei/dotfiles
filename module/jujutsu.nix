@@ -9,12 +9,6 @@
         s = ["status"];
         la = ["log" "--revisions" "all()"];
       };
-      colors = {
-        rest = "black";
-        "working_copy commit_id" = "blue";
-        "working_copy change_id" = "magenta";
-        "working_copy timestamp" = "cyan";
-      };
       ui = {
         default-command = "log";
         diff.format = "git";
