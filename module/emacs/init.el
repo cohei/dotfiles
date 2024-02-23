@@ -498,6 +498,11 @@
   (peep-dired-mode-map
    ("C-x x" . peep-dired)))
 
+(leaf project
+  :custom
+  (project-vc-extra-root-markers . '(".jj"))
+  (project-vc-ignores . '(".jj")))
+
 (leaf purescript-mode
   :straight t
   :hook
