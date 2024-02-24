@@ -1,10 +1,12 @@
 "$schema" = 'https://starship.rs/config-schema.json'
 
+format = "[$all](bright-black)"
+
 [aws]
 style = "white"
 
 [character]
-success_symbol = "❯"
+success_symbol = "[❯](white)"
 
 [directory]
 style = "white"
@@ -26,7 +28,7 @@ style = "white"
 disabled = false
 
 [git_state]
-style = "bold dimmed white"
+style = "bold white"
 
 [git_status]
 style = "white"
