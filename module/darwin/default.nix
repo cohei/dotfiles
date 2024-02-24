@@ -40,4 +40,10 @@ lib.mkIf pkgs.stdenv.isDarwin {
         eval (/opt/homebrew/bin/brew shellenv)
     end
   '';
+
+  targets.darwin.defaults = {
+    "com.apple.dock" = {
+      showhidden = true;
+    };
+  };
 }
