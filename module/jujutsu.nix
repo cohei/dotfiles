@@ -50,6 +50,9 @@
   };
 
   programs.fish = {
+    functions = {
+      jjgrep = "grep $argv[1] (jj files $argv[2])";
+    };
     shellAbbrs = {
       j = "jj";
     };
