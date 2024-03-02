@@ -386,19 +386,6 @@
   :hook
   (hledger-mode-hook . my/hledger-set-tab-width))
 
-(leaf howm
-  :straight t
-  :init
-  (setq howm-view-title-header "#") ; 先に定義する必要がある
-  :bind
-  ("C-c c" . howm-menu)
-  :custom
-  (howm-directory . "~/iCloud Drive/notes")
-  (howm-file-name-format . "%Y%m%d-%H%M%S.md")
-  (howm-keyword-file . `,(concat (file-name-as-directory howm-directory) ".howm-keys"))
-  (howm-history-file . `,(concat (file-name-as-directory howm-directory) ".howm-history"))
-  (howm-view-split-horizontally . t))
-
 (leaf imenu-list
   :straight t
   :bind
