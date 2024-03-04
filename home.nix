@@ -16,7 +16,6 @@
     with pkgs;
     [
       abduco
-      bat
       bottom
       coreutils
       du-dust
@@ -85,6 +84,13 @@
         style.blinking = "On";
         blink_timeout = 0;
       };
+    };
+  };
+
+  programs.bat = {
+    enable = true;
+    config = {
+      theme = "base16-256";
     };
   };
 
