@@ -7,7 +7,8 @@
       aliases = {
         d = ["diff"];
         s = ["status"];
-        la = ["log" "--revisions" "all()"];
+        l = ["log" "--template" "my_log_oneline"];
+        la = ["l" "--revisions" "all()"];
       };
       template-aliases.my_log_oneline = ''
         if(root,
@@ -35,9 +36,8 @@
           )
         )
       '';
-      templates.log = "my_log_oneline";
       ui = {
-        default-command = "log";
+        default-command = "l";
         diff.format = "git";
         graph.style = "square";
         pager = "delta";
