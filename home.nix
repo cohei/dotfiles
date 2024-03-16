@@ -101,7 +101,6 @@
 
   programs.eza = {
     enable = true;
-    enableAliases = true;
     extraOptions = [ "--classify" "--time-style=long-iso" ];
   };
 
