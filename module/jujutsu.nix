@@ -40,6 +40,7 @@
         default-command = "l";
         diff.format = "git";
         graph.style = "square";
+        log-synthetic-elided-nodes = true;
         pager = "delta";
       };
       user = {
