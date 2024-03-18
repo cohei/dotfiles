@@ -47,7 +47,7 @@
 [log]
 	date = iso
 [merge]
-	conflictStyle = diff3
+	conflictStyle = zdiff3
 [pull]
 	rebase = true
 [push]
