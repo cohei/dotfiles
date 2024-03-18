@@ -55,6 +55,7 @@
     };
     shellAbbrs = {
       j = "jj";
+      js = "jj status";
     };
     shellAliases = {
       glgj = "git log --graph --oneline --decorate --exclude 'refs/jj/*' --all";
