@@ -50,3 +50,6 @@ style = "white"
 
 [ruby]
 style = "white"
+
+[scala]
+style = "white"
