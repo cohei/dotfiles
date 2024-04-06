@@ -177,6 +177,11 @@
 (leaf delsel
   :global-minor-mode delete-selection-mode)
 
+(leaf desktop
+  :global-minor-mode desktop-save-mode
+  :custom
+  (desktop-load-locked-desktop . t))
+
 (leaf dhall-mode
   :straight t)
 
