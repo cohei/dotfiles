@@ -320,15 +320,6 @@
 
 (leaf frame
   :global-minor-mode blink-cursor-mode
-  :hook
-  ;; when startup
-  (window-setup-hook . split-window-horizontally)
-  ;; when make-frame
-  (after-make-frame-functions . my/split-frame-into-two-windows-horizontally)
-  :config
-  (defun my/split-frame-into-two-windows-horizontally (frame)
-    (select-window (frame-root-window frame))
-    (split-window-horizontally))
   :custom
   (blink-cursor-blinks . 0)
   (default-frame-alist . '((fullscreen . fullboth)
