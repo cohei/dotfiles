@@ -24,7 +24,6 @@
       fd
       ffmpeg
       fswatch
-      fzf
       google-cloud-sdk
       hadolint
       haskellPackages.cabal-fmt
@@ -134,4 +133,6 @@
       set fish_greeting
     '';
   };
+
+  programs.fzf.enable = true;
 }
