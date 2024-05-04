@@ -12,11 +12,11 @@
       };
       template-aliases.my_log_oneline = ''
         if(root,
-          builtin_log_root(change_id, commit_id),
+          format_root_commit(self),
           label(if(current_working_copy, "working_copy"),
             concat(
               separate(" ",
-                builtin_change_id_with_hidden_and_divergent_info,
+                format_short_change_id_with_hidden_and_divergent_info(self),
                 if(description, description.first_line(), description_placeholder),
                 if(empty, label("empty", "(empty)")),
                 surround("(", ")",
