@@ -6,7 +6,6 @@
     settings = {
       aliases = {
         d = ["diff"];
-        s = ["status"];
         l = ["log" "--template" "my_log_oneline"];
         la = ["l" "--revisions" "all()"];
       };
@@ -57,10 +56,10 @@
   programs.fish = {
     functions = {
       jjgrep = "grep $argv[1] (jj files $argv[2])";
+      s = "if jj &> /dev/null; jj status; else; git s; end";
     };
     shellAbbrs = {
       j = "jj";
-      js = "jj status";
     };
     shellAliases = {
       glgj = "git log --graph --oneline --decorate --exclude 'refs/jj/*' --all";

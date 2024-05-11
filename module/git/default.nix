@@ -27,7 +27,6 @@
       gl = "git l";
       glg = "git lg";
       gss = "git ss";
-      s = "git s";
     };
     shellInit = ''
       if type --query gh
