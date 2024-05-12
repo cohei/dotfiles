@@ -1,4 +1,4 @@
-{ ... }:
+{ config, ... }:
 
 {
   programs.jujutsu = {
@@ -48,6 +48,10 @@
         name = "TANIGUCHI Kohei";
       };
     };
+  };
+
+  home.sessionVariables = {
+    JJ_CONFIG = "${config.home.homeDirectory}/.config/jj/config.toml";
   };
 
   programs.fish = {
