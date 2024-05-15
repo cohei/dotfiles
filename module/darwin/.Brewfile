@@ -1,5 +1,4 @@
 tap 'homebrew/bundle'
-tap 'homebrew/cask-fonts'
 cask 'aquaskk'
 cask 'clipy'
 cask 'deepl'
