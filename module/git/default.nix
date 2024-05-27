@@ -18,7 +18,6 @@
 
   programs.fish = {
     shellAliases = {
-      d = "git d";
       gap = "git ap";
       gb = "git sw (git branch | fzf | tr -d '* ')";
       gdc = "git dc";
