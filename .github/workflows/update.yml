@@ -18,6 +18,6 @@ jobs:
       - name: Install Nix
         uses: DeterminateSystems/nix-installer-action@v12
       - name: Update flake.lock
-        uses: DeterminateSystems/update-flake-lock@v22
+        uses: DeterminateSystems/update-flake-lock@v23
         with:
           token: ${{ steps.app-token.outputs.token }}
