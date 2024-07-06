@@ -24,11 +24,11 @@ lib.mkIf pkgs.stdenv.isDarwin {
       lib.hm.dag.entryAfter ["writeBoundary"] ''
         aliasDirectory="${config.home.homeDirectory}/Applications/Home Manager App Aliases"
 
-        $DRY_RUN_CMD mkdir -p "$aliasDirectory"
-        $DRY_RUN_CMD rm -f "$aliasDirectory"/*
+        run mkdir -p "$aliasDirectory"
+        run rm -f "$aliasDirectory"/*
 
         for app in ${apps}/Applications/*.app; do
-          $DRY_RUN_CMD ${mkalias} --read-link "$app" "$aliasDirectory/$(basename "$app")"
+          run ${mkalias} --read-link "$app" "$aliasDirectory/$(basename "$app")"
         done
       '';
 
