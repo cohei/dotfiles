@@ -55,7 +55,7 @@
 
   programs.fish = {
     functions = {
-      jjgrep = "grep $argv[1] (jj files $argv[2])";
+      jjgrep = "grep $argv[1] (jj file list $argv[2])";
       d = "if jj &> /dev/null; jj show $argv; else; git d $argv; end";
       s = "if jj &> /dev/null; jj status $argv; else; git s $argv; end";
     };
