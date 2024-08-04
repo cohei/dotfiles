@@ -49,10 +49,6 @@
     };
   };
 
-  home.sessionVariables = {
-    JJ_CONFIG = "${config.home.homeDirectory}/.config/jj/config.toml";
-  };
-
   programs.fish = {
     functions = {
       jjgrep = "grep $argv[1] (jj file list $argv[2])";
