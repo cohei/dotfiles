@@ -25,6 +25,7 @@
       fd
       ffmpeg
       fswatch
+      git-quick-stats
       google-cloud-sdk
       hadolint
       haskellPackages.cabal-fmt
