@@ -10,7 +10,6 @@
     ];
 
   home.file = {
-   ".config/fish/functions/gh-ci-status.fish".source = ./gh-ci-status.fish;
    ".config/gh/config.yml".source = ./gh-config.yml;
    ".config/git/config".source = ./config;
    ".config/git/ignore".source = ./ignore;
