@@ -32,7 +32,6 @@
       haskellPackages.hoogle
       hledger
       hpack
-      httpie
       hyperfine
       icdiff
       ipfs
@@ -57,6 +56,7 @@
       unused
       watch
       wget
+      xh
       yaml-language-server
     ];
 
