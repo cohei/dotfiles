@@ -8,6 +8,7 @@
         d = ["diff"];
         l = ["log" "--template" "my_log_oneline"];
         la = ["l" "--revisions" "all()"];
+        showp = ["show" "@-"];
       };
       template-aliases.my_log_oneline = ''
         if(root,
