@@ -81,6 +81,7 @@
         dimensions = { columns = 150; lines = 50; };
         option_as_alt = "Both";
       };
+      selection.save_to_clipboard = true;
       cursor = {
         style.blinking = "On";
         blink_timeout = 0;
