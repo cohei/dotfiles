@@ -118,6 +118,9 @@
   (xref-show-definitions-function . #'consult-xref)
   (xref-show-xrefs-function . #'consult-xref))
 
+(leaf consult-hoogle
+  :straight t)
+
 (leaf consult-ls-git
   :straight t
   :bind
