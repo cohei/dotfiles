@@ -16,6 +16,7 @@
     with pkgs;
     [
       abduco
+      bash-language-server
       bottom
       coreutils
       du-dust
@@ -40,8 +41,6 @@
       multitime
       ncdu
       nil
-      nodePackages.bash-language-server
-      nodePackages.typescript-language-server
       parallel
       pijul
       procs
@@ -53,6 +52,7 @@
       tldr
       tokei
       # tup # broken
+      typescript-language-server
       unused
       watch
       wget
