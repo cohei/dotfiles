@@ -2,6 +2,10 @@
   description = "My Home";
 
   inputs = {
+    nixpkgs-unfree = {
+      url = "github:numtide/nixpkgs-unfree";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     mkalias = {
       url = "github:reckenrode/mkalias";
@@ -9,7 +13,7 @@
     };
   };
 
-  outputs = { self, nixpkgs, home-manager, flake-utils, mkalias }:
+  outputs = { self, nixpkgs, nixpkgs-unfree, home-manager, flake-utils, mkalias }:
     let
       modules =
         builtins.map (f: ./module + ("/" + f)) (builtins.attrNames (builtins.readDir ./module));
@@ -20,9 +24,7 @@
           modules = [
             {
               home.username = username;
-              nixpkgs.overlays = [
-                (_self: _super: { unfree = import nixpkgs { inherit system; config.allowUnfree = true; }; })
-              ];
+              nixpkgs.overlays = [ (_self: _super: { unfree = nixpkgs-unfree.legacyPackages.${system}; }) ];
             }
             ./home.nix
           ] ++ modules;
