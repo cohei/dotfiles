@@ -60,8 +60,6 @@
       yaml-language-server
     ];
 
-  home.file.".ghci".source = ./home/.ghci;
-
   home.language.base = "ja_JP.UTF-8";
   home.sessionPath = [ "$HOME/.local/bin" "$HOME/.docker/bin" ];
   home.sessionVariables = {
