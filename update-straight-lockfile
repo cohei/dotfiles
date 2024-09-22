@@ -3,8 +3,7 @@
 set -eux
 
 update_straight_lockfile () {
-    lockfile_relative=.config/emacs/straight/versions/default.el
-    lockfile=~/$lockfile_relative
+    lockfile=~/.config/emacs/straight/versions/default.el
     lockfile_dotfiles=./module/emacs/default.el
 
     [ -f $lockfile ] && rm $lockfile
