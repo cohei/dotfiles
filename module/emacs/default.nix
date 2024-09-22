@@ -1,13 +1,31 @@
 { pkgs, ... }:
 
+let
+  emacs = pkgs.emacs;
+
+  update-straight-lockfile = pkgs.writeShellApplication {
+    name = "update-straight-lockfile";
+    runtimeInputs = [ emacs pkgs.home-manager pkgs.jujutsu ];
+    text = ''
+      lockfile=~/.config/emacs/straight/versions/default.el
+      lockfile_dotfiles=./module/emacs/default.el
+
+      [ -f $lockfile ] && rm $lockfile
+      emacsclient --eval '(straight-freeze-versions)'
+      mv $lockfile $lockfile_dotfiles
+      home-manager switch
+      jj commit --message 'Emacs: update straight lockfile' $lockfile_dotfiles
+    '';
+  };
+in
 {
   home.packages =
-    with pkgs;
     [
-      cmake # vterm
-      cmigemo
+      pkgs.cmake # vterm
+      pkgs.cmigemo
       emacs
-      libvterm-neovim
+      pkgs.libvterm-neovim
+      update-straight-lockfile
     ];
 
   home.file = {
