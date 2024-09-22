@@ -7,10 +7,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - run: docker compose run development sh -c 'git config --global --add safe.directory /root/dotfiles && nix run .#install -- .'
+      - run: docker compose run development sh -c 'git config --global --add safe.directory /root/dotfiles && nix run -- .'
   network-install-test:
     if: github.ref == 'refs/heads/master'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - run: docker compose run development nix run github:cohei/dotfiles#install
+      - run: docker compose run development nix run github:cohei/dotfiles

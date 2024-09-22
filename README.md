@@ -9,7 +9,7 @@
 ## Installation
 
 ```shell
-nix run github:cohei/dotfiles#install
+nix run github:cohei/dotfiles
 ```
 
 ## Development

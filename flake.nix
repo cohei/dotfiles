@@ -34,13 +34,17 @@
         };
     in
       flake-utils.lib.eachDefaultSystem (system: {
-        apps.install = flake-utils.lib.mkApp {
-          drv = nixpkgs.legacyPackages.${system}.writeShellApplication {
-            name = "install";
-            runtimeInputs = [ home-manager.packages.${system}.default ];
-            text = ''
-              home-manager switch --flake "''${1:-github:cohei/dotfiles}#''${USER}:${system}"
-            '';
+        apps = rec {
+          default = install;
+
+          install = flake-utils.lib.mkApp {
+            drv = nixpkgs.legacyPackages.${system}.writeShellApplication {
+              name = "install";
+              runtimeInputs = [ home-manager.packages.${system}.default ];
+              text = ''
+                home-manager switch --flake "''${1:-github:cohei/dotfiles}#''${USER}:${system}"
+              '';
+            };
           };
         };
       }) // {
