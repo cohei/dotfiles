@@ -44,11 +44,11 @@
           };
         };
       }) // {
-        homeConfigurations = with flake-utils.lib; {
-          "root:${system.x86_64-linux}" = homeManagerConfiguration "root" system.x86_64-linux;
-          "root:${system.aarch64-linux}" = homeManagerConfiguration "root" system.aarch64-linux;
-          "cohei:${system.x86_64-darwin}" = homeManagerConfiguration "cohei" system.x86_64-darwin;
-          "cohei:${system.aarch64-darwin}" = homeManagerConfiguration "cohei" system.aarch64-darwin;
+        homeConfigurations = with flake-utils.lib.system; {
+          "root:${x86_64-linux}" = homeManagerConfiguration "root" x86_64-linux;
+          "root:${aarch64-linux}" = homeManagerConfiguration "root" aarch64-linux;
+          "cohei:${x86_64-darwin}" = homeManagerConfiguration "cohei" x86_64-darwin;
+          "cohei:${aarch64-darwin}" = homeManagerConfiguration "cohei" aarch64-darwin;
         };
       };
 }
