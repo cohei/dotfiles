@@ -61,3 +61,7 @@ style = "white"
 
 [terraform]
 style = "white"
+
+[custom.jujutsu]
+detect_folders = [".jj"]
+symbol = "jj "
