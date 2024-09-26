@@ -58,6 +58,7 @@
       wget
       xh
       yaml-language-server
+      zstd
     ];
 
   home.language.base = "ja_JP.UTF-8";
