@@ -58,3 +58,6 @@ style = "white"
 
 [scala]
 style = "white"
+
+[terraform]
+style = "white"
