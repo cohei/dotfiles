@@ -22,7 +22,7 @@
                 surround("(", ")",
                   concat(
                     separate(", ",
-                      branches,
+                      bookmarks,
                       tags,
                       working_copies,
                       git_head,
