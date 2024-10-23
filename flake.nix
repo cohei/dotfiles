@@ -7,13 +7,13 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
-    mkalias = {
-      url = "github:reckenrode/mkalias";
-      inputs.nixpkgs.follows = "nixpkgs";
+    mac-app-util = {
+      url = "github:hraban/mac-app-util";
+      inputs.flake-utils.follows = "flake-utils";
     };
   };
 
-  outputs = { self, nixpkgs, nixpkgs-unfree, home-manager, flake-utils, mkalias }:
+  outputs = { self, nixpkgs, nixpkgs-unfree, home-manager, flake-utils, mac-app-util }:
     let
       modules =
         builtins.map (f: ./module + ("/" + f)) (builtins.attrNames (builtins.readDir ./module));
@@ -26,11 +26,9 @@
               home.username = username;
               nixpkgs.overlays = [ (_self: _super: { unfree = nixpkgs-unfree.legacyPackages.${system}; }) ];
             }
+            mac-app-util.homeManagerModules.default
             ./home.nix
           ] ++ modules;
-          extraSpecialArgs = {
-            mkalias = mkalias.apps.${system}.default.program;
-          };
         };
     in
       flake-utils.lib.eachDefaultSystem (system: {
