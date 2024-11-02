@@ -2,7 +2,6 @@ tap 'homebrew/bundle'
 cask 'aquaskk'
 cask 'clipy'
 cask 'docker', greedy: true
-cask 'firefox', greedy: true
 cask 'font-cica'
 cask 'font-fira-code'
 cask 'font-ricty-diminished'
