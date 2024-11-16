@@ -25,7 +25,7 @@
                       bookmarks,
                       tags,
                       working_copies,
-                      git_head,
+                      if(git_head, label("git_head", "git_head()")),
                       format_short_commit_id(commit_id)
                     )
                   )
