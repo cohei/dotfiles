@@ -11,29 +11,24 @@
         showp = ["show" "@-"];
       };
       template-aliases.my_log_oneline = ''
-        if(root,
-          format_root_commit(self),
-          label(if(current_working_copy, "working_copy"),
-            concat(
-              separate(" ",
-                format_short_change_id_with_hidden_and_divergent_info(self),
-                if(description, description.first_line(), description_placeholder),
-                if(empty, label("empty", "(empty)")),
-                surround("(", ")",
-                  concat(
-                    separate(", ",
-                      bookmarks,
-                      tags,
-                      working_copies,
-                      if(git_head, label("git_head", "git_head()")),
-                      format_short_commit_id(commit_id)
-                    )
-                  )
-                ),
-                if(conflict, label("conflict", "conflict")),
-              ) ++ "\n",
+        label(if(current_working_copy, "working_copy"),
+          separate(" ",
+            format_short_change_id_with_hidden_and_divergent_info(self),
+            surround("(", ")",
+              concat(
+                separate(", ",
+                  bookmarks,
+                  tags,
+                  working_copies,
+                  if(root, label("root", "root()")),
+                  if(git_head, label("git_head", "git_head()")),
+                  if(conflict, label("conflict", "conflict"))
+                )
+              )
             ),
-          )
+            if(description, description.first_line(), if(!root, description_placeholder)),
+            if(!root && empty, label("empty", "(empty)"))
+          ) ++ "\n"
         )
       '';
       ui = {
