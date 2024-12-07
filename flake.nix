@@ -19,17 +19,23 @@
         builtins.map (f: ./module + ("/" + f)) (builtins.attrNames (builtins.readDir ./module));
 
       homeManagerConfiguration = username: system:
-        home-manager.lib.homeManagerConfiguration {
-          pkgs = nixpkgs.legacyPackages.${system};
-          modules = [
+        home-manager.lib.homeManagerConfiguration (
+          let
+            pkgs = nixpkgs.legacyPackages.${system};
+          in
             {
-              home.username = username;
-              nixpkgs.overlays = [ (_self: _super: { unfree = nixpkgs-unfree.legacyPackages.${system}; }) ];
+              inherit pkgs;
+              modules = [
+                {
+                  home.username = username;
+                  nixpkgs.overlays =
+                    [ (_self: _super: { unfree = nixpkgs-unfree.legacyPackages.${system}; }) ];
+                }
+                (if pkgs.stdenv.isDarwin then mac-app-util.homeManagerModules.default else {})
+                ./home.nix
+              ] ++ modules;
             }
-            mac-app-util.homeManagerModules.default
-            ./home.nix
-          ] ++ modules;
-        };
+        );
     in
       flake-utils.lib.eachDefaultSystem (system: {
         apps = rec {
