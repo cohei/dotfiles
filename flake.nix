@@ -21,16 +21,10 @@
       homeManagerConfiguration = username: system:
         home-manager.lib.homeManagerConfiguration {
           pkgs = nixpkgs.legacyPackages.${system};
-          modules = [
-            {
-              home.username = username;
-              nixpkgs.overlays =
-                [ (_self: _super: { unfree = nixpkgs-unfree.legacyPackages.${system}; }) ];
-            }
-            ./home.nix
-          ] ++ modules;
+          modules = [ ./home.nix ] ++ modules;
           extraSpecialArgs = {
-            inherit mac-app-util;
+            inherit username mac-app-util;
+            unfree = nixpkgs-unfree.legacyPackages.${system};
             isDarwin =
               with flake-utils.lib.system;
               system == x86_64-darwin || system == aarch64-darwin;

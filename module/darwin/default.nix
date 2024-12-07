@@ -1,4 +1,4 @@
-{ config, lib, pkgs, isDarwin, mac-app-util, ... }:
+{ config, lib, pkgs, unfree, isDarwin, mac-app-util, ... }:
 
 lib.attrsets.optionalAttrs isDarwin {
   imports = [ mac-app-util.homeManagerModules.default ];

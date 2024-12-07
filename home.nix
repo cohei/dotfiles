@@ -1,8 +1,9 @@
-{ config, pkgs, ... }:
+{ config, pkgs, username, ... }:
 
 {
   home.stateVersion = "24.11";
 
+  home.username = username;
   home.homeDirectory =
     let
       username = config.home.username;
