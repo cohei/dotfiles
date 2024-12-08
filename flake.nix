@@ -7,13 +7,14 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
+    darwin-systems.url = "github:nix-systems/default-darwin";
     mac-app-util = {
       url = "github:hraban/mac-app-util";
       inputs.flake-utils.follows = "flake-utils";
     };
   };
 
-  outputs = { self, nixpkgs, nixpkgs-unfree, home-manager, flake-utils, mac-app-util }:
+  outputs = { self, nixpkgs, nixpkgs-unfree, home-manager, flake-utils, darwin-systems, mac-app-util }:
     flake-utils.lib.eachDefaultSystem (system: {
       apps = rec {
         default = install;
@@ -41,9 +42,7 @@
               extraSpecialArgs = {
                 inherit username mac-app-util;
                 unfree = nixpkgs-unfree.legacyPackages.${system};
-                isDarwin =
-                  with flake-utils.lib.system;
-                  system == x86_64-darwin || system == aarch64-darwin;
+                isDarwin = builtins.elem system (import darwin-systems);
               };
             }
           );
