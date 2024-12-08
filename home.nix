@@ -41,7 +41,7 @@
       metals
       multitime
       ncdu
-      nil
+      nixd
       parallel
       pijul
       procs
