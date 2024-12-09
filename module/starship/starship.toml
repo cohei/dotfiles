@@ -8,6 +8,9 @@ style = "white"
 [character]
 success_symbol = "[❯](white)"
 
+[cmd_duration]
+show_notifications = true
+
 [directory]
 style = "white"
 
