@@ -10,7 +10,6 @@ lib.attrsets.optionalAttrs isDarwin {
       with pkgs; [
         unfree.appcleaner
         mas
-        terminal-notifier
         (callPackage ./clean-links.nix {})
       ];
 
