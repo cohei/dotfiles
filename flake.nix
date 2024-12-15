@@ -16,8 +16,8 @@
 
   outputs = { self, nixpkgs, nixpkgs-unfree, home-manager, flake-utils, darwin-systems, mac-app-util }:
     flake-utils.lib.eachDefaultSystem (system: {
-      apps = rec {
-        default = install;
+      apps = {
+        default = self.apps.${system}.install;
 
         install = flake-utils.lib.mkApp {
           drv = nixpkgs.legacyPackages.${system}.writeShellApplication {
