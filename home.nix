@@ -138,4 +138,6 @@
   };
 
   programs.fzf.enable = true;
+
+  programs.pay-respects.enable = true;
 }
