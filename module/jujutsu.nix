@@ -8,7 +8,7 @@
         d = ["diff"];
         l = ["log" "--template" "my_log_oneline"];
         la = ["l" "--revisions" "all()"];
-        showp = ["show" "@-"];
+        sp = ["show" "@-"];
       };
       template-aliases.my_log_oneline = ''
         label(if(current_working_copy, "working_copy"),
