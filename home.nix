@@ -69,6 +69,11 @@
     LESS = "--LONG-PROMPT --RAW-CONTROL-CHARS --quit-if-one-screen --no-init";
   };
 
+  home.file.".config/fish/completions/docker.fish".source =
+    pkgs.runCommand "docker-fish-completion" { buildInputs = [ pkgs.docker ]; } ''
+      docker completion fish > $out
+    '';
+
   programs.alacritty = {
     enable = true;
     settings = {
