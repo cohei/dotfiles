@@ -35,7 +35,6 @@
  ("emacs-libvterm" . "056ad74653704bc353d8ec8ab52ac75267b7d373")
  ("emacs-reformatter" . "f2cb59466b1c3f85a8c960f7d4b7b7ead015bedc")
  ("emacs-scala-mode" . "661337d8aa0a0cb418184c83757661603de3b2e3")
- ("emacs-which-key" . "38d4308d1143b61e4004b6e7a940686784e51500")
  ("emacsmirror-mirror" . "36d23671fb5755e405cd729af7f6bd20f4e7a229")
  ("embark" . "d5df0eff182b014ab49328a4dbb1d69eb7faafbd")
  ("emmet-mode" . "322d3bb112fced57d63b44863357f7a0b7eee1e3")

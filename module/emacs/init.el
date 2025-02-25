@@ -694,7 +694,6 @@
   (web-mode-markup-indent-offset . 2))
 
 (leaf which-key
-  :straight t
   :global-minor-mode t
   :blackout t)
 
