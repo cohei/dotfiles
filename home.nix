@@ -23,7 +23,6 @@
       du-dust
       duf
       dvtm
-      emacs-lsp-booster
       fd
       ffmpeg
       fswatch
