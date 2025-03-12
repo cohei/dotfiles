@@ -21,9 +21,9 @@ in
 {
   home.packages =
     [
+      emacs
       pkgs.cmake # vterm
       pkgs.cmigemo
-      emacs
       pkgs.emacs-lsp-booster
       pkgs.libvterm-neovim
       update-straight-lockfile
