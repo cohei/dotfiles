@@ -9,10 +9,10 @@ cask 'google-drive', greedy: true
 cask 'karabiner-elements', greedy: true
 cask 'menumeters'
 cask 'michaelvillar-timer'
-cask 'readdle-spark', greedy: true
 mas 'Paste Plain Text', id: 1407015686
 mas 'Save to Raindrop.io', id: 1549370672
 mas 'Slack', id: 803453959
+mas 'Spark', id: 6445813049
 mas 'The Unarchiver', id: 425424353
 mas 'Things', id: 904280696
 mas 'URL Linker', id: 1289119450
