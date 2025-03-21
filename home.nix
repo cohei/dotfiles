@@ -64,6 +64,7 @@
   home.language.base = "ja_JP.UTF-8";
   home.sessionPath = [ "$HOME/.local/bin" "$HOME/.docker/bin" ];
   home.sessionVariables = {
+    COMPOSE_BAKE = "true";
     GHCUP_USE_XDG_DIRS = "yes";
     LESS = "--LONG-PROMPT --RAW-CONTROL-CHARS --quit-if-one-screen --no-init";
   };
