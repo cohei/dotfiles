@@ -54,7 +54,6 @@
  ("helpful" . "6a4d5e0760ba96a24cd13052233c6edfb34d022c")
  ("highlight-indent-guides" . "981d5bf904eb444784e0fa3f9b8f256409df5ed8")
  ("hledger-mode" . "5492509a23047f0a1f05a112b47fa34eba7c5e1d")
- ("imenu-list" . "76f2335ee6f2f066d87fe4e4729219d70c9bc70d")
  ("js2-mode" . "e0c302872de4d26a9c1614fac8d6b94112b96307")
  ("jsonrpc" . "444cafedd091815e674b6c93458ba97a55a76928")
  ("leaf-keywords.el" . "82ec27e3441900daedeaaebca509181f964da81f")

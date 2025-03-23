@@ -108,6 +108,7 @@
   :straight t
   :bind
   ("C-c C-r" . consult-recent-file)
+  ("C-c '" . consult-imenu)
   ("C-; g" . consult-git-grep)
   ([remap goto-line] . consult-goto-line)
   ([remap switch-to-buffer] . consult-buffer)
@@ -385,14 +386,6 @@
     (setq tab-width 4))
   :hook
   (hledger-mode-hook . my/hledger-set-tab-width))
-
-(leaf imenu-list
-  :straight t
-  :bind
-  ("C-'" . imenu-list-smart-toggle)
-  :custom
-  (imenu-list-auto-resize . t)
-  (imenu-list-focus-after-activation . t))
 
 (leaf js2-mode
   :straight t
