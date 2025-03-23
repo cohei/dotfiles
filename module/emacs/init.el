@@ -358,11 +358,6 @@
 (leaf haskell-mode
   :straight t)
 
-(leaf help
-  :bind
-  ;; to use C-h for DEL
-  ("C-x ?" . help-command))
-
 (leaf helpful
   :straight t
   :bind
@@ -593,8 +588,6 @@
   :global-minor-mode column-number-mode
   :hook
   (before-save-hook . delete-trailing-whitespace)
-  :bind
-  ("C-h" . delete-backward-char)
   :custom
   (kill-whole-line . t)
   (set-mark-command-repeat-pop . t))
