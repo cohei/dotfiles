@@ -685,7 +685,7 @@
 
 (leaf whitespace
   :global-minor-mode global-whitespace-mode
-  :blackout global-whitespace-mode
+  :blackout t
   :config
   (dolist (style '(newline-mark lines tabs empty)) (delete style whitespace-style))
   (customize-set-variable 'whitespace-display-mappings
