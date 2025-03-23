@@ -312,7 +312,11 @@ inconsistent, so `window--sides-check' will reset it."
 (leaf embark
   :ensure t
   :bind
-  ("C-." . embark-act))
+  ("C-." . embark-act)
+  :config
+  (setopt embark-indicators (cons 'embark-minimal-indicator (remq 'embark-mixed-indicator embark-indicators)))
+  :custom
+  (embark-prompter . 'embark-completing-read-prompter))
 
 (leaf embark-consult
   :ensure t)
