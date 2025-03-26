@@ -7,6 +7,7 @@
  ("coffee-mode" . "1c6adeae14f3795d3b1e44321189ed7c2c93c967")
  ("compat" . "2aee8353772745bb18db1ca63729a7f5ea572a74")
  ("consult" . "ee64a2a2998e7ae462f5125f280cd656c18c77b4")
+ ("consult-dir" . "4532b8d215d16b0159691ce4dee693e72d71e0ff")
  ("consult-hoogle" . "91135cc28167399243f369fe7f5afd6912c03525")
  ("consult-ls-git" . "85882e4b7af9ad40160d985e42b36b0fd6400ead")
  ("corfu" . "2e05fe8244fff22c3c3d2af4334b1850250212a9")

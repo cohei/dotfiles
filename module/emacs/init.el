@@ -125,6 +125,14 @@
   (xref-show-definitions-function . #'consult-xref)
   (xref-show-xrefs-function . #'consult-xref))
 
+(leaf consult-dir
+  :straight t
+  :bind
+  ("C-x C-d" . consult-dir)
+  (vertico-map
+   ("C-x C-d" . consult-dir)
+   ("C-x C-j" . consult-dir-jump-file)))
+
 (leaf consult-hoogle
   :straight t)
 
