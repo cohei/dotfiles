@@ -1,7 +1,7 @@
 { pkgs, ... }:
 
 let
-  emacs = pkgs.emacs30;
+  emacs = pkgs.emacs;
 
   update-straight-lockfile = pkgs.writeShellApplication {
     name = "update-straight-lockfile";
