@@ -49,6 +49,7 @@ style = "white"
 
 [nix_shell]
 style = "white"
+heuristic = true
 
 [nodejs]
 style = "white"
