@@ -22,7 +22,8 @@
                   working_copies,
                   if(root, label("root", "root()")),
                   if(git_head, label("git_head", "git_head()")),
-                  if(conflict, label("conflict", "conflict"))
+                  if(conflict, label("conflict", "conflict")),
+                  if(divergent, format_short_commit_id(commit_id))
                 )
               )
             ),
