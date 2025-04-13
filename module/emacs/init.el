@@ -127,11 +127,6 @@
   :bind
   ("C-; l" . consult-ls-git))
 
-(leaf consult-project-extra
-  :straight t
-  :bind
-  ("C-; f" . consult-project-extra-find))
-
 (leaf corfu
   :straight t
   :global-minor-mode global-corfu-mode
