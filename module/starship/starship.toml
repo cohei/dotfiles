@@ -67,5 +67,5 @@ style = "white"
 style = "white"
 
 [custom.jujutsu]
-detect_folders = [".jj"]
+when = "jj root"
 symbol = "jj "
