@@ -95,6 +95,7 @@
  ("textile-mode" . "2ad90cb6ed2560ee147417a3ec65222cc2ad33f1")
  ("transient" . "afc88b24e4faa5c7e246303648e70b4507652f32")
  ("treesit-auto" . "016bd286a1ba4628f833a626f8b9d497882ecdf3")
+ ("vc-jj" . "15c0ec51ad63dbe1ade9eba7fc517a85f9483b41")
  ("vertico" . "d65a0db53edeb65aee0e3c2b5f8332ffc3381ba8")
  ("vterm-toggle" . "06cb4f3c565e46470a3c4505c11e26066d869715")
  ("vue-html-mode" . "1514939804bad558584feeb6298b38d22eadf64e")

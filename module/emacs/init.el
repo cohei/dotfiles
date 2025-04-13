@@ -478,11 +478,6 @@
   (peep-dired-mode-map
    ("C-x x" . peep-dired)))
 
-(leaf project
-  :custom
-  (project-vc-extra-root-markers . '(".jj"))
-  (project-vc-ignores . '(".jj")))
-
 (leaf purescript-mode
   :straight t
   :hook
@@ -638,6 +633,10 @@
 (leaf uniquify
   :custom
   (uniquify-buffer-name-style . 'reverse))
+
+(leaf vc-jj
+  :straight (vc-jj :source gnu-elpa-mirror)
+  :require vc-jj project-jj)
 
 (leaf vertico
   :straight (vertico :files (:defaults "extensions/vertico-repeat.el"))
