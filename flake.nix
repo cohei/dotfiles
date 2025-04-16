@@ -8,7 +8,10 @@
     };
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     darwin-systems.url = "github:nix-systems/default-darwin";
-    mac-app-util.url = "github:hraban/mac-app-util";
+    mac-app-util = {
+      url = "github:hraban/mac-app-util";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = inputs@{ self, nixpkgs, nixpkgs-unfree, home-manager, systems, flake-parts, darwin-systems, mac-app-util }:
