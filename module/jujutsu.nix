@@ -10,6 +10,7 @@
         la = ["l" "--revisions" "all()"];
         sp = ["show" "@-"];
       };
+      hints.resolving-conflicts = false;
       template-aliases.my_log_oneline = ''
         label(if(current_working_copy, "working_copy"),
           separate(" ",
