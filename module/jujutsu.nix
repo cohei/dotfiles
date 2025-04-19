@@ -8,7 +8,7 @@
         d = ["diff"];
         l = ["log" "--template" "my_log_oneline"];
         la = ["l" "--revisions" "all()"];
-        sp = ["show" "@-"];
+        p = ["show" "@-"];
       };
       hints.resolving-conflicts = false;
       template-aliases.my_log_oneline = ''
