@@ -104,6 +104,10 @@
   :custom
   (coffee-tab-width . 2))
 
+(leaf compile
+  :custom
+  (compilation-scroll-output . t))
+
 (leaf consult
   :straight t
   :bind
