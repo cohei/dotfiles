@@ -59,7 +59,9 @@
   (defun my/ansi-colorize-current-buffer ()
     "Colorize ansi escape sequences in the current buffer."
     (interactive)
-    (ansi-color-apply-on-region (point-min) (point-max))))
+    (ansi-color-apply-on-region (point-min) (point-max)))
+  :hook
+  (compilation-filter-hook . ansi-color-compilation-filter))
 
 (leaf apib-mode
   :straight t
