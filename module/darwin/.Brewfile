@@ -7,6 +7,7 @@ cask 'font-fira-code'
 cask 'font-ricty-diminished'
 cask 'google-drive', greedy: true
 cask 'karabiner-elements', greedy: true
+cask 'macfuse' # for tup
 cask 'menumeters'
 cask 'michaelvillar-timer'
 mas 'Paste Plain Text', id: 1407015686

@@ -51,7 +51,7 @@
       skktools
       tldr
       tokei
-      # tup # broken
+      tup
       typescript-language-server
       unused
       watch
