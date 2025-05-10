@@ -648,7 +648,7 @@
   :require vc-jj project-jj)
 
 (leaf vertico
-  :straight (vertico :files (:defaults "extensions/vertico-repeat.el"))
+  :straight (vertico :files (:defaults "extensions/vertico-repeat.el" "extensions/vertico-sort.el"))
   :global-minor-mode t
   :bind
   ("C-c r" . vertico-repeat)
