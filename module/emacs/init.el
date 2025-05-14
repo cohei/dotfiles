@@ -396,14 +396,6 @@
   :hook
   (hledger-mode-hook . my/hledger-set-tab-width))
 
-(leaf js2-mode
-  :straight t
-  :mode "\\.js\\'"
-  :custom
-  (js-indent-level . 2)
-  (js2-indent-switch-body . t)
-  (js2-strict-missing-semi-warning . nil))
-
 (leaf magit
   :straight t
   :after shackle
