@@ -396,6 +396,9 @@
   :hook
   (hledger-mode-hook . my/hledger-set-tab-width))
 
+(leaf json-ts-mode
+  :mode "\\.jsonc\\'")
+
 (leaf magit
   :straight t
   :after shackle
