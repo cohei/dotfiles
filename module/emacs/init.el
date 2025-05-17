@@ -366,7 +366,12 @@
   :mode "\\.hamlc\\'")
 
 (leaf haskell-mode
-  :straight t)
+  :straight t
+  :hook
+  (haskell-mode-hook . haskell-auto-insert-module-template)
+  :bind
+  (haskell-mode-map
+   ("C-c C-n" . haskell-navigate-imports)))
 
 (leaf helpful
   :straight t
