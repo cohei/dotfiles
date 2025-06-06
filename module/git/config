@@ -1,3 +1,6 @@
+[advice]
+	skippedCherryPicks = false
+
 [alias]
 	amend = commit --amend
 	extend = commit --amend --no-edit
