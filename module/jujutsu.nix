@@ -36,7 +36,7 @@
       '';
       ui = {
         default-command = "l";
-        diff.format = "git";
+        diff-formatter = ":git";
         graph.style = "square";
         log-synthetic-elided-nodes = true;
         pager = "delta";
