@@ -606,6 +606,11 @@
   (ruby-base-mode-hook . my/string-inflection-for-ruby)
   (java-mode-hook . my/string-inflection-for-java))
 
+(leaf tab-bar
+  :bind
+  ("C-x t <left>" . tab-previous)
+  ("C-x t <right>" . tab-next))
+
 (leaf terminal
   :custom
   (ring-bell-function . (lambda () (princ "[RING] "))))
