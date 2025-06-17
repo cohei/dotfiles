@@ -45,6 +45,8 @@
 	renames = copy
 [ghq]
 	root = ~/src
+[grep]
+	extendedRegexp = true
 [help]
 	autocorrect = 1
 [interactive]
