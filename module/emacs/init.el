@@ -209,10 +209,6 @@
   :custom
   (dired-dwim-target . t))
 
-(leaf direnv
-  :straight t
-  :global-minor-mode t)
-
 (leaf dmacro
   :straight t
   :global-minor-mode global-dmacro-mode
@@ -291,6 +287,11 @@
   (sgml-mode-hook css-mode-hook)
   :custom
   (emmet-move-cursor-between-quotes . t))
+
+(leaf envrc
+  :straight t
+  :hook
+  (after-init-hook . envrc-global-mode))
 
 (leaf exec-path-from-shell
   :straight t
