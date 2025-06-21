@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, isDarwin, ... }:
 
 let
   emacs = pkgs.emacs;
@@ -40,7 +40,7 @@ in
   home.sessionVariables.EDITOR =
     let
       options =
-        if pkgs.stdenv.isDarwin
+        if isDarwin
         then "--alternate-editor='open -a emacs'"
         else "--alternate-editor='' --create-frame";
     in "emacsclient ${options}";
