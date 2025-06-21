@@ -38,7 +38,7 @@
             modules =
               builtins.map (f: ./module + ("/" + f)) (builtins.attrNames (builtins.readDir ./module));
           in
-            nixpkgs.lib.attrsets.genAttrs [ "root" "cohei" ] (username:
+            lib.attrsets.genAttrs [ "root" "cohei" ] (username:
               home-manager.lib.homeManagerConfiguration {
                 inherit pkgs;
                 modules = [ ./home.nix ] ++ modules;
