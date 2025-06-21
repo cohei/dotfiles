@@ -34,22 +34,22 @@
         };
 
         legacyPackages.homeConfigurations =
-          let
-            modules =
-              builtins.map (f: ./module + ("/" + f)) (builtins.attrNames (builtins.readDir ./module));
-          in
-            lib.attrsets.genAttrs [ "root" "cohei" ] (username:
-              home-manager.lib.homeManagerConfiguration {
-                inherit pkgs;
-                modules = [ ./home.nix ] ++ modules;
-                extraSpecialArgs = {
-                  inherit username mac-app-util;
-                  unfree = inputs'.nixpkgs-unfree.legacyPackages;
-                  isDarwin = builtins.elem system (import darwin-systems);
-                };
-              }
-            );
-
+          lib.attrsets.genAttrs [ "root" "cohei" ] (username:
+            home-manager.lib.homeManagerConfiguration (
+              let
+                directoryContents =
+                  path: lib.attrsets.mapAttrsToList (name: _: path + "/${name}") (builtins.readDir path);
+              in
+                {
+                  inherit pkgs;
+                  modules = [ ./home.nix ] ++ directoryContents ./module;
+                  extraSpecialArgs = {
+                    inherit username mac-app-util;
+                    unfree = inputs'.nixpkgs-unfree.legacyPackages;
+                    isDarwin = builtins.elem system (import darwin-systems);
+                  };
+                })
+          );
       };
     };
 }
