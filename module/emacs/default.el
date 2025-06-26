@@ -9,7 +9,6 @@
  ("consult" . "b1b7abf5811b568d93d2f131804d890a9e2c3334")
  ("consult-dir" . "4532b8d215d16b0159691ce4dee693e72d71e0ff")
  ("consult-hoogle" . "91135cc28167399243f369fe7f5afd6912c03525")
- ("consult-ls-git" . "85882e4b7af9ad40160d985e42b36b0fd6400ead")
  ("corfu" . "5e9a2229322541c1ee28b72128cf7c097b32dd5d")
  ("csv-mode" . "1695ee17521d55dbe94caacaef5a94dfa933cd9f")
  ("ctrlf" . "9b4cf6c79a961f2bfbb949805aa300fcf1eb40a6")

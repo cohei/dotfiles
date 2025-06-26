@@ -136,11 +136,6 @@
 (leaf consult-hoogle
   :straight t)
 
-(leaf consult-ls-git
-  :straight t
-  :bind
-  ("C-; l" . consult-ls-git))
-
 (leaf corfu
   :straight t
   :global-minor-mode global-corfu-mode
