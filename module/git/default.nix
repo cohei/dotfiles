@@ -5,6 +5,7 @@
     with pkgs;
     [
       git
+      git-quick-stats
       gitAndTools.delta
       gitAndTools.gh
     ];
