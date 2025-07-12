@@ -158,6 +158,19 @@
   :custom
   (compilation-scroll-output . t))
 
+(leaf completion-preview
+  :global-minor-mode global-completion-preview-mode
+  :blackout t
+  :bind
+  (completion-preview-active-mode-map
+   ("<tab>" . completion-preview-complete)
+   ("<return>" . completion-preview-insert))
+  :custom
+  (completion-preview-minimum-symbol-length . 2)
+  :custom-face
+  ;; Solarized green
+  (completion-preview-exact . '((t :underline "#859900" :inherit completion-preview-common))))
+
 (leaf consult
   :straight t
   :bind
@@ -186,10 +199,7 @@
 
 (leaf corfu
   :straight t
-  :global-minor-mode global-corfu-mode corfu-history-mode corfu-popupinfo-mode
-  :custom
-  (corfu-auto . t)
-  (corfu-auto-prefix . 2))
+  :global-minor-mode global-corfu-mode corfu-history-mode corfu-popupinfo-mode)
 
 (leaf css-ts-mode
   :custom
