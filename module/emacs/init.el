@@ -566,7 +566,8 @@
   :global-minor-mode t
   :custom
   (shackle-rules .
-   '(("*Warnings*" :size 0.3)
+   '(("*eldoc*" :align t :select t)
+     ("*Warnings*" :size 0.3)
      (Buffer-menu-mode :align t :size 0.2 :select t)
      (grep-mode :align t :size 0.3 :select t)
      (help-mode :align right :size 72 :select t)
