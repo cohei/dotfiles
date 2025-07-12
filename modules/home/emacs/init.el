@@ -244,6 +244,10 @@
   (eglot-mode-map
    ("C-c e" . 'eglot-code-actions)))
 
+(leaf eglot-tempel
+  :straight t
+  :global-minor-mode t)
+
 (leaf eldoc
   :custom
   (eldoc-minor-mode-string . nil))
@@ -599,6 +603,16 @@
   (ruby-base-mode-hook . my/string-inflection-for-ruby)
   (java-mode-hook . my/string-inflection-for-java))
 
+(leaf tempel
+  :straight t
+  :init
+  :hook
+  ((conf-mode-hook prog-mode-hook text-mode-hook)
+   . (lambda () (add-hook 'completion-at-point-functions #'tempel-complete -10 t))))
+
+(leaf tempel-collection
+  :straight t)
+
 (leaf terminal
   :custom
   (ring-bell-function . (lambda () (princ "[RING] "))))
@@ -710,11 +724,6 @@
 
 (leaf yaml-mode
   :straight t)
-
-(leaf yasnippet
-  :straight t
-  :global-minor-mode yas-global-mode
-  :blackout yas-minor-mode)
 
 (provide 'init)
 ;;; init.el ends here
