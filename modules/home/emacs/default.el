@@ -44,7 +44,6 @@
  ("external-completion" . "547b335f9179bcd07b11658d2fd61e3cb02b256e")
  ("f.el" . "931b6d0667fe03e7bf1c6c282d6d8d7006143c52")
  ("flymake" . "e72354b9d4c144800f0e8b92162c8ffeddd8efa6")
- ("flymake-diagnostic-at-point" . "379616b1c6f5ebeaf08fbe54ae765008a78b3be7")
  ("free-keys" . "bed8e9c356c889cd98dd7a4a63c69d6c4960cf82")
  ("gcmh" . "0089f9c3a6d4e9a310d0791cf6fa8f35642ecfd9")
  ("gnu-elpa-mirror" . "e15f2d8da53d44f3b6a7b39cdb49f6e01e7e2b87")

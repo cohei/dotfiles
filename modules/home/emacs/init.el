@@ -326,13 +326,9 @@
   :straight t)
 
 (leaf flymake
-  :hook prog-mode-hook)
-
-(leaf flymake-diagnostic-at-point
-  :straight t
-  :hook flymake-mode-hook
+  :hook prog-mode-hook
   :custom
-  (flymake-diagnostic-at-point-timer-delay . 1))
+  (flymake-show-diagnostics-at-end-of-line . 'fancy))
 
 (leaf frame
   :global-minor-mode blink-cursor-mode
