@@ -1,4 +1,4 @@
-{ pkgs, isDarwin, ... }:
+{ pkgs, lib, isDarwin, ... }:
 
 let
   emacs = pkgs.emacs;
@@ -38,11 +38,9 @@ in
   #   - less v
   home.sessionVariables.EDITOR =
     let
-      options =
-        if isDarwin
-        then "--alternate-editor='open -a emacs'"
-        else "--alternate-editor='' --create-frame";
-    in "emacsclient ${options}";
+      alternative = lib.optionalString isDarwin "open -a emacs";
+    in
+      "emacsclient --create-frame --alternate-editor='${alternative}'";
 
   programs.fish.shellAliases = {
     e = "emacsclient --no-wait --create-frame --alternate-editor=''";
