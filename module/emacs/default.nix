@@ -23,7 +23,6 @@ in
     [
       emacs
       pkgs.cmake # vterm
-      pkgs.cmigemo
       pkgs.emacs-lsp-booster
       pkgs.libvterm-neovim
       update-straight-lockfile

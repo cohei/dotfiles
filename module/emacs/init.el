@@ -146,10 +146,6 @@
 (leaf ctrlf
   :straight t
   :global-minor-mode t
-  :defer-config
-  (add-to-list 'ctrlf-style-alist '(migemo :prompt "migemo"
-                                           :translator migemo-search-pattern-get
-                                           :case-fold ctrlf-no-uppercase-regexp-p))
   :custom
   (ctrlf-auto-recenter . t))
 
@@ -426,17 +422,6 @@
 
 (leaf mb-depth
   :global-minor-mode minibuffer-depth-indicate-mode)
-
-(leaf migemo
-  :straight t
-  :require t
-  :config
-  (migemo-init)
-  :custom
-  (migemo-dictionary . `,(expand-file-name "~/.nix-profile/share/migemo/utf-8/migemo-dict"))
-  (migemo-user-dictionary . nil)
-  (migemo-regex-dictionary . nil)
-  (migemo-use-default-isearch-keybinding . nil))
 
 (leaf misc
   :bind

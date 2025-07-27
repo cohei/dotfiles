@@ -62,7 +62,6 @@
  ("marginalia" . "aa8e48b86f66739a86fb2e180103f8f9682004be")
  ("markdown-mode" . "fc4fff89bae976ff4a594a538e6ef11820440c1f")
  ("melpa" . "b5c322b1e2d9212e617b81c0eaf75ffacf41102b")
- ("migemo" . "c0d84b4092ddade01110ba875559bfd454862ac2")
  ("mmm-mode" . "b1f5c7dbdc405e6e10d9ddd99a43a6b2ad61b176")
  ("multiple-cursors.el" . "89f1a8df9b1fc721b1672b4c7b6d3ab451e7e3ef")
  ("mwim.el" . "b4f3edb4c0fb8f8b71cecbf8095c2c25a8ffbf85")
