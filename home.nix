@@ -1,4 +1,4 @@
-{ config, pkgs, username, ... }:
+{ config, pkgs, username, nixpkgs-for-tup, ... }:
 
 {
   home.stateVersion = "25.05";
@@ -50,7 +50,7 @@
       skktools
       tldr
       tokei
-      tup
+      nixpkgs-for-tup.tup  # broken on Darwin in current nixpkgs
       typescript-language-server
       unused
       watch

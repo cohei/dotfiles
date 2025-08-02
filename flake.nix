@@ -11,9 +11,12 @@
       url = "github:hraban/mac-app-util";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nixpkgs-for-tup = {
+      url = "github:NixOS/nixpkgs/0d00f23f023b7215b3f1035adb5247c8ec180dbc";
+    };
   };
 
-  outputs = inputs@{ self, nixpkgs, nixpkgs-unfree, home-manager, systems, flake-parts, mac-app-util }:
+  outputs = inputs@{ self, nixpkgs, nixpkgs-unfree, home-manager, systems, flake-parts, mac-app-util, nixpkgs-for-tup }:
     flake-parts.lib.mkFlake { inherit inputs; } {
       systems = import systems;
       perSystem = { pkgs, lib, inputs', self', system, ... }: {
@@ -46,6 +49,7 @@
                     inherit username mac-app-util;
                     inherit (pkgs.stdenv) isDarwin;
                     unfree = inputs'.nixpkgs-unfree.legacyPackages;
+                    nixpkgs-for-tup = inputs'.nixpkgs-for-tup.legacyPackages;
                   };
                 })
           );
