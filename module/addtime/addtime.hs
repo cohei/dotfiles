@@ -1,8 +1,7 @@
 module Main (main) where
 
-import           Data.Time          (DiffTime, defaultTimeLocale, formatTime,
-                                     parseTimeOrError)
-import           System.Environment (getArgs)
+import Data.Time (DiffTime, defaultTimeLocale, formatTime, parseTimeOrError)
+import System.Environment (getArgs)
 
 main :: IO ()
 main = putStrLn . showTime . sum . map readTime =<< getArgs
