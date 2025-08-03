@@ -1,7 +1,7 @@
-{ config, lib, pkgs, unfree, mac-app-util, ... }:
+{ config, lib, pkgs, inputs, ... }:
 
 {
-  imports = [ mac-app-util.homeManagerModules.default ];
+  imports = [ inputs.mac-app-util.homeManagerModules.default ];
 
   config = lib.mkIf pkgs.stdenv.isDarwin {
     home.homeDirectory = lib.mkForce "/Users/${config.home.username}";

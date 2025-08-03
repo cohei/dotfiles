@@ -1,9 +1,13 @@
-{ config, pkgs, lib, username, nixpkgs-for-tup, ... }:
+{ config, pkgs, inputs, ... }:
 
 {
   home.stateVersion = "25.05";
 
-  home.username = username;
+  nixpkgs.overlays = [
+    (_: _: { unfree = inputs.nixpkgs-unfree.legacyPackages.${pkgs.system}; })
+    (_: _: { for-tup = inputs.nixpkgs-for-tup.legacyPackages.${pkgs.system}; })
+  ];
+
   home.homeDirectory =
     let
       username = config.home.username;
@@ -12,13 +16,6 @@
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
-
-  imports =
-    let
-      directoryContents =
-        path: lib.attrsets.mapAttrsToList (name: _: path + "/${name}") (builtins.readDir path);
-    in
-      directoryContents ./module;
 
   home.packages =
     with pkgs;
@@ -55,7 +52,7 @@
       skktools
       tldr
       tokei
-      nixpkgs-for-tup.tup  # broken on Darwin in current nixpkgs
+      for-tup.tup  # broken on Darwin in current nixpkgs
       typescript-language-server
       unused
       watch

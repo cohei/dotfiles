@@ -1,6 +1,7 @@
 services:
   development:
     build: .
+    hostname: dotfiles-container
     volumes:
       - .:/root/dotfiles
     working_dir: /root/dotfiles

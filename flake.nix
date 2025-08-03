@@ -2,7 +2,11 @@
   description = "My Home";
 
   inputs = {
-    flake-parts.url = "flake-parts";
+    blueprint = {
+      url = "github:numtide/blueprint";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.systems.follows = "systems";
+    };
     home-manager = {
       url = "home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -20,37 +24,5 @@
     systems.url = "systems";
   };
 
-  outputs = inputs@{ flake-parts, home-manager, mac-app-util, systems, ... }:
-    flake-parts.lib.mkFlake { inherit inputs; } {
-      systems = import systems;
-      perSystem = { pkgs, lib, inputs', self', ... }: {
-        apps = {
-          default = self'.apps.install;
-
-          install = {
-            type = "app";
-            program = lib.getExe (pkgs.writeShellApplication {
-              name = "install";
-              runtimeInputs = [ inputs'.home-manager.packages.default ];
-              text = ''
-                home-manager switch --flake "''${1:-github:cohei/dotfiles}"
-              '';
-            });
-          };
-        };
-
-        legacyPackages.homeConfigurations =
-          lib.attrsets.genAttrs [ "root" ] (username:
-            home-manager.lib.homeManagerConfiguration {
-              inherit pkgs;
-              modules = [ ./home.nix ];
-              extraSpecialArgs = {
-                inherit username mac-app-util;
-                unfree = inputs'.nixpkgs-unfree.legacyPackages;
-                nixpkgs-for-tup = inputs'.nixpkgs-for-tup.legacyPackages;
-              };
-            }
-          );
-      };
-    };
+  outputs = inputs: inputs.blueprint { inherit inputs; };
 }

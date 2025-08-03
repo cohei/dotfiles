@@ -1,0 +1,3 @@
+{ perSystem }:
+
+perSystem.self.install
