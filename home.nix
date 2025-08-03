@@ -119,12 +119,12 @@
     enable = true;
     plugins = [
       {
-        name = "nix-env.fish";
+        name = "nix.fish";
         src = pkgs.fetchFromGitHub {
-          owner = "lilyball";
-          repo = "nix-env.fish";
+          owner = "kidonng";
+          repo = "nix.fish";
           rev = "master";
-          sha256 = "RG/0rfhgq6aEKNZ0XwIqOaZ6K5S4+/Y5EEMnIdtfPhk=";
+          sha256 = "sha256-GMV0GyORJ8Tt2S9wTCo2lkkLtetYv0rc19aA5KJbo48=";
         };
       }
       {
