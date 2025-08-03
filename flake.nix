@@ -37,21 +37,16 @@
 
         legacyPackages.homeConfigurations =
           lib.attrsets.genAttrs [ "root" "cohei" ] (username:
-            home-manager.lib.homeManagerConfiguration (
-              let
-                directoryContents =
-                  path: lib.attrsets.mapAttrsToList (name: _: path + "/${name}") (builtins.readDir path);
-              in
-                {
-                  inherit pkgs;
-                  modules = [ ./home.nix ] ++ directoryContents ./module;
-                  extraSpecialArgs = {
-                    inherit username mac-app-util;
-                    inherit (pkgs.stdenv) isDarwin;
-                    unfree = inputs'.nixpkgs-unfree.legacyPackages;
-                    nixpkgs-for-tup = inputs'.nixpkgs-for-tup.legacyPackages;
-                  };
-                })
+            home-manager.lib.homeManagerConfiguration {
+              inherit pkgs;
+              modules = [ ./home.nix ];
+              extraSpecialArgs = {
+                inherit username mac-app-util;
+                inherit (pkgs.stdenv) isDarwin;
+                unfree = inputs'.nixpkgs-unfree.legacyPackages;
+                nixpkgs-for-tup = inputs'.nixpkgs-for-tup.legacyPackages;
+              };
+            }
           );
       };
     };

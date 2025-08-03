@@ -1,4 +1,4 @@
-{ config, pkgs, username, nixpkgs-for-tup, ... }:
+{ config, pkgs, lib, username, nixpkgs-for-tup, ... }:
 
 {
   home.stateVersion = "25.05";
@@ -12,6 +12,13 @@
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
+
+  imports =
+    let
+      directoryContents =
+        path: lib.attrsets.mapAttrsToList (name: _: path + "/${name}") (builtins.readDir path);
+    in
+      directoryContents ./module;
 
   home.packages =
     with pkgs;
