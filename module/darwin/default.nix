@@ -23,11 +23,8 @@ lib.attrsets.optionalAttrs isDarwin {
           touch-sudo
         ];
 
-    home.file = {
-      ".Brewfile".source = ./.Brewfile;
-      "iCloud Drive".source =
-        config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/Library/Mobile Documents/com~apple~CloudDocs";
-    };
+    home.file."iCloud Drive".source =
+      config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/Library/Mobile Documents/com~apple~CloudDocs";
 
     programs.fish.shellInit = ''
       if test -e /opt/homebrew/bin/brew
@@ -40,5 +37,7 @@ lib.attrsets.optionalAttrs isDarwin {
         showhidden = true;
       };
     };
+
+    xdg.configFile."homebrew/Brewfile".source = ./Brewfile;
   };
 }
