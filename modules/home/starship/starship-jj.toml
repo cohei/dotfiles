@@ -1,0 +1,67 @@
+module_separator = " "
+reset_color = false
+
+[bookmarks]
+search_depth = 100
+exclude = []
+
+[[module]]
+type = "Symbol"
+symbol = ""
+color = "White"
+
+[[module]]
+type = "Bookmarks"
+separator = " "
+color = "White"
+behind_symbol = "⇡"
+surround_with_quotes = false
+
+[[module]]
+type = "State"
+separator = " "
+
+[module.conflict]
+disabled = false
+text = "(CONFLICT)"
+color = "Red"
+
+[module.divergent]
+disabled = false
+text = "(DIVERGENT)"
+color = "Cyan"
+
+[module.empty]
+disabled = true
+text = "(EMPTY)"
+color = "Yellow"
+
+[module.immutable]
+disabled = false
+text = "(IMMUTABLE)"
+color = "Yellow"
+
+[module.hidden]
+disabled = false
+text = "(HIDDEN)"
+color = "Yellow"
+
+[[module]]
+type = "Metrics"
+template = "{changed} {added} {removed}"
+color = "White"
+
+[module.changed_files]
+prefix = "△"
+suffix = ""
+color = "Blue"
+
+[module.added_lines]
+prefix = "+"
+suffix = ""
+color = "Green"
+
+[module.removed_lines]
+prefix = "-"
+suffix = ""
+color = "Red"

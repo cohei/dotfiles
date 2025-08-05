@@ -24,6 +24,12 @@
       url = "github:oraios/serena";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    starship-jj = {
+      url = "gitlab:lanastara_foss/starship-jj";
+      inputs.flake-utils.follows = "serena/flake-utils";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.systems.follows = "blueprint/systems";
+    };
   };
 
   outputs = inputs: inputs.blueprint { inherit inputs; };

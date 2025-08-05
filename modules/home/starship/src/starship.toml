@@ -66,6 +66,7 @@ style = "white"
 [terraform]
 style = "white"
 
-[custom.jujutsu]
+[custom.jj]
+command = "starship-jj --ignore-working-copy starship prompt"
 when = "jj root"
-symbol = "jj "
+format = "on $output "
