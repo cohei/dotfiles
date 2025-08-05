@@ -1,13 +1,6 @@
 { pkgs, ... }:
 
 let
-  dotall = pkgs.writeShellApplication {
-    name = "dotall";
-    runtimeInputs = [ pkgs.graphviz ];
-    text = ''
-      find "$1" -name "*.dot" -exec dot -Tpdf -O {} \;
-    '';
-  };
   shell-expansion = pkgs.writeShellApplication {
     name = "shell-expansion";
     runtimeInputs = [ pkgs.coreutils ];
@@ -25,5 +18,5 @@ let
   };
 in
 {
-  home.packages = [ dotall shell-expansion ];
+  home.packages = [ shell-expansion ];
 }
