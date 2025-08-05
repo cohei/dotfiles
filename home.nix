@@ -59,6 +59,7 @@
       unused
       watch
       wget
+      xdg-ninja
       xh
       yaml-language-server
       zstd
