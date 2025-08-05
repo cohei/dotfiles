@@ -147,4 +147,6 @@
   programs.mergiraf.enable = true;
 
   programs.pay-respects.enable = true;
+
+  xdg.enable = true;
 }
