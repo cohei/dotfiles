@@ -10,12 +10,6 @@
       gitAndTools.gh
     ];
 
-  home.file = {
-   ".config/gh/config.yml".source = ./gh-config.yml;
-   ".config/git/config".source = ./config;
-   ".config/git/ignore".source = ./ignore;
-  };
-
   programs.fish = {
     shellAliases = {
       gap = "git ap";
@@ -32,5 +26,11 @@
           eval (gh completion --shell fish)
       end
     '';
+  };
+
+  xdg.configFile = {
+   "gh/config.yml".source = ./gh-config.yml;
+   "git/config".source = ./config;
+   "git/ignore".source = ./ignore;
   };
 }

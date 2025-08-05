@@ -28,11 +28,6 @@ in
       update-straight-lockfile
     ];
 
-  home.file = {
-    ".config/emacs/init.el".source = ./init.el;
-    ".config/emacs/straight/versions/default.el".source = ./default.el;
-  };
-
   # for
   #   - git commiting
   #   - less v
@@ -45,5 +40,10 @@ in
   programs.fish.shellAliases = {
     e = "emacsclient --no-wait --create-frame --alternate-editor=''";
     ekill = "emacsclient --eval '(kill-emacs)'";
+  };
+
+  xdg.configFile = {
+    "emacs/init.el".source = ./init.el;
+    "emacs/straight/versions/default.el".source = ./default.el;
   };
 }
