@@ -2,21 +2,25 @@
   description = "My Home";
 
   inputs = {
-    nixpkgs-unfree = {
-      url = "github:numtide/nixpkgs-unfree";
+    flake-parts.url = "flake-parts";
+    home-manager = {
+      url = "home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    home-manager.inputs.nixpkgs.follows = "nixpkgs";
     mac-app-util = {
       url = "github:hraban/mac-app-util";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    nixpkgs-for-tup = {
-      url = "github:NixOS/nixpkgs/0d00f23f023b7215b3f1035adb5247c8ec180dbc";
+    nixpkgs.url = "nixpkgs";
+    nixpkgs-for-tup.url = "github:NixOS/nixpkgs/0d00f23f023b7215b3f1035adb5247c8ec180dbc";
+    nixpkgs-unfree = {
+      url = "github:numtide/nixpkgs-unfree";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
+    systems.url = "systems";
   };
 
-  outputs = inputs@{ self, nixpkgs, nixpkgs-unfree, home-manager, systems, flake-parts, mac-app-util, nixpkgs-for-tup }:
+  outputs = inputs@{ flake-parts, home-manager, mac-app-util, systems, ... }:
     flake-parts.lib.mkFlake { inherit inputs; } {
       systems = import systems;
       perSystem = { pkgs, lib, inputs', self', system, ... }: {
