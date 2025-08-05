@@ -3,9 +3,9 @@
 let
   ccusage = pkgs.writeShellApplication {
     name = "ccusage";
-    runtimeInputs = [ pkgs.bun pkgs.nodejs ];
+    runtimeInputs = [ pkgs.nodejs ];
     text = ''
-      bunx ccusage "$@"
+      npx ccusage@latest "$@"
     '';
   };
 in
