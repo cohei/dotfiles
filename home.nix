@@ -35,10 +35,7 @@
       fswatch
       google-cloud-sdk
       hadolint
-      haskellPackages.cabal-fmt
-      haskellPackages.hoogle
       hledger
-      hpack
       hyperfine
       icdiff
       ipfs
