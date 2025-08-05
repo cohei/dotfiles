@@ -40,6 +40,7 @@
       icdiff
       ipfs
       jq
+      less
       metals
       multitime
       ncdu
