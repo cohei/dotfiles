@@ -1,9 +1,9 @@
 { config, lib, pkgs, unfree, isDarwin, mac-app-util, ... }:
 
-lib.attrsets.optionalAttrs isDarwin {
+{
   imports = [ mac-app-util.homeManagerModules.default ];
 
-  config = {
+  config = lib.mkIf isDarwin {
     home.homeDirectory = lib.mkForce "/Users/${config.home.username}";
 
     home.packages =
