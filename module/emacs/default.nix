@@ -1,4 +1,4 @@
-{ pkgs, lib, isDarwin, ... }:
+{ pkgs, lib, ... }:
 
 let
   emacs = pkgs.emacs;
@@ -33,7 +33,7 @@ in
   #   - less v
   home.sessionVariables.EDITOR =
     let
-      alternative = lib.optionalString isDarwin "open -a emacs";
+      alternative = lib.optionalString pkgs.stdenv.isDarwin "open -a emacs";
     in
       "emacsclient --create-frame --alternate-editor='${alternative}'";
 

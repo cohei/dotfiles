@@ -46,7 +46,6 @@
               modules = [ ./home.nix ];
               extraSpecialArgs = {
                 inherit username mac-app-util;
-                inherit (pkgs.stdenv) isDarwin;
                 unfree = inputs'.nixpkgs-unfree.legacyPackages;
                 nixpkgs-for-tup = inputs'.nixpkgs-for-tup.legacyPackages;
               };
