@@ -40,7 +40,7 @@
         };
 
         legacyPackages.homeConfigurations =
-          lib.attrsets.genAttrs [ "root" "cohei" ] (username:
+          lib.attrsets.genAttrs [ "root" ] (username:
             home-manager.lib.homeManagerConfiguration {
               inherit pkgs;
               modules = [ ./home.nix ];
