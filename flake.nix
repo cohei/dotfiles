@@ -23,7 +23,7 @@
   outputs = inputs@{ flake-parts, home-manager, mac-app-util, systems, ... }:
     flake-parts.lib.mkFlake { inherit inputs; } {
       systems = import systems;
-      perSystem = { pkgs, lib, inputs', self', system, ... }: {
+      perSystem = { pkgs, lib, inputs', self', ... }: {
         apps = {
           default = self'.apps.install;
 
