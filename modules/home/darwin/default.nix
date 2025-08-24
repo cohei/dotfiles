@@ -15,19 +15,11 @@
             home-manager news --flake .#${config.home.username}@${hostName}
           '';
         };
-        touch-sudo = pkgs.writeShellApplication {
-          name = "touch-sudo";
-          runtimeInputs = [ pkgs.gnused ];
-          text = ''
-            sed --in-place=.bak '2i auth       sufficient     pam_tid.so' /etc/pam.d/sudo
-          '';
-        };
       in
         with pkgs; [
           (callPackage ./clean-links.nix {})
           home-manager-news
           mas
-          touch-sudo
           unfree.appcleaner
         ];
 
