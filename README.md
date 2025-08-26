@@ -15,5 +15,5 @@ nix run github:cohei/dotfiles
 ## Development
 
 ``` shell
-docker compose run development
+docker compose run --build --rm development
 ```
