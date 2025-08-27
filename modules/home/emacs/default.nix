@@ -8,7 +8,7 @@ let
     runtimeInputs = [ emacs pkgs.home-manager pkgs.jujutsu ];
     text = ''
       lockfile=~/.config/emacs/straight/versions/default.el
-      lockfile_dotfiles=./module/emacs/default.el
+      lockfile_dotfiles=./modules/home/emacs/default.el
 
       [ -f $lockfile ] && rm $lockfile
       emacsclient --eval '(straight-freeze-versions)'
