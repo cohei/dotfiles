@@ -146,11 +146,18 @@
     '';
   };
 
-  programs.fzf.enable = true;
-
   programs.mergiraf.enable = true;
 
   programs.nushell.enable = true;
+
+  programs.skim = {
+    enable = true;
+    defaultOptions = [
+      # The 16 theme paints border and scrollbar in ANSI black, invisible on a dark background,
+      # so override them with bright black (8), which stays gray on both light and dark backgrounds
+      "--color 16,border:8,scrollbar:8"
+    ];
+  };
 
   programs.zoxide.enable = true;
 
