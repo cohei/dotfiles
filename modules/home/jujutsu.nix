@@ -12,26 +12,37 @@
         p = ["show" "@-"];
       };
       hints.resolving-conflicts = false;
-      template-aliases.my_log_oneline = ''
-        label(if(current_working_copy, "working_copy"),
-          separate(" ",
-            format_short_change_id_with_hidden_and_divergent_info(self),
-            surround("(", ")",
-              concat(
-                separate(", ",
-                  bookmarks,
-                  tags,
-                  working_copies,
-                  if(root, label("root", "root()")),
-                  if(git_head, label("git_head", "git_head()")),
-                  if(conflict, label("conflict", "conflict")),
-                  if(divergent, format_short_commit_id(commit_id))
-                )
-              )
+      template-aliases.my_log_oneline = "my_log_oneline(self)";
+      template-aliases."my_log_oneline(commit)" = ''
+        if(commit.root(),
+          format_root_commit(commit),
+          label(
+            separate(" ",
+              if(commit.current_working_copy(), "working_copy"),
+              if(commit.immutable(), "immutable", "mutable"),
+              if(commit.conflict(), "conflicted"),
             ),
-            if(description, description.first_line(), if(!root, description_placeholder)),
-            if(!root && empty, label("empty", "(empty)"))
-          ) ++ "\n"
+            concat(
+              separate(" ",
+                format_short_change_id_with_hidden_and_divergent_info(commit),
+                surround("(", ")",
+                  separate(", ",
+                    commit.bookmarks(),
+                    commit.tags(),
+                    commit.working_copies(),
+                    if(commit.git_head(), label("git_head", "git_head()")),
+                    if(commit.divergent(), format_short_commit_id(commit.commit_id())),
+                    if(commit.conflict(), label("conflict", "conflict"))
+                  )
+                ),
+                if(commit.empty(), label("empty", "(empty)")),
+                if(commit.description(),
+                  commit.description().first_line(),
+                  label(if(commit.empty(), "empty"), description_placeholder),
+                ),
+              ) ++ "\n",
+            ),
+          )
         )
       '';
       ui = {
