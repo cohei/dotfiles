@@ -5,7 +5,6 @@
     blueprint = {
       url = "github:numtide/blueprint";
       inputs.nixpkgs.follows = "nixpkgs";
-      inputs.systems.follows = "systems";
     };
     home-manager = {
       url = "home-manager";
@@ -21,7 +20,6 @@
       url = "github:numtide/nixpkgs-unfree";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    systems.url = "systems";
   };
 
   outputs = inputs: inputs.blueprint { inherit inputs; };
