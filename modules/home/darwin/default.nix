@@ -1,4 +1,4 @@
-{ config, lib, pkgs, inputs, ... }:
+{ config, lib, pkgs, inputs, hostName, ... }:
 
 {
   imports = [ inputs.mac-app-util.homeManagerModules.default ];
@@ -8,6 +8,13 @@
 
     home.packages =
       let
+        home-manager-news = pkgs.writeShellApplication {
+          name = "home-manager-news";
+          runtimeInputs = [ pkgs.home-manager ];
+          text = ''
+            home-manager news --flake .#${config.home.username}@${hostName}
+          '';
+        };
         touch-sudo = pkgs.writeShellApplication {
           name = "touch-sudo";
           runtimeInputs = [ pkgs.gnused ];
@@ -18,6 +25,7 @@
       in
         with pkgs; [
           (callPackage ./clean-links.nix {})
+          home-manager-news
           mas
           touch-sudo
           unfree.appcleaner

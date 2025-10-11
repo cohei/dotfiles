@@ -1,7 +1,10 @@
-{ ... }:
+{ hostName, ... }:
 
 {
-  home-manager.useGlobalPkgs = false;
+  home-manager = {
+    extraSpecialArgs = { inherit hostName; };
+    useGlobalPkgs = false;
+  };
 
   nix.settings.experimental-features = "nix-command flakes";
 
