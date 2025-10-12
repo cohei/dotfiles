@@ -17,10 +17,10 @@
         };
       in
         with pkgs; [
-          unfree.appcleaner
-          mas
           (callPackage ./clean-links.nix {})
+          mas
           touch-sudo
+          unfree.appcleaner
         ];
 
     home.file."iCloud Drive".source =
