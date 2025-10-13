@@ -642,8 +642,7 @@
   :straight t
   :custom
   (vterm-buffer-name-string . "vterm: %s")
-  (vterm-kill-buffer-on-exit . t)
-  (vterm-module-cmake-args . "-DCMAKE_PREFIX_PATH=~/.nix-profile"))
+  (vterm-kill-buffer-on-exit . t))
 
 (leaf vterm-toggle
   :straight t
