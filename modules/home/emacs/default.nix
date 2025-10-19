@@ -29,7 +29,7 @@ in
     ];
 
   # for
-  #   - git commiting
+  #   - git committing
   #   - less v
   home.sessionVariables.EDITOR =
     let
