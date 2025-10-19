@@ -1,6 +1,8 @@
 { hostName, config, lib, ... }:
 
 {
+  imports = [ ./llm-agents.nix ];
+
   home-manager = {
     extraSpecialArgs = { inherit hostName; };
     useGlobalPkgs = false;

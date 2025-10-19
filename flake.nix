@@ -14,6 +14,10 @@
       url = "home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    llm-agents = {
+      url = "github:numtide/llm-agents.nix";
+      inputs.blueprint.follows = "blueprint";
+    };
     nix-darwin = {
       url = "nix-darwin";
       inputs.nixpkgs.follows = "nixpkgs";

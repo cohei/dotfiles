@@ -5,7 +5,7 @@
 
   programs.claude-code = {
     enable = true;
-    package = pkgs.unfree.claude-code;
+    package = perSystem.llm-agents.claude-code;
     context = ./context.md;
     settings = {
       effortLevel = "xhigh";
@@ -52,8 +52,9 @@
   };
 
   home.packages = [
+    perSystem.llm-agents.ccusage
+    perSystem.llm-agents.skills
     perSystem.serena.default
     pkgs.ripgrep
-    pkgs.skills
   ];
 }
