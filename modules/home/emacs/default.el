@@ -81,7 +81,6 @@
  ("ruby-interpolation.el" . "1978e337601222cedf00e117bf4b5cac15d1f203")
  ("rust-mode" . "9915b3a585a7a75e9126df9e0e9d1df8057ae3cf")
  ("s.el" . "dda84d38fffdaf0c9b12837b504b402af910d01d")
- ("scss-mode" . "cf58dbec5394280503eb5502938f3b5445d1b53d")
  ("selected.el" . "1ca6e12f456caa1dc97c3d68597598662eb5de9a")
  ("seq" . "da86da9bf111f68fb81efd466d76d53af5aebc00")
  ("shackle" . "ae25e7e0e593520c8590440fe5e3c0ea8053dc26")
