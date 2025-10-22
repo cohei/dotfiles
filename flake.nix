@@ -20,6 +20,10 @@
       url = "github:numtide/nixpkgs-unfree";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    serena = {
+      url = "github:oraios/serena";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = inputs: inputs.blueprint { inherit inputs; };
