@@ -1,8 +1,6 @@
-{ config, lib, pkgs, inputs, hostName, ... }:
+{ config, lib, pkgs, hostName, ... }:
 
 {
-  imports = [ inputs.mac-app-util.homeManagerModules.default ];
-
   config = lib.mkIf pkgs.stdenv.isDarwin {
     home.homeDirectory = lib.mkForce "/Users/${config.home.username}";
 
@@ -32,10 +30,10 @@
       end
     '';
 
-    targets.darwin.defaults = {
-      "com.apple.dock" = {
-        showhidden = true;
-      };
+    targets.darwin = {
+      copyApps.enable = true;
+      defaults."com.apple.dock".showhidden = true;
+      linkApps.enable = false;
     };
 
     xdg.configFile."homebrew/Brewfile".source = ./Brewfile;
