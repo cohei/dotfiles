@@ -1,6 +1,6 @@
 tap 'vladdoster/formulae'
 
-cask 'aquaskk'
+cask 'aquaskk@prerelease' # for M3 MacBook compatibility
 cask 'claude'
 cask 'clipy'
 cask 'docker-desktop', greedy: true
