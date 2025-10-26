@@ -243,12 +243,6 @@
   (eglot-mode-map
    ("C-c e" . 'eglot-code-actions)))
 
-(leaf eglot-booster
-  :straight (eglot-booster :host github :repo "jdtsmith/eglot-booster")
-  :after eglot
-  :config
-  (eglot-booster-mode))
-
 (leaf eldoc
   :custom
   (eldoc-minor-mode-string . nil))

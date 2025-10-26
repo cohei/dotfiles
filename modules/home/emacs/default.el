@@ -23,7 +23,6 @@
  ("dumb-jump" . "0632bdb4186cb0b58199679bfa5e64a5b409be22")
  ("edit-indirect" . "82a28d8a85277cfe453af464603ea330eae41c05")
  ("eglot" . "ecfb2b6e6674f9127508410df86831cd36ddfe10")
- ("eglot-booster" . "cab7803c4f0adc7fff9da6680f90110674bb7a22")
  ("el-get" . "64112351b1f58c77463b8802ddd7f78964c9c5ca")
  ("eldoc" . "6c389a8d223deadedda4d69fe8d7de25068e7d91")
  ("elisp-refs" . "541a064c3ce27867872cf708354a65d83baf2a6d")
