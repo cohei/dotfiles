@@ -4,10 +4,10 @@
   home.packages =
     with pkgs;
     [
+      delta
       git
       git-quick-stats
-      gitAndTools.delta
-      gitAndTools.gh
+      github-cli
     ];
 
   programs.fish = {
