@@ -1,14 +1,12 @@
 { pkgs, ... }:
 
 {
-  home.packages =
-    with pkgs;
-    [
-      delta
-      git
-      git-quick-stats
-      github-cli
-    ];
+  home.packages = with pkgs; [
+    delta
+    git
+    git-quick-stats
+    github-cli
+  ];
 
   programs.fish = {
     shellAliases = {
@@ -29,8 +27,8 @@
   };
 
   xdg.configFile = {
-   "gh/config.yml".source = ./gh-config.yml;
-   "git/config".source = ./config;
-   "git/ignore".source = ./ignore;
+    "gh/config.yml".source = ./gh-config.yml;
+    "git/config".source = ./config;
+    "git/ignore".source = ./ignore;
   };
 }

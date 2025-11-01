@@ -19,14 +19,13 @@ let
   };
 in
 {
-  home.packages =
-    [
-      emacs
-      pkgs.cmake # vterm
-      pkgs.emacs-lsp-booster
-      pkgs.libvterm-neovim
-      update-straight-lockfile
-    ];
+  home.packages = [
+    emacs
+    pkgs.cmake # vterm
+    pkgs.emacs-lsp-booster
+    pkgs.libvterm-neovim
+    update-straight-lockfile
+  ];
 
   # for
   #   - git committing

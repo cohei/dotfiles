@@ -8,7 +8,8 @@
   programs.fish.shellAbbrs.doco = "docker compose";
 
   xdg.configFile."fish/completions/docker.fish".source =
-    pkgs.runCommand "docker-fish-completion" { buildInputs = [ pkgs.docker ]; } ''
-      docker completion fish > $out
-    '';
+    pkgs.runCommand "docker-fish-completion" { buildInputs = [ pkgs.docker ]; }
+      ''
+        docker completion fish > $out
+      '';
 }

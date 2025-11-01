@@ -2,6 +2,6 @@
 
 {
   home.packages = [
-    (pkgs.callPackage ./derivation.nix {})
+    (pkgs.callPackage ./derivation.nix { })
   ];
 }

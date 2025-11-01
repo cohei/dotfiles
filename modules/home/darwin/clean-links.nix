@@ -19,6 +19,6 @@ stdenv.mkDerivation rec {
   meta = with lib; {
     homepage = "https://github.com/Sh1d0w/clean-links";
     license = licenses.mit;
-    platforms  = platforms.darwin;
+    platforms = platforms.darwin;
   };
 }
