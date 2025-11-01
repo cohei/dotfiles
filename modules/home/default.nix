@@ -92,6 +92,14 @@
         style.blinking = "On";
         blink_timeout = 0;
       };
+      keyboard.bindings = [
+        # for Claude Code
+        {
+          key = "Enter";
+          mods = "Shift";
+          chars = "\\n";
+        }
+      ];
     };
   };
 
