@@ -24,8 +24,8 @@
       bash-language-server
       bottom
       coreutils
-      du-dust
       duf
+      dust
       dvtm
       fd
       ffmpeg
