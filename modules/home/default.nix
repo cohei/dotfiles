@@ -35,8 +35,8 @@
       hledger
       hyperfine
       icdiff
-      ipfs
       jq
+      kubo
       less
       metals
       multitime
