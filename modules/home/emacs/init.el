@@ -101,6 +101,12 @@
   :hook
   (java-mode-hook . my/indent-by-two))
 
+(leaf claude-code-ide
+  :straight (claude-code-ide :host github :repo "manzaltu/claude-code-ide.el")
+  :bind ("C-c C-'" . claude-code-ide-menu)
+  :config
+  (claude-code-ide-emacs-tools-setup))
+
 (leaf coffee-mode
   :straight t
   :custom
