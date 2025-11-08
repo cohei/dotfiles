@@ -112,6 +112,10 @@
   :custom
   (coffee-tab-width . 2))
 
+(leaf comp-run
+  :custom
+  (native-comp-async-report-warnings-errors . nil))
+
 (leaf compile
   :custom
   (compilation-scroll-output . t))
