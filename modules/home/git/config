@@ -10,7 +10,7 @@
 	f     = fetch --all --tags --prune --prune-tags
 	g     = grep
 	l     = log --oneline -5
-	lg    = log --graph --oneline --decorate --all
+	lg    = log --graph --oneline --all
 	peek  = "!f() { git switch --detach && git merge --no-edit origin/$1; }; f"
 	rb-continue-no-edit = "-c core.editor=true rebase --continue"
 	re    = restore

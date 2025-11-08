@@ -68,7 +68,7 @@
       j = "jj";
     };
     shellAliases = {
-      glgj = "git log --graph --oneline --decorate --exclude 'refs/jj/*' --all";
+      glgj = "git log --graph --oneline --exclude 'refs/jj/*' --all";
     };
     shellInit = ''
       COMPLETE=fish jj | source
