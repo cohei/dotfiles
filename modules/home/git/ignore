@@ -2,3 +2,6 @@
 .direnv/
 .envrc
 /my-scratch/
+
+# Claude Code
+/.claude/settings.local.json
