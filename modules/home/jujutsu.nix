@@ -9,6 +9,7 @@
         grep = ["util" "exec" "--" "fish" "--command" "grep $argv[1] (jj file list $argv[2])"];
         l = ["log" "--template" "my_log_oneline"];
         la = ["l" "--revisions" "all()"];
+        ls = ["l" "--limit" "20"];
         p = ["show" "@-"];
       };
       hints.resolving-conflicts = false;
@@ -46,7 +47,7 @@
         )
       '';
       ui = {
-        default-command = "l";
+        default-command = "ls";
         diff-formatter = ":git";
         graph.style = "square";
         log-synthetic-elided-nodes = true;
@@ -66,6 +67,7 @@
     };
     shellAbbrs = {
       j = "jj";
+      jl = "jj l";
     };
     shellInit = ''
       COMPLETE=fish jj | source
