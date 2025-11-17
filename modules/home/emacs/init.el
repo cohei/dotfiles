@@ -194,7 +194,8 @@
 (leaf desktop
   :global-minor-mode desktop-save-mode
   :custom
-  (desktop-load-locked-desktop . t))
+  (desktop-load-locked-desktop . t)
+  (desktop-restore-eager . 10))
 
 (leaf dhall-mode
   :straight t)
