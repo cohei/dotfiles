@@ -63,6 +63,7 @@
 	autosquash = true
 [rerere]
 	enabled = true
+	autoUpdate = true
 [stash]
 	showIncludeUntracked = true
 	showPatch = true
