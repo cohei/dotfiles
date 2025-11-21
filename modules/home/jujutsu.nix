@@ -11,6 +11,7 @@
         la = ["l" "--revisions" "all()"];
         ls = ["l" "--limit" "20"];
         p = ["show" "@-"];
+        tug = ["bookmark" "move" "--from" "heads(::@- & bookmarks())" "--to" "@-"];
       };
       hints.resolving-conflicts = false;
       template-aliases.my_log_oneline = "my_log_oneline(self)";
