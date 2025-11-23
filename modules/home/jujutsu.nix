@@ -51,8 +51,6 @@
       ui = {
         default-command = "ls";
         diff-formatter = ":git";
-        graph.style = "square";
-        log-synthetic-elided-nodes = true;
         pager = "delta";
       };
       user = {
