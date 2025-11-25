@@ -3,10 +3,13 @@
 {
   home.stateVersion = "25.05";
 
-  nixpkgs.overlays = [
-    (_: _: { unfree = inputs.nixpkgs-unfree.legacyPackages.${pkgs.system}; })
-    (_: _: { for-tup = inputs.nixpkgs-for-tup.legacyPackages.${pkgs.system}; })
-  ];
+  nixpkgs.overlays =
+    let
+      system = pkgs.stdenv.hostPlatform.system;
+    in [
+      (_: _: { unfree = inputs.nixpkgs-unfree.legacyPackages.${system}; })
+      (_: _: { for-tup = inputs.nixpkgs-for-tup.legacyPackages.${system}; })
+    ];
 
   home.homeDirectory =
     let
