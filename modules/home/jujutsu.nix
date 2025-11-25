@@ -11,6 +11,7 @@
         la = ["l" "--revisions" "all()"];
         ls = ["l" "--limit" "20"];
         p = ["show" "@-"];
+        retrunk = ["rebase" "--destination" "trunk()"];
         tug = ["bookmark" "move" "--from" "heads(::@- & bookmarks())" "--to" "@-"];
       };
       hints.resolving-conflicts = false;
