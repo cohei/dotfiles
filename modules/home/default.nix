@@ -50,6 +50,7 @@
       procs
       pstree
       pwgen
+      rust-analyzer
       sbt
       shellcheck
       skktools
