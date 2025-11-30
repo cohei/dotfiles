@@ -6,7 +6,14 @@
     useGlobalPkgs = false;
   };
 
-  nix.settings.experimental-features = "nix-command flakes";
+  nix = {
+    gc = {
+      automatic = true;
+      options = "--delete-older-than 7d";
+    };
+    optimise.automatic = true;
+    settings.experimental-features = "nix-command flakes";
+  };
 
   programs.fish.enable = true;
   environment.shells = [ config.programs.fish.package ];
