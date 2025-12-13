@@ -1,8 +1,12 @@
 { pkgs, perSystem, ... }:
 
 {
+  programs.claude-code = {
+    enable = true;
+    package = pkgs.unfree.claude-code;
+  };
+
   home.packages = [
-    pkgs.unfree.claude-code
     pkgs.ripgrep
     perSystem.serena.default
   ];
