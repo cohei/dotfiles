@@ -170,15 +170,16 @@
         "treefmt-nix": "treefmt-nix"
       },
       "locked": {
-        "lastModified": 1763385669,
-        "narHash": "sha256-V9EBVrbckC0lfniMeuil80X/m0eVwoJLPIdYPECysCs=",
-        "owner": "LucioFranco",
+        "lastModified": 1765120594,
+        "narHash": "sha256-8AZxFZqM3jGnpqsKTUTHmu/zaIiOmVIhBKEH4/dfOog=",
+        "owner": "cohei",
         "repo": "jj-spr",
-        "rev": "42cbc883a41c51db18ffdb069b0a3d8c8a42b100",
+        "rev": "17701362fbe981a4467bf7a88bfa542255683733",
         "type": "github"
       },
       "original": {
-        "owner": "LucioFranco",
+        "owner": "cohei",
+        "ref": "push-lzyqvuxzqvvv",
         "repo": "jj-spr",
         "type": "github"
       }
