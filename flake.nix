@@ -11,7 +11,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     jj-spr = {
-      url = "github:cohei/jj-spr/push-lzyqvuxzqvvv";
+      url = "github:LucioFranco/jj-spr";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nix-darwin = {
