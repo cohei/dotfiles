@@ -76,4 +76,6 @@
       COMPLETE=fish jj | source
     '';
   };
+
+  xdg.configFile."fish/functions/jj-workspace-open.fish".source = ./jj-workspace-open.fish;
 }
