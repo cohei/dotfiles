@@ -1,3 +1,5 @@
+tap 'vladdoster/formulae'
+
 cask 'aquaskk'
 cask 'clipy'
 cask 'docker-desktop', greedy: true
