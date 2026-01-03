@@ -17,7 +17,6 @@
         with pkgs; [
           (callPackage ./clean-links.nix {})
           home-manager-news
-          mas
           stats
           unfree.appcleaner
         ];
