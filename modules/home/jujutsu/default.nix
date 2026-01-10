@@ -28,26 +28,26 @@
               if(commit.immutable(), "immutable", "mutable"),
               if(commit.conflict(), "conflicted"),
             ),
-            concat(
-              separate(" ",
-                format_short_change_id_with_hidden_and_divergent_info(commit),
-                surround("(", ")",
-                  separate(", ",
-                    commit.bookmarks(),
-                    commit.tags(),
-                    commit.working_copies(),
-                    if(commit.git_head(), label("git_head", "git_head()")),
-                    if(commit.divergent(), format_short_commit_id(commit.commit_id())),
-                    if(commit.conflict(), label("conflict", "conflict"))
-                  )
-                ),
-                if(commit.empty(), label("empty", "(empty)")),
-                if(commit.description(),
-                  commit.description().first_line(),
-                  label(if(commit.empty(), "empty"), description_placeholder),
-                ),
-              ) ++ "\n",
-            ),
+            separate(" ",
+              format_short_change_id_with_change_offset(commit),
+              surround("(", ")",
+                separate(", ",
+                  commit.bookmarks(),
+                  commit.tags(),
+                  commit.working_copies(),
+                  if(commit.divergent(), format_short_commit_id(commit.commit_id())),
+                )
+              ),
+              format_commit_labels(commit),
+              if(config("ui.show-cryptographic-signatures").as_boolean(),
+                format_short_cryptographic_signature(commit.signature())
+              ),
+              if(commit.empty(), empty_commit_marker),
+              if(commit.description(),
+                commit.description().first_line(),
+                label(if(commit.empty(), "empty"), description_placeholder),
+              ),
+            ) ++ "\n",
           )
         )
       '';
