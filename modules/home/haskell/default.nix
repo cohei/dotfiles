@@ -2,9 +2,8 @@
 
 {
   home.packages = with pkgs; [
-    haskellPackages.cabal-fmt
+    haskellPackages.cabal-gild
     haskellPackages.hoogle
-    hpack
   ];
 
   xdg.configFile."ghc/ghci.conf".source = ./ghci.conf;
