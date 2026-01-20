@@ -128,6 +128,7 @@
 
   programs.fish = {
     enable = true;
+    functions.tapp = "tee (tty)";
     plugins = [
       {
         name = "nix.fish";
