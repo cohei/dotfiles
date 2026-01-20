@@ -45,6 +45,7 @@
       metals
       multitime
       ncdu
+      nix-search-cli
       nixd
       parallel
       pijul
