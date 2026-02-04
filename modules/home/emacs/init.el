@@ -679,6 +679,15 @@
   :custom
   (treesit-font-lock-level . 4))
 
+(leaf treesit-fold
+  :straight t
+  :global-minor-mode global-treesit-fold-mode
+  :blackout t
+  :bind
+  ("C-c f" . treesit-fold-toggle)
+  :hook
+  (emacs-lisp-mode-hook . (lambda () (treesit-parser-create 'elisp))))
+
 (leaf uniquify
   :custom
   (uniquify-buffer-name-style . 'reverse))
