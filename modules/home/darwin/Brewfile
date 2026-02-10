@@ -1,6 +1,7 @@
 tap 'vladdoster/formulae'
 
 cask 'aquaskk'
+cask 'claude'
 cask 'clipy'
 cask 'docker-desktop', greedy: true
 cask 'font-cica'
