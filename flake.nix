@@ -10,10 +10,6 @@
       url = "home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    jj-spr = {
-      url = "github:LucioFranco/jj-spr";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     nix-darwin = {
       url = "nix-darwin";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -30,7 +26,6 @@
     };
     starship-jj = {
       url = "gitlab:lanastara_foss/starship-jj";
-      inputs.fenix.follows = "jj-spr/fenix";
       inputs.flake-utils.follows = "serena/flake-utils";
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.systems.follows = "blueprint/systems";

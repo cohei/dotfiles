@@ -1,8 +1,6 @@
-{ perSystem, ... }:
+{ ... }:
 
 {
-  home.packages = [perSystem.jj-spr.default];
-
   programs.jujutsu = {
     enable = true;
     settings = {
@@ -14,7 +12,6 @@
         ls = ["l" "--limit" "20"];
         p = ["show" "@-"];
         retrunk = ["rebase" "--destination" "trunk()"];
-        spr =  ["util" "exec" "--" "jj-spr"];
         tug = ["bookmark" "move" "--from" "heads(::@- & bookmarks())" "--to" "@-"];
       };
       hints.resolving-conflicts = false;
