@@ -1,6 +1,8 @@
 { pkgs, perSystem, ... }:
 
 {
+  imports = [ ./notify.nix ];
+
   programs.claude-code = {
     enable = true;
     package = pkgs.unfree.claude-code;
