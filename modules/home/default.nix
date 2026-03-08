@@ -129,6 +129,7 @@
   programs.fish = {
     enable = true;
     functions.tapp = "tee (tty)";
+    functions.tmpdir = "cd (mktemp --directory)";
     plugins = [
       {
         name = "nix.fish";
