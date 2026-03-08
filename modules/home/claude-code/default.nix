@@ -18,6 +18,7 @@
           "Bash(jj log:*)"
           "Bash(jj show:*)"
           "Bash(jj status:*)"
+          "Bash(ls:*)"
           "WebFetch(domain:deepwiki.com)"
           "WebFetch(domain:gist.github.com)"
           "WebFetch(domain:github.com)"
