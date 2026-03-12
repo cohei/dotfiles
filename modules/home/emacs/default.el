@@ -47,6 +47,7 @@
  ("flymake" . "ed79f09717993a423eb7a0a458c73b0f2cb164f0")
  ("free-keys" . "bed8e9c356c889cd98dd7a4a63c69d6c4960cf82")
  ("gcmh" . "0089f9c3a6d4e9a310d0791cf6fa8f35642ecfd9")
+ ("git-timemachine" . "d1346a76122595aeeb7ebb292765841c6cfd417b")
  ("gnu-elpa-mirror" . "c8d38eb3023cbca6e88d56d52c75af2dfdfcbbb6")
  ("groovy-emacs-modes" . "7b8520b2e2d3ab1d62b35c426e17ac25ed0120bb")
  ("haml-mode" . "3bb4a96535eb5c81dbe6a43bfa8d67a778d449c0")

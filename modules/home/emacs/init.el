@@ -345,6 +345,9 @@
 (leaf free-keys
   :straight t)
 
+(leaf git-timemachine
+  :straight t)
+
 (leaf google-this
   :straight t
   :global-minor-mode t
