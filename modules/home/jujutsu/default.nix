@@ -12,9 +12,9 @@
         ls = ["l" "--limit" "20"];
         p = ["show" "@-"];
         retrunk = ["rebase" "--destination" "trunk()"];
-        tug = ["bookmark" "move" "--from" "heads(::@- & bookmarks())" "--to" "@-"];
       };
       hints.resolving-conflicts = false;
+      revsets.bookmark-advance-to = "@-";
       template-aliases.my_log_oneline = "my_log_oneline(self)";
       template-aliases."my_log_oneline(commit)" = ''
         if(commit.root(),
