@@ -74,5 +74,7 @@
     '';
   };
 
+  programs.mergiraf.enableJujutsuIntegration = true;
+
   xdg.configFile."fish/functions/jj-workspace-open.fish".source = ./jj-workspace-open.fish;
 }
