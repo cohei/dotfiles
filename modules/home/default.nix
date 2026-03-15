@@ -67,6 +67,7 @@
       unused
       watch
       wget
+      perSystem.self.xdg-files
       xdg-ninja
       xh
       yaml-language-server
