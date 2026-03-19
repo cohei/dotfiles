@@ -6,6 +6,8 @@
     package = pkgs.unfree.claude-code;
     memory.source = ./memory.md;
     settings = {
+      effortLevel = "high";
+      model = "opus";
       permissions = {
         allow = [
           "Bash(gh issue list:*)"
