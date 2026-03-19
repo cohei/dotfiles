@@ -28,7 +28,7 @@
           "WebFetch(domain:raw.githubusercontent.com)"
           "WebFetch(domain:stackoverflow.com)"
           "WebSearch"
-          "mcp__serena__*"
+          "mcp__serena"
         ];
       };
     };
