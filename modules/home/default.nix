@@ -43,6 +43,7 @@
       jq
       kubo
       less
+      perSystem.self.level-payment
       metals
       multitime
       ncdu
