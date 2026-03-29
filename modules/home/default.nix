@@ -1,4 +1,4 @@
-{ config, pkgs, inputs, ... }:
+{ config, pkgs, inputs, perSystem, ... }:
 
 {
   home.stateVersion = "25.11";
@@ -24,6 +24,7 @@
     with pkgs;
     [
       abduco
+      perSystem.self.addtime
       bash-language-server
       bottom
       coreutils

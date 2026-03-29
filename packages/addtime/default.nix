@@ -1,7 +1,7 @@
-{ pkgs, stdenv }:
+{ pkgs, pname }:
 
-stdenv.mkDerivation {
-  name = "addtime";
+pkgs.stdenv.mkDerivation {
+  name = pname;
 
   src = ./.;
 
