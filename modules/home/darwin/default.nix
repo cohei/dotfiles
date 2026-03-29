@@ -1,4 +1,4 @@
-{ config, lib, pkgs, hostName, ... }:
+{ config, lib, pkgs, hostName, perSystem, ... }:
 
 {
   config = lib.mkIf pkgs.stdenv.isDarwin {
@@ -15,7 +15,7 @@
         };
       in
         with pkgs; [
-          (callPackage ./clean-links.nix {})
+          perSystem.self.clean-links
           home-manager-news
           stats
           unfree.appcleaner
