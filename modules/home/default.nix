@@ -28,6 +28,7 @@
       bash-language-server
       bottom
       coreutils
+      perSystem.self.dotall
       duf
       dust
       dvtm
@@ -56,6 +57,7 @@
       pwgen
       rust-analyzer
       sbt
+      perSystem.self.shell-expansion
       shellcheck
       skktools
       tldr
