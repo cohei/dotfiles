@@ -1,7 +1,7 @@
-{ pkgs, perSystem, ... }:
+{ pkgs, ... }:
 
 {
-  home.packages = [ perSystem.starship-jj.default ];
+  home.packages = [ pkgs.starship-jj ];
 
   programs.starship.enable = true;
 
