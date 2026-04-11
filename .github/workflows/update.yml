@@ -18,7 +18,7 @@ jobs:
           app-id: ${{ vars.UPDATE_APP_ID }}
           private-key: ${{ secrets.UPDATE_APP_PRIVATE_KEY }}
       - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
-      - uses: NixOS/nix-installer-action@228d8a956062db04221c97c2794ea443194824aa # main
+      - uses: NixOS/nix-installer-action@150c96d08a3d21bb02f70cd1e06c830e65ac5cfc # main
       - uses: Mic92/update-flake-inputs@1e056167bd2101e587bd39deb2f64909b4759652 # v1.0.4
         with:
           github-token: ${{ steps.app-token.outputs.token }}
