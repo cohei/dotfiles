@@ -6,7 +6,7 @@
   programs.claude-code = {
     enable = true;
     package = pkgs.unfree.claude-code;
-    memory.source = ./memory.md;
+    context = ./context.md;
     settings = {
       effortLevel = "high";
       model = "opus";
