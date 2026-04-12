@@ -1,0 +1,22 @@
+name: Auto-rebase
+
+on:
+  push:
+    branches: [master]
+
+jobs:
+  rebase:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/create-github-app-token@1b10c78c7865c340bc4f6099eb2f838309f1e8c3 # v3.1.1
+        id: app-token
+        with:
+          client-id: ${{ vars.UPDATE_APP_CLIENT_ID }}
+          private-key: ${{ secrets.UPDATE_APP_PRIVATE_KEY }}
+      - uses: peter-evans/rebase@e4945786f7ca41fe6e101cead4395f5489593943 # v4.0.0
+        with:
+          token: ${{ steps.app-token.outputs.token }}
+          base: master
+          include-labels: 'auto-rebase'

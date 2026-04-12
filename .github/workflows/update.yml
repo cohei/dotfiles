@@ -26,3 +26,4 @@ jobs:
           github-token: ${{ steps.app-token.outputs.token }}
           auto-merge: 'true'
           auto-merge-method: 'REBASE'
+          pr-labels: 'dependencies,auto-rebase'
