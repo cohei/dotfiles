@@ -662,6 +662,9 @@
   :config
   (setq completion-ignore-case t)) ; not a customization variable
 
+(leaf visual-fill-column
+  :straight t)
+
 (leaf vterm
   :straight t
   :custom

@@ -103,6 +103,7 @@
  ("treesit-fold" . "d70c5f7240a8a48819421260c9a018c884a41111")
  ("vc-jj" . "cb276b38b80c151d98a9dd230ef73412a99d9368")
  ("vertico" . "f3c2033ba63880d6265cf1e1eb9e987792042fc4")
+ ("visual-fill-column" . "e1be9a1545157d24454d950c0ac79553c540edb7")
  ("vterm-toggle" . "81d031f153c5fa656c744cd518b7d54c54506706")
  ("vue-html-mode" . "1514939804bad558584feeb6298b38d22eadf64e")
  ("vue-mode" . "4853d97ea8d7b2fab7d331d3a8aad18d02b792ad")
