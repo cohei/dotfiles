@@ -44,7 +44,17 @@
             hash = "sha256-JVJeottMyjxdiGPS7O4QsshKdbwbYcKMvwe/PB7I/Zw=";
           };
         in
-        "${find-skills}/skills/find-skills/SKILL.md";
+        "${find-skills}/skills/find-skills";
+      skill-creator =
+        let
+          anthropic-skills = pkgs.fetchFromGitHub {
+            owner = "anthropics";
+            repo = "skills";
+            rev = "main";
+            hash = "sha256-xFsg66TCtKzSgRIW6Ab771FWEIhei3jPgfE4byMiB44=";
+          };
+        in
+        "${anthropic-skills}/skills/skill-creator";
     };
   };
 
