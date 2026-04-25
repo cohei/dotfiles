@@ -1,4 +1,4 @@
 services:
   development:
     build: .
-    hostname: dotfiles-container
+    hostname: sandbox-container
