@@ -9,6 +9,16 @@ jobs:
       - uses: jlumbroso/free-disk-space@54081f138730dfa15788a46383842cd2f914a1be # v1.3.1
       - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
       - run: docker compose run development nix run
+  local-darwin-activate-test:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+      - uses: NixOS/nix-installer-action@150c96d08a3d21bb02f70cd1e06c830e65ac5cfc # main
+      - name: Prepare for nix-darwin
+        run: |
+          sudo scutil --set LocalHostName sandbox-mac
+          sudo rm /etc/nix/nix.conf /etc/nix/nix.custom.conf /etc/shells
+      - run: sudo nix --extra-experimental-features "nix-command flakes" run
   network-activate-test:
     if: github.ref == 'refs/heads/master'
     runs-on: ubuntu-latest

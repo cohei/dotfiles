@@ -62,7 +62,6 @@
       skktools
       tldr
       tokei
-      for-tup.tup  # broken on Darwin in current nixpkgs
       typescript-language-server
       unused
       watch
