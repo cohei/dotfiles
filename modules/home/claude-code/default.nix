@@ -35,6 +35,7 @@
       };
     };
     skills = {
+      commit = ./skills/commit;
       find-skills =
         let
           find-skills = pkgs.fetchFromGitHub {
