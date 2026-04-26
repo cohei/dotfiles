@@ -55,3 +55,8 @@ After changes in `hosts/` or `modules/`, apply configuration with:
 ### Testing Environment
 
 Use Docker (NixOS) container for isolated testing before pushing changes.
+
+### Nix Packaging Guidelines
+
+- Do not add `nativeBuildInputs`/`buildInputs` based on guesswork. Build with a minimal configuration first, and only add dependencies when the build actually fails.
+- After running `nix build`, delete the `result` symlink (`rm result`) before committing.

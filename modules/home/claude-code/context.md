@@ -13,8 +13,7 @@ When editing files, please follow these principles:
 
 ## Fact-Checking
 
-Before relying on a technical claim, verify it by searching for official documentation or source code via WebSearch/WebFetch, and cite the URL.
-
+- When investigating something, search the internet (official documentation, GitHub, WebSearch) first, then explore local files
+- Before relying on a technical claim, verify it by searching for official documentation or source code via WebSearch/WebFetch, and cite the URL — especially tool flags, features, and repository URLs
 - If no primary source is found, mark the claim as **UNVERIFIED** and ask the user before proceeding
-- Never guess tool flags, features, or repository URLs — always look them up
 - Distinguish speculation from verified conclusions
