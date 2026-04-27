@@ -1,3 +1,3 @@
 { perSystem }:
 
-perSystem.self.install
+perSystem.self.activate
