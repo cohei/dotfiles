@@ -42,7 +42,7 @@ Platform-specific settings use `isDarwin` flag (lib.attrsets.optionalAttrs).
 
 ### Installation and Testing
 
-- **Local**: `nix run . -- .`
+- **Local**: `nix run`
 - **From GitHub**: `nix run github:cohei/dotfiles`
 - **Docker testing**: `docker compose run development [command]`
 
