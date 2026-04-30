@@ -5,6 +5,9 @@ format = "[$all](bright-black)"
 [aws]
 style = "white"
 
+[c]
+style = "white"
+
 [character]
 success_symbol = "[❯](white)"
 
