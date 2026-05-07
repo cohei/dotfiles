@@ -185,7 +185,8 @@
         "nixpkgs": "nixpkgs",
         "nixpkgs-for-tup": "nixpkgs-for-tup",
         "nixpkgs-unfree": "nixpkgs-unfree",
-        "serena": "serena"
+        "serena": "serena",
+        "tinted-terminal": "tinted-terminal"
       }
     },
     "serena": {
@@ -239,6 +240,22 @@
       "original": {
         "owner": "nix-systems",
         "repo": "default",
+        "type": "github"
+      }
+    },
+    "tinted-terminal": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1778008511,
+        "narHash": "sha256-5yAdH2U+4T/WRSiDNguacMmPak4Qb/88sRNcnzQnYDA=",
+        "owner": "tinted-theming",
+        "repo": "tinted-terminal",
+        "rev": "732bb0b012f6ce3bede367b3e1315b73a59be726",
+        "type": "github"
+      },
+      "original": {
+        "owner": "tinted-theming",
+        "repo": "tinted-terminal",
         "type": "github"
       }
     },

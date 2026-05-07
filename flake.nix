@@ -24,6 +24,10 @@
       url = "github:oraios/serena";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    tinted-terminal = {
+      url = "github:tinted-theming/tinted-terminal";
+      flake = false;
+    };
   };
 
   outputs = inputs: inputs.blueprint { inherit inputs; };

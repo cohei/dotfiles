@@ -1,9 +1,9 @@
-{ pkgs, ... }:
+{ inputs, pkgs, ... }:
 
 {
   home.packages = [ pkgs.tinty ];
 
-  programs.fish.interactiveShellInit = ''
-    tinty apply base16-solarized-dark
-  '';
+  programs.alacritty.settings.general.import = [
+    "${inputs.tinted-terminal}/themes/alacritty/base16-solarized-dark.toml"
+  ];
 }
