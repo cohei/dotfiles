@@ -18,7 +18,10 @@
       repo = "nixpkgs";
       ref = "nixpkgs-unstable";
     };
-    settings.experimental-features = "nix-command flakes";
+    settings = {
+      experimental-features = "nix-command flakes";
+      use-xdg-base-directories = true;
+    };
   };
 
   programs.fish.enable = true;
