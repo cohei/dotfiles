@@ -136,15 +136,6 @@
     functions.tmpdir = "cd (mktemp --directory)";
     plugins = [
       {
-        name = "nix.fish";
-        src = pkgs.fetchFromGitHub {
-          owner = "kidonng";
-          repo = "nix.fish";
-          rev = "master";
-          sha256 = "sha256-GMV0GyORJ8Tt2S9wTCo2lkkLtetYv0rc19aA5KJbo48=";
-        };
-      }
-      {
         name = "z";
         src = pkgs.fetchFromGitHub {
           owner = "jethrokuan";
