@@ -567,9 +567,7 @@
    ("w" . kill-ring-save)))
 
 (leaf server
-  :require t
-  :config
-  (unless (server-running-p) (server-start)))
+  :global-minor-mode server-mode)
 
 (leaf shackle
   :straight t
