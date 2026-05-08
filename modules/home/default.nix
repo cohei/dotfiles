@@ -155,6 +155,8 @@
 
   programs.mergiraf.enable = true;
 
+  programs.nushell.enable = true;
+
   programs.pay-respects.enable = true;
 
   xdg.enable = true;
