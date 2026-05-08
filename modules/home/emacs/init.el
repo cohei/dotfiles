@@ -300,8 +300,11 @@
 
 (leaf exec-path-from-shell
   :straight t
+  :require t
   :config
-  (exec-path-from-shell-initialize))
+  (exec-path-from-shell-initialize)
+  :push
+  ((exec-path-from-shell-variables . "NIX_SSL_CERT_FILE")))
 
 (leaf executable
   :hook
