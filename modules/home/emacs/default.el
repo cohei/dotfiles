@@ -41,7 +41,7 @@
  ("emmet-mode" . "322d3bb112fced57d63b44863357f7a0b7eee1e3")
  ("envrc" . "60820285aeed4f87969d663a1c14a905c7bb763a")
  ("exec-path-from-shell" . "7552abf032a383ff761e7d90e6b5cbb4658a728a")
- ("expand-region.el" . "351279272330cae6cecea941b0033a8dd8bcc4e8")
+ ("expreg" . "9919ae406fb191baf059a2dbc64b19203b0a1975")
  ("external-completion" . "f4bba19e1bdda6c3c5910b9c95041d155c8654af")
  ("f.el" . "931b6d0667fe03e7bf1c6c282d6d8d7006143c52")
  ("flymake" . "2418910539aa26a74ac55938a60f0d6a23a62dbd")

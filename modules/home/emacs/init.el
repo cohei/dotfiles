@@ -310,10 +310,19 @@
   :hook
   (after-save-hook . executable-make-buffer-file-executable-if-script-p))
 
-(leaf expand-region
+(leaf expreg
   :straight t
+  :preface
+  (defun my/expreg-expand (&optional arg)
+    "Expand region. With prefix ARG, contract instead."
+    (interactive "P")
+    (if arg
+        (expreg-contract)
+      (expreg-expand)))
+  :setq
+  (expreg-restore-point-on-quit . t)
   :bind
-  ("C-=" . er/expand-region))
+  ("C-=" . my/expreg-expand))
 
 (leaf files
   :config
