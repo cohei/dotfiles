@@ -2,6 +2,10 @@
   description = "My Home";
 
   inputs = {
+    anthropics-skills = {
+      url = "github:anthropics/skills";
+      flake = false;
+    };
     blueprint = {
       url = "github:numtide/blueprint";
       inputs.nixpkgs.follows = "nixpkgs";

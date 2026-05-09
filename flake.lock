@@ -1,5 +1,21 @@
 {
   "nodes": {
+    "anthropics-skills": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1778286877,
+        "narHash": "sha256-jKNYFom6R+Qw7LQ8vFPBe51JpqIP0tTSY8LM4aPlnT4=",
+        "owner": "anthropics",
+        "repo": "skills",
+        "rev": "f458cee31a7577a47ba0c9a101976fa599385174",
+        "type": "github"
+      },
+      "original": {
+        "owner": "anthropics",
+        "repo": "skills",
+        "type": "github"
+      }
+    },
     "blueprint": {
       "inputs": {
         "nixpkgs": [
@@ -179,6 +195,7 @@
     },
     "root": {
       "inputs": {
+        "anthropics-skills": "anthropics-skills",
         "blueprint": "blueprint",
         "home-manager": "home-manager",
         "nix-darwin": "nix-darwin",

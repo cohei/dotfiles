@@ -1,4 +1,4 @@
-{ pkgs, perSystem, ... }:
+{ inputs, pkgs, perSystem, ... }:
 
 {
   imports = [ ./notify.nix ];
@@ -47,15 +47,7 @@
         in
         "${find-skills}/skills/find-skills";
       skill-creator =
-        let
-          anthropic-skills = pkgs.fetchFromGitHub {
-            owner = "anthropics";
-            repo = "skills";
-            rev = "main";
-            hash = "sha256-jKNYFom6R+Qw7LQ8vFPBe51JpqIP0tTSY8LM4aPlnT4=";
-          };
-        in
-        "${anthropic-skills}/skills/skill-creator";
+        "${inputs.anthropics-skills}/skills/skill-creator";
     };
   };
 
