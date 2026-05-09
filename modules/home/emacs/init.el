@@ -312,17 +312,15 @@
 
 (leaf expreg
   :straight t
-  :preface
-  (defun my/expreg-expand (&optional arg)
-    "Expand region. With prefix ARG, contract instead."
-    (interactive "P")
-    (if arg
-        (expreg-contract)
-      (expreg-expand)))
   :setq
   (expreg-restore-point-on-quit . t)
   :bind
-  ("C-=" . my/expreg-expand))
+  ("C-=" . expreg-expand)
+  :config
+  (defvar-keymap expreg-repeat-map
+    :repeat (:hints ((expreg-expand . "expand") (expreg-contract . "contract")))
+    "=" #'expreg-expand
+    "-" #'expreg-contract))
 
 (leaf files
   :config
