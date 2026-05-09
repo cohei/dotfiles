@@ -514,6 +514,9 @@
   (recentf-max-saved-items . 100)
   (recentf-save-file . `,(expand-file-name "recentf" user-emacs-directory)))
 
+(leaf repeat-mode
+  :global-minor-mode t)
+
 (leaf ruby-mode
   :mode "\\.cap\\'" "\\.Brewfile\\'"
   :custom
