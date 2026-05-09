@@ -52,7 +52,7 @@
             owner = "anthropics";
             repo = "skills";
             rev = "main";
-            hash = "sha256-5NGI0gojBGoXXus8CPhIrigyWSEYJg8gnCzWYl6PsLA=";
+            hash = "sha256-jKNYFom6R+Qw7LQ8vFPBe51JpqIP0tTSY8LM4aPlnT4=";
           };
         in
         "${anthropic-skills}/skills/skill-creator";
