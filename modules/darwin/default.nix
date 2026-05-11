@@ -1,4 +1,4 @@
-{ hostName, config, ... }:
+{ hostName, config, lib, ... }:
 
 {
   home-manager = {
@@ -25,7 +25,14 @@
   };
 
   programs.fish.enable = true;
-  environment.shells = [ config.programs.fish.package ];
+
+  environment = {
+    # nix-darwin doesn't add the XDG profile path even with
+    # use-xdg-base-directories; without this `nix profile` installs
+    # land outside PATH. See https://github.com/nix-darwin/nix-darwin/issues/943.
+    profiles = lib.mkOrder 800 [ "$HOME/.local/state/nix/profile" ];
+    shells = [ config.programs.fish.package ];
+  };
 
   security.pam.services.sudo_local.touchIdAuth = true;
 
