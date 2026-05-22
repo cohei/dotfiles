@@ -124,9 +124,9 @@
   :straight t
   :bind
   ("C-c C-r" . consult-recent-file)
-  ("C-c '" . consult-imenu)
   ("C-; g" . consult-git-grep)
   ([remap goto-line] . consult-goto-line)
+  ([remap imenu] . consult-imenu)
   ([remap switch-to-buffer] . consult-buffer)
   ([remap yank-pop] . consult-yank-pop)
   (flymake-mode-map
