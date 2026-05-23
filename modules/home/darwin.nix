@@ -16,6 +16,7 @@
       in
         with pkgs; [
           home-manager-news
+          net-news-wire
           perSystem.self.clean-links
           stats
           unfree.appcleaner
