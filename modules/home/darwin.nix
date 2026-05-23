@@ -15,8 +15,8 @@
         };
       in
         with pkgs; [
-          perSystem.self.clean-links
           home-manager-news
+          perSystem.self.clean-links
           stats
           unfree.appcleaner
         ];
