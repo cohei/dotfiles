@@ -15,7 +15,7 @@ This is a Nix-based dotfiles repository using the **numtide/blueprint** framewor
 
 Primary flake inputs: `nixpkgs`, `nixpkgs-unfree`, `home-manager`, `nix-darwin`, `blueprint`
 
-Exceptional inputs (e.g., `nixpkgs-for-tup` for Darwin-specific fixes) are placed at the end of `flake.nix`.
+Other inputs and their purpose: `nixpkgs-for-tup` pins a `tup` that works on Darwin; `anthropics-skills` and `serena` are for claude-code; `tinted-terminal` provides Alacritty themes.
 
 ### Structure
 
@@ -31,12 +31,11 @@ Exceptional inputs (e.g., `nixpkgs-for-tup` for Darwin-specific fixes) are place
 
 #### Modules (`modules/home/`)
 
-**Development Tools**: `emacs/`, `git/`, `haskell/`, `claude-code.nix`
-**CLI Enhancement**: `starship/`, `jujutsu.nix`, `ghq/`
-**Custom Utilities**: `addtime/`, `level-payment/`, `shell-expansion.nix`, `dotall.nix`, `ccusage.nix`
-**Platform-Specific**: `darwin/` (macOS-only), `docker.nix`, `tinty.nix`
+**Development Tools**: `emacs/`, `git/`, `haskell/`, `claude-code/`, `tup.nix`
+**CLI Enhancement**: `starship/`, `jujutsu/`, `ghq/`, `ccusage.nix`
+**Platform-Specific**: `darwin.nix` (macOS-only), `homebrew/` (macOS-only), `docker.nix`, `tinty.nix`
 
-Platform-specific settings use `isDarwin` flag (lib.attrsets.optionalAttrs).
+Platform-specific settings are guarded with `lib.mkIf pkgs.stdenv.isDarwin`.
 
 ## Repository Development
 
@@ -44,7 +43,7 @@ Platform-specific settings use `isDarwin` flag (lib.attrsets.optionalAttrs).
 
 - **Local**: `nix run`
 - **From GitHub**: `nix run github:cohei/dotfiles`
-- **Docker testing**: `docker compose run development [command]`
+- **Docker testing**: see [README.md](README.md)
 
 ### Configuration Application
 
