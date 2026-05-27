@@ -13,7 +13,7 @@ let
       [ -f $lockfile ] && rm $lockfile
       emacsclient --eval '(straight-freeze-versions)'
       mv $lockfile $lockfile_dotfiles
-      sudo --login darwin-rebuild switch
+      sudo darwin-rebuild switch
       jj commit --message 'Emacs: update straight lockfile' $lockfile_dotfiles
     '';
   };
