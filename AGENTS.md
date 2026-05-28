@@ -9,27 +9,16 @@ This is a Nix-based dotfiles repository using the **numtide/blueprint** framewor
 - **Home Manager**: Manages user environment (dotfiles, packages, application settings) on both platforms
 - **nix-darwin**: Declaratively manages macOS-specific system-level settings
 
-## Architecture
+## Repository Layout
 
-### Dependencies
+Blueprint maps directories to flake outputs:
 
-Primary flake inputs: `nixpkgs`, `nixpkgs-unfree`, `home-manager`, `nix-darwin`, `blueprint`
+- `flake.nix` — `outputs = inputs: inputs.blueprint { inherit inputs; }`.
+- `hosts/<host>/` → `nixosConfigurations.<host>` / `darwinConfigurations.<host>`; holds each host's `users/<user>.nix` (Home Manager) and, on macOS, `darwin-configuration.nix`.
+- `modules/home/` → `homeModules.*`; `modules/darwin/` → `darwinModules.*`.
+- `packages/` → `packages.*`.
 
-Other inputs and their purpose: `nixpkgs-for-tup` pins a `tup` that works on Darwin; `anthropics-skills` and `serena` are for claude-code; `tinted-terminal` provides Alacritty themes.
-
-### Structure
-
-#### Directories
-
-- **`flake.nix`**: Main Nix flake (Blueprint: `inputs.blueprint { inherit inputs; }`)
-- **`hosts/`**: Blueprint standard convention: Machine configurations → `nixosConfigurations.*`/`darwinConfigurations.*`
-  - Contains Home Manager configurations for each host/user
-- **`modules/`**: Blueprint standard convention: NixOS/Darwin/Home Manager modules → `nixosModules.*`/`darwinModules.*`
-  - Custom setup with Home Manager modules under `modules/home/`
-- **`packages/`**: Blueprint standard convention: Project packages → `packages.*`
-  - Custom packages and installation-related files
-
-#### Module vs Package
+## Module vs Package
 
 - **`modules/home/<name>`** — code that *configures* the user environment (`home.packages`, `programs.*`, `xdg.configFile`, fish abbreviations, …).
 - **`packages/<name>`** — standalone derivations (`writeShellApplication`, `mkDerivation`, Haskell `Main.hs` + `default.nix`, …), consumed from modules via `perSystem.self.<name>`.
@@ -38,7 +27,13 @@ Rule of thumb: if it *configures or installs* something for the user, it's a mod
 
 Platform-specific settings are guarded with `lib.mkIf pkgs.stdenv.isDarwin`.
 
-### Claude user memory
+## Flake inputs
+
+Primary flake inputs: `nixpkgs`, `nixpkgs-unfree`, `home-manager`, `nix-darwin`, `blueprint`
+
+Other inputs and their purpose: `nixpkgs-for-tup` pins a `tup` that works on Darwin; `anthropics-skills` and `serena` are for claude-code; `tinted-terminal` provides Alacritty themes.
+
+## Claude user memory
 
 Claude Code's global user memory (`~/.claude/CLAUDE.md`) is generated from `modules/home/claude-code/context.md` via `programs.claude-code.context`.
 
