@@ -29,11 +29,12 @@ Other inputs and their purpose: `nixpkgs-for-tup` pins a `tup` that works on Dar
 - **`packages/`**: Blueprint standard convention: Project packages → `packages.*`
   - Custom packages and installation-related files
 
-#### Modules (`modules/home/`)
+#### Module vs Package
 
-**Development Tools**: `emacs/`, `git/`, `haskell/`, `claude-code/`, `tup.nix`
-**CLI Enhancement**: `starship/`, `jujutsu/`, `ghq/`, `ccusage.nix`
-**Platform-Specific**: `darwin.nix` (macOS-only), `homebrew/` (macOS-only), `docker.nix`, `tinty.nix`
+- **`modules/home/<name>`** — code that *configures* the user environment (`home.packages`, `programs.*`, `xdg.configFile`, fish abbreviations, …).
+- **`packages/<name>`** — standalone derivations (`writeShellApplication`, `mkDerivation`, Haskell `Main.hs` + `default.nix`, …), consumed from modules via `perSystem.self.<name>`.
+
+Rule of thumb: if it *configures or installs* something for the user, it's a module; if it *builds* an artifact, it's a package.
 
 Platform-specific settings are guarded with `lib.mkIf pkgs.stdenv.isDarwin`.
 
