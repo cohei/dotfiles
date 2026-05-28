@@ -15,7 +15,7 @@ cask 'vladdoster/formulae/vimari'
 mas 'Paste Plain Text', id: 1407015686
 mas 'Save to Raindrop.io', id: 1549370672
 mas 'Slack', id: 803453959
-mas 'Spark', id: 6445813049
+mas 'Spark Desktop', id: 6445813049
 mas 'The Unarchiver', id: 425424353
 mas 'Things', id: 904280696
 mas 'URL Linker', id: 1289119450
