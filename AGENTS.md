@@ -37,6 +37,10 @@ Other inputs and their purpose: `nixpkgs-for-tup` pins a `tup` that works on Dar
 
 Platform-specific settings are guarded with `lib.mkIf pkgs.stdenv.isDarwin`.
 
+### Claude user memory
+
+Claude Code's global user memory (`~/.claude/CLAUDE.md`) is generated from `modules/home/claude-code/context.md` via `programs.claude-code.context`.
+
 ## Repository Development
 
 ### Installation and Testing
