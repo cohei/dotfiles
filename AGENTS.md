@@ -60,7 +60,9 @@ After changes in `hosts/` or `modules/`, apply configuration with:
 
 Use Docker (NixOS) container for isolated testing before pushing changes.
 
-### Nix Packaging Guidelines
+### Change conventions
 
 - Do not add `nativeBuildInputs`/`buildInputs` based on guesswork. Build with a minimal configuration first, and only add dependencies when the build actually fails.
 - After running `nix build`, delete the `result` symlink (`rm result`) before committing.
+- When editing this file, write facts and conventions, not procedural how-to; omit standard tool behavior and directory listings (they go stale — state the pattern instead).
+- Match each heading and subject to its scope: generic guidance as "AI agent", agent-specific facts (e.g. Claude's user memory) under that agent's name.
