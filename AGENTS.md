@@ -37,25 +37,13 @@ Other inputs and their purpose: `nixpkgs-for-tup` pins a `tup` that works on Dar
 
 Claude Code's global user memory (`~/.claude/CLAUDE.md`) is generated from `modules/home/claude-code/context.md` via `programs.claude-code.context`.
 
-## Repository Development
+## Commands
 
-### Installation and Testing
+- Apply the configuration: `nix run` (this checkout) or `nix run github:cohei/dotfiles` — both invoke `packages/activate.nix`, which runs `darwin-rebuild switch` (macOS) or `home-manager switch` (Linux).
+- Or run those directly; use `build` instead of `switch` to test without activating (`home-manager build` / `darwin-rebuild build`).
+- Isolated testing in a NixOS container: see [README.md](README.md).
 
-- **Local**: `nix run`
-- **From GitHub**: `nix run github:cohei/dotfiles`
-- **Docker testing**: see [README.md](README.md)
-
-### Configuration Application
-
-After changes in `hosts/` or `modules/`, apply configuration with:
-- **Linux**: `home-manager switch` / `home-manager build` (test only)
-- **macOS**: `darwin-rebuild switch` / `darwin-rebuild build` (test only)
-
-### Testing Environment
-
-Use Docker (NixOS) container for isolated testing before pushing changes.
-
-### Change conventions
+## Change conventions
 
 - Do not add `nativeBuildInputs`/`buildInputs` based on guesswork. Build with a minimal configuration first, and only add dependencies when the build actually fails.
 - After running `nix build`, delete the `result` symlink (`rm result`) before committing.
