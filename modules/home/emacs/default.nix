@@ -3,6 +3,12 @@
 let
   emacs = pkgs.emacs;
 
+  emacsclient =
+    let
+      alternative = lib.optionalString pkgs.stdenv.isDarwin "open -a emacs";
+    in
+      "emacsclient --create-frame --alternate-editor='${alternative}'";
+
   update-straight-lockfile = pkgs.writeShellApplication {
     name = "update-straight-lockfile";
     runtimeInputs = [ emacs pkgs.home-manager pkgs.jujutsu ];
@@ -30,14 +36,10 @@ in
   # for
   #   - git committing
   #   - less v
-  home.sessionVariables.EDITOR =
-    let
-      alternative = lib.optionalString pkgs.stdenv.isDarwin "open -a emacs";
-    in
-      "emacsclient --create-frame --alternate-editor='${alternative}'";
+  home.sessionVariables.EDITOR = emacsclient;
 
   programs.fish.shellAliases = {
-    e = "emacsclient --no-wait --create-frame --alternate-editor=''";
+    e = "${emacsclient} --no-wait";
     ekill = "emacsclient --eval '(kill-emacs)'";
   };
 
