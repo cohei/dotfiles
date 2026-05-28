@@ -19,3 +19,8 @@ mas 'Spark Desktop', id: 6445813049
 mas 'The Unarchiver', id: 425424353
 mas 'Things', id: 904280696
 mas 'URL Linker', id: 1289119450
+
+# Apple preinstalled apps, listed only so `brew bundle cleanup` keeps them
+mas 'Keynote', id: 361285480
+mas 'Numbers', id: 361304891
+mas 'Pages', id: 361309726
