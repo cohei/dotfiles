@@ -8,7 +8,7 @@
     package = pkgs.unfree.claude-code;
     context = ./context.md;
     settings = {
-      effortLevel = "high";
+      effortLevel = "xhigh";
       model = "opus";
       permissions = {
         allow = [
