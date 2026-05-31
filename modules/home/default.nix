@@ -39,6 +39,7 @@
       google-cloud-sdk
       hadolint
       hledger
+      hwatch
       hyperfine
       icdiff
       jq
