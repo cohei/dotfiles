@@ -49,11 +49,7 @@
           )
         )
       '';
-      ui = {
-        default-command = "ls";
-        diff-formatter = ":git";
-        pager = "delta";
-      };
+      ui.default-command = "ls";
       user = {
         email = "a.d.xvii.kal.mai@gmail.com";
         name = "TANIGUCHI Kohei";
