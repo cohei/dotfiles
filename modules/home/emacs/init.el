@@ -724,12 +724,6 @@
   :leaf-defer nil
   :config
   (windmove-default-keybindings)
-  (defvar-keymap windmove-repeat-map
-    :repeat t
-    "<up>" #'windmove-up
-    "<down>" #'windmove-down
-    "<left>" #'windmove-left
-    "<right>" #'windmove-right)
   :hook
   ;; Make windmove work in org-mode
   (org-shiftup-final-hook . windmove-up)
