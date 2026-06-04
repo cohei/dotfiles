@@ -1,7 +1,7 @@
 { inputs, pkgs, perSystem, ... }:
 
 {
-  imports = [ ./notify.nix ];
+  imports = [ ./notify.nix ./serena.nix ];
 
   programs.claude-code = {
     enable = true;
@@ -30,7 +30,6 @@
           "WebFetch(domain:raw.githubusercontent.com)"
           "WebFetch(domain:stackoverflow.com)"
           "WebSearch"
-          "mcp__serena"
         ];
       };
     };
@@ -48,7 +47,6 @@
   home.packages = [
     perSystem.llm-agents.ccusage
     perSystem.llm-agents.skills
-    perSystem.serena.default
     pkgs.ripgrep
   ];
 }

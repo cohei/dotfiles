@@ -24,7 +24,3 @@ When editing files, please follow these principles:
 - Detect the VCS before write operations: if a `.jj` directory exists, the repo uses Jujutsu (jj); otherwise git
 - In jj repositories, use `jj` commands (`jj commit`, `jj new`, `jj describe`) instead of git for write operations
 - Colocated repositories (both `.jj` and `.git`) allow read-only git commands (`git log`, `git diff`, `git grep`) — they are convenient and harmless
-
-## Code Exploration
-
-- For code exploration and structural understanding, use Serena's symbolic tools (e.g., `get_symbols_overview`, `find_symbol`) rather than reading whole files, since this is more token-efficient. At the start of a coding task, call `initial_instructions` to load Serena's manual.
