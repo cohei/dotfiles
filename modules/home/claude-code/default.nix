@@ -37,15 +37,7 @@
     skills = {
       commit = ./skills/commit;
       find-skills =
-        let
-          find-skills = pkgs.fetchFromGitHub {
-            owner = "vercel-labs";
-            repo = "skills";
-            tag = "v1.5.1";
-            hash = "sha256-JVJeottMyjxdiGPS7O4QsshKdbwbYcKMvwe/PB7I/Zw=";
-          };
-        in
-        "${find-skills}/skills/find-skills";
+        "${inputs.vercel-skills}/skills/find-skills";
       grill-me =
         "${inputs.mattpocock-skills}/skills/productivity/grill-me";
       skill-creator =

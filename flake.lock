@@ -316,7 +316,8 @@
         "nixpkgs-for-tup": "nixpkgs-for-tup",
         "nixpkgs-unfree": "nixpkgs-unfree",
         "serena": "serena",
-        "tinted-terminal": "tinted-terminal"
+        "tinted-terminal": "tinted-terminal",
+        "vercel-skills": "vercel-skills"
       }
     },
     "serena": {
@@ -447,6 +448,22 @@
       "original": {
         "owner": "pyproject-nix",
         "repo": "uv2nix",
+        "type": "github"
+      }
+    },
+    "vercel-skills": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1780670293,
+        "narHash": "sha256-y9AFt7xLzmaX3+6+N+97zg8QXJyt4G3m9ymrB6m/pmA=",
+        "owner": "vercel-labs",
+        "repo": "skills",
+        "rev": "a561e790756b2785b9ddb82285c4eb0a08258ac9",
+        "type": "github"
+      },
+      "original": {
+        "owner": "vercel-labs",
+        "repo": "skills",
         "type": "github"
       }
     }

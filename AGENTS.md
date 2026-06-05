@@ -31,7 +31,7 @@ Platform-specific settings are guarded with `lib.mkIf pkgs.stdenv.isDarwin`.
 
 Primary flake inputs: `nixpkgs`, `nixpkgs-unfree`, `home-manager`, `nix-darwin`, `blueprint`
 
-Other inputs and their purpose: `nixpkgs-for-tup` pins a `tup` that works on Darwin; `anthropics-skills` and `serena` are for claude-code; `tinted-terminal` provides Alacritty themes.
+Other inputs and their purpose: `nixpkgs-for-tup` pins a `tup` that works on Darwin; `serena` and the skill-source inputs (`anthropics-skills`, `mattpocock-skills`, `vercel-skills`) are for claude-code; `tinted-terminal` provides Alacritty themes.
 
 ## Claude user memory
 

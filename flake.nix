@@ -40,6 +40,10 @@
       url = "github:tinted-theming/tinted-terminal";
       flake = false;
     };
+    vercel-skills = {
+      url = "github:vercel-labs/skills";
+      flake = false;
+    };
   };
 
   outputs = inputs: inputs.blueprint { inherit inputs; };
