@@ -18,6 +18,10 @@
       url = "github:numtide/llm-agents.nix";
       inputs.blueprint.follows = "blueprint";
     };
+    mattpocock-skills = {
+      url = "github:mattpocock/skills";
+      flake = false;
+    };
     nix-darwin = {
       url = "nix-darwin";
       inputs.nixpkgs.follows = "nixpkgs";

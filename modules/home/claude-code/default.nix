@@ -46,6 +46,8 @@
           };
         in
         "${find-skills}/skills/find-skills";
+      grill-me =
+        "${inputs.mattpocock-skills}/skills/productivity/grill-me";
       skill-creator =
         "${inputs.anthropics-skills}/skills/skill-creator";
     };
