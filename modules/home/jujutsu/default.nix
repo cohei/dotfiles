@@ -9,6 +9,7 @@
         grep = ["util" "exec" "--" "fish" "--command" "grep $argv[1] (jj file list $argv[2])"];
         l = ["log" "--template" "my_log_oneline"];
         la = ["l" "--revisions" "all()"];
+        log-search = ["util" "exec" "--" "fish" "--command" "jj l --revisions 'description(substring:\"'$argv[1]'\")' $argv[2..]"];
         ls = ["l" "--limit" "20"];
         p = ["show" "@-"];
         retrunk = ["rebase" "--destination" "trunk()"];
