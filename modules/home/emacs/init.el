@@ -663,10 +663,18 @@
   :require vc-jj project-jj)
 
 (leaf vertico
-  :straight (vertico :files (:defaults "extensions/vertico-repeat.el" "extensions/vertico-sort.el"))
+  :straight
+  (vertico
+   :files
+   (:defaults
+    "extensions/vertico-directory.el"
+    "extensions/vertico-repeat.el"
+    "extensions/vertico-sort.el"))
   :global-minor-mode t
   :bind
   ("C-c r" . vertico-repeat)
+  (vertico-map
+   ("DEL" . #'vertico-directory-delete-char))
   :hook
   (minibuffer-setup-hook . vertico-repeat-save)
   :config
