@@ -3,11 +3,11 @@
     "anthropics-skills": {
       "flake": false,
       "locked": {
-        "lastModified": 1780020146,
-        "narHash": "sha256-BiZvEV7VK1AwhiGg+pNMgTUQmt4exevLWwL0Brx4YyE=",
+        "lastModified": 1781037316,
+        "narHash": "sha256-1D9otXxDvmKASBu/vtAEWv6kE+U+jG4OxZpRLZbGEF0=",
         "owner": "anthropics",
         "repo": "skills",
-        "rev": "da20c92503b2e8ff1cf28ca81a0df4673debdbf7",
+        "rev": "57546260929473d4e0d1c1bb75297be2fdfa1949",
         "type": "github"
       },
       "original": {
