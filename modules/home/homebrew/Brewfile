@@ -4,7 +4,6 @@ cask 'aquaskk@prerelease' # for M3 MacBook compatibility
 cask 'claude'
 cask 'clipy'
 cask 'docker-desktop', greedy: true
-cask 'font-cica'
 cask 'google-drive', greedy: true
 cask 'karabiner-elements', greedy: true
 cask 'macfuse' # for tup

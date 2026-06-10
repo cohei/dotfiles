@@ -27,6 +27,7 @@
       perSystem.self.addtime
       bash-language-server
       bottom
+      perSystem.self.cica
       coreutils
       perSystem.self.dotall
       duf
