@@ -94,7 +94,6 @@
       };
       bell = {
         color = "#6c71c4"; # Solarized violet
-        command = { program = "osascript"; args = [ "-e" "beep" ]; };
         duration = 500;
       };
       selection.save_to_clipboard = true;

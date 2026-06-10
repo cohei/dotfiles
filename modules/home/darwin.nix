@@ -26,6 +26,8 @@
     home.file."iCloud Drive".source =
       config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/Library/Mobile Documents/com~apple~CloudDocs";
 
+    programs.alacritty.settings.bell.command = { program = "osascript"; args = [ "-e" "beep" ]; };
+
     targets.darwin = {
       copyApps.enable = true;
       defaults."com.apple.dock".showhidden = true;
