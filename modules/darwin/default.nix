@@ -22,6 +22,7 @@
     };
     settings = {
       experimental-features = "nix-command flakes";
+      trusted-users = [ "@admin" ];
       use-xdg-base-directories = true;
     };
   };
