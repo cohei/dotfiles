@@ -59,6 +59,7 @@
       rust-analyzer
       sbt
       perSystem.self.shell-expansion
+      rictydiminished-with-firacode
       shellcheck
       skktools
       tldr

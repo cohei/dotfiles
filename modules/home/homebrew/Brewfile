@@ -5,8 +5,6 @@ cask 'claude'
 cask 'clipy'
 cask 'docker-desktop', greedy: true
 cask 'font-cica'
-cask 'font-fira-code'
-cask 'font-ricty-diminished'
 cask 'google-drive', greedy: true
 cask 'karabiner-elements', greedy: true
 cask 'macfuse' # for tup
