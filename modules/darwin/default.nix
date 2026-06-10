@@ -1,7 +1,10 @@
 { hostName, config, lib, ... }:
 
 {
-  imports = [ ./llm-agents.nix ];
+  imports = [
+    ./homebrew.nix
+    ./llm-agents.nix
+  ];
 
   home-manager = {
     extraSpecialArgs = { inherit hostName; };
