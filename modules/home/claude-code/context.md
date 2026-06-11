@@ -18,6 +18,11 @@ When editing files, please follow these principles:
 - If no primary source is found, mark the claim as **UNVERIFIED** and ask the user before proceeding
 - Distinguish speculation from verified conclusions
 
+## Auto-Memory
+
+- Save a feedback memory only when the preference recurs across instances, or when explicitly told to remember it; when unsure, ask rather than save
+- Don't save a single, task-specific instruction to auto-memory as if it were a durable rule. A one-time correction is scoped to that task, not a standing preference
+
 ## VCS
 
 - Run version control operations on the host side, not inside containers
