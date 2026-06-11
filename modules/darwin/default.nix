@@ -2,7 +2,6 @@
 
 {
   imports = [
-    ./homebrew.nix
     ./llm-agents.nix
   ];
 
@@ -17,6 +16,12 @@
   home-manager = {
     extraSpecialArgs = { inherit hostName; };
     useGlobalPkgs = false;
+  };
+
+  homebrew = {
+    enable = true;
+    enableFishIntegration = true;
+    global.brewfile = true;
   };
 
   nix = {
