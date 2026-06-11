@@ -29,6 +29,7 @@
       bottom
       perSystem.self.cica
       coreutils
+      difftastic
       perSystem.self.dotall
       duf
       dust
@@ -42,7 +43,6 @@
       hledger
       hwatch
       hyperfine
-      icdiff
       jq
       kubo
       less
