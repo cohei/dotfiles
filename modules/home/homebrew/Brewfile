@@ -1,5 +1,3 @@
-tap 'vladdoster/formulae'
-
 cask 'aquaskk@prerelease' # for M3 MacBook compatibility
 cask 'claude'
 cask 'clipy'
@@ -8,7 +6,6 @@ cask 'google-drive', greedy: true
 cask 'karabiner-elements', greedy: true
 cask 'macfuse' # for tup
 cask 'michaelvillar-timer'
-cask 'vladdoster/formulae/vimari'
 mas 'Paste Plain Text', id: 1407015686
 mas 'Save to Raindrop.io', id: 1549370672
 mas 'Slack', id: 803453959
@@ -16,6 +13,7 @@ mas 'Spark Desktop', id: 6445813049
 mas 'The Unarchiver', id: 425424353
 mas 'Things', id: 904280696
 mas 'URL Linker', id: 1289119450
+mas 'Vimari', id: 1480933944
 
 # Apple preinstalled apps, listed only so `brew bundle cleanup` keeps them
 mas 'Keynote', id: 361285480
