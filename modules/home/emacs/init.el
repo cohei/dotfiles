@@ -324,7 +324,6 @@
 
 (leaf files
   :config
-  (add-to-list 'auto-mode-alist '("\\.envrc\\'" . shell-script-mode))
   (add-to-list 'backup-directory-alist `("\\.*$" . ,(expand-file-name "backup" user-emacs-directory)))
   (defun my/reload-init-file ()
     "Reload user’s initialization file."
