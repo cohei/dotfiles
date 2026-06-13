@@ -67,6 +67,39 @@
   :straight t
   :mode "\\.apib\\'")
 
+(leaf auto-side-windows
+  :straight (auto-side-windows :host github :repo "MArpogaus/auto-side-windows")
+  :hook
+  (after-init-hook . auto-side-windows-mode)
+  :bind
+  ("C-c q" . window-toggle-side-windows)
+  (window-prefix-map
+   ("b" . auto-side-windows-switch-to-buffer))
+  :init
+  (defun my/side-window-indicator ()
+    (if (window-parameter (selected-window) 'window-side) "[⊞] " ""))
+  (defun my/side-windows-resync-preserve (&rest _)
+    (dolist (window (window-list))
+      (pcase (window-parameter window 'window-side)
+        ((or 'left 'right) (window-preserve-size window t t))
+        ((or 'top 'bottom) (window-preserve-size window nil t)))))
+  :config
+  (add-to-list 'mode-line-misc-info '(:eval (my/side-window-indicator)) t)
+  (add-to-list 'window-persistent-parameters '(window-preserved-size . t))
+  (advice-add 'window-toggle-side-windows :after #'my/side-windows-resync-preserve)
+  :custom
+  (auto-side-windows-common-alist . '((preserve-size . (t . t))))
+  (auto-side-windows-common-window-parameters . '((no-other-window . t)))
+  (auto-side-windows-bottom-alist
+   . '((window-height . (lambda (window) (fit-window-to-buffer window 0.5 0.25)))))
+  (auto-side-windows-bottom-buffer-modes . '(grep-mode magit-status-mode vterm-mode))
+  (auto-side-windows-bottom-buffer-names . '("\\*eldoc\\*" "\\*scratch\\*" "\\*Warnings\\*"))
+  (auto-side-windows-right-buffer-modes . '(help-mode helpful-mode))
+  (switch-to-buffer-obey-display-actions . t)
+  (windmove-allow-all-windows . t)
+  (window-sides-slots . '(1 1 1 2))
+  (window-sides-vertical . t))
+
 (leaf autorevert
   :blackout auto-revert-mode)
 
@@ -382,9 +415,7 @@
   ("C-c C-h" . helpful-at-point)
   ([remap describe-function] . helpful-callable)
   ([remap describe-key] . helpful-key)
-  ([remap describe-variable] . helpful-variable)
-  :push
-  ((shackle-rules . '(helpful-mode :align right :size 72))))
+  ([remap describe-variable] . helpful-variable))
 
 (leaf highlight-indent-guides
   :straight t
@@ -409,13 +440,11 @@
 
 (leaf magit
   :straight t
-  :after shackle
   :global-minor-mode global-git-commit-mode
   :bind
   ("C-; m" . magit-status-here)
   :custom
-  (magit-diff-refine-hunk . 'all)
-  (shackle-rules . `((magit-status-mode :align t :size 0.6) ,@shackle-rules)))
+  (magit-diff-refine-hunk . 'all))
 
 (leaf markdown-mode
   :straight t
@@ -568,18 +597,6 @@
 (leaf server
   :global-minor-mode server-mode)
 
-(leaf shackle
-  :straight t
-  :global-minor-mode t
-  :custom
-  (shackle-rules .
-   '(("*eldoc*" :align t :select t)
-     ("*Warnings*" :size 0.3)
-     (Buffer-menu-mode :align t :size 0.2 :select t)
-     (grep-mode :align t :size 0.3 :select t)
-     (help-mode :align right :size 72 :select t)
-     (xref--xref-buffer-mode :align t :size 0.3))))
-
 (leaf shrink-whitespace
   :straight t
   :bind
@@ -692,9 +709,7 @@
   :bind
   ("C-c v" . vterm-toggle)
   :custom
-  (vterm-toggle-scope . 'project)
-  :push
-  ((shackle-rules . '(vterm-mode :align t :size 0.5))))
+  (vterm-toggle-scope . 'project))
 
 (leaf vue-mode
   :straight t)

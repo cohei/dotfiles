@@ -1,4 +1,5 @@
 (("apib-mode" . "c6dd05201f6eb9295736d8668a79a7510d11159e")
+ ("auto-side-windows" . "c28f13d6fa5988c24f0021b41b5eb7233034123f")
  ("avy" . "933d1f36cca0f71e4acb5fac707e9ae26c536264")
  ("beacon" . "85261a928ae0ec3b41e639f05291ffd6bf7c231c")
  ("blackout" . "7707211370f03f03a2f74df15f42ac24a1e99300")
@@ -87,7 +88,6 @@
  ("s.el" . "7393fa6fa305403e628058c0ec78c35d610fab05")
  ("selected.el" . "9f5a6324e4911515972989841f143696472f2374")
  ("seq" . "da86da9bf111f68fb81efd466d76d53af5aebc00")
- ("shackle" . "ae25e7e0e593520c8590440fe5e3c0ea8053dc26")
  ("shrink-whitespace.el" . "0407b89c142bd17e65edb666f35e2c6755bd0867")
  ("solarized-emacs" . "0d9d9efff196d8d8ee4ac606e70bf062a057136b")
  ("ssass-mode" . "96f557887ad97a0066a60c54f92b7234b8407016")
