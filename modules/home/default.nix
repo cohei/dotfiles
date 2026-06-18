@@ -67,6 +67,7 @@
       tokei
       typescript-language-server
       unused
+      viu
       watch
       wget
       perSystem.self.xdg-files
