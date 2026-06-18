@@ -133,17 +133,6 @@
     enable = true;
     functions.tapp = "tee (tty)";
     functions.tmpdir = "cd (mktemp --directory)";
-    plugins = [
-      {
-        name = "z";
-        src = pkgs.fetchFromGitHub {
-          owner = "jethrokuan";
-          repo = "z";
-          rev = "master";
-          sha256 = "sha256-+FUBM7CodtZrYKqU542fQD+ZDGrd2438trKM0tIESs0=";
-        };
-      }
-    ];
     shellAbbrs.aa = "arch -arm64";
     shellInit = ''
       set fish_greeting
@@ -157,6 +146,8 @@
   programs.nushell.enable = true;
 
   programs.pay-respects.enable = true;
+
+  programs.zoxide.enable = true;
 
   xdg = {
     enable = true;
