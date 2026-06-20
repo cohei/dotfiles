@@ -440,6 +440,9 @@
 (leaf mb-depth
   :global-minor-mode minibuffer-depth-indicate-mode)
 
+(leaf midnight
+  :global-minor-mode t)
+
 (leaf misc
   :bind
   ("C-c C-c" . duplicate-dwim))
