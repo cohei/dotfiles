@@ -39,6 +39,8 @@
         "${inputs.vercel-skills}/skills/find-skills";
       grill-me =
         "${inputs.mattpocock-skills}/skills/productivity/grill-me";
+      grilling =
+        "${inputs.mattpocock-skills}/skills/productivity/grilling";
       skill-creator =
         "${inputs.anthropics-skills}/skills/skill-creator";
     };
