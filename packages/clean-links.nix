@@ -1,12 +1,12 @@
 { pkgs, pname }:
 
-pkgs.stdenv.mkDerivation rec {
+pkgs.stdenv.mkDerivation (finalAttrs: {
   inherit pname;
 
   version = "v1.2+13";
 
   src = pkgs.fetchzip {
-    url = "https://github.com/Sh1d0w/clean-links/releases/download/${version}/Clean.Links.app.zip";
+    url = "https://github.com/Sh1d0w/clean-links/releases/download/${finalAttrs.version}/Clean.Links.app.zip";
     sha256 = "sha256-ArNT7obOvxzxzhPpvIPo/weV8opn9naojmd9L5l0Tqc=";
     stripRoot = false;
   };
@@ -21,4 +21,4 @@ pkgs.stdenv.mkDerivation rec {
     license = licenses.mit;
     platforms = platforms.darwin;
   };
-}
+})
