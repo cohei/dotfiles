@@ -17,6 +17,7 @@
     llm-agents = {
       url = "github:numtide/llm-agents.nix";
       inputs.blueprint.follows = "blueprint";
+      # Not following `nixpkgs`, to keep binary cache hits.
     };
     mattpocock-skills = {
       url = "github:mattpocock/skills";
