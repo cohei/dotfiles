@@ -106,7 +106,7 @@
         {
           key = "Enter";
           mods = "Shift";
-          chars = "\\n";
+          chars = "\r";
         }
       ];
     };
