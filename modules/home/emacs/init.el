@@ -116,11 +116,6 @@
   (add-to-list 'balanced-windows-commands #'split-window-right)
   (balanced-windows-mode))
 
-(leaf beacon
-  :straight t
-  :global-minor-mode t
-  :blackout t)
-
 (leaf browse-at-remote
   :straight t)
 
@@ -537,6 +532,12 @@
    ("C-x x" . peep-dired))
   (peep-dired-mode-map
    ("C-x x" . peep-dired)))
+
+(leaf pulsar
+  :straight t
+  :global-minor-mode pulsar-global-mode
+  :custom
+  (pulsar-pulse-region-functions . '(duplicate-dwim undo yank yank-rectangle)))
 
 (leaf purescript-mode
   :straight t
