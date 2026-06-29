@@ -17,7 +17,6 @@
  ("dash.el" . "d3a84021dbe48dba63b52ef7665651e0cf02e915")
  ("dhall-mode" . "fca383a9c4622c1d9a39dc977572b34c7fa0b719")
  ("diff-hl" . "2f1623d98a29cee791fac2b879a45d53eec3ba82")
- ("dimmer.el" . "bbab62f01d45086b9098f6a0ab765282d9c7bc45")
  ("dmacro" . "c714fcdbac3ae57fcc8ff3db94b0e5aededc7468")
  ("dockerfile-mode" . "97733ce074b1252c1270fd5e8a53d178b66668ed")
  ("dumb-jump" . "cf06b4ccdce6a39346c32f05139f9ee8b77ee229")

@@ -206,12 +206,6 @@
   :hook
   (dired-mode-hook . diff-hl-dired-mode))
 
-(leaf dimmer
-  :straight t
-  :global-minor-mode t
-  :custom
-  (dimmer-fraction . 0.3))
-
 (leaf dired
   :custom
   (dired-dwim-target . t))
