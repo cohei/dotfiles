@@ -548,6 +548,8 @@
   :blackout selected-minor-mode
   :hook
   ((prog-mode-hook text-mode-hook) . selected-minor-mode)
+  :setq
+  (selected-minor-mode-override . t)
   :bind
   (selected-keymap
    ("%" . query-replace)
