@@ -7,6 +7,7 @@
       aliases = {
         d = ["diff"];
         grep = ["util" "exec" "--" "fish" "--command" "grep $argv[1] (jj file list $argv[2])"];
+        into-megamerge = ["rebase" "--after" "fork_point(megamerge-)" "--before" "megamerge"];
         l = ["log" "--template" "my_log_oneline"];
         la = ["l" "--revisions" "all()"];
         log-search = ["util" "exec" "--" "fish" "--command" "jj l --revisions 'description(substring:\"'$argv[1]'\")' $argv[2..]"];
@@ -15,6 +16,7 @@
         retrunk = ["rebase" "--destination" "trunk()"];
       };
       hints.resolving-conflicts = false;
+      revset-aliases.megamerge = "description(exact:\"Megamerge!\n\")";
       revsets.bookmark-advance-to = "@-";
       template-aliases.my_log_oneline = "my_log_oneline(self)";
       template-aliases."my_log_oneline(commit)" = ''
