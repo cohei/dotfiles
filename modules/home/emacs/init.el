@@ -92,7 +92,7 @@
   (auto-side-windows-common-window-parameters . '((no-other-window . t)))
   (auto-side-windows-bottom-alist
    . '((window-height . (lambda (window) (fit-window-to-buffer window 0.5 0.25)))))
-  (auto-side-windows-bottom-buffer-modes . '(grep-mode magit-status-mode vterm-mode))
+  (auto-side-windows-bottom-buffer-modes . '(ghostel-mode grep-mode magit-status-mode))
   (auto-side-windows-bottom-buffer-names . '("\\*eldoc\\*" "\\*scratch\\*" "\\*Warnings\\*"))
   (auto-side-windows-right-buffer-modes . '(help-mode helpful-mode))
   (switch-to-buffer-obey-display-actions . t)
@@ -138,7 +138,9 @@
   :straight (claude-code-ide :host github :repo "manzaltu/claude-code-ide.el")
   :bind ("C-c C-'" . claude-code-ide-menu)
   :config
-  (claude-code-ide-emacs-tools-setup))
+  (claude-code-ide-emacs-tools-setup)
+  :custom
+  (claude-code-ide-terminal-backend . 'ghostel))
 
 (leaf coffee-mode
   :straight t
@@ -380,6 +382,14 @@
 
 (leaf free-keys
   :straight t)
+
+(leaf ghostel
+  :straight t
+  :bind
+  ("C-c v" . ghostel-project)
+  :config
+  (add-to-list 'project-switch-commands '(ghostel-project "Ghostel" "v") t)
+  (add-to-list 'project-switch-commands '(ghostel-project-list-buffers "Ghostel buffers" "V") t))
 
 (leaf git-timemachine
   :straight t)
@@ -700,19 +710,6 @@
 (leaf visual-fill-column
   :straight t)
 
-(leaf vterm
-  :straight t
-  :custom
-  (vterm-buffer-name-string . "vterm: %s")
-  (vterm-kill-buffer-on-exit . t))
-
-(leaf vterm-toggle
-  :straight t
-  :bind
-  ("C-c v" . vterm-toggle)
-  :custom
-  (vterm-toggle-scope . 'project))
-
 (leaf vue-mode
   :straight t)
 
@@ -740,7 +737,7 @@
                           (cons '(space-mark ?\u3000 [?\u25a1])
                                 (seq-remove (lambda (x) (equal (seq-take x 2) '(space-mark ?\ ))) whitespace-display-mappings)))
   :custom
-  (whitespace-global-modes . '(not vterm-mode magit-log-mode magit-status-mode)))
+  (whitespace-global-modes . '(not magit-log-mode magit-status-mode)))
 
 (leaf windmove
   :leaf-defer nil
