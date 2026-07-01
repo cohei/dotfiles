@@ -157,9 +157,9 @@
   :straight t
   :bind
   ("C-c C-r" . consult-recent-file)
-  ("C-; g" . consult-git-grep)
   ([remap goto-line] . consult-goto-line)
   ([remap imenu] . consult-imenu)
+  ([remap project-find-regexp] . consult-git-grep)
   ([remap switch-to-buffer] . consult-buffer)
   ([remap yank-pop] . consult-yank-pop)
   (flymake-mode-map
@@ -412,10 +412,11 @@
 (leaf helpful
   :straight t
   :bind
-  ("C-c C-h" . helpful-at-point)
   ([remap describe-function] . helpful-callable)
   ([remap describe-key] . helpful-key)
-  ([remap describe-variable] . helpful-variable))
+  ([remap describe-variable] . helpful-variable)
+  (help-map
+   ("C-." . helpful-at-point)))
 
 (leaf highlight-indent-guides
   :straight t
@@ -442,7 +443,8 @@
   :straight t
   :global-minor-mode global-git-commit-mode
   :bind
-  ("C-; m" . magit-status-here)
+  (project-prefix-map
+   ("m" . magit-status-here))
   :custom
   (magit-diff-refine-hunk . 'all))
 
