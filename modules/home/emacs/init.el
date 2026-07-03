@@ -135,7 +135,7 @@
     (setq-local c-basic-offset 2)
     (c-set-offset 'case-label '+))
   :hook
-  (java-mode-hook . my/indent-by-two))
+  (java-ts-mode-hook . my/indent-by-two))
 
 (leaf claude-code-ide
   :straight (claude-code-ide :host github :repo "manzaltu/claude-code-ide.el")
@@ -190,6 +190,10 @@
   :custom
   (corfu-auto . t)
   (corfu-auto-prefix . 2))
+
+(leaf css-ts-mode
+  :custom
+  (css-indent-offset . 2))
 
 (leaf ctrlf
   :straight t
@@ -255,9 +259,6 @@
   :custom
   (dmacro-key . `,(kbd "C-c d")))
 
-(leaf dockerfile-mode
-  :straight t)
-
 (leaf dumb-jump
   :straight t
   :hook
@@ -271,7 +272,7 @@
 (leaf eglot
   :straight (eglot :source gnu-elpa-mirror)
   :hook
-  ((haskell-mode-hook js-base-mode-hook nix-mode-hook ruby-base-mode-hook scala-mode-hook sh-mode-hook yaml-mode-hook) . eglot-ensure)
+  ((haskell-ts-mode-hook js-base-mode-hook nix-ts-mode-hook ruby-base-mode-hook scala-mode-hook sh-mode-hook yaml-ts-mode-hook) . eglot-ensure)
   :bind
   (eglot-mode-map
    ("C-c e" . 'eglot-code-actions)))
@@ -321,7 +322,7 @@
 (leaf emmet-mode
   :straight t
   :hook
-  (sgml-mode-hook css-mode-hook)
+  (sgml-mode-hook css-base-mode-hook)
   :custom
   (emmet-move-cursor-between-quotes . t))
 
@@ -414,13 +415,9 @@
   :straight t
   :mode "\\.hamlc\\'")
 
-(leaf haskell-mode
+(leaf haskell-ts-mode
   :straight t
-  :hook
-  (haskell-mode-hook . haskell-auto-insert-module-template)
-  :bind
-  (haskell-mode-map
-   ("C-c C-n" . haskell-navigate-imports)))
+  :blackout (haskell-ts-mode . "Haskell"))
 
 (leaf helpful
   :straight t
@@ -435,7 +432,7 @@
 (leaf highlight-indent-guides
   :straight t
   :blackout t
-  :hook prog-mode-hook yaml-mode-hook
+  :hook prog-mode-hook yaml-ts-mode-hook
   :custom
   (highlight-indent-guides-method . 'bitmap)
   (highlight-indent-guides-bitmap-function . 'highlight-indent-guides--bitmap-line)
@@ -451,7 +448,7 @@
   (hledger-mode-hook . my/hledger-set-tab-width))
 
 (leaf json-ts-mode
-  :mode "\\.jsonc\\'")
+  :mode ("\\.json\\'" "\\.jsonc\\'"))
 
 (leaf magit
   :straight t
@@ -504,7 +501,7 @@
   (nael-mode-hook . abbrev-mode)
   (nael-mode-hook . eglot-ensure))
 
-(leaf nix-mode
+(leaf nix-ts-mode
   :straight t
   :mode "\\.nix\\'")
 
@@ -551,7 +548,7 @@
 (leaf rainbow-mode
   :straight t
   :hook
-  (css-mode-hook scss-mode-hook html-mode-hook lisp-mode-hook web-mode-hook))
+  (css-base-mode-hook html-mode-hook lisp-mode-hook web-mode-hook))
 
 (leaf recentf
   :global-minor-mode t
@@ -562,7 +559,7 @@
 (leaf repeat-mode
   :global-minor-mode t)
 
-(leaf ruby-mode
+(leaf ruby-ts-mode
   :mode "\\.cap\\'" "\\.Brewfile\\'"
   :custom
   (ruby-insert-encoding-magic-comment . nil))
@@ -580,19 +577,11 @@
   :hook
   ruby-base-mode-hook)
 
-(leaf rust-mode
-  :straight t)
-
 (leaf savehist
   :global-minor-mode t)
 
 (leaf scala-mode
   :straight t)
-
-(leaf scss-mode
-  :custom
-  (css-indent-offset . 2)
-  (scss-compile-at-save . nil))
 
 (leaf selected
   :straight t
@@ -639,7 +628,7 @@
 
 (leaf subword
   :hook
-  (haskell-mode-hook js-base-mode-hook nix-mode-hook ruby-base-mode-hook))
+  (haskell-ts-mode-hook js-base-mode-hook nix-ts-mode-hook ruby-base-mode-hook))
 
 (leaf string-inflection
   :straight t
@@ -652,7 +641,7 @@
   ("C-c C-u" . string-inflection-all-cycle)
   :hook
   (ruby-base-mode-hook . my/string-inflection-for-ruby)
-  (java-mode-hook . my/string-inflection-for-java))
+  (java-ts-mode-hook . my/string-inflection-for-java))
 
 (leaf tempel
   :straight t
@@ -686,11 +675,9 @@
   :custom
   (tool-bar-mode . nil))
 
-(leaf treesit-auto
-  :straight t
-  :global-minor-mode global-treesit-auto-mode
+(leaf treesit
   :custom
-  (treesit-auto-install . 'prompt))
+  (treesit-font-lock-level . 4))
 
 (leaf uniquify
   :custom
@@ -762,9 +749,6 @@
 
 (leaf winner
   :global-minor-mode t)
-
-(leaf yaml-mode
-  :straight t)
 
 (provide 'init)
 ;;; init.el ends here

@@ -25,7 +25,31 @@ in
     '';
   };
 
-  programs.emacs.enable = true;
+  programs.emacs = {
+    enable = true;
+    extraPackages =
+      epkgs: [
+        (epkgs.treesit-grammars.with-grammars (
+          p: with p; [
+            tree-sitter-bash
+            tree-sitter-css
+            tree-sitter-dockerfile
+            tree-sitter-go
+            tree-sitter-gomod
+            tree-sitter-haskell
+            tree-sitter-html
+            tree-sitter-java
+            tree-sitter-javascript
+            tree-sitter-json
+            tree-sitter-nix
+            tree-sitter-ruby
+            tree-sitter-rust
+            tree-sitter-toml
+            tree-sitter-yaml
+          ]
+        ))
+      ];
+  };
 
   xdg.configFile = {
     "emacs/init.el".source = ./init.el;
