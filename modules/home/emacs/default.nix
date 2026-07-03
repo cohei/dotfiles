@@ -10,7 +10,6 @@ in
 {
   home.packages = [
     pkgs.cmake # vterm
-    pkgs.emacs-lsp-booster
     pkgs.libvterm-neovim
   ];
 
