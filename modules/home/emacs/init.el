@@ -658,8 +658,7 @@
   (uniquify-buffer-name-style . 'reverse))
 
 (leaf vc-jj
-  :straight (vc-jj :source gnu-elpa-mirror)
-  :require vc-jj project-jj)
+  :straight t)
 
 (leaf vertico
   :straight
