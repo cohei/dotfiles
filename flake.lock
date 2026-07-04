@@ -156,11 +156,11 @@
     "mattpocock-skills": {
       "flake": false,
       "locked": {
-        "lastModified": 1782388103,
-        "narHash": "sha256-efsb/AXAmEvcjoknbExBeEHFB28o2c2Nk8muWwNNQFQ=",
+        "lastModified": 1783075031,
+        "narHash": "sha256-3muzsPd/1OgGgG+aIpXWUm9R2Lxa1I/geJxmNL8VJAY=",
         "owner": "mattpocock",
         "repo": "skills",
-        "rev": "5d78bd0903420f97c791f834201e550c765699f8",
+        "rev": "272f99b22574f50e4266791c86b9302682970e23",
         "type": "github"
       },
       "original": {
