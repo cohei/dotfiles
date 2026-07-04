@@ -6,13 +6,8 @@
 
     home.packages =
       let
-        home-manager-news = pkgs.writeShellApplication {
-          name = "home-manager-news";
-          runtimeInputs = [ pkgs.home-manager ];
-          text = ''
-            home-manager news --flake .#${config.home.username}@${hostName}
-          '';
-        };
+        home-manager-news =
+          perSystem.self.home-manager-news.override { inherit hostName; inherit (config.home) username; };
       in
         with pkgs; [
           home-manager-news
