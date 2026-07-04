@@ -2,7 +2,7 @@
 
 pkgs.writeShellApplication {
   name = "update-straight-lockfile";
-  runtimeInputs = [ pkgs.emacs pkgs.home-manager pkgs.jujutsu ];
+  runtimeInputs = [ pkgs.emacs pkgs.jujutsu ];
   text = ''
     lockfile=~/.config/emacs/straight/versions/default.el
     lockfile_dotfiles=./modules/home/emacs/default.el
