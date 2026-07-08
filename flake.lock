@@ -16,6 +16,38 @@
         "type": "github"
       }
     },
+    "auto-side-windows": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1773066912,
+        "narHash": "sha256-janIsqSo1wtp/h/gdGqpU7cYKhLKZjMaVdUsOXJ+0X0=",
+        "owner": "MArpogaus",
+        "repo": "auto-side-windows",
+        "rev": "c28f13d6fa5988c24f0021b41b5eb7233034123f",
+        "type": "github"
+      },
+      "original": {
+        "owner": "MArpogaus",
+        "repo": "auto-side-windows",
+        "type": "github"
+      }
+    },
+    "balanced-windows": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1781857512,
+        "narHash": "sha256-c3T7ln0U465EhRjJvc+fKVbxWNy+2UZGukYUzmQ96JI=",
+        "owner": "elp-revive",
+        "repo": "balanced-windows",
+        "rev": "d60529d70fe59b812ae8a9e018ef73ab9dd199b4",
+        "type": "github"
+      },
+      "original": {
+        "owner": "elp-revive",
+        "repo": "balanced-windows",
+        "type": "github"
+      }
+    },
     "blueprint": {
       "inputs": {
         "nixpkgs": [
@@ -68,6 +100,42 @@
         "owner": "nix-community",
         "repo": "bun2nix",
         "type": "github"
+      }
+    },
+    "claude-code-ide": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1783000777,
+        "narHash": "sha256-pL5PNnemuXHHhQ0wEqhoagyKNdx+ywb2EEru8XWJ0Lc=",
+        "owner": "manzaltu",
+        "repo": "claude-code-ide.el",
+        "rev": "cc508396a09e98931bb588da8542b73fa07733e2",
+        "type": "github"
+      },
+      "original": {
+        "owner": "manzaltu",
+        "repo": "claude-code-ide.el",
+        "type": "github"
+      }
+    },
+    "emacs-overlay": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ],
+        "nixpkgs-stable": "nixpkgs-stable"
+      },
+      "locked": {
+        "lastModified": 1783534541,
+        "narHash": "sha256-qZW9EZIfZy3+RGk4n+/ojQKXppue/Z3CwQMuXZlREtI=",
+        "owner": "nix-community",
+        "repo": "emacs-overlay",
+        "rev": "840b4cf4db4d697d6a801460504eea2206f5bc0b",
+        "type": "github"
+      },
+      "original": {
+        "id": "emacs-overlay",
+        "type": "indirect"
       }
     },
     "flake-parts": {
@@ -217,6 +285,22 @@
         "type": "github"
       }
     },
+    "nixpkgs-stable": {
+      "locked": {
+        "lastModified": 1783389287,
+        "narHash": "sha256-0xIy4dVLqq47rA+mRy0hXDfjhQd4E5PoIns/RmB7nR4=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "0ad6f47ea4fe188f4bc8f0380f93ae8523337c6c",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "nixos-26.05",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
     "nixpkgs-unfree": {
       "inputs": {
         "nixpkgs": [
@@ -303,7 +387,11 @@
     "root": {
       "inputs": {
         "anthropics-skills": "anthropics-skills",
+        "auto-side-windows": "auto-side-windows",
+        "balanced-windows": "balanced-windows",
         "blueprint": "blueprint",
+        "claude-code-ide": "claude-code-ide",
+        "emacs-overlay": "emacs-overlay",
         "home-manager": "home-manager",
         "llm-agents": "llm-agents",
         "mattpocock-skills": "mattpocock-skills",
