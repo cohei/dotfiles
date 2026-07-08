@@ -108,6 +108,14 @@
   :config
   (avy-setup-default))
 
+(leaf balanced-windows
+  :straight (balanced-windows :host github :repo "elp-revive/balanced-windows")
+  :require t
+  :config
+  (add-to-list 'balanced-windows-commands #'split-window-below)
+  (add-to-list 'balanced-windows-commands #'split-window-right)
+  (balanced-windows-mode))
+
 (leaf beacon
   :straight t
   :global-minor-mode t
@@ -749,11 +757,6 @@
   (org-shiftleft-final-hook . windmove-left)
   (org-shiftdown-final-hook . windmove-down)
   (org-shiftright-final-hook . windmove-right))
-
-(leaf window
-  :config
-  (dolist (f '(split-window-below split-window-right delete-window))
-    (advice-add f :after (lambda (&rest _) (balance-windows)))))
 
 (leaf winner
   :global-minor-mode t)
