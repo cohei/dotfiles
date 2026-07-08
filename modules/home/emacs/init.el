@@ -355,7 +355,7 @@
   :config
   (add-to-list 'backup-directory-alist `("\\.*$" . ,(expand-file-name "backup" user-emacs-directory)))
   (defun my/reload-init-file ()
-    "Reload user’s initialization file."
+    "Reload user's initialization file."
     (interactive)
     (load-file user-init-file))
   :custom
