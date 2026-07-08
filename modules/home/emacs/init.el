@@ -34,15 +34,17 @@
 
 (leaf leaf-keywords
   :config
-  (leaf-keywords-init))
+  (leaf-keywords-init)
+  :custom
+  (leaf-alias-keyword-alist . '((:ensure . :straight))))
 
 ;; for leaf's blackout keyword
 (leaf blackout
-  :straight t)
+  :ensure t)
 
 ;; make an effect early
 (leaf gcmh
-  :straight t
+  :ensure t
   :global-minor-mode t
   :blackout t)
 
@@ -64,11 +66,11 @@
   (compilation-filter-hook . ansi-color-compilation-filter))
 
 (leaf apib-mode
-  :straight t
+  :ensure t
   :mode "\\.apib\\'")
 
 (leaf auto-side-windows
-  :straight (auto-side-windows :host github :repo "MArpogaus/auto-side-windows")
+  :ensure (auto-side-windows :host github :repo "MArpogaus/auto-side-windows")
   :hook
   (after-init-hook . auto-side-windows-mode)
   :bind
@@ -104,12 +106,12 @@
   :blackout auto-revert-mode)
 
 (leaf avy
-  :straight t
+  :ensure t
   :config
   (avy-setup-default))
 
 (leaf balanced-windows
-  :straight (balanced-windows :host github :repo "elp-revive/balanced-windows")
+  :ensure (balanced-windows :host github :repo "elp-revive/balanced-windows")
   :require t
   :config
   (add-to-list 'balanced-windows-commands #'split-window-below)
@@ -117,10 +119,10 @@
   (balanced-windows-mode))
 
 (leaf browse-at-remote
-  :straight t)
+  :ensure t)
 
 (leaf cape
-  :straight t
+  :ensure t
   :config
   (advice-add 'eglot-completion-at-point :around #'cape-wrap-nonexclusive)
   :hook
@@ -138,7 +140,7 @@
   (java-ts-mode-hook . my/indent-by-two))
 
 (leaf claude-code-ide
-  :straight (claude-code-ide :host github :repo "manzaltu/claude-code-ide.el")
+  :ensure (claude-code-ide :host github :repo "manzaltu/claude-code-ide.el")
   :bind ("C-c C-'" . claude-code-ide-menu)
   :config
   (claude-code-ide-emacs-tools-setup)
@@ -146,7 +148,7 @@
   (claude-code-ide-terminal-backend . 'ghostel))
 
 (leaf coffee-mode
-  :straight t
+  :ensure t
   :custom
   (coffee-tab-width . 2))
 
@@ -172,7 +174,7 @@
   (completion-preview-exact . '((t :underline "#859900" :inherit completion-preview-common))))
 
 (leaf consult
-  :straight t
+  :ensure t
   :bind
   ("C-c C-r" . consult-recent-file)
   ([remap goto-line] . consult-goto-line)
@@ -187,7 +189,7 @@
   (xref-show-xrefs-function . #'consult-xref))
 
 (leaf consult-dir
-  :straight t
+  :ensure t
   :bind
   ("C-x C-d" . consult-dir)
   (vertico-map
@@ -195,10 +197,10 @@
    ("C-x C-j" . consult-dir-jump-file)))
 
 (leaf consult-hoogle
-  :straight t)
+  :ensure t)
 
 (leaf corfu
-  :straight t
+  :ensure t
   :global-minor-mode global-corfu-mode corfu-history-mode corfu-popupinfo-mode)
 
 (leaf css-ts-mode
@@ -206,7 +208,7 @@
   (css-indent-offset . 2))
 
 (leaf ctrlf
-  :straight t
+  :ensure t
   :global-minor-mode t
   :custom
   (ctrlf-auto-recenter . t))
@@ -227,7 +229,7 @@
   (kill-emacs-hook . my/delete-custom-file))
 
 (leaf csv-mode
-  :straight t)
+  :ensure t)
 
 (leaf dabbrev
   :config
@@ -250,10 +252,10 @@
   (desktop-restore-eager . 10))
 
 (leaf dhall-mode
-  :straight t)
+  :ensure t)
 
 (leaf diff-hl
-  :straight t
+  :ensure t
   :global-minor-mode global-diff-hl-mode
   :hook
   (dired-mode-hook . diff-hl-dired-mode))
@@ -263,14 +265,14 @@
   (dired-dwim-target . t))
 
 (leaf dmacro
-  :straight t
+  :ensure t
   :global-minor-mode global-dmacro-mode
   :blackout t
   :custom
   (dmacro-key . `,(kbd "C-c d")))
 
 (leaf dumb-jump
-  :straight t
+  :ensure t
   :hook
   (xref-backend-functions . dumb-jump-xref-activate))
 
@@ -280,7 +282,7 @@
   (ediff-window-setup-function . 'ediff-setup-windows-plain))
 
 (leaf eglot
-  :straight (eglot :source gnu-elpa-mirror)
+  :ensure (eglot :source gnu-elpa-mirror)
   :hook
   ((haskell-ts-mode-hook js-base-mode-hook nix-ts-mode-hook ruby-base-mode-hook scala-mode-hook sh-mode-hook yaml-ts-mode-hook) . eglot-ensure)
   :bind
@@ -288,7 +290,7 @@
    ("C-c e" . 'eglot-code-actions)))
 
 (leaf eglot-tempel
-  :straight t
+  :ensure t
   :global-minor-mode t)
 
 (leaf eldoc
@@ -299,7 +301,7 @@
   :global-minor-mode electric-pair-mode)
 
 (leaf elm-mode
-  :straight t)
+  :ensure t)
 
 (leaf emacs
   :bind
@@ -322,27 +324,27 @@
     (emacs-lock-mode 'kill)))
 
 (leaf embark
-  :straight t
+  :ensure t
   :bind
   ("C-." . embark-act))
 
 (leaf embark-consult
-  :straight t)
+  :ensure t)
 
 (leaf emmet-mode
-  :straight t
+  :ensure t
   :hook
   (sgml-mode-hook css-base-mode-hook)
   :custom
   (emmet-move-cursor-between-quotes . t))
 
 (leaf envrc
-  :straight t
+  :ensure t
   :hook
   (after-init-hook . envrc-global-mode))
 
 (leaf exec-path-from-shell
-  :straight t
+  :ensure t
   :require t
   :config
   (exec-path-from-shell-initialize)
@@ -354,7 +356,7 @@
   (after-save-hook . executable-make-buffer-file-executable-if-script-p))
 
 (leaf expreg
-  :straight t
+  :ensure t
   :setq
   (expreg-restore-point-on-quit . t)
   :bind
@@ -379,7 +381,7 @@
   (require-final-newline . 'visit))
 
 (leaf fish-mode
-  :straight t)
+  :ensure t)
 
 (leaf flymake
   :hook prog-mode-hook
@@ -395,10 +397,10 @@
                            (vertical-scroll-bars . nil))))
 
 (leaf free-keys
-  :straight t)
+  :ensure t)
 
 (leaf ghostel
-  :straight t
+  :ensure t
   :bind
   ("C-c v" . ghostel-project)
   :config
@@ -406,10 +408,10 @@
   (add-to-list 'project-switch-commands '(ghostel-project-list-buffers "Ghostel buffers" "V") t))
 
 (leaf git-timemachine
-  :straight t)
+  :ensure t)
 
 (leaf google-this
-  :straight t
+  :ensure t
   :global-minor-mode t
   :blackout t)
 
@@ -419,18 +421,18 @@
   (text-mode-hook . goto-address-mode))
 
 (leaf groovy-mode
-  :straight t)
+  :ensure t)
 
 (leaf haml-mode
-  :straight t
+  :ensure t
   :mode "\\.hamlc\\'")
 
 (leaf haskell-ts-mode
-  :straight t
+  :ensure t
   :blackout (haskell-ts-mode . "Haskell"))
 
 (leaf helpful
-  :straight t
+  :ensure t
   :bind
   ([remap describe-function] . helpful-callable)
   ([remap describe-key] . helpful-key)
@@ -440,7 +442,7 @@
    ("C-." . helpful-at-point)))
 
 (leaf highlight-indent-guides
-  :straight t
+  :ensure t
   :blackout t
   :hook prog-mode-hook yaml-ts-mode-hook
   :custom
@@ -449,7 +451,7 @@
   (highlight-indent-guides-auto-character-face-perc . 100))
 
 (leaf hledger-mode
-  :straight t
+  :ensure t
   :mode "\\.journal\\'"
   :config
   (defun my/hledger-set-tab-width ()
@@ -461,7 +463,7 @@
   :mode ("\\.json\\'" "\\.jsonc\\'"))
 
 (leaf magit
-  :straight t
+  :ensure t
   :global-minor-mode global-git-commit-mode
   :bind
   (project-prefix-map
@@ -470,14 +472,14 @@
   (magit-diff-refine-hunk . 'all))
 
 (leaf markdown-mode
-  :straight t
+  :ensure t
   :mode
   ("README\\.md\\'" . gfm-mode)
   :custom
   (markdown-fontify-code-blocks-natively . t))
 
 (leaf marginalia
-  :straight t
+  :ensure t
   :global-minor-mode t
   :bind
   (minibuffer-local-map
@@ -494,36 +496,36 @@
   ("C-c C-c" . duplicate-dwim))
 
 (leaf multiple-cursors
-  :straight t
+  :ensure t
   :bind
   ("C-c m e" . mc/edit-lines)
   ("C-c m n" . mc/mark-next-like-this))
 
 (leaf mwim
-  :straight t
+  :ensure t
   :bind
   ([remap move-beginning-of-line] . mwim-beginning-of-line-or-code)
   ([rempa move-end-of-line] . mwim-end-of-line-or-code))
 
 (leaf nael
-  :straight t
+  :ensure t
   :hook
   (nael-mode-hook . abbrev-mode)
   (nael-mode-hook . eglot-ensure))
 
 (leaf nix-ts-mode
-  :straight t
+  :ensure t
   :mode "\\.nix\\'")
 
 (leaf open-junk-file
-  :straight t
+  :ensure t
   :commands open-junk-file
   :custom
   (open-junk-file-format . `,(expand-file-name "junk/%Y/%m/%d-%H%M%S." user-emacs-directory))
   (open-junk-file-find-file-function . 'find-file))
 
 (leaf orderless
-  :straight t
+  :ensure t
   :custom
   (completion-styles . '(orderless basic))
   (completion-category-overrides . '((file (styles basic partial-completion)))))
@@ -533,7 +535,7 @@
   (show-paren-mode . nil))
 
 (leaf peep-dired
-  :straight t
+  :ensure t
   :bind
   (dired-mode-map
    ("C-x x" . peep-dired))
@@ -541,22 +543,22 @@
    ("C-x x" . peep-dired)))
 
 (leaf pulsar
-  :straight t
+  :ensure t
   :global-minor-mode pulsar-global-mode
   :custom
   (pulsar-pulse-region-functions . '(duplicate-dwim undo yank yank-rectangle)))
 
 (leaf purescript-mode
-  :straight t
+  :ensure t
   :hook
   (purescript-mode-hook . turn-on-purescript-indentation))
 
 (leaf rainbow-delimiters
-  :straight t
+  :ensure t
   :hook prog-mode-hook)
 
 (leaf rainbow-mode
-  :straight t
+  :ensure t
   :hook
   (css-base-mode-hook html-mode-hook lisp-mode-hook web-mode-hook))
 
@@ -575,14 +577,14 @@
   (ruby-insert-encoding-magic-comment . nil))
 
 (leaf ruby-end
-  :straight t
+  :ensure t
   :blackout t)
 
 (leaf ruby-hash-syntax
-  :straight t)
+  :ensure t)
 
 (leaf ruby-interpolation
-  :straight t
+  :ensure t
   :blackout t
   :hook
   ruby-base-mode-hook)
@@ -591,10 +593,10 @@
   :global-minor-mode t)
 
 (leaf scala-mode
-  :straight t)
+  :ensure t)
 
 (leaf selected
-  :straight t
+  :ensure t
   :blackout selected-minor-mode
   :hook
   ((prog-mode-hook text-mode-hook) . selected-minor-mode)
@@ -619,7 +621,7 @@
   :global-minor-mode server-mode)
 
 (leaf shrink-whitespace
-  :straight t
+  :ensure t
   :bind
   ([remap cycle-spacing] . shrink-whitespace))
 
@@ -632,7 +634,7 @@
   (set-mark-command-repeat-pop . t))
 
 (leaf solarized-theme
-  :straight t
+  :ensure t
   :config
   (load-theme 'solarized-dark t))
 
@@ -641,7 +643,7 @@
   (haskell-ts-mode-hook js-base-mode-hook nix-ts-mode-hook ruby-base-mode-hook))
 
 (leaf string-inflection
-  :straight t
+  :ensure t
   :config
   (defun my/string-inflection-for-ruby ()
     (keymap-local-set "C-c C-u" 'string-inflection-ruby-style-cycle))
@@ -654,24 +656,24 @@
   (java-ts-mode-hook . my/string-inflection-for-java))
 
 (leaf tempel
-  :straight t
+  :ensure t
   :init
   :hook
   ((conf-mode-hook prog-mode-hook text-mode-hook)
    . (lambda () (add-hook 'completion-at-point-functions #'tempel-complete -10 t))))
 
 (leaf tempel-collection
-  :straight t)
+  :ensure t)
 
 (leaf terminal
   :custom
   (ring-bell-function . (lambda () (princ "[RING] "))))
 
 (leaf terraform-mode
-  :straight t)
+  :ensure t)
 
 (leaf textile-mode
-  :straight t
+  :ensure t
   :mode "\\.textile\\'")
 
 (leaf time
@@ -690,7 +692,7 @@
   (treesit-font-lock-level . 4))
 
 (leaf treesit-fold
-  :straight t
+  :ensure t
   :global-minor-mode global-treesit-fold-mode
   :blackout t
   :bind
@@ -703,10 +705,10 @@
   (uniquify-buffer-name-style . 'reverse))
 
 (leaf vc-jj
-  :straight t)
+  :ensure t)
 
 (leaf vertico
-  :straight
+  :ensure
   (vertico
    :files
    (:defaults
@@ -724,18 +726,18 @@
   (setq completion-ignore-case t)) ; not a customization variable
 
 (leaf visual-fill-column
-  :straight t)
+  :ensure t)
 
 (leaf vue-mode
-  :straight t)
+  :ensure t)
 
 (leaf vundo
-  :straight t
+  :ensure t
   :bind
   ("C-c u" . vundo))
 
 (leaf web-mode
-  :straight t
+  :ensure t
   :custom
   (web-mode-css-indent-offset . 2)
   (web-mode-markup-indent-offset . 2))
