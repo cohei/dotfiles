@@ -5,12 +5,18 @@ let
     name = "claude-code-notify";
     runtimeInputs = [ pkgs.terminal-notifier ];
     text = ''
+      if [ -z "''${INSIDE_EMACS-}" ]; then
+        app=org.alacritty
+      else
+        app=org.gnu.Emacs
+      fi
+
       terminal-notifier \
         -title 'Claude Code' \
         -subtitle "$(basename "$CLAUDE_PROJECT_DIR")" \
         -message "$1" \
         -sound default \
-        -activate org.alacritty
+        -activate "$app"
     '';
   };
 in
