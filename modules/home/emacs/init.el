@@ -13,30 +13,10 @@
 
 ;;; Packages
 
-(defvar bootstrap-version)
-(let ((bootstrap-file
-       (expand-file-name
-        "straight/repos/straight.el/bootstrap.el"
-        (or (bound-and-true-p straight-base-dir)
-            user-emacs-directory)))
-      (bootstrap-version 7))
-  (unless (file-exists-p bootstrap-file)
-    (with-current-buffer
-        (url-retrieve-synchronously
-         "https://raw.githubusercontent.com/radian-software/straight.el/develop/install.el"
-         'silent 'inhibit-cookies)
-      (goto-char (point-max))
-      (eval-print-last-sexp)))
-  (load bootstrap-file nil 'nomessage))
-
-(straight-use-package 'leaf)
-(straight-use-package 'leaf-keywords)
-
 (leaf leaf-keywords
+  :ensure t
   :config
-  (leaf-keywords-init)
-  :custom
-  (leaf-alias-keyword-alist . '((:ensure . :straight))))
+  (leaf-keywords-init))
 
 ;; for leaf's blackout keyword
 (leaf blackout
@@ -70,7 +50,7 @@
   :mode "\\.apib\\'")
 
 (leaf auto-side-windows
-  :ensure (auto-side-windows :host github :repo "MArpogaus/auto-side-windows")
+  :ensure t
   :hook
   (after-init-hook . auto-side-windows-mode)
   :bind
@@ -111,7 +91,7 @@
   (avy-setup-default))
 
 (leaf balanced-windows
-  :ensure (balanced-windows :host github :repo "elp-revive/balanced-windows")
+  :ensure t
   :require t
   :config
   (add-to-list 'balanced-windows-commands #'split-window-below)
@@ -143,7 +123,7 @@
   (java-ts-mode-hook . my/indent-by-two))
 
 (leaf claude-code-ide
-  :ensure (claude-code-ide :host github :repo "manzaltu/claude-code-ide.el")
+  :ensure t
   :bind ("C-c C-'" . claude-code-ide-menu)
   :config
   (claude-code-ide-emacs-tools-setup)
@@ -281,7 +261,7 @@
   (ediff-window-setup-function . 'ediff-setup-windows-plain))
 
 (leaf eglot
-  :ensure (eglot :source gnu-elpa-mirror)
+  :ensure t
   :hook
   ((haskell-ts-mode-hook js-base-mode-hook nix-ts-mode-hook ruby-base-mode-hook scala-mode-hook sh-mode-hook yaml-ts-mode-hook) . eglot-ensure)
   :bind
@@ -712,13 +692,7 @@
   :ensure t)
 
 (leaf vertico
-  :ensure
-  (vertico
-   :files
-   (:defaults
-    "extensions/vertico-directory.el"
-    "extensions/vertico-repeat.el"
-    "extensions/vertico-sort.el"))
+  :ensure t
   :global-minor-mode t
   :bind
   ("C-c r" . vertico-repeat)

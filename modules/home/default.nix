@@ -16,6 +16,7 @@
     [
       (_: _: { unfree = inputs.nixpkgs-unfree.legacyPackages.${system}; })
       (_: _: { for-tup = inputs.nixpkgs-for-tup.legacyPackages.${system}; })
+      inputs.emacs-overlay.overlays.default
     ];
 
   home.homeDirectory =
