@@ -4,8 +4,6 @@
   home.packages = [ perSystem.serena.default ];
 
   programs.claude-code.settings = {
-    permissions.allow = [ "mcp__serena" ];
-
     # Hooks recommended by Serena:
     # https://oraios.github.io/serena/02-usage/030_clients.html#claude-code
     hooks = {
