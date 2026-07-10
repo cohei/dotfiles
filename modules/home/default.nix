@@ -1,4 +1,10 @@
-{ config, pkgs, inputs, perSystem, ... }:
+{
+  config,
+  pkgs,
+  inputs,
+  perSystem,
+  ...
+}:
 
 {
   home.stateVersion = "26.05";
@@ -6,7 +12,8 @@
   nixpkgs.overlays =
     let
       system = pkgs.stdenv.hostPlatform.system;
-    in [
+    in
+    [
       (_: _: { unfree = inputs.nixpkgs-unfree.legacyPackages.${system}; })
       (_: _: { for-tup = inputs.nixpkgs-for-tup.legacyPackages.${system}; })
     ];
@@ -15,67 +22,65 @@
     let
       username = config.home.username;
     in
-      if username == "root" then "/root" else "/home/${username}";
+    if username == "root" then "/root" else "/home/${username}";
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 
-  home.packages =
-    with pkgs;
-    [
-      abduco
-      perSystem.self.addtime
-      bash-language-server
-      bottom
-      perSystem.self.cica
-      coreutils
-      difftastic
-      perSystem.self.dotall
-      duf
-      dust
-      dvtm
-      elan
-      fd
-      ffmpeg
-      fswatch
-      google-cloud-sdk
-      hadolint
-      hledger
-      hwatch
-      hyperfine
-      jq
-      kubo
-      less
-      perSystem.self.level-payment
-      metals
-      multitime
-      ncdu
-      nix-search-cli
-      nixd
-      parallel
-      pijul
-      procs
-      pstree
-      pwgen
-      rust-analyzer
-      sbt
-      perSystem.self.shell-expansion
-      rictydiminished-with-firacode
-      shellcheck
-      skktools
-      tldr
-      tokei
-      typescript-language-server
-      unused
-      viu
-      watch
-      wget
-      perSystem.self.xdg-files
-      xdg-ninja
-      xh
-      yaml-language-server
-      zstd
-    ];
+  home.packages = with pkgs; [
+    abduco
+    perSystem.self.addtime
+    bash-language-server
+    bottom
+    perSystem.self.cica
+    coreutils
+    difftastic
+    perSystem.self.dotall
+    duf
+    dust
+    dvtm
+    elan
+    fd
+    ffmpeg
+    fswatch
+    google-cloud-sdk
+    hadolint
+    hledger
+    hwatch
+    hyperfine
+    jq
+    kubo
+    less
+    perSystem.self.level-payment
+    metals
+    multitime
+    ncdu
+    nix-search-cli
+    nixd
+    parallel
+    pijul
+    procs
+    pstree
+    pwgen
+    rust-analyzer
+    sbt
+    perSystem.self.shell-expansion
+    rictydiminished-with-firacode
+    shellcheck
+    skktools
+    tldr
+    tokei
+    typescript-language-server
+    unused
+    viu
+    watch
+    wget
+    perSystem.self.xdg-files
+    xdg-ninja
+    xh
+    yaml-language-server
+    zstd
+  ];
 
   home.language.base = "ja_JP.UTF-8";
   home.sessionVariables = {
@@ -91,8 +96,14 @@
         size = 14.5;
       };
       window = {
-        padding = { x = 5; y = 5; };
-        dimensions = { columns = 150; lines = 50; };
+        padding = {
+          x = 5;
+          y = 5;
+        };
+        dimensions = {
+          columns = 150;
+          lines = 50;
+        };
         option_as_alt = "Both";
       };
       bell.duration = 500;
@@ -126,7 +137,10 @@
 
   programs.eza = {
     enable = true;
-    extraOptions = [ "--classify" "--time-style=long-iso" ];
+    extraOptions = [
+      "--classify"
+      "--time-style=long-iso"
+    ];
   };
 
   programs.fish = {

@@ -5,9 +5,18 @@
     casks = [
       "aquaskk@prerelease" # for M3 MacBook compatibility
       "claude"
-      { name = "docker-desktop"; greedy = true; }
-      { name = "google-drive"; greedy = true; }
-      { name = "karabiner-elements"; greedy = true; }
+      {
+        name = "docker-desktop";
+        greedy = true;
+      }
+      {
+        name = "google-drive";
+        greedy = true;
+      }
+      {
+        name = "karabiner-elements";
+        greedy = true;
+      }
       "macfuse" # for tup
       "michaelvillar-timer"
     ];

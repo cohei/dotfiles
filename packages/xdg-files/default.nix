@@ -1,3 +1,3 @@
 { pkgs, pname }:
 
-pkgs.writers.writeHaskellBin pname {} ./Main.hs
+pkgs.writers.writeHaskellBin pname { } ./Main.hs

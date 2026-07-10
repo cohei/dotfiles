@@ -1,7 +1,15 @@
-{ inputs, pkgs, perSystem, ... }:
+{
+  inputs,
+  pkgs,
+  perSystem,
+  ...
+}:
 
 {
-  imports = [ ./notify.nix ./serena.nix ];
+  imports = [
+    ./notify.nix
+    ./serena.nix
+  ];
 
   programs.claude-code = {
     enable = true;
@@ -35,16 +43,11 @@
     };
     skills = {
       commit = ./skills/commit;
-      find-skills =
-        "${inputs.vercel-skills}/skills/find-skills";
-      grill-me =
-        "${inputs.mattpocock-skills}/skills/productivity/grill-me";
-      grilling =
-        "${inputs.mattpocock-skills}/skills/productivity/grilling";
-      handoff =
-        "${inputs.mattpocock-skills}/skills/productivity/handoff";
-      skill-creator =
-        "${inputs.anthropics-skills}/skills/skill-creator";
+      find-skills = "${inputs.vercel-skills}/skills/find-skills";
+      grill-me = "${inputs.mattpocock-skills}/skills/productivity/grill-me";
+      grilling = "${inputs.mattpocock-skills}/skills/productivity/grilling";
+      handoff = "${inputs.mattpocock-skills}/skills/productivity/handoff";
+      skill-creator = "${inputs.anthropics-skills}/skills/skill-creator";
     };
   };
 

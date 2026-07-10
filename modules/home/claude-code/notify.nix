@@ -19,13 +19,17 @@ in
     home.packages = [ claude-code-notify ];
 
     programs.claude-code.settings.hooks = {
-      Notification = [{
-        matcher = "";
-        hooks = [{
-          type = "command";
-          command = "jq --raw-output .message | xargs -I {} claude-code-notify {}";
-        }];
-      }];
+      Notification = [
+        {
+          matcher = "";
+          hooks = [
+            {
+              type = "command";
+              command = "jq --raw-output .message | xargs -I {} claude-code-notify {}";
+            }
+          ];
+        }
+      ];
     };
   };
 }

@@ -5,7 +5,7 @@ let
     let
       alternative = lib.optionalString pkgs.stdenv.isDarwin "open -a emacs";
     in
-      "emacsclient --create-frame --alternate-editor='${alternative}'";
+    "emacsclient --create-frame --alternate-editor='${alternative}'";
 in
 {
   # for

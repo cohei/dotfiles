@@ -1,6 +1,9 @@
-{ pkgs, flake, perSystem
-, hostName ? throw "home-manager-news: provide hostName via override"
-, username ? throw "home-manager-news: provide username via override"
+{
+  pkgs,
+  flake,
+  perSystem,
+  hostName ? throw "home-manager-news: provide hostName via override",
+  username ? throw "home-manager-news: provide username via override",
 }:
 
 pkgs.writeShellApplication {

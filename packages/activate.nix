@@ -1,10 +1,21 @@
-{ flake, pkgs, perSystem }:
+{
+  flake,
+  pkgs,
+  perSystem,
+}:
 
 let
   options =
-    if pkgs.stdenv.isDarwin
-    then { input = perSystem.nix-darwin; command = "darwin-rebuild"; }
-    else { input = perSystem.home-manager; command = "home-manager"; };
+    if pkgs.stdenv.isDarwin then
+      {
+        input = perSystem.nix-darwin;
+        command = "darwin-rebuild";
+      }
+    else
+      {
+        input = perSystem.home-manager;
+        command = "home-manager";
+      };
 in
 pkgs.writeShellApplication {
   name = "activate";
