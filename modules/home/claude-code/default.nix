@@ -26,6 +26,7 @@
           "Bash(gh pr view:*)"
           "Bash(gh release view:*)"
           "Bash(gh repo view:*)"
+          "Bash(gh search:*)"
           "Bash(jj diff:*)"
           "Bash(jj log:*)"
           "Bash(jj show:*)"
