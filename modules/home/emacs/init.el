@@ -434,6 +434,7 @@
   ([remap describe-key] . helpful-key)
   ([remap describe-variable] . helpful-variable)
   (help-map
+   :package emacs
    ("C-." . helpful-at-point)))
 
 (leaf highlight-indent-guides
