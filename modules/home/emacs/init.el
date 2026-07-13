@@ -235,12 +235,8 @@
   :ensure t)
 
 (leaf dabbrev
-  :config
-  (defun my/dabbrev-completion-with-all-buffers ()
-    (interactive)
-    (dabbrev-completion 16)) ; C-u C-u to search all buffers
   :bind
-  (("M-/" . my/dabbrev-completion-with-all-buffers)
+  (("M-/" . dabbrev-completion)
    ("C-M-/" . dabbrev-expand))
   :custom
   (dabbrev-case-replace . nil))
