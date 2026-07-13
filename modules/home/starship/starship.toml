@@ -11,6 +11,7 @@ $nats\
 $directory\
 $vcsh\
 ${custom.jj}\
+${custom.git}\
 $all](bright-black)
 """
 
@@ -41,20 +42,16 @@ disabled = true
 disabled = true
 
 [git_branch]
-style = "white"
-format = "on [$symbol$branch]($style) "
+disabled = true
 
 [git_commit]
-style = "white"
-
-[git_metrics]
-disabled = false
+disabled = true
 
 [git_state]
-style = "bold white"
+disabled = true
 
 [git_status]
-style = "white"
+disabled = true
 
 [haskell]
 style = "white"
@@ -83,5 +80,11 @@ style = "white"
 
 [custom.jj]
 command = "starship-jj --ignore-working-copy starship prompt"
-when = "jj root"
+when = "jj --ignore-working-copy root"
 format = "on $output"
+
+[custom.git]
+command = "STARSHIP_CONFIG=$HOME/.config/starship-git.toml starship prompt"
+require_repo = true
+when = "! jj --ignore-working-copy root"
+format = "$output "
