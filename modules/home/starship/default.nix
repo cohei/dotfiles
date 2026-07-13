@@ -64,6 +64,7 @@
         command = "starship-jj --ignore-working-copy starship prompt";
         when = "jj --ignore-working-copy root";
         format = "on $output";
+        ignore_timeout = true;
       };
     };
   };
