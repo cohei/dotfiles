@@ -1,6 +1,18 @@
 "$schema" = 'https://starship.rs/config-schema.json'
 
-format = "[$all](bright-black)"
+format = """
+[$username\
+$hostname\
+$localip\
+$shlvl\
+$singularity\
+$kubernetes\
+$nats\
+$directory\
+$vcsh\
+${custom.jj}\
+$all](bright-black)
+"""
 
 [aws]
 style = "white"
