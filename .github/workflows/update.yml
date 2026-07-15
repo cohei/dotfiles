@@ -20,7 +20,7 @@ jobs:
       - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
         with:
           token: ${{ steps.app-token.outputs.token }} # to trigger CI on PRs created by update-flake-inputs
-      - uses: NixOS/nix-installer-action@150c96d08a3d21bb02f70cd1e06c830e65ac5cfc # main
+      - uses: NixOS/nix-installer-action@62c1943b776c509394b550f3f983adc14e9212d6 # main
       - uses: Mic92/update-flake-inputs@1e056167bd2101e587bd39deb2f64909b4759652 # v1.0.4
         with:
           github-token: ${{ steps.app-token.outputs.token }}
