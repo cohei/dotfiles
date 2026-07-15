@@ -14,11 +14,8 @@
       url = "home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    llm-agents = {
-      url = "github:numtide/llm-agents.nix";
-      inputs.blueprint.follows = "blueprint";
-      # Not following `nixpkgs`, to keep binary cache hits.
-    };
+    # Not following `nixpkgs`, to keep binary cache hits.
+    llm-agents.url = "github:numtide/llm-agents.nix";
     mattpocock-skills = {
       url = "github:mattpocock/skills";
       flake = false;
