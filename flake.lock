@@ -327,11 +327,11 @@
         "uv2nix": "uv2nix"
       },
       "locked": {
-        "lastModified": 1783975143,
-        "narHash": "sha256-ms9iEC9GPDYQMaVe3BUK5Lqhyx2UhYDFUa7joSEewC8=",
+        "lastModified": 1784134039,
+        "narHash": "sha256-/1tugUDqyS/uN6Gtl7agq9LvD7G+QBewYTwoJpJtyLU=",
         "owner": "oraios",
         "repo": "serena",
-        "rev": "98966c6a598bb96a63a6defda310b4d8c3b92616",
+        "rev": "8e90d923fbf4bcb162e2255ba5ec06357cd58fef",
         "type": "github"
       },
       "original": {
