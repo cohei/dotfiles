@@ -23,11 +23,11 @@
       flake = false;
     };
     emacs-overlay = {
-      url = "emacs-overlay";
+      url = "github:nix-community/emacs-overlay";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     home-manager = {
-      url = "home-manager";
+      url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     # Not following `nixpkgs`, to keep binary cache hits.
@@ -37,10 +37,10 @@
       flake = false;
     };
     nix-darwin = {
-      url = "nix-darwin";
+      url = "github:nix-darwin/nix-darwin";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    nixpkgs.url = "nixpkgs";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
     nixpkgs-for-tup.url = "github:NixOS/nixpkgs/0d00f23f023b7215b3f1035adb5247c8ec180dbc";
     nixpkgs-unfree = {
       url = "github:numtide/nixpkgs-unfree";
