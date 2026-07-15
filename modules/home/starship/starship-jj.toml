@@ -31,7 +31,7 @@ text = "(DIVERGENT)"
 color = "Cyan"
 
 [module.empty]
-disabled = true
+disabled = false
 text = "(EMPTY)"
 color = "Yellow"
 
@@ -48,6 +48,7 @@ color = "Yellow"
 [[module]]
 type = "Metrics"
 template = "{changed} {added} {removed}"
+hide_if_empty = true
 color = "White"
 
 [module.changed_files]
