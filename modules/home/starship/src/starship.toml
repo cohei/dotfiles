@@ -72,4 +72,4 @@ style = "white"
 [custom.jj]
 command = "starship-jj --ignore-working-copy starship prompt"
 when = "jj root"
-format = "on $output "
+format = "on $output"
