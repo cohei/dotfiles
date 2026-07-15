@@ -15,24 +15,24 @@ surround_with_quotes = false
 type = "State"
 
 [module.conflict]
-text = "(CONFLICT)"
+text = "(conflict)"
 color = "Red"
 
 [module.divergent]
-text = "(DIVERGENT)"
-color = "Cyan"
+text = "(divergent)"
+color = "Red"
 
 [module.empty]
-text = "(EMPTY)"
-color = "Yellow"
+text = "(empty)"
+color = "Green"
 
 [module.immutable]
-text = "(IMMUTABLE)"
-color = "Yellow"
+text = "(immutable)"
+color = "Cyan"
 
 [module.hidden]
-text = "(HIDDEN)"
-color = "Yellow"
+text = "(hidden)"
+color = "White"
 
 [[module]]
 type = "Metrics"
