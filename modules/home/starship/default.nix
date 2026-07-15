@@ -51,7 +51,7 @@
       scala.style = "white";
       terraform.style = "white";
       custom.git = {
-        command = "STARSHIP_CONFIG=$HOME/.config/starship-git.toml starship prompt";
+        command = "STARSHIP_CONFIG=${./starship-git.toml} starship prompt";
         require_repo = true;
         when = "! jj --ignore-working-copy root";
         format = "$output ";
@@ -64,8 +64,5 @@
     };
   };
 
-  xdg.configFile = {
-    "starship-git.toml".source = ./starship-git.toml;
-    "starship-jj/starship-jj.toml".source = ./starship-jj.toml;
-  };
+  xdg.configFile."starship-jj/starship-jj.toml".source = ./starship-jj.toml;
 }
