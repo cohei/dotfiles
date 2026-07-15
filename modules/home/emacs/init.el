@@ -121,6 +121,9 @@
 (leaf browse-at-remote
   :ensure t)
 
+(leaf cabal-mode
+  :ensure t)
+
 (leaf cape
   :ensure t
   :config
