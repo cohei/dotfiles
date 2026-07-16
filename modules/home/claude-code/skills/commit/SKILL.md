@@ -5,6 +5,10 @@ description: Guide for committing changes and writing commit messages. Invoke BE
 
 # Commit
 
+## Confirm the Message
+
+Present the drafted message and stop. Run the commit only after the user approves it; never draft and commit in the same turn.
+
 ## Commit Message Style
 
 - Follow the language convention used in the repository — check recent commit messages to determine it
