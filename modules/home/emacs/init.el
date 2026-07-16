@@ -428,7 +428,12 @@
 
 (leaf haskell-ts-mode
   :ensure t
-  :blackout "Haskell")
+  :blackout "Haskell"
+  :bind
+  (haskell-ts-mode-map
+   ;; Move off the default `C-c C-c` to leave it for `duplicate-dwim`
+   ("C-c C-c" . duplicate-dwim)
+   ("C-c C-m" . haskell-ts-compile-region-and-go)))
 
 (leaf helpful
   :ensure t
