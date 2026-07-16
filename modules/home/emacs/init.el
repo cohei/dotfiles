@@ -428,7 +428,7 @@
 
 (leaf haskell-ts-mode
   :ensure t
-  :blackout (haskell-ts-mode . "Haskell"))
+  :blackout "Haskell")
 
 (leaf helpful
   :ensure t
