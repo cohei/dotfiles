@@ -46,6 +46,10 @@
         heuristic = true;
       };
       nodejs.style = "white";
+      pijul_channel = {
+        disabled = false;
+        style = "white";
+      };
       purescript.style = "white";
       ruby.style = "white";
       scala.style = "white";
