@@ -42,6 +42,7 @@
     elan
     fd
     ffmpeg
+    fourmolu
     fswatch
     google-cloud-sdk
     hadolint
