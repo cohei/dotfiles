@@ -65,6 +65,14 @@
       (pcase (window-parameter window 'window-side)
         ((or 'left 'right) (window-preserve-size window t t))
         ((or 'top 'bottom) (window-preserve-size window nil t)))))
+  (defun my/unside-window ()
+    "Un-side the selected side window in place.
+Only valid when it is the sole side window on its edge (covers the
+single-slot case and recovering a frame stuck at one side window).
+With two or more side windows sharing an edge this leaves the group
+inconsistent, so `window--sides-check' will reset it."
+    (interactive)
+    (set-window-parameter nil 'window-side nil))
   :config
   (add-to-list 'mode-line-misc-info '(:eval (my/side-window-indicator)) t)
   (add-to-list 'window-persistent-parameters '(window-preserved-size . t))
