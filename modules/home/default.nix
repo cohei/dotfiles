@@ -149,6 +149,7 @@
     functions.tapp = "tee (tty)";
     functions.tmpdir = "cd (mktemp --directory)";
     shellAbbrs.aa = "arch -arm64";
+    shellAliases.bathelp = "bat --language help --style plain";
     shellInit = ''
       set fish_greeting
     '';
