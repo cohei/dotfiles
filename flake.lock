@@ -105,11 +105,11 @@
     "claude-code-ide": {
       "flake": false,
       "locked": {
-        "lastModified": 1783000777,
-        "narHash": "sha256-pL5PNnemuXHHhQ0wEqhoagyKNdx+ywb2EEru8XWJ0Lc=",
+        "lastModified": 1784653890,
+        "narHash": "sha256-jW0R4TqXqVIumHJB9DziqB7NPfMmIKbhsn2H1dLwT6A=",
         "owner": "manzaltu",
         "repo": "claude-code-ide.el",
-        "rev": "cc508396a09e98931bb588da8542b73fa07733e2",
+        "rev": "1de17bbadc650962a05fd68463fdff71697ec649",
         "type": "github"
       },
       "original": {
