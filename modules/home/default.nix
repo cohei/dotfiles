@@ -1,15 +1,12 @@
 {
   config,
   pkgs,
-  inputs,
   perSystem,
   ...
 }:
 
 {
   home.stateVersion = "26.05";
-
-  nixpkgs.overlays = [ inputs.emacs-overlay.overlays.default ];
 
   home.homeDirectory =
     let
