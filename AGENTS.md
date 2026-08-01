@@ -27,12 +27,6 @@ Rule of thumb: if it *configures or installs* something for the user, it's a mod
 
 Platform-specific settings are guarded with `lib.mkIf pkgs.stdenv.isDarwin`.
 
-## Flake inputs
-
-Primary flake inputs: `nixpkgs`, `nixpkgs-unfree`, `home-manager`, `nix-darwin`, `blueprint`
-
-Other inputs and their purpose: `nixpkgs-for-tup` pins a `tup` that works on Darwin; `serena` and the skill-source inputs (`anthropics-skills`, `mattpocock-skills`, `vercel-skills`) are for claude-code; `tinted-terminal` provides Alacritty themes; `emacs-overlay` provides the Emacs package set (daily MELPA/ELPA snapshots) that `emacsWithPackagesFromUsePackage` extracts from init.el's `:ensure` declarations; `auto-side-windows`, `balanced-windows`, and `claude-code-ide` are non-flake sources for Emacs packages absent from the archives (`balanced-windows` is the elp-revive fork).
-
 ## Claude user memory
 
 Claude Code's global user memory (`~/.claude/CLAUDE.md`) is generated from `modules/home/claude-code/context.md` via `programs.claude-code.context`.
