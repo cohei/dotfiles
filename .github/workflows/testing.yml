@@ -21,7 +21,7 @@ jobs:
         run: |
           sudo scutil --set LocalHostName sandbox-mac
           sudo rm /etc/nix/nix.conf /etc/nix/nix.custom.conf /etc/shells
-      - run: sudo nix --extra-experimental-features "nix-command flakes" run
+      - run: sudo env NIX_CONFIG="$(cat nix-preamble.conf)" nix run
         timeout-minutes: 20
   network-activate-test:
     if: github.ref == 'refs/heads/master'
