@@ -44,6 +44,9 @@
           "WebFetch(domain:stackoverflow.com)"
           "WebSearch"
         ];
+        ask = [
+          "Bash(dangerouslyDisableSandbox:true)"
+        ];
       };
     };
     skills = {
