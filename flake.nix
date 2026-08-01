@@ -60,5 +60,15 @@
     };
   };
 
+  # For the `llm-agents` flake.
+  nixConfig = {
+    # cache.numtide.com advertises no priority (defaults to 0), so its priority
+    # is lowered to favor cache.nixos.org (40).
+    extra-substituters = [ "https://cache.numtide.com?priority=100" ];
+    extra-trusted-public-keys = [
+      "niks3.numtide.com-1:DTx8wZduET09hRmMtKdQDxNNthLQETkc/yaX7M4qK0g="
+    ];
+  };
+
   outputs = inputs: inputs.blueprint { inherit inputs; };
 }

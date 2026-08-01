@@ -6,10 +6,6 @@
 }:
 
 {
-  imports = [
-    ./llm-agents.nix
-  ];
-
   environment = {
     # nix-darwin doesn't add the XDG profile path even with
     # use-xdg-base-directories; without this `nix profile` installs
