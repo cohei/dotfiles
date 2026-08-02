@@ -2,6 +2,10 @@ name: Testing
 
 on: push
 
+concurrency:
+  group: ${{ case(startsWith(github.ref, 'refs/heads/update-'), 'flake-updates', github.run_id) }}
+  cancel-in-progress: ${{ startsWith(github.ref, 'refs/heads/update-') }}
+
 permissions:
   contents: read
 
