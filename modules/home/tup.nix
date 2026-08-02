@@ -1,7 +1,7 @@
 {
   config,
   lib,
-  pkgs,
+  perSystem,
   ...
 }:
 
@@ -14,6 +14,6 @@
 
   config = lib.mkIf config.my.tup.enable {
     # broken on Darwin in current nixpkgs
-    home.packages = [ pkgs.for-tup.tup ];
+    home.packages = [ perSystem.nixpkgs-for-tup.tup ];
   };
 }
