@@ -615,6 +615,7 @@
   (before-save-hook . delete-trailing-whitespace)
   :custom
   (kill-whole-line . t)
+  (save-interprogram-paste-before-kill . t)
   (set-mark-command-repeat-pop . t))
 
 (leaf solarized-theme
