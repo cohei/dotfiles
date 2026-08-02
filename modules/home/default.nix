@@ -9,15 +9,7 @@
 {
   home.stateVersion = "26.05";
 
-  nixpkgs.overlays =
-    let
-      system = pkgs.stdenv.hostPlatform.system;
-    in
-    [
-      (_: _: { unfree = inputs.nixpkgs-unfree.legacyPackages.${system}; })
-      (_: _: { for-tup = inputs.nixpkgs-for-tup.legacyPackages.${system}; })
-      inputs.emacs-overlay.overlays.default
-    ];
+  nixpkgs.overlays = [ inputs.emacs-overlay.overlays.default ];
 
   home.homeDirectory =
     let

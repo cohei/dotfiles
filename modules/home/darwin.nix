@@ -23,9 +23,9 @@
         home-manager-news
         mas
         net-news-wire
+        perSystem.nixpkgs-unfree.appcleaner
         perSystem.self.clean-links
         stats
-        unfree.appcleaner
       ];
 
     home.file."iCloud Drive".source =
