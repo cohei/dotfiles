@@ -11,12 +11,23 @@
     ./serena.nix
   ];
 
+  home.packages = [
+    perSystem.llm-agents.ccusage
+    perSystem.llm-agents.skills
+    pkgs.ripgrep
+  ];
+
   programs.claude-code = {
     enable = true;
     package = perSystem.llm-agents.claude-code;
     context = ./context.md;
     settings = {
       effortLevel = "xhigh";
+      enabledPlugins."claude-powerline@claude-powerline" = true;
+      extraKnownMarketplaces.claude-powerline.source = {
+        source = "github";
+        repo = "Owloops/claude-powerline";
+      };
       model = "opus";
       permissions = {
         allow = [
@@ -55,6 +66,10 @@
         ];
       };
       sandbox.enabled = true;
+      statusLine = {
+        type = "command";
+        command = pkgs.lib.getExe perSystem.self.claude-powerline;
+      };
     };
     skills = {
       commit = ./skills/commit;
@@ -66,9 +81,5 @@
     };
   };
 
-  home.packages = [
-    perSystem.llm-agents.ccusage
-    perSystem.llm-agents.skills
-    pkgs.ripgrep
-  ];
+  xdg.configFile."claude-powerline/config.json".source = ./claude-powerline.json;
 }
