@@ -27,6 +27,7 @@
     };
     gh = {
       enable = true;
+      extensions = [ pkgs.gh-stack ];
       settings.aliases.ci-status =
         "!gh api repos/:owner/:repo/commits/$(git rev-parse $1)/status --jq '.statuses[] | [.state, .context, .target_url] | @tsv' | column -ts '\t' | sort";
     };
