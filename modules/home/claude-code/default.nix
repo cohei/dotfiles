@@ -48,6 +48,7 @@
           "Bash(dangerouslyDisableSandbox:true)"
         ];
       };
+      sandbox.enabled = true;
     };
     skills = {
       commit = ./skills/commit;
