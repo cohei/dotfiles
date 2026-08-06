@@ -37,11 +37,17 @@
           "Bash(nix path-info:*)"
           "Bash(nix registry list:*)"
           "WebFetch(domain:deepwiki.com)"
+          "WebFetch(domain:discourse.nixos.org)"
           "WebFetch(domain:docs.jj-vcs.dev)"
           "WebFetch(domain:gist.github.com)"
           "WebFetch(domain:github.com)"
+          "WebFetch(domain:nix-community.github.io)"
+          "WebFetch(domain:nix.dev)"
+          "WebFetch(domain:nixos.org)"
+          "WebFetch(domain:nixos.wiki)"
           "WebFetch(domain:raw.githubusercontent.com)"
           "WebFetch(domain:stackoverflow.com)"
+          "WebFetch(domain:wiki.nixos.org)"
           "WebSearch"
         ];
         ask = [
