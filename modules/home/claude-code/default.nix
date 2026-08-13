@@ -44,9 +44,6 @@
           "Bash(jj show:*)"
           "Bash(jj status:*)"
           "Bash(ls:*)"
-          "Bash(nix eval:*)"
-          "Bash(nix path-info:*)"
-          "Bash(nix registry list:*)"
           "WebFetch(domain:deepwiki.com)"
           "WebFetch(domain:discourse.nixos.org)"
           "WebFetch(domain:docs.jj-vcs.dev)"
@@ -65,7 +62,11 @@
           "Bash(dangerouslyDisableSandbox:true)"
         ];
       };
-      sandbox.enabled = true;
+      sandbox = {
+        enabled = true;
+        filesystem.allowWrite = [ "~/.cache/nix" ];
+        network.allowUnixSockets = [ "/nix/var/nix/daemon-socket/socket" ];
+      };
       statusLine = {
         type = "command";
         command = pkgs.lib.getExe perSystem.self.claude-powerline;
