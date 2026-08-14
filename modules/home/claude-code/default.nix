@@ -58,6 +58,7 @@
       };
       sandbox = {
         enabled = true;
+        excludedCommands = [ "gh" ];
         filesystem.allowWrite = [ "~/.cache/nix" ];
         network.allowUnixSockets = [ "/nix/var/nix/daemon-socket/socket" ];
       };
