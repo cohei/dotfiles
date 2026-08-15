@@ -19,11 +19,11 @@
     "auto-side-windows": {
       "flake": false,
       "locked": {
-        "lastModified": 1773066912,
-        "narHash": "sha256-janIsqSo1wtp/h/gdGqpU7cYKhLKZjMaVdUsOXJ+0X0=",
+        "lastModified": 1786701314,
+        "narHash": "sha256-UypuMUQAWoyJ+jrtc1lNLkEZaEuhC2IOiMor0D02yD4=",
         "owner": "MArpogaus",
         "repo": "auto-side-windows",
-        "rev": "c28f13d6fa5988c24f0021b41b5eb7233034123f",
+        "rev": "eb0f2878f2050c6707dc2dcdc1dff72ef3309483",
         "type": "github"
       },
       "original": {
