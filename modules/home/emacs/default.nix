@@ -8,7 +8,7 @@
 let
   emacsclient =
     let
-      alternative = lib.optionalString pkgs.stdenv.isDarwin "open -a emacs";
+      alternative = lib.optionalString pkgs.stdenv.hostPlatform.isDarwin "open -a emacs";
     in
     "emacsclient --create-frame --alternate-editor='${alternative}'";
 in

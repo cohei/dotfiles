@@ -21,7 +21,7 @@ let
   };
 in
 {
-  config = lib.mkIf pkgs.stdenv.isDarwin {
+  config = lib.mkIf pkgs.stdenv.hostPlatform.isDarwin {
     home.packages = [ claude-code-notify ];
 
     programs.claude-code.settings.hooks = {

@@ -8,7 +8,7 @@
 }:
 
 {
-  config = lib.mkIf pkgs.stdenv.isDarwin {
+  config = lib.mkIf pkgs.stdenv.hostPlatform.isDarwin {
     home.homeDirectory = lib.mkForce "/Users/${config.home.username}";
 
     home.packages =
