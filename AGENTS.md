@@ -25,7 +25,7 @@ Blueprint maps directories to flake outputs:
 
 Rule of thumb: if it *configures or installs* something for the user, it's a module; if it *builds* an artifact, it's a package.
 
-Platform-specific settings are guarded with `lib.mkIf pkgs.stdenv.isDarwin`.
+Platform-specific settings are guarded with `lib.mkIf pkgs.stdenv.hostPlatform.isDarwin`.
 
 ## Claude user memory
 

@@ -6,7 +6,7 @@
 
 let
   options =
-    if pkgs.stdenv.isDarwin then
+    if pkgs.stdenv.hostPlatform.isDarwin then
       {
         input = perSystem.nix-darwin;
         command = "darwin-rebuild";
