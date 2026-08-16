@@ -3,13 +3,13 @@
 pkgs.buildNpmPackage (finalAttrs: {
   inherit pname;
 
-  version = "1.29.0";
+  version = "1.30.1";
 
   src = pkgs.fetchFromGitHub {
     owner = "Owloops";
     repo = "claude-powerline";
     tag = "v${finalAttrs.version}";
-    hash = "sha256-nTwvNDuddybLSgMjpXLpP5n7G3nSNk/vcgNgOHVw+bo=";
+    hash = "sha256-Kevx+gZULenAPKe0LYov+v4byCJHoauf58Xkxd53Xyw=";
   };
 
   npmDepsHash = "sha256-D3Z5tb4phZUMPQaXvfYiIWuwaX5YGI8ubgyV7sSJqQk=";
