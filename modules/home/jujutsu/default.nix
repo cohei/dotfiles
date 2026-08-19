@@ -55,7 +55,7 @@
         ];
       };
       hints.resolving-conflicts = false;
-      revset-aliases.megamerge = "description(exact:\"Megamerge!\n\")";
+      revset-aliases.megamerge = "heads(::@ & merges())";
       revsets.bookmark-advance-to = "@-";
       template-aliases.my_log_oneline = "my_log_oneline(self)";
       template-aliases."my_log_oneline(commit)" = ''
