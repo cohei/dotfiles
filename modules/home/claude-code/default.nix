@@ -72,7 +72,10 @@
       };
       sandbox = {
         enabled = true;
-        excludedCommands = [ "gh *" ];
+        excludedCommands = [
+          "docker *"
+          "gh *"
+        ];
         filesystem.allowWrite = [ "~/.cache/nix" ];
         network.allowUnixSockets = [ "/nix/var/nix/daemon-socket/socket" ];
       };
