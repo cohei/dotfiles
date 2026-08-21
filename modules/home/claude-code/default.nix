@@ -7,6 +7,7 @@
 
 {
   imports = [
+    ./claude-powerline.nix
     ./notify.nix
     ./serena.nix
   ];
@@ -89,6 +90,4 @@
       skill-creator = "${inputs.anthropics-skills}/skills/skill-creator";
     };
   };
-
-  xdg.configFile."claude-powerline/config.json".source = ./claude-powerline.json;
 }
