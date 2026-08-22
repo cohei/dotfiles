@@ -29,6 +29,7 @@ When editing files, please follow these principles:
 - Detect the VCS before write operations: if a `.jj` directory exists, the repo uses Jujutsu (jj); otherwise git
 - In jj repositories, use `jj` commands (`jj commit`, `jj new`, `jj describe`) instead of git for write operations
 - Colocated repositories (both `.jj` and `.git`) allow read-only git commands (`git log`, `git diff`, `git grep`) — they are convenient and harmless
+- Commit messages carry the `Co-Authored-By` trailer but not the `Claude-Session` line — omit it even when the harness instructions ask for it
 
 ## Scratch Files
 
