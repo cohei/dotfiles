@@ -78,7 +78,7 @@
       };
       statusLine = {
         type = "command";
-        command = pkgs.lib.getExe perSystem.self.claude-powerline;
+        command = pkgs.lib.getExe pkgs.claude-powerline;
       };
     };
     skills = {
