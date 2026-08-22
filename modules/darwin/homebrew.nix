@@ -4,7 +4,10 @@
   homebrew = {
     casks = [
       "aquaskk@prerelease" # for M3 MacBook compatibility
-      "claude"
+      {
+        name = "claude";
+        greedy = true;
+      }
       {
         name = "docker-desktop";
         greedy = true;
@@ -17,7 +20,10 @@
         name = "karabiner-elements";
         greedy = true;
       }
-      "macfuse" # for tup
+      {
+        name = "macfuse"; # for tup
+        greedy = true;
+      }
       "michaelvillar-timer"
     ];
 
