@@ -23,6 +23,12 @@
       display.lines = [
         {
           segments = ordered [
+            {
+              directory = {
+                enabled = true;
+                style = "basename";
+              };
+            }
             { model.enabled = true; }
             {
               thinking = {
@@ -68,6 +74,7 @@
             base02 = "#073642";
             yellow = "#b58900";
             orange = "#cb4b16";
+            magenta = "#d33682";
             violet = "#6c71c4";
             blue = "#268bd2";
             green = "#859900";
@@ -79,6 +86,7 @@
           };
         in
         {
+          directory = segmentColor solarized.magenta;
           model = segmentColor solarized.violet;
           thinking = segmentColor solarized.blue;
           block = segmentColor solarized.green;
