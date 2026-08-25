@@ -106,6 +106,7 @@
     shellAbbrs = {
       j = "jj";
       jl = "jj l";
+      jp = "jj p";
     };
     shellInit = ''
       COMPLETE=fish jj | source
