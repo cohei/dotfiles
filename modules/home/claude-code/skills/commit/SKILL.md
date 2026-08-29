@@ -19,7 +19,8 @@ Present the drafted message and stop. Run the commit only after the user approve
 ### Subject
 
 - One line by default; if the why needs explaining, keep it out of the subject (drop "for ..." purpose phrases) and write it in the body, after a blank line
-- Don't make it too specific: avoid concrete flags, options, or command names already visible in the diff
+- Keep out the mechanics the diff already shows: concrete flags, options, or command names
+- Name the specific thing the change is about: "the binary cache for `llm-agents`", not "the binary cache"
 - Mark work-in-progress commits with a `[WIP]` suffix in the subject
 
 ### Body
