@@ -18,6 +18,10 @@ Blueprint maps directories to flake outputs:
 - `modules/home/` → `homeModules.*`; `modules/darwin/` → `darwinModules.*`.
 - `packages/` → `packages.*`.
 
+## Hosts
+
+`sandbox-mac` and `sandbox-container` exist so CI exercises the same configuration as the real machine, so divergence between hosts is kept minimal. A shared module that needs a host-specific value stays imported everywhere, with the value set in each `hosts/<host>/darwin-configuration.nix`; the import is not moved down to a single host.
+
 ## Module vs Package
 
 - **`modules/home/<name>`** — code that *configures* the user environment (`home.packages`, `programs.*`, `xdg.configFile`, fish abbreviations, …).
