@@ -99,6 +99,7 @@
       grill-me = "${inputs.mattpocock-skills}/skills/productivity/grill-me";
       grilling = "${inputs.mattpocock-skills}/skills/productivity/grilling";
       handoff = "${inputs.mattpocock-skills}/skills/productivity/handoff";
+      nixpkgs = ./skills/nixpkgs;
       skill-creator = "${inputs.anthropics-skills}/skills/skill-creator";
     };
   };
