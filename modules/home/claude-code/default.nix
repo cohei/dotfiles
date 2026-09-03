@@ -24,10 +24,19 @@
     context = ./context.md;
     settings = {
       effortLevel = "xhigh";
-      enabledPlugins."claude-powerline@claude-powerline" = true;
-      extraKnownMarketplaces.claude-powerline.source = {
-        source = "github";
-        repo = "Owloops/claude-powerline";
+      enabledPlugins = {
+        "claude-powerline@claude-powerline" = true;
+        "eli5@claude-community" = true;
+      };
+      extraKnownMarketplaces = {
+        claude-community.source = {
+          source = "github";
+          repo = "anthropics/claude-plugins-community";
+        };
+        claude-powerline.source = {
+          source = "github";
+          repo = "Owloops/claude-powerline";
+        };
       };
       model = "opus";
       permissions = {
