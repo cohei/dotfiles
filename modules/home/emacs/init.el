@@ -1,4 +1,4 @@
-;;; init --- emacs config file
+;;; init --- emacs config file  -*- lexical-binding: t; -*-
 
 ;;; Commentary:
 
