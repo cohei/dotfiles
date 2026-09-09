@@ -25,8 +25,9 @@ Present the drafted message and stop. Run the commit only after the user approve
 
 ### Body
 
-- Keep it minimal: carry only the core why, dropping secondary justifications
+- Keep it minimal: carry only the core why, dropping secondary justifications and anything the reader can infer from the diff or from what the module obviously does
 - Say what the change now makes possible, not what was wrong before. Why the gain works is part of that: "`nixConfig` applies on every platform, so the container and the macOS CI job now fetch the packages instead of building them"
+- Keep the decisions the diff cannot show, such as "cleanup stays manual: onActivation keeps defaults": a choice not to act leaves no trace to read
 - When the why needs unpacking, the old problem may appear, but as background after the direct trigger (what recently changed or became possible), in "recent change → old problem → now fix" order, not the reverse
 
 ## Jujutsu Repositories
