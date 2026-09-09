@@ -1,9 +1,9 @@
 ---
-name: nixpkgs
+name: nixpkgs-contribution
 description: Conventions for working in a nixpkgs checkout. Invoke when editing a nixpkgs clone, before writing any commit message in one, and before opening a nixpkgs PR.
 ---
 
-# nixpkgs
+# nixpkgs contribution
 
 ## Automation/AI Policy
 
