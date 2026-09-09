@@ -17,6 +17,7 @@
     blueprint = {
       url = "github:numtide/blueprint";
       inputs.nixpkgs.follows = "nixpkgs";
+      inputs.systems.follows = "systems";
     };
     claude-code-ide = {
       url = "github:manzaltu/claude-code-ide.el";
@@ -31,7 +32,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     # Not following `nixpkgs`, to keep binary cache hits.
-    llm-agents.url = "github:numtide/llm-agents.nix";
+    llm-agents = {
+      url = "github:numtide/llm-agents.nix";
+      inputs.systems.follows = "systems";
+    };
     mattpocock-skills = {
       url = "github:mattpocock/skills";
       flake = false;
@@ -48,8 +52,10 @@
     };
     serena = {
       url = "github:oraios/serena";
+      inputs.flake-utils.inputs.systems.follows = "systems";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    systems.url = "github:nix-systems/triplet";
     tinted-terminal = {
       url = "github:tinted-theming/tinted-terminal";
       flake = false;
