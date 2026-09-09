@@ -1,6 +1,6 @@
 ---
 name: commit
-description: Guide for committing changes and writing commit messages. Invoke BEFORE running any `git commit`, `jj commit`, or `jj describe`, or otherwise writing, amending, or rewriting a commit message — including commits you initiate yourself as part of a larger task, not only when the user explicitly asks to commit. Covers commit message style and jj-specific commit workflows.
+description: Guide for committing changes and writing commit messages. Invoke BEFORE running any `git commit`, `jj commit`, or `jj describe`, or otherwise writing, amending, or rewriting a commit message — including commits you initiate yourself as part of a larger task, not only when the user explicitly asks to commit.
 ---
 
 # Commit
