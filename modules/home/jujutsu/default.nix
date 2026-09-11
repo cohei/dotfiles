@@ -1,6 +1,8 @@
 { ... }:
 
 {
+  imports = [ ./stakk.nix ];
+
   programs.jujutsu = {
     enable = true;
     settings = {
