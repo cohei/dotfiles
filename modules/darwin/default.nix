@@ -31,12 +31,6 @@
       options = "--delete-older-than 7d";
     };
     optimise.automatic = true;
-    registry.nixpkgs-unstable.to = {
-      type = "github";
-      owner = "NixOS";
-      repo = "nixpkgs";
-      ref = "nixpkgs-unstable";
-    };
     settings = {
       experimental-features = "nix-command flakes";
       trusted-users = [ "@admin" ];
