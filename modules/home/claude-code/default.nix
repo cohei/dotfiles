@@ -26,9 +26,14 @@
       effortLevel = "xhigh";
       enabledPlugins = {
         "claude-powerline@claude-powerline" = true;
+        "claude-retrospective@bitwarden-marketplace" = true;
         "eli5@claude-community" = true;
       };
       extraKnownMarketplaces = {
+        bitwarden-marketplace.source = {
+          source = "github";
+          repo = "bitwarden/ai-plugins";
+        };
         claude-community.source = {
           source = "github";
           repo = "anthropics/claude-plugins-community";
