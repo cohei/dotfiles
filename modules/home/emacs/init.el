@@ -689,6 +689,11 @@
   :custom
   (uniquify-buffer-name-style . 'reverse))
 
+(leaf valign
+  :ensure t
+  :blackout t
+  :hook markdown-mode-hook org-mode-hook)
+
 (leaf vc-jj
   :ensure t)
 
