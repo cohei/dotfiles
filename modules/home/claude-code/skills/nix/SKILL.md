@@ -32,6 +32,6 @@ Name a helper function in a `let` binding too, rather than inlining it as a lamb
 
 ## Commands
 
-- Reach for the flakes commands where the docs still teach the legacy ones — `nix build .#<attr>` over `nix-build -A <attr>`, `nix develop` over `nix-shell` — since the user is standardizing on flakes
+- Reach for the flakes commands where the docs still teach the legacy ones (`nix build .#<attr>` over `nix-build -A <attr>`, `nix develop` over `nix-shell`), since the user is standardizing on flakes
 - A dirty working tree is fine; the `Git tree ... is dirty` warning is safe to ignore
 - Delete the `result` symlink a `nix build` leaves in the working tree (`rm result`)

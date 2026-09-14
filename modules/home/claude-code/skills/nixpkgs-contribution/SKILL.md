@@ -9,7 +9,7 @@ description: Conventions for working in a nixpkgs checkout. Invoke when editing 
 
 Use of AI here is governed by `CONTRIBUTING.md` § "Automation/AI policy", and a deliberate violation is considered to break the Code of Conduct. Read that section for anything the points below don't cover.
 
-- Disclose a commit with `Assisted-by: Claude Code (<model>)`, naming the model of the session that wrote it (`Claude Opus 5`, `Claude Sonnet 5`, …) — not a fixed string, which is why past commits differ. Spell the display name as the default `Co-Authored-By` trailer does (user's decision)
+- Disclose a commit with `Assisted-by: Claude Code (<model>)`, naming the model of the session that wrote it (`Claude Opus 5`, `Claude Sonnet 5`, …), not a fixed string, which is why past commits differ. Spell the display name as the default `Co-Authored-By` trailer does (user's decision)
 - § "Transparency" requires the `Assisted-by:` trailer for a commit, in place of the `Co-Authored-By:` line the general instructions ask for
 - PR summaries and review comments are covered too, and need disclosure separate from the commits. The footer the harness appends covers a PR body; an LLM-drafted comment or review needs its own line
 
