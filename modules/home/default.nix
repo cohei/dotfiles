@@ -23,6 +23,7 @@
     bash-language-server
     bottom
     perSystem.self.cica
+    circleci-cli
     coreutils
     difftastic
     perSystem.self.dotall

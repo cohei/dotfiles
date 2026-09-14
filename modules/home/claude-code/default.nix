@@ -82,6 +82,7 @@
       sandbox = {
         enabled = true;
         excludedCommands = [
+          "circleci *"
           "docker *"
           "gh *"
         ];
