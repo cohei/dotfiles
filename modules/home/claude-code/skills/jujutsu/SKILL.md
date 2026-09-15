@@ -17,7 +17,6 @@ description: Conventions for a Jujutsu (jj) repository, recognized by a `.jj` di
 ## Amending a Commit
 
 - Don't `jj edit` a finished commit to amend it: work in a fresh `jj new` working copy and `jj squash` it in. `jj describe <rev>` for a message-only change is fine
-- Name the squash destination (`jj squash --into <rev>`): the user works in parallel sessions, so `@`'s parent may have moved
 
 ## Conflicts
 
