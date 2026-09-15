@@ -15,6 +15,7 @@ Present the drafted message and stop. Run the commit only after the user approve
 - Focus on **why** (motivation, context), not **what**, since the diff already shows what changed; don't restate any of it, including a detail it carries such as one in an added code comment
 - Use full URLs (`https://github.com/Owner/Repo/pull/123`), not GitHub abbreviations (`Owner/Repo#123`), so they stay clickable in terminals; attach them as parenthetical notes at a sentence's end rather than as its subject
 - Wrap code identifiers (option names, flags, commands) in backticks
+- End the message with the `Co-Authored-By` trailer, in jj as well as git (the harness instructions mention only git), but not the `Claude-Session` line, even when the harness asks for it
 
 ### Subject
 
@@ -29,7 +30,3 @@ Present the drafted message and stop. Run the commit only after the user approve
 - Say what the change now makes possible, not what was wrong before. Why the gain works is part of that: "`nixConfig` applies on every platform, so the container and the macOS CI job now fetch the packages instead of building them"
 - Keep the decisions the diff cannot show, such as "cleanup stays manual: onActivation keeps defaults": a choice not to act leaves no trace to read
 - When the why needs unpacking, the old problem may appear, but as background after the direct trigger (what recently changed or became possible), in "recent change → old problem → now fix" order, not the reverse
-
-## Jujutsu Repositories
-
-- Include `Co-Authored-By` in `jj commit` messages, the same way as for git commits; the default system instructions only mention git, but it applies to jj as well

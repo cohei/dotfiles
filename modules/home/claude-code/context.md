@@ -26,7 +26,6 @@ When editing files, please follow these principles:
 ## VCS
 
 - Run version control operations on the host side, not inside containers
-- Commit messages carry the `Co-Authored-By` trailer but not the `Claude-Session` line — omit it even when the harness instructions ask for it
 
 ## Scratch Files
 
