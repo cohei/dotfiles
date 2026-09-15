@@ -32,6 +32,4 @@ Present the drafted message and stop. Run the commit only after the user approve
 
 ## Jujutsu Repositories
 
-- To commit only specific files, use `jj commit <paths> -m "..."` (similar to `git commit <files>`)
 - Include `Co-Authored-By` in `jj commit` messages, the same way as for git commits; the default system instructions only mention git, but it applies to jj as well
-- `-m/--message` takes a single value; unlike git, repeated `-m` don't form paragraphs (the last one wins). For a subject plus a `Co-Authored-By` trailer, pass one `-m` with an embedded blank line
