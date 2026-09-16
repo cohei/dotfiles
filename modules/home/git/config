@@ -22,8 +22,6 @@
 	swd   = switch --detach
 [branch]
 	sort = -committerdate
-[color]
-	ui = auto
 [core]
 	pager = delta
 	precomposeunicode = true
@@ -42,7 +40,6 @@
 [diff]
 	algorithm = histogram
 	colorMoved = default
-	compactionHeuristic = true
 	renames = copy
 [ghq]
 	root = ~/src
@@ -58,8 +55,6 @@
 	conflictStyle = zdiff3
 [pull]
 	rebase = true
-[push]
-	default = simple
 [rebase]
 	autosquash = true
 [rerere]
