@@ -11,8 +11,8 @@ description: Conventions for a Jujutsu (jj) repository, recognized by a `.jj` di
 
 ## Committing
 
-- To commit only specific files, use `jj commit <paths> -m "..."` (similar to `git commit <files>`)
-- `-m/--message` takes a single value; unlike git, repeated `-m` don't form paragraphs (the last one wins). For a subject plus a `Co-Authored-By` trailer, pass one `-m` with an embedded blank line
+- To commit only specific files, use `jj commit <paths> --message "..."` (similar to `git commit <files>`)
+- `--message` takes a single value; unlike git, repeated `--message` don't form paragraphs (the last one wins). For a subject plus a `Co-Authored-By` trailer, pass one `--message` with an embedded blank line
 
 ## Amending a Commit
 

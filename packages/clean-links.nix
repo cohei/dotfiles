@@ -12,8 +12,8 @@ pkgs.stdenv.mkDerivation (finalAttrs: {
   };
 
   installPhase = ''
-    mkdir -p $out/Applications
-    cp -r 'Clean Links.app' $out/Applications/
+    mkdir --parents $out/Applications
+    cp --recursive 'Clean Links.app' $out/Applications/
   '';
 
   meta = with pkgs.lib; {

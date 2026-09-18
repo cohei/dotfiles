@@ -9,13 +9,13 @@
 	dc    = diff --cached
 	f     = fetch --all --tags --prune --prune-tags
 	g     = grep
-	l     = log --oneline -5
+	l     = log --oneline --max-count=5
 	lg    = log --graph --oneline --exclude 'refs/jj/*' --all
 	peek  = "!f() { git switch --detach && git merge --no-edit origin/$1; }; f"
 	rb-continue-no-edit = "-c core.editor=true rebase --continue"
 	re    = restore
 	s     = status --short --branch
-	ss    = !git stash list | fzf --exit-0 --preview-window up:80% --preview 'echo {1} | tr -d : | xargs git stash show -v --color=always' | grep --only-matching stash@{.*} | xargs git stash pop
+	ss    = !git stash list | fzf --exit-0 --preview-window up:80% --preview 'echo {1} | tr --delete : | xargs git stash show -v --color=always' | grep --only-matching stash@{.*} | xargs git stash pop
 	sw    = switch
 	swc   = switch --no-track --create
 	swcm  = "!f() { git switch --no-track --create \"$1\" origin/master; }; f"

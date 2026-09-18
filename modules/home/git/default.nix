@@ -11,7 +11,7 @@
     fish = {
       shellAliases = {
         gap = "git ap";
-        gb = "git sw (git branch | fzf | tr -d '* ')";
+        gb = "git sw (git branch | fzf | tr --delete '* ')";
         gdc = "git dc";
         gf = "git f";
         gg = "git g";

@@ -32,7 +32,7 @@ Review a PR through the fork [cohei/nixpkgs-review-gha](https://github.com/cohei
 
 ```
 gh repo sync cohei/nixpkgs-review-gha
-gh workflow run review.yml --repo cohei/nixpkgs-review-gha -f pr=<PR number> -f x86_64-darwin=no
+gh workflow run review.yml --repo cohei/nixpkgs-review-gha --raw-field pr=<PR number> --raw-field x86_64-darwin=no
 ```
 
 - `x86_64-darwin=no` is required. The default is `yes_sandbox_relaxed`, but nixpkgs has dropped x86_64-darwin: `lib/systems/doubles.nix` lists only `aarch64-darwin` for Darwin
