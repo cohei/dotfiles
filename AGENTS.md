@@ -39,6 +39,7 @@ Claude Code's global user memory (`~/.claude/CLAUDE.md`) is generated from `modu
 
 - Apply the configuration: `nix run` (this checkout) or `nix run github:cohei/dotfiles`. Both invoke `packages/activate.nix`, which runs `darwin-rebuild switch` (macOS) or `home-manager switch` (Linux).
 - Or run those directly; use `build` instead of `switch` to test without activating (`home-manager build` / `darwin-rebuild build`).
+- Activating (`switch`, hence `nix run`) affects the whole machine: ask the user before running it, then run it yourself once confirmed. `build` needs no confirmation.
 - Isolated testing in a NixOS container: see [README.md](README.md).
 
 ## Change conventions
