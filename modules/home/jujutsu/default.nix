@@ -48,6 +48,14 @@
           "show"
           "@-"
         ];
+        pr-create = [
+          "util"
+          "exec"
+          "--"
+          "fish"
+          "--command"
+          "jj-pr-create $argv"
+        ];
         retrunk = [
           "rebase"
           "--simplify-parents"
@@ -102,6 +110,7 @@
   programs.fish = {
     functions = {
       d = "if jj &> /dev/null; jj show $argv; else; git d $argv; end";
+      jj-pr-create = builtins.readFile ./jj-pr-create.fish;
       s = "if jj &> /dev/null; jj status $argv; else; git s $argv; end";
     };
     shellAbbrs = {
