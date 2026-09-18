@@ -24,7 +24,7 @@
     bottom
     perSystem.self.cica
     circleci-cli
-    coreutils
+    coreutils-full
     difftastic
     perSystem.self.dotall
     duf
