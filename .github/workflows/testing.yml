@@ -36,4 +36,6 @@ jobs:
     steps:
       - uses: jlumbroso/free-disk-space@54081f138730dfa15788a46383842cd2f914a1be # v1.3.1
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
-      - run: docker compose run development nix run github:cohei/dotfiles
+      - run: docker compose run --env NIX_CONFIG development nix run github:cohei/dotfiles
+        env:
+          NIX_CONFIG: access-tokens = github.com=${{ secrets.GITHUB_TOKEN }}
