@@ -203,6 +203,22 @@
         "type": "github"
       }
     },
+    "japanese-tech-writing": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1788943331,
+        "narHash": "sha256-jo1DvsAVIAKzurutp+T66kctgaFEe+sVbY9bf7wlCLM=",
+        "ref": "refs/heads/main",
+        "rev": "8f2d57610a73efc97d743c9b0b0ecb1002e09fa4",
+        "revCount": 7,
+        "type": "git",
+        "url": "https://gist.github.com/k16shikano/fd287c3133457c4fd8f5601d34aa817d.git"
+      },
+      "original": {
+        "type": "git",
+        "url": "https://gist.github.com/k16shikano/fd287c3133457c4fd8f5601d34aa817d.git"
+      }
+    },
     "llm-agents": {
       "inputs": {
         "bun2nix": "bun2nix",
@@ -406,6 +422,7 @@
         "claude-code-ide": "claude-code-ide",
         "emacs-overlay": "emacs-overlay",
         "home-manager": "home-manager",
+        "japanese-tech-writing": "japanese-tech-writing",
         "llm-agents": "llm-agents",
         "mattpocock-skills": "mattpocock-skills",
         "nix-darwin": "nix-darwin",

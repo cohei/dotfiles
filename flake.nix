@@ -31,6 +31,10 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    japanese-tech-writing = {
+      url = "git+https://gist.github.com/k16shikano/fd287c3133457c4fd8f5601d34aa817d.git";
+      flake = false;
+    };
     # Not following `nixpkgs`, to keep binary cache hits.
     llm-agents = {
       url = "github:numtide/llm-agents.nix";

@@ -12,6 +12,7 @@
 - Dashes in prose read as affected; write plainly instead
 - Prefer citing sources with named footnotes (`[^some-name]`) over inline URLs, especially in a longer document
 - Use a real heading at the right level instead of bold text as a pseudo-heading
+- Invoke the `japanese-tech-writing` skill before writing more than a few paragraphs of Japanese prose (an explanation, a report, a document), not only for manuscripts
 - A document states the current situation and is updated when a fact stops being true, so leave out "last updated" lines and "as of" or "re-verified" notes; dates belong only to external historical facts. Evidence pointers (what was grepped, a log file path) are content, keep them
 
 ### Code

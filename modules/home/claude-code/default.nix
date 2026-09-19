@@ -105,6 +105,7 @@
       grill-me = "${inputs.mattpocock-skills}/skills/productivity/grill-me";
       grilling = "${inputs.mattpocock-skills}/skills/productivity/grilling";
       handoff = "${inputs.mattpocock-skills}/skills/productivity/handoff";
+      japanese-tech-writing = "${inputs.japanese-tech-writing}";
       jujutsu = ./skills/jujutsu;
       nix = ./skills/nix;
       nixpkgs-contribution = ./skills/nixpkgs-contribution;
