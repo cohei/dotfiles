@@ -9,7 +9,7 @@ let
     if pkgs.stdenv.hostPlatform.isDarwin then
       {
         input = perSystem.nix-darwin;
-        command = "darwin-rebuild";
+        command = "sudo --preserve-env=NIX_CONFIG darwin-rebuild";
       }
     else
       {
