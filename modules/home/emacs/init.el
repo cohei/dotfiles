@@ -119,8 +119,7 @@ inconsistent, so `window--sides-check' will reset it."
   :hook
   (prog-mode-hook
    . (lambda ()
-       (dolist (f (list #'cape-file #'cape-dabbrev #'cape-keyword))
-         (add-hook 'completion-at-point-functions f nil t)))))
+       (add-hook 'completion-at-point-functions (cape-capf-super #'cape-file #'cape-dabbrev #'cape-keyword) nil t))))
 
 (leaf cc-mode
   :config
