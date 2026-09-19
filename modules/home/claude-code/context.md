@@ -29,7 +29,7 @@
 
 - Verify a technical claim about an external tool or library (a flag, a feature, a repository URL) against official documentation or source code via WebSearch/WebFetch before trusting what local files say, and cite the URL
 - If no primary source is found, say so (mark the claim **UNVERIFIED**) and ask before proceeding; keep speculation visibly apart from verified conclusions in any report
-- When research needs several files of an external repository, or a grep over it, clone it (shallow is fine) into `my-scratch/`: a checkout can be grepped and read whole, while WebFetch returns one page at a time, summarized
+- To read several files of an external repository, or grep it, shallow-clone it into `my-scratch/` instead of WebFetch, which returns one summarized page at a time. The sandbox blocks `git clone` there but not `gh repo clone`, which the settings exclude
 
 ### Claims and Recommendations
 
