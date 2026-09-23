@@ -23,7 +23,6 @@
     package = perSystem.llm-agents.claude-code;
     context = ./context.md;
     settings = {
-      effortLevel = "xhigh";
       enabledPlugins = {
         "claude-powerline@claude-powerline" = true;
         "claude-retrospective@bitwarden-marketplace" = true;
