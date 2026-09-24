@@ -50,6 +50,7 @@
         ];
         retrunk = [
           "rebase"
+          "--simplify-parents"
           "--destination"
           "trunk()"
         ];
