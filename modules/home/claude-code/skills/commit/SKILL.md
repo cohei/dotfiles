@@ -15,7 +15,7 @@ Present the drafted message and stop. Run the commit only after the user approve
 - Focus on **why** (motivation, context), not **what**, since the diff already shows what changed; don't restate any of it, including a detail it carries such as one in an added code comment
 - Use full URLs (`https://github.com/Owner/Repo/pull/123`), not GitHub abbreviations (`Owner/Repo#123`), so they stay clickable in terminals; attach them as parenthetical notes at a sentence's end rather than as its subject
 - Wrap code identifiers (option names, flags, commands) in backticks
-- End the message with the `Co-Authored-By` trailer, in jj as well as git (the harness instructions mention only git), but not the `Claude-Session` line, even when the harness asks for it
+- End the message with the `Co-Authored-By` trailer, in jj as well as git (the harness instructions mention only git)
 
 ### Subject
 

@@ -23,6 +23,7 @@
     package = perSystem.llm-agents.claude-code;
     context = ./context.md;
     settings = {
+      attribution.sessionUrl = false;
       enabledPlugins = {
         "claude-powerline@claude-powerline" = true;
         "claude-retrospective@bitwarden-marketplace" = true;
