@@ -203,6 +203,22 @@
         "type": "github"
       }
     },
+    "ivcota-skills": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1790002548,
+        "narHash": "sha256-p4kkmGHTehO25bUWpeuxC9r/IiMEgCF7mnzfBJEG9NA=",
+        "owner": "Ivcota",
+        "repo": "skills",
+        "rev": "336ba2c7815e642126d5da774747b7300d24bb2c",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Ivcota",
+        "repo": "skills",
+        "type": "github"
+      }
+    },
     "japanese-tech-writing": {
       "flake": false,
       "locked": {
@@ -422,6 +438,7 @@
         "claude-code-ide": "claude-code-ide",
         "emacs-overlay": "emacs-overlay",
         "home-manager": "home-manager",
+        "ivcota-skills": "ivcota-skills",
         "japanese-tech-writing": "japanese-tech-writing",
         "llm-agents": "llm-agents",
         "mattpocock-skills": "mattpocock-skills",

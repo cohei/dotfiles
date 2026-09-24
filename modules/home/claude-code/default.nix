@@ -107,6 +107,7 @@
       jujutsu = ./skills/jujutsu;
       nix = ./skills/nix;
       nixpkgs-contribution = ./skills/nixpkgs-contribution;
+      readable-code = "${inputs.ivcota-skills}/build-products/readable-code";
       skill-creator = "${inputs.anthropics-skills}/skills/skill-creator";
     };
   };
