@@ -42,7 +42,6 @@
           repo = "Owloops/claude-powerline";
         };
       };
-      model = "opus";
       permissions = {
         allow = [
           "Bash(gh discussion list:*)"
