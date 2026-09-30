@@ -4,6 +4,7 @@
 
 - State moves between turns, by the user's hand or by another session: files, the commit graph, what is deployed. Re-read whatever you are about to act on rather than trusting what you saw earlier, and take it as is, including what is no longer there
 - When the only thing left in doubt is a fact about the user's environment, asking is an option alongside checking it yourself. The user watches closely and often answers faster than a build or a test run can
+- When many questions or topics are pending, list them all first, then ask one per turn, especially in the grilling skill
 
 ## What You Produce
 
