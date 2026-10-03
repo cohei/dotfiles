@@ -206,11 +206,11 @@
     "ivcota-skills": {
       "flake": false,
       "locked": {
-        "lastModified": 1790002548,
-        "narHash": "sha256-p4kkmGHTehO25bUWpeuxC9r/IiMEgCF7mnzfBJEG9NA=",
+        "lastModified": 1790955321,
+        "narHash": "sha256-PY4hwFsXfu4qAA7/Q4QkmrpBOLiMhajte/0vSYd7FtY=",
         "owner": "Ivcota",
         "repo": "skills",
-        "rev": "336ba2c7815e642126d5da774747b7300d24bb2c",
+        "rev": "0078d14a9d67ab1e2c20c180e34262e6090923a6",
         "type": "github"
       },
       "original": {
