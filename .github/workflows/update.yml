@@ -19,7 +19,7 @@ jobs:
           private-key: ${{ secrets.UPDATE_APP_PRIVATE_KEY }}
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
-          token: ${{ steps.app-token.outputs.token }} # to trigger CI on PRs created by update-flake-inputs
+          token: ${{ steps.app-token.outputs.token }} # to trigger CI on pull requests created by update-flake-inputs
       - uses: NixOS/nix-installer-action@62c1943b776c509394b550f3f983adc14e9212d6 # main
       - uses: Mic92/update-flake-inputs@1e056167bd2101e587bd39deb2f64909b4759652 # v1.0.4
         with:
