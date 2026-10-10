@@ -15,6 +15,7 @@ pkgs.rustPlatform.buildRustPackage (finalAttrs: {
   cargoHash = "sha256-MtmVEacT9cn1wpd+bTGX/Ba2pc7rtn1ibTnt4+xlE5M=";
 
   nativeCheckInputs = [
+    pkgs.git
     pkgs.jujutsu
     pkgs.writableTmpDirAsHomeHook
   ];
