@@ -25,10 +25,6 @@
         greedy = true;
       }
       "michaelvillar-timer"
-      {
-        name = "stats";
-        greedy = true;
-      }
     ];
 
     masApps = {
