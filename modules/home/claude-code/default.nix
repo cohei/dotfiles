@@ -91,7 +91,10 @@
           "docker *"
           "gh *"
         ];
-        filesystem.allowWrite = [ "~/.cache/nix" ];
+        filesystem.allowWrite = [
+          "~/.cache/cabal/logs"
+          "~/.cache/nix"
+        ];
         network.allowUnixSockets = [ "/nix/var/nix/daemon-socket/socket" ];
       };
       statusLine = {
