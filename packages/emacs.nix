@@ -39,6 +39,9 @@ pkgsWithEmacsOverlay.emacsWithPackagesFromUsePackage {
       "auto-side-windows"
       "balanced-windows"
       "claude-code-ide"
+      # The latest ELPA release, 0.5, still uses `git_head`, which jj 0.43 removed.
+      # Build from the input until a newer release is out.
+      "vc-jj"
     ] fromInput;
   extraEmacsPackages = epkgs: [
     (epkgs.treesit-grammars.with-grammars (

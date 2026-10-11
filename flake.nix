@@ -68,6 +68,10 @@
       url = "github:tinted-theming/tinted-terminal";
       flake = false;
     };
+    vc-jj = {
+      url = "git+https://codeberg.org/emacs-jj-vc/vc-jj.el";
+      flake = false;
+    };
     vercel-skills = {
       url = "github:vercel-labs/skills";
       flake = false;
