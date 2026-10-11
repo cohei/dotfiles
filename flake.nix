@@ -6,10 +6,6 @@
       url = "github:anthropics/skills";
       flake = false;
     };
-    auto-side-windows = {
-      url = "github:MArpogaus/auto-side-windows";
-      flake = false;
-    };
     balanced-windows = {
       url = "github:elp-revive/balanced-windows";
       flake = false;

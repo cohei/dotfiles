@@ -36,7 +36,6 @@ pkgsWithEmacsOverlay.emacsWithPackagesFromUsePackage {
       inherit packageRequiresFromFile packageRequiresFor;
     }
     // lib.genAttrs [
-      "auto-side-windows"
       "balanced-windows"
       "claude-code-ide"
       # The latest ELPA release, 0.5, still uses `git_head`, which jj 0.43 removed.

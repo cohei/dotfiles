@@ -16,22 +16,6 @@
         "type": "github"
       }
     },
-    "auto-side-windows": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1791196904,
-        "narHash": "sha256-VYOg7P3VJVV3xGjZgsfytVrw77PSTaJP25enQFCC5Sk=",
-        "owner": "MArpogaus",
-        "repo": "auto-side-windows",
-        "rev": "fb63e3a279c79dc5bc0953903e15840a6f8cf146",
-        "type": "github"
-      },
-      "original": {
-        "owner": "MArpogaus",
-        "repo": "auto-side-windows",
-        "type": "github"
-      }
-    },
     "balanced-windows": {
       "flake": false,
       "locked": {
@@ -432,7 +416,6 @@
     "root": {
       "inputs": {
         "anthropics-skills": "anthropics-skills",
-        "auto-side-windows": "auto-side-windows",
         "balanced-windows": "balanced-windows",
         "blueprint": "blueprint",
         "claude-code-ide": "claude-code-ide",
