@@ -1,4 +1,5 @@
 {
+  config,
   inputs,
   pkgs,
   perSystem,
@@ -92,9 +93,9 @@
           "gh *"
         ];
         filesystem.allowWrite = [
-          "~/.cache/cabal"
-          "~/.cache/nix"
-          "~/.local/state/cabal"
+          "${config.xdg.cacheHome}/cabal"
+          "${config.xdg.cacheHome}/nix"
+          "${config.xdg.stateHome}/cabal"
         ];
         network.allowUnixSockets = [ "/nix/var/nix/daemon-socket/socket" ];
       };
