@@ -92,8 +92,9 @@
           "gh *"
         ];
         filesystem.allowWrite = [
-          "~/.cache/cabal/logs"
+          "~/.cache/cabal"
           "~/.cache/nix"
+          "~/.local/state/cabal"
         ];
         network.allowUnixSockets = [ "/nix/var/nix/daemon-socket/socket" ];
       };
