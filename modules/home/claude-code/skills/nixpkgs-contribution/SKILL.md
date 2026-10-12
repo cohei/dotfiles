@@ -1,18 +1,18 @@
 ---
 name: nixpkgs-contribution
-description: Conventions for working in a nixpkgs checkout. Invoke when editing a nixpkgs clone, before writing any commit message in one, and before opening a nixpkgs pull request.
+description: Conventions for contributing to nixpkgs. Invoke when editing a nixpkgs clone, before writing any commit message in one, and before opening, reviewing or commenting on a nixpkgs pull request.
 ---
 
 # nixpkgs contribution
 
 ## Automation/AI Policy
 
-Use of AI here is governed by `CONTRIBUTING.md` § "Automation/AI policy", and a deliberate violation is considered to break the Code of Conduct. Read that section for anything this skill doesn't cover.
+Use of AI here is governed by `CONTRIBUTING.md` § "Automation/AI policy". Read that section for anything this skill doesn't cover.
 
-Disclose with `Assisted-by: Claude Code (<model>)`, naming the model of the session that wrote it (`Claude Opus 5`, `Claude Sonnet 5`, …), not a fixed string, which is why past commits differ. Spell the display name as the default `Co-Authored-By` trailer does (user's decision).
+Disclose with `Assisted-by: Claude Code (<model>)`, spelling this session's model as the default `Co-Authored-By` trailer does.
 
-- Commit: § "Transparency" requires this as a trailer and says `Co-authored-by:` does not satisfy it, so it replaces the `Co-Authored-By:` line the general instructions ask for
-- Pull request body, review, comment: these need disclosure separate from the commits, in any adequate form. End them with the same line, in place of the footer the harness appends
+- Commit: as a trailer, replacing the `Co-Authored-By:` line the general instructions ask for
+- Pull request body, review, comment: end them with the same line, in place of the footer the harness appends
 
 ## New Packages
 
@@ -25,25 +25,45 @@ strictDeps = true;
 
 Otherwise CI's `Lint / nixpkgs-vet` fails with NPV-166 (`__structuredAttrs`) and NPV-164 (`strictDeps`). These are ratchet rules: older packages are grandfathered, but don't regress one (NPV-167 / NPV-165).
 
-If turning the attrs on breaks the build, fix the underlying build problem. Never drop the attrs to make the build pass.
+Never drop the attrs to make the build pass.
 
-## Building
+## Workflow
 
-`CONTRIBUTING.md` § "Tested using sandboxing" asks for builds with the sandbox on, but the local Nix runs with `sandbox = false`. Build with `--option sandbox relaxed`.
+Go through the steps without asking, including pushing and force pushing to the fork (`origin`), opening the draft pull request, running the review workflow, and editing the pull request body. Stop for the user's approval only at a step's checkpoint. A step's "Template items" line names the checkboxes of the pull request template that its work lets you check.
 
-## Pull Request
+### Edit
 
-Open the pull request as a draft. Marking it ready for review requires nixpkgs-review to pass.
+Template items: "Fits CONTRIBUTING.md, pkgs/README.md, maintainers/README.md and other READMEs", "Nixpkgs Release Notes", "NixOS Release Notes".
 
-### Description
+### Build and Test Locally
 
-"Built on platform" lists only the platforms built locally as in [Building](#building). nixpkgs-review-gha results go under "Ran `nixpkgs-review`".
+Template items: "Built on platform"; under "Tested, as applicable", every item except "Ran `nixpkgs-review` on this PR".
 
-### Review with nixpkgs-review-gha
+The local Nix runs with `sandbox = false`, so build with `--option sandbox relaxed`.
 
-Review the pull request by running the `review.yml` workflow of the fork [cohei/nixpkgs-review-gha](https://github.com/cohei/nixpkgs-review-gha).
+"Built on platform" lists only the platforms built here.
 
-- Sync with upstream first
-- Set `x86_64-darwin` to `no`. The default is `yes_sandbox_relaxed`, but nixpkgs has dropped x86_64-darwin: `lib/systems/doubles.nix` lists only `aarch64-darwin` for Darwin
-- The result comment is posted even when the `report` job failed. Judge the builds from the run's `review (<system>)` jobs
-- `on-success=mark_as_ready` does not work. With no `secrets.GH_TOKEN` in the fork, results are posted through nrgha-api, which cannot mark a pull request ready (`API error: cannot mark PRs as ready for review yet`, failing the `report` job)
+### Commit
+
+Checkpoint: writing or changing a message. Squashing a fix into an existing commit while keeping its message is not one.
+
+### Open the Pull Request
+
+Template item: "Follows the automation/AI policy".
+
+Open the pull request as a draft. Fill the template from the checkout, checking only the items the steps above produced evidence for.
+
+### Run nixpkgs-review
+
+Template item: "Ran `nixpkgs-review` on this PR" under "Tested, as applicable".
+
+Review the pull request by running the `review.yml` workflow of the fork `cohei/nixpkgs-review-gha`.
+
+- Sync the fork with its parent first
+- Set `x86_64-darwin` to `no`; nixpkgs has dropped that platform
+
+### Mark Ready for Review
+
+The pull request is ready when every `review (<system>)` job and every upstream CI check succeed. Then check "Ran `nixpkgs-review`" in the body with a link to the result comment.
+
+Checkpoint: marking the pull request ready.
