@@ -9,6 +9,7 @@
 {
   imports = [
     ./claude-powerline.nix
+    ./mergetool.nix
     ./notify.nix
     ./serena.nix
   ];
