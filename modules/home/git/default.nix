@@ -3,7 +3,6 @@
 {
   home.packages = with pkgs; [
     delta
-    git
     git-quick-stats
   ];
 
@@ -25,6 +24,10 @@
         end
       '';
     };
+    git = {
+      enable = true;
+      includes = [ { path = ./config; } ];
+    };
     gh = {
       enable = true;
       extensions = [ pkgs.gh-stack ];
@@ -32,8 +35,5 @@
     };
   };
 
-  xdg.configFile = {
-    "git/config".source = ./config;
-    "git/ignore".source = ./ignore;
-  };
+  xdg.configFile."git/ignore".source = ./ignore;
 }
