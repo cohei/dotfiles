@@ -26,8 +26,6 @@
 	pager = delta
 	precomposeunicode = true
 	quotepath = false
-[credential]
-	helper = cache
 [delta]
 	features = diff-so-fancy
 	map-styles = moved-color.from-style => red bold black, moved-color.from2-style => red bold black, moved-color.to-style => green bold black, moved-color.to2-style => green bold black
