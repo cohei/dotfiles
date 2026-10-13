@@ -116,6 +116,7 @@
     shellAbbrs = {
       j = "jj";
       jl = "jj l";
+      jla = "jj la";
       jp = "jj p";
     };
     shellInit = ''
