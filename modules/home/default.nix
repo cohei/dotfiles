@@ -152,8 +152,6 @@
 
   programs.nushell.enable = true;
 
-  programs.pay-respects.enable = true;
-
   programs.zoxide.enable = true;
 
   xdg = {
