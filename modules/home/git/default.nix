@@ -26,6 +26,17 @@
     };
     git = {
       enable = true;
+      ignores = [
+        "/my-scratch/"
+
+        # direnv
+        ".direnv/"
+        ".envrc"
+
+        # Nix
+        "/result"
+        "/result-*"
+      ];
       includes = [ { path = ./config; } ];
     };
     gh = {
@@ -34,6 +45,4 @@
       settings.aliases.ci-status = "!gh api repos/:owner/:repo/commits/$(git rev-parse $1)/status --jq '.statuses[] | [.state, .context, .target_url] | @tsv' | column -ts '\t' | sort";
     };
   };
-
-  xdg.configFile."git/ignore".source = ./ignore;
 }

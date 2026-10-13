@@ -118,4 +118,6 @@
       skill-creator = "${inputs.anthropics-skills}/skills/skill-creator";
     };
   };
+
+  programs.git.ignores = [ "/.claude/settings.local.json" ];
 }

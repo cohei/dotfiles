@@ -39,6 +39,8 @@
       ];
     };
 
+    programs.git.ignores = [ ".DS_Store" ];
+
     targets.darwin = {
       copyApps.enable = true;
       defaults."com.apple.dock".showhidden = true;

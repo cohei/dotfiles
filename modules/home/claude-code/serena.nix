@@ -67,4 +67,6 @@ in
       };
     };
   };
+
+  programs.git.ignores = [ "/.serena/" ];
 }
