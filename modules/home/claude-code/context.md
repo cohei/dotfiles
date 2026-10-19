@@ -57,7 +57,7 @@
 ### Claude Code
 
 - Save a feedback memory only when the preference recurs across instances, or when explicitly told to remember it; a one-time correction is scoped to that task, not a standing preference. When unsure, ask rather than save
-- Run a command listed in the sandbox's `excludedCommands` (such as `gh`) on its own, without `cd`, redirection, command substitution, or a pipe or operator joining it to another command, since any of these keeps the call sandboxed[^excluded-commands], and so does an unquoted `{...}` next to a quoted argument (write `'repos/{owner}/{repo}'`, quoted); check the working directory with `pwd` instead of prefixing `cd`, and if it has drifted, `cd` in a separate call
+- Run a command listed in the sandbox's `excludedCommands` (look it up in the settings files) on its own, without `cd`, redirection, command substitution, or a pipe or operator joining it to another command, since any of these keeps the call sandboxed[^excluded-commands], and so does an unquoted `{...}` next to a quoted argument (write `'repos/{owner}/{repo}'`, quoted); check the working directory with `pwd` instead of prefixing `cd`, and if it has drifted, `cd` in a separate call
 - If such a command fails as if sandboxed (a TLS certificate error, a refused socket), the call was sandboxed: rewrite it by the rule above before reaching for `dangerouslyDisableSandbox`
 - Text written before an AskUserQuestion call in the same turn is not displayed[^ask-user-question-issue]; end the turn with the explanation, then ask in the next
 
