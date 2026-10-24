@@ -1,28 +1,10 @@
-{ lib, pkgs, ... }:
+{ pkgs, ... }:
 
 {
   programs.starship = {
     enable = true;
-    extraPackages = [ pkgs.starship-jj ];
     settings = {
-      format =
-        let
-          modules = lib.concatStrings [
-            "$username"
-            "$hostname"
-            "$localip"
-            "$shlvl"
-            "$singularity"
-            "$kubernetes"
-            "$nats"
-            "$directory"
-            "$vcsh"
-            "\${custom.jj}"
-            "\${custom.git}"
-            "$all"
-          ];
-        in
-        "[${modules}](bright-black)";
+      format = pkgs.callPackage ./format.nix { };
       aws.style = "white";
       c.style = "white";
       character.success_symbol = "[❯](white)";
@@ -35,12 +17,20 @@
       };
       docker_context.disabled = true;
       gcloud.disabled = true;
-      git_branch.disabled = true;
-      git_commit.disabled = true;
-      git_state.disabled = true;
-      git_status.disabled = true;
+      git_branch.style = "white";
+      git_commit.style = "white";
+      git_metrics.disabled = false;
+      git_state.style = "bold white";
+      git_status.style = "white";
       haskell.style = "white";
       java.style = "white";
+      jj_bookmark.style = "white";
+      jj_change.prefix_style = "bold 17";
+      jj_metrics = {
+        added_style = "green";
+        deleted_style = "red";
+      };
+      jj_status.style = "white";
       nix_shell = {
         style = "white";
         heuristic = true;
@@ -54,20 +44,13 @@
       ruby.style = "white";
       scala.style = "white";
       terraform.style = "white";
-      custom.git = {
-        command = "STARSHIP_CONFIG=${./starship-git.toml} starship prompt";
-        require_repo = true;
-        when = "! jj --ignore-working-copy root";
-        format = "$output ";
-      };
-      custom.jj = {
-        command = "starship-jj --ignore-working-copy starship prompt";
-        when = "jj --ignore-working-copy root";
-        format = "on $output";
-        ignore_timeout = true;
-      };
+      vcs.order = [
+        "jj"
+        "pijul"
+        "git"
+        "hg"
+        "fossil"
+      ];
     };
   };
-
-  xdg.configFile."starship-jj/starship-jj.toml".source = ./starship-jj.toml;
 }
