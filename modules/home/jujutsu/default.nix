@@ -1,7 +1,10 @@
-{ ... }:
+{ pkgs, ... }:
 
 {
   imports = [ ./stakk.nix ];
+
+  # enable per repository with `jj config set --repo fsmonitor.backend watchman`
+  home.packages = [ pkgs.watchman ];
 
   programs.jujutsu = {
     enable = true;
