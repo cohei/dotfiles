@@ -5,9 +5,20 @@
   ...
 }:
 
+let
+  # stakk starts one jj process per commit at once, which exceeds macOS's default soft limit of 256 open files.
+  stakk = pkgs.symlinkJoin {
+    name = "stakk";
+    paths = [ pkgs.stakk ];
+    nativeBuildInputs = [ pkgs.makeWrapper ];
+    postBuild = ''
+      wrapProgram $out/bin/stakk --run 'ulimit -S -n 4096'
+    '';
+  };
+in
 {
   home = {
-    packages = [ pkgs.stakk ];
+    packages = [ stakk ];
 
     file =
       let
