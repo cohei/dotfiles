@@ -1,13 +1,6 @@
 name: Testing
 
-on:
-  push:
-    branches-ignore: ['update-*']
-  pull_request:
-
-concurrency:
-  group: ${{ case(startsWith(github.head_ref, 'update-'), 'flake-updates', github.run_id) }}
-  cancel-in-progress: ${{ startsWith(github.head_ref, 'update-') }}
+on: push
 
 permissions:
   contents: read
