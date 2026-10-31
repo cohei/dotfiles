@@ -104,7 +104,7 @@
           )
         )
       '';
-      ui.default-command = "ls";
+      ui.default-command = "l";
       user = {
         email = "a.d.xvii.kal.mai@gmail.com";
         name = "TANIGUCHI Kohei";
@@ -120,8 +120,8 @@
     };
     shellAbbrs = {
       j = "jj";
-      jl = "jj l";
       jla = "jj la";
+      jls = "jj ls";
       jp = "jj p";
     };
     shellInit = ''
