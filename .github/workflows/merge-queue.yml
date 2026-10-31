@@ -1,0 +1,42 @@
+name: Merge queue
+
+on:
+  pull_request:
+    types: [labeled]
+
+concurrency:
+  group: merge-queue
+  queue: max
+
+permissions:
+  checks: read
+  pull-requests: write
+  statuses: read
+
+jobs:
+  rebase-and-merge:
+    if: github.event.label.name == 'merge-when-ready'
+    runs-on: ubuntu-slim
+    env:
+      GH_REPO: ${{ github.repository }}
+      GH_TOKEN: ${{ github.token }}
+      NUMBER: ${{ github.event.pull_request.number }}
+    steps:
+      # The App pushes the rebase and the merge so that they trigger workflows.
+      - uses: actions/create-github-app-token@v3.3.0
+        id: app-token
+        with:
+          client-id: ${{ vars.UPDATE_APP_CLIENT_ID }}
+          private-key: ${{ secrets.UPDATE_APP_PRIVATE_KEY }}
+      - run: gh pr update-branch "$NUMBER" --rebase
+        env:
+          GH_TOKEN: ${{ steps.app-token.outputs.token }}
+      - name: Check
+        run: |
+          gh pr checks "$NUMBER" --required --watch --fail-fast
+
+          [ "$(gh pr view "$NUMBER" --json labels --jq 'any(.labels[]; .name == "merge-when-ready")')" = true ]
+      - run: gh pr merge "$NUMBER" --rebase
+        env:
+          GH_TOKEN: ${{ steps.app-token.outputs.token }}
+      - run: gh pr edit "$NUMBER" --remove-label merge-when-ready
