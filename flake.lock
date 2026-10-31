@@ -478,11 +478,11 @@
     "tinted-terminal": {
       "flake": false,
       "locked": {
-        "lastModified": 1792561093,
-        "narHash": "sha256-XZyd0VnLbUcLuMass/Ad20T5LelY6xdLpwOaxQhpc9s=",
+        "lastModified": 1793328076,
+        "narHash": "sha256-e8miFfsBbKRPU+G+H4Y+VrImVEmPhGeWdU/qEw3H7xE=",
         "owner": "tinted-theming",
         "repo": "tinted-terminal",
-        "rev": "e7159173c6d296cd764fab2bf543233dbaa5e7d8",
+        "rev": "bb860c5c71c2ac6fb833cde24f592ecbae7ba629",
         "type": "github"
       },
       "original": {
