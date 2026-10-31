@@ -457,6 +457,14 @@ inconsistent, so `window--sides-check' will reset it."
 (leaf json-ts-mode
   :mode ("\\.json\\'" "\\.jsonc\\'"))
 
+(leaf mac-ime
+  :ensure t
+  :if (eq system-type 'darwin)
+  :config
+  (mac-ime-enable)
+  :custom
+  (default-input-method . "mac-ime"))
+
 (leaf magit
   :ensure t
   :global-minor-mode global-git-commit-mode
