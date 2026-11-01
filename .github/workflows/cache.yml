@@ -9,6 +9,7 @@ permissions:
 
 jobs:
   emacs:
+    if: github.event_name == 'workflow_dispatch' || github.event.commits[0] != null
     strategy:
       matrix:
         os:
