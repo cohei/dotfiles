@@ -16,6 +16,7 @@
 
   home.packages = [
     perSystem.llm-agents.ccusage
+    perSystem.llm-agents.claude-desktop
     perSystem.llm-agents.skills
     pkgs.ripgrep
   ];

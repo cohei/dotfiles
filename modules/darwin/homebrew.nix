@@ -5,10 +5,6 @@
     casks = [
       "aquaskk@prerelease" # for M3 MacBook compatibility
       {
-        name = "claude";
-        greedy = true;
-      }
-      {
         name = "docker-desktop";
         greedy = true;
       }
