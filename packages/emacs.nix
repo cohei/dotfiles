@@ -38,6 +38,7 @@ pkgsWithEmacsOverlay.emacsWithPackagesFromUsePackage {
     // lib.genAttrs [
       "balanced-windows"
       "claude-code-ide"
+      "haskell-ts-mode"
       # The latest ELPA release, 0.5, still uses `git_head`, which jj 0.43 removed.
       # Build from the input until a newer release is out.
       "vc-jj"
@@ -51,7 +52,11 @@ pkgsWithEmacsOverlay.emacsWithPackagesFromUsePackage {
         tree-sitter-elisp
         tree-sitter-go
         tree-sitter-gomod
-        tree-sitter-haskell
+        (tree-sitter-haskell.override {
+          src = inputs.tree-sitter-haskell;
+          version = (lib.importJSON "${inputs.tree-sitter-haskell}/tree-sitter.json").metadata.version;
+          generate = true;
+        })
         tree-sitter-html
         tree-sitter-java
         tree-sitter-javascript

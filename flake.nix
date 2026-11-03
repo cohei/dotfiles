@@ -23,6 +23,10 @@
       url = "github:nix-community/emacs-overlay";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    haskell-ts-mode = {
+      url = "github:dschrempf/haskell-ts-mode";
+      flake = false;
+    };
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -62,6 +66,10 @@
     systems.url = "github:nix-systems/triplet";
     tinted-terminal = {
       url = "github:tinted-theming/tinted-terminal";
+      flake = false;
+    };
+    tree-sitter-haskell = {
+      url = "github:dschrempf/tree-sitter-haskell";
       flake = false;
     };
     vc-jj = {

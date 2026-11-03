@@ -167,6 +167,22 @@
         "type": "github"
       }
     },
+    "haskell-ts-mode": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1789194438,
+        "narHash": "sha256-huqaoH3mNJ7R+J8hvbxtNGVgeyywnSlpt5ri1KnDC5g=",
+        "owner": "dschrempf",
+        "repo": "haskell-ts-mode",
+        "rev": "438410da9afe2cc066721ff60d7a0c8a63880755",
+        "type": "github"
+      },
+      "original": {
+        "owner": "dschrempf",
+        "repo": "haskell-ts-mode",
+        "type": "github"
+      }
+    },
     "home-manager": {
       "inputs": {
         "nixpkgs": [
@@ -420,6 +436,7 @@
         "blueprint": "blueprint",
         "claude-code-ide": "claude-code-ide",
         "emacs-overlay": "emacs-overlay",
+        "haskell-ts-mode": "haskell-ts-mode",
         "home-manager": "home-manager",
         "ivcota-skills": "ivcota-skills",
         "japanese-tech-writing": "japanese-tech-writing",
@@ -432,6 +449,7 @@
         "serena": "serena",
         "systems": "systems",
         "tinted-terminal": "tinted-terminal",
+        "tree-sitter-haskell": "tree-sitter-haskell",
         "vc-jj": "vc-jj",
         "vercel-skills": "vercel-skills"
       }
@@ -488,6 +506,22 @@
       "original": {
         "owner": "tinted-theming",
         "repo": "tinted-terminal",
+        "type": "github"
+      }
+    },
+    "tree-sitter-haskell": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1789322667,
+        "narHash": "sha256-2WJN0epBXOg1CEAPk1Ax+TeP0W/nR4bYvPZO4PqoSMQ=",
+        "owner": "dschrempf",
+        "repo": "tree-sitter-haskell",
+        "rev": "f3fd0ad1e47aa0ff590479afb1f3e8275e4381cb",
+        "type": "github"
+      },
+      "original": {
+        "owner": "dschrempf",
+        "repo": "tree-sitter-haskell",
         "type": "github"
       }
     },
