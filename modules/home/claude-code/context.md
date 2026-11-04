@@ -47,6 +47,7 @@
 ### Scratch Files
 
 - Files you want to keep in the working tree but never commit (try-out scripts, experimental output, investigation notes and plans, downloaded references) go under the repo-root `my-scratch/` directory, which is globally gitignored and so never pollutes git status
+- `/handoff` saves its document here too, not in the OS temporary directory its skill names
 - Create it on demand in whatever repo you are working in, and mention it the first time you do so there
 - When a task ends, use judgment: delete the throwaway files you created, keep anything meant to persist (something the user may want to revisit), and never auto-delete a deliberate artifact
 
