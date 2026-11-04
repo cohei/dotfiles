@@ -69,6 +69,13 @@
         ];
       };
       hints.resolving-conflicts = false;
+      merge-tools.difft.diff-args = [
+        "--width=$width"
+        "--color=always"
+        "--display=inline"
+        "$left"
+        "$right"
+      ];
       revset-aliases.megamerge = "heads(::@ & merges())";
       revsets.bookmark-advance-to = "@-";
       template-aliases.my_log_oneline = "my_log_oneline(self)";
