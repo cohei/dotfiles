@@ -10,6 +10,10 @@
     enable = true;
     settings = {
       aliases = {
+        bud = [
+          "new"
+          "trunk()"
+        ];
         d = [ "diff" ];
         grep = [
           "util"
