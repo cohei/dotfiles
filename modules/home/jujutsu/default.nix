@@ -23,13 +23,6 @@
           "--command"
           "grep $argv[1] (jj file list $argv[2])"
         ];
-        into-megamerge = [
-          "rebase"
-          "--after"
-          "fork_point(megamerge-)"
-          "--before"
-          "megamerge"
-        ];
         l = [
           "log"
           "--template"
@@ -52,6 +45,14 @@
           "l"
           "--limit"
           "20"
+        ];
+        megamerge = [
+          "rebase"
+          "--after"
+          "fork_point(megamerge-)"
+          "--before"
+          "megamerge"
+          "--revision"
         ];
         p = [
           "show"
