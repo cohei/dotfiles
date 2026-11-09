@@ -28,6 +28,7 @@
     settings = {
       attribution.sessionUrl = false;
       enabledPlugins = {
+        "circleci@circleci-public-skills" = true;
         "claude-powerline@claude-powerline" = true;
         "claude-retrospective@bitwarden-marketplace" = true;
         "eli5@claude-community" = true;
@@ -36,6 +37,10 @@
         bitwarden-marketplace.source = {
           source = "github";
           repo = "bitwarden/ai-plugins";
+        };
+        circleci-public-skills.source = {
+          source = "github";
+          repo = "CircleCI-Public/skills";
         };
         claude-community.source = {
           source = "github";
