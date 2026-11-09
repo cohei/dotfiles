@@ -37,7 +37,7 @@
         ];
         la = [
           "l"
-          "--revisions"
+          "--revision"
           "all()"
         ];
         log-search = [
@@ -46,7 +46,7 @@
           "--"
           "fish"
           "--command"
-          "jj l --revisions 'description(substring:\"'$argv[1]'\")' $argv[2..]"
+          "jj l --revision 'description(substring:\"'$argv[1]'\")' $argv[2..]"
         ];
         ls = [
           "l"
