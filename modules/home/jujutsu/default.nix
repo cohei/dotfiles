@@ -136,9 +136,6 @@
       jls = "jj ls";
       jp = "jj p";
     };
-    shellInit = ''
-      COMPLETE=fish jj | source
-    '';
   };
 
   programs.mergiraf.enableJujutsuIntegration = true;
