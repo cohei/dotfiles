@@ -18,11 +18,6 @@
         glg = "git lg";
         gss = "git ss";
       };
-      shellInit = ''
-        if type --query gh
-            eval (gh completion --shell fish)
-        end
-      '';
     };
     git = {
       enable = true;
