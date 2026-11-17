@@ -1,5 +1,5 @@
-if test (count $argv) -ne 1
-    echo 'usage: jj-pr-create <revision>' >&2
+if test (count $argv) -lt 1
+    echo 'usage: jj-pr-create <revision> [gh pr create flags]' >&2
     return 1
 end
 
@@ -14,7 +14,9 @@ or return
 set --local title (jj log --revisions $revision --no-graph --template 'description.first_line()')
 or return
 
-gh pr create --draft --head $bookmark --title $title
+gh pr create --draft --head $bookmark --title $title $argv[2..]
 or return
 
-gh pr view --web $bookmark
+if isatty stdout
+    gh pr view --web $bookmark
+end

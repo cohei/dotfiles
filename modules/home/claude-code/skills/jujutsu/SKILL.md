@@ -14,6 +14,10 @@ description: Conventions for a Jujutsu (jj) repository, recognized by a `.jj` di
 - To commit only specific files, use `jj commit <paths> --message "..."` (similar to `git commit <files>`)
 - `--message` takes a single value; unlike git, repeated `--message` don't form paragraphs (the last one wins). For a subject plus a `Co-Authored-By` trailer, pass one `--message` with an embedded blank line
 
+## Pull Request
+
+- Open a pull request for a change with `jj pr-create <rev> --body '...'`. It pushes the change, takes the title from the first line of its description, and passes the remaining flags to `gh pr create --draft`; giving `--body` or `--body-file` is what keeps it from prompting
+
 ## Amending a Commit
 
 - Don't `jj edit` a finished commit to amend it: work in a fresh `jj new` working copy and `jj squash` it in. `jj describe <rev>` for a message-only change is fine
