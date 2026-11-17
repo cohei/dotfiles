@@ -83,6 +83,13 @@
       ];
       revset-aliases.megamerge = "heads(::@ & merges())";
       revsets.bookmark-advance-to = "@-";
+      templates.draft_commit_description = ''
+        concat(
+          builtin_draft_commit_description,
+          "\nJJ: ignore-rest\n",
+          diff.git(),
+        )
+      '';
       template-aliases.my_log_oneline = "my_log_oneline(self)";
       template-aliases."my_log_oneline(commit)" = ''
         if(commit.root(),
