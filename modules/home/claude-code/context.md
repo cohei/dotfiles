@@ -11,6 +11,7 @@
 ### Prose
 
 - Dashes in prose read as affected; write plainly instead
+- Use half-width brackets such as `()` instead of full-width ones such as `（）`, even in Japanese text
 - Prefer citing sources with named footnotes (`[^some-name]`) over inline URLs, especially in a longer document
 - Use a real heading at the right level instead of bold text as a pseudo-heading
 - Invoke the `japanese-tech-writing` skill before writing more than a few paragraphs of Japanese prose (an explanation, a report, a document), not only for manuscripts
