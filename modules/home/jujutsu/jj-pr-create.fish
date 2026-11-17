@@ -11,7 +11,10 @@ or return
 set --local bookmark (jj log --revisions $revision --no-graph --template (jj config get templates.git_push_bookmark))
 or return
 
-gh pr create --draft --head $bookmark
+set --local title (jj log --revisions $revision --no-graph --template 'description.first_line()')
+or return
+
+gh pr create --draft --head $bookmark --title $title
 or return
 
 gh pr view --web $bookmark
