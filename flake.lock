@@ -574,11 +574,11 @@
     "vc-jj": {
       "flake": false,
       "locked": {
-        "lastModified": 1785140680,
-        "narHash": "sha256-koM7qbJbeAIf+0W0O4NR8ri31tft5MfdTTGM6M848d4=",
+        "lastModified": 1795359999,
+        "narHash": "sha256-UjAzPmHZaQMcux8G1VdxgScF9MclEtuq1WV1S+Xwxrw=",
         "ref": "refs/heads/master",
-        "rev": "17310449644cc527dfa6b8ca5320de4c33d1c7f3",
-        "revCount": 243,
+        "rev": "26d93de27fe1fa046dcd88e15656de07d5718978",
+        "revCount": 247,
         "type": "git",
         "url": "https://codeberg.org/emacs-jj-vc/vc-jj.el"
       },
