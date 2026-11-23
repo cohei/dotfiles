@@ -450,7 +450,6 @@
         "systems": "systems",
         "tinted-terminal": "tinted-terminal",
         "tree-sitter-haskell": "tree-sitter-haskell",
-        "vc-jj": "vc-jj",
         "vercel-skills": "vercel-skills"
       }
     },
@@ -569,22 +568,6 @@
         "owner": "pyproject-nix",
         "repo": "uv2nix",
         "type": "github"
-      }
-    },
-    "vc-jj": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1795359999,
-        "narHash": "sha256-UjAzPmHZaQMcux8G1VdxgScF9MclEtuq1WV1S+Xwxrw=",
-        "ref": "refs/heads/master",
-        "rev": "26d93de27fe1fa046dcd88e15656de07d5718978",
-        "revCount": 247,
-        "type": "git",
-        "url": "https://codeberg.org/emacs-jj-vc/vc-jj.el"
-      },
-      "original": {
-        "type": "git",
-        "url": "https://codeberg.org/emacs-jj-vc/vc-jj.el"
       }
     },
     "vercel-skills": {
