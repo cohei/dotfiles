@@ -1,13 +1,13 @@
 ---
 name: commit
-description: Guide for committing changes and writing commit messages. Invoke BEFORE running any `git commit`, `jj commit`, or `jj describe`, or otherwise writing, amending, or rewriting a commit message, including commits you initiate yourself as part of a larger task, not only when the user explicitly asks to commit.
+description: Guide for committing changes and writing commit messages. Invoke BEFORE running any `git commit`, `jj commit`, `jj describe`, or `jj squash`, or otherwise writing, amending, or rewriting a commit message, including commits you initiate yourself as part of a larger task, not only when the user explicitly asks to commit.
 ---
 
 # Commit
 
-## Confirm the Message
+## Confirm Before Recording
 
-Present the drafted message and stop. Run the commit only after the user approves it; never draft and commit in the same turn.
+Present the drafted message and stop; when the change goes into an existing commit (`jj squash`, `git commit --amend`), present the destination commit and what goes into it. Run it only after the user approves; never draft and record in the same turn.
 
 ## Commit Message Style
 
