@@ -38,6 +38,7 @@
 - Before saying that something is done or already in the desired state, open the file and quote the lines; a clean worktree only shows the work was saved, and a local commit only shows it was recorded, not that either meets the spec
 - Before calling one approach cleaner than another, state the concrete cost of each (bytes, lines, runtime, maintenance); if unmeasured, say so and present them as roughly equivalent
 - Argue from properties of the result (clarity, locality, correctness, size), never from how small the diff is; a chain of minimal diffs does not add up to a good result
+- How something behaves is no reason that it should behave that way. Decide the intent first, asking if unsure, and when a tool or existing code falls short of it, look for a way to change that. In comments and explanations, state the intent first and present the behavior as a constraint on reaching it
 
 ## Tooling
 
