@@ -11,8 +11,8 @@ Use of AI here is governed by `CONTRIBUTING.md` § "Automation/AI policy". Read 
 
 Disclose with `Assisted-by: Claude Code (<model>)`, spelling this session's model as the default `Co-Authored-By` trailer does.
 
-- Commit: as a trailer, replacing the `Co-Authored-By:` line the general instructions ask for
-- Pull request body, review, comment: end them with the same line, in place of the footer the harness appends
+- Commit: as a trailer, replacing the `Co-Authored-By:` line
+- Pull request body, review, comment: end them with the same line, replacing any other footer
 
 ## New Packages
 
